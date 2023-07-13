@@ -1,0 +1,73 @@
+package com.example.example;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class KayitOlServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
+        String surname = request.getParameter("surname");
+        String number = request.getParameter("number");
+        String identity = request.getParameter("identity");
+        String email = request.getParameter("email");
+        String gender = request.getParameter("gender");
+        String[] selectedRoleIds = request.getParameterValues("Cars1"); // Seçilen değerlerin ID'lerini dizi olarak alın
+
+
+        if (gender != null && gender.equals("Erkek")) {
+            gender = "E";
+        } else if (gender != null && gender.equals("Kadın")) {
+            gender = "K";
+        } else if (gender != null && gender.equals("Diger")) {
+            gender = "D";
+        }
+
+        String dateString = request.getParameter("date");
+        LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+       
+
+        try {
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            		
+            Personel personel = new Personel();
+            personel.setName(username);
+            personel.setPassword(password);
+            personel.setSurname(surname);
+            personel.setPhone(number);
+            personel.setIdentity(identity);
+            personel.setMail(email);
+            personel.setDate(date);
+            personel.setGender(gender);
+            //personel.setRol(role);
+
+            session.persist(personel);
+            transaction.commit();
+           
+            session.close();
+            sessionFactory.close();
+
+            response.sendRedirect("index.jsp");
+        } catch (Exception e) {
+            System.err.println("Hata oluştu: " + e);
+            e.printStackTrace();
+        }
+    }
+}

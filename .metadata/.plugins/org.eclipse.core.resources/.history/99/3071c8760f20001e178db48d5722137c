@@ -1,0 +1,43 @@
+package com.example.example;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.util.List;
+import java.util.ArrayList;
+
+
+public class Main {
+    public static void main(String[] args) {
+        createTable();
+    }
+
+    public static void createTable() {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Rol newRole = new Rol();
+        newRole.setRoleName("silme");
+        
+        Personel personel = new Personel();
+        List<Rol> roles = new ArrayList<>();
+        Rol role1 = new Rol();
+        role1.setRoleName("Role 1");
+        roles.add(role1);
+        Rol role2 = new Rol();
+        role2.setRoleName("Role 2");
+        roles.add(role2);
+        personel.setRoller(roles);
+
+
+        session.persist(newRole);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
+}

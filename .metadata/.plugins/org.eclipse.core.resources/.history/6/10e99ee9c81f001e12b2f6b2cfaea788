@@ -1,0 +1,58 @@
+package com.example.example;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.util.Date;
+
+
+public class KayitOlServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String surname = request.getParameter("surname");
+        String number = request.getParameter("number");
+        String identity = request.getParameter("identity");
+        String email = request.getParameter("email");
+        String dateString = request.getParameter("date");
+        String gender = request.getParameter("gender");
+
+        if (gender != null && gender.equals("male")) {
+            gender = "E";
+        }
+
+        String role = "U";
+
+        try {
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            Personel personel = new Personel();
+            personel.setName(username);
+            personel.setPassword(password);
+            personel.setSurname(surname);
+            personel.setRol(role);
+
+            session.persist(personel);
+            transaction.commit();
+
+            session.close();
+            sessionFactory.close();
+
+            response.sendRedirect("index.jsp");
+        } catch (Exception e) {
+            System.err.println("Hata oluştu: " + e);
+            e.printStackTrace();
+        }
+    }
+}
