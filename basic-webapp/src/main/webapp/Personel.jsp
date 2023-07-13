@@ -5,7 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <h1>Personel Panel</h1>
-<a href="index.jsp">Git Artık</a>
+<a href="index.jsp">lorem ipsum</a>
 </head>
 <body>
 
