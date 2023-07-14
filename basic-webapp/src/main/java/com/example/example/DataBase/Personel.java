@@ -33,9 +33,9 @@ public class Personel {
     private String section; //Bölüm
     private String unvan;
     private String userName;
-    private String registrationNo; // Sicil Numarası
+    private int registrationNo; // Sicil Numarası
     private String address;
-    private String status;
+    private int status;
     
     private LocalDate date; // Silinicek
 
@@ -118,6 +118,55 @@ public class Personel {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+    
+    public String getSection() {
+    	return section;
+    }
+    
+    public void setSection(String section) {
+    	this.section = section;
+    }
+    
+    public String getUnvan() {
+    	return unvan;
+    }
+    
+    public void setUnvan(String unvan) {
+    	this.unvan = unvan;
+    }
+    
+    public String getUserName() {
+    	return userName;
+    }
+    
+    public void setUserName(String userName) {
+    	this.userName = userName;
+    }
+    
+    public int getRegistrationNo() {
+    	return registrationNo;
+    }
+    
+    public void setRegistrationNo(int registrationNo) {
+    	this.registrationNo = registrationNo;
+    }
+    
+    public String getAddress() {
+    	return address;
+    }
+    
+    public void setAddress(String address) {
+    	this.address = address;
+    }
+    
+    public int getStatus() {
+    	return status;
+    }
+    
+    public void setStatus(int status) {
+    	this.status = status;
+    }
+    
 
     public Set<Rol> getRoles() {
         return roles;
