@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ page import="com.example.example.Rol" %>
+<%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.List" %>
 <%
 	List<Rol> roles = Rol.getAllRoles();
