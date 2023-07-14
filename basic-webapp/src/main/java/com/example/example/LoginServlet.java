@@ -18,11 +18,11 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String enteredUsername = request.getParameter("mail");
+        String enteredMail = request.getParameter("mail");
         String enteredPassword = request.getParameter("password");
 
         // Use the retrieved data as needed
-        System.out.println("Username: " + enteredUsername);
+        System.out.println("Username: " + enteredMail);
         System.out.println("Password: " + enteredPassword);
 
         Connection connection = null;
@@ -31,16 +31,16 @@ public class LoginServlet extends HttpServlet {
 
             String query = "SELECT * FROM \"personel\" WHERE mail = ? AND password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, enteredUsername);
+            preparedStatement.setString(1, enteredMail);
             preparedStatement.setString(2, enteredPassword);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 // Valid credentials, create session and redirect
             	HttpSession sessionn = request.getSession();
-            	sessionn.setAttribute("username", enteredUsername);
+            	sessionn.setAttribute("mail", enteredMail);
                 
-                System.out.println("Usernameaa: " + enteredUsername);
+                System.out.println("Mail: " + enteredMail);
                 System.out.println("Password: " + enteredPassword);
                 response.sendRedirect("index.jsp");
             } else {

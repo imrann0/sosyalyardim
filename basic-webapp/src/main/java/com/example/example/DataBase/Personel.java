@@ -221,7 +221,7 @@ public class Personel {
     }
 
     
-    public static Personel getPersonelByUsername(String username) {
+    public static Personel getPersonelByMail(String Mail) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -231,7 +231,7 @@ public class Personel {
             connection = DatabaseConnection.baglan();
             String query = "SELECT * FROM personel WHERE mail = ?";
             statement = connection.prepareStatement(query);
-            statement.setString(1, username);
+            statement.setString(1, Mail);
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {

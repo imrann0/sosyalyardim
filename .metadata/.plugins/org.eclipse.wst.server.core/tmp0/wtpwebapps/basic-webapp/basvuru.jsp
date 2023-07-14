@@ -6,12 +6,12 @@
 <%
     // Kullanıcı girişi kontrolü
     HttpSession sess = request.getSession(false);
-    boolean isLoggedIn = (sess != null && sess.getAttribute("username") != null);
+    boolean isLoggedIn = (sess != null && sess.getAttribute("mail") != null);
 
     if (isLoggedIn) {
         // Kullanıcının erişime izin verilen rolleri kontrol et
-        String username = (String) sess.getAttribute("username");
-        Personel personel = Personel.getPersonelByUsername(username);
+        String Mail = (String) sess.getAttribute("mail");
+        Personel personel = Personel.getPersonelByMail(Mail);
 
         if (personel != null) {
             Set<Rol> roller = personel.getRoles();
