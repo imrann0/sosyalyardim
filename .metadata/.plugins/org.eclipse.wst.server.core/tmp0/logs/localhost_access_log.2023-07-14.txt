@@ -17,3 +17,10 @@
 0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:53:21 +0300] "GET /basic-webapp/index.jsp HTTP/1.1" 200 1074
 0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:53:22 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:53:22 +0300] "GET /basic-webapp/login.jsp HTTP/1.1" 200 1194
+127.0.0.1 - - [14/Jul/2023:14:55:59 +0300] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:56:01 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:56:01 +0300] "GET /basic-webapp/login.jsp HTTP/1.1" 200 1194
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:56:06 +0300] "POST /basic-webapp/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:56:06 +0300] "GET /basic-webapp/index.jsp HTTP/1.1" 200 1074
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:14:56:07 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 200 297
+0:0:0:0:0:0:0:1 - - [14/Jul/2023:15:03:25 +0300] "GET /basic-webapp/home.jsp HTTP/1.1" 200 217
