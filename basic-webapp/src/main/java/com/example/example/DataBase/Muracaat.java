@@ -12,7 +12,7 @@ import jakarta.persistence.OneToOne;
 public class Muracaat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mbid;
+    private int mbid;
 
     @Column(name = "arsiv_dosya_no")
     private String arsivDosyaNo;
@@ -32,11 +32,11 @@ public class Muracaat {
     // Constructor, if needed (not shown in this example).
 
     // Getters and Setters
-    public Long getMbid() {
+    public int getMbid() {
         return mbid;
     }
 
-    public void setMbid(Long mbid) {
+    public void setMbid(int mbid) {
         this.mbid = mbid;
     }
 

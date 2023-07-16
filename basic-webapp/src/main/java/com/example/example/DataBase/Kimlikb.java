@@ -16,7 +16,7 @@ import java.util.Date;
 public class Kimlikb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long kbid;
+    private int kbid;
 
     @Column(name = "tc_kimlik_no")
     private String tcKimlikNo;
@@ -60,11 +60,11 @@ public class Kimlikb {
     // Constructor, if needed (not shown in this example).
 
     // Getters and Setters
-    public Long getKbid() {
+    public int getKbid() {
         return kbid;
     }
 
-    public void setKbid(Long kbid) {
+    public void setKbid(int kbid) {
         this.kbid = kbid;
     }
 

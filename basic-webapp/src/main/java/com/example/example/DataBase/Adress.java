@@ -11,7 +11,7 @@ import jakarta.persistence.OneToOne;
 public class Adress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long adid;
+    private int adid;
 
     @Column(name = "acik_address")
     private String acikAdress;
@@ -25,11 +25,11 @@ public class Adress {
     // Constructor, if needed (not shown in this example).
 
     // Getters and Setters
-    public Long getAdid() {
+    public int getAdid() {
         return adid;
     }
 
-    public void setAdid(Long adid) {
+    public void setAdid(int adid) {
         this.adid = adid;
     }
 

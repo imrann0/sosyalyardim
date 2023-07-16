@@ -14,7 +14,7 @@ public class Dilekce {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long dbid;
+    private int dbid;
 
     @Column(name = "itraz_dilekce_ref_no")
     private String itrazDilekceRefNo;
@@ -51,11 +51,11 @@ public class Dilekce {
     // Constructor, if needed (not shown in this example).
 
     // Getters and Setters
-    public Long getDbid() {
+    public int getDbid() {
         return dbid;
     }
 
-    public void setDbid(Long dbid) {
+    public void setDbid(int dbid) {
         this.dbid = dbid;
     }
 

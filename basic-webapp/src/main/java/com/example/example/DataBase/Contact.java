@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ibid;
+    private int ibid;
 
     private String ilce;
     private String mahalle;
@@ -30,11 +30,11 @@ public class Contact {
     // Constructor, if needed (not shown in this example).
 
     // Getters and Setters
-    public Long getIbid() {
+    public int getIbid() {
         return ibid;
     }
 
-    public void setIbid(Long ibid) {
+    public void setIbid(int ibid) {
         this.ibid = ibid;
     }
 

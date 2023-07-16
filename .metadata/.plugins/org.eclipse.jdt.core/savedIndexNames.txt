@@ -2,16 +2,17 @@ INDEX VERSION 1.134+C:\Users\aliim\OneDrive\Masaüstü\sosyalyardim\.metadata\.p
 3856463332.index
 3869722244.index
 1865797976.index
+3714260402.index
 4217216540.index
 3723848094.index
 2942660964.index
 297491748.index
 2966230486.index
 327803618.index
-3683555943.index
+2666199593.index
 4040844837.index
 3654056727.index
-2666199593.index
+3683555943.index
 3274171877.index
 3591726700.index
 40591783.index
@@ -20,7 +21,6 @@ INDEX VERSION 1.134+C:\Users\aliim\OneDrive\Masaüstü\sosyalyardim\.metadata\.p
 420067380.index
 1696264553.index
 3564200338.index
-875746838.index
 1033507727.index
 3172981069.index
 4158168640.index
