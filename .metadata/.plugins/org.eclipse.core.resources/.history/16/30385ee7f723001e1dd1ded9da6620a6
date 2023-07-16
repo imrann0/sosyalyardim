@@ -1,0 +1,56 @@
+package com.example.example.DataBase;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import java.util.Date;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+
+@Entity
+public class Dilekce {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long dbid;
+
+    @Column(name = "itraz_dilekce_ref_no")
+    private String itrazDilekceRefNo;
+
+    @Column(name = "itraz_dilekce_konu")
+    private String itrazDilekceKonu;
+
+    @Column(name = "itraz_dilekce_sonuc")
+    private String itrazDilekceSonuc;
+
+    @Column(name = "yonlendiren_birim")
+    private String yonlendirenBirim;
+
+    @Column(name = "yonlendirme_tarihi")
+    private Date yonlendirmeTarihi;
+
+    @Column(name = "dilekce_referans_no")
+    private String dilekceReferansNo;
+
+    @Column(name = "dilekce_konu")
+    private String dilekceKonu;
+
+    @Column(name = "dilekce_sonuc")
+    private String dilekceSonuc;
+
+    @Column(name = "yonlendirme_tarihi_2")
+    private Date yonlendirmeTarihi2;
+
+    
+    //İlişki
+	 @ManyToOne
+	 @JoinColumn(name = "kbid")
+	 private Kimlikb kimlikb;
+    // Getter ve setter metotları
+}
+
+
+

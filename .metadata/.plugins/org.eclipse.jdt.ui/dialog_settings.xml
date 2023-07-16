@@ -17,4 +17,8 @@
 	<section name="ClasspathContainerSelectionPage">
 		<item key="index" value="7"/>
 	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
+	</section>
 </section>

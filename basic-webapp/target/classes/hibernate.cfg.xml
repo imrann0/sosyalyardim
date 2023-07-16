@@ -12,9 +12,14 @@
         
         <!-- Diğer Hibernate ayarlarını buraya ekleyebilirsiniz -->
         
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <mapping class="com.example.example.DataBase.Personel"/>
         <mapping class="com.example.example.DataBase.Rol" />
+        <mapping class="com.example.example.DataBase.Adress" />
+        <mapping class="com.example.example.DataBase.Contact" />
+        <mapping class="com.example.example.DataBase.Dilekce" />
+        <mapping class="com.example.example.DataBase.Kimlikb" />
+        <mapping class="com.example.example.DataBase.Muracaat" />
         
     </session-factory>
 </hibernate-configuration>
