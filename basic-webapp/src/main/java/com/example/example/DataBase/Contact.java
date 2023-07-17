@@ -10,127 +10,124 @@ import jakarta.persistence.OneToOne;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ibid;
+    private int ContactId;
 
-    private String ilce;
-    private String mahalle;
-    private String caddeSokak;
-    private String adresTarifi;
-    private String apartmanSite;
-    private String blokKapiNo;
-    private String daireNo;
-    private String evTelefon;
-    private String cepTelefon;
-    private String digerTel;
-    private String ePosta;
+    private String district;
+    private String neighborhood;
+    private String Street;
+    private String addressDefinition;
+    private String Apartment;
+    private String blockDoorNo;
+    private String apartmentNo;
+    private String homePhone;
+    private String cellPhone;
+    private String otherTel;
+    private String eMail;
 
     @OneToOne(mappedBy = "contact")
-    private Kimlikb kimlikb;
+    private IDInfo IDInfo;
 
-    // Constructor, if needed (not shown in this example).
-
-    // Getters and Setters
-    public int getIbid() {
-        return ibid;
+    public int getContactId() {
+        return ContactId;
     }
 
-    public void setIbid(int ibid) {
-        this.ibid = ibid;
+    public void setContactId(int contactId) {
+        ContactId = contactId;
     }
 
-    public String getIlce() {
-        return ilce;
+    public String getDistrict() {
+        return district;
     }
 
-    public void setIlce(String ilce) {
-        this.ilce = ilce;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public String getMahalle() {
-        return mahalle;
+    public String getNeighborhood() {
+        return neighborhood;
     }
 
-    public void setMahalle(String mahalle) {
-        this.mahalle = mahalle;
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
-    public String getCaddeSokak() {
-        return caddeSokak;
+    public String getStreet() {
+        return Street;
     }
 
-    public void setCaddeSokak(String caddeSokak) {
-        this.caddeSokak = caddeSokak;
+    public void setStreet(String street) {
+        Street = street;
     }
 
-    public String getAdresTarifi() {
-        return adresTarifi;
+    public String getAddressDefinition() {
+        return addressDefinition;
     }
 
-    public void setAdresTarifi(String adresTarifi) {
-        this.adresTarifi = adresTarifi;
+    public void setAddressDefinition(String addressDefinition) {
+        this.addressDefinition = addressDefinition;
     }
 
-    public String getApartmanSite() {
-        return apartmanSite;
+    public String getApartment() {
+        return Apartment;
     }
 
-    public void setApartmanSite(String apartmanSite) {
-        this.apartmanSite = apartmanSite;
+    public void setApartment(String apartment) {
+        Apartment = apartment;
     }
 
-    public String getBlokKapiNo() {
-        return blokKapiNo;
+    public String getBlockDoorNo() {
+        return blockDoorNo;
     }
 
-    public void setBlokKapiNo(String blokKapiNo) {
-        this.blokKapiNo = blokKapiNo;
+    public void setBlockDoorNo(String blockDoorNo) {
+        this.blockDoorNo = blockDoorNo;
     }
 
-    public String getDaireNo() {
-        return daireNo;
+    public String getApartmentNo() {
+        return apartmentNo;
     }
 
-    public void setDaireNo(String daireNo) {
-        this.daireNo = daireNo;
+    public void setApartmentNo(String apartmentNo) {
+        this.apartmentNo = apartmentNo;
     }
 
-    public String getEvTelefon() {
-        return evTelefon;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public void setEvTelefon(String evTelefon) {
-        this.evTelefon = evTelefon;
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
     }
 
-    public String getCepTelefon() {
-        return cepTelefon;
+    public String getCellPhone() {
+        return cellPhone;
     }
 
-    public void setCepTelefon(String cepTelefon) {
-        this.cepTelefon = cepTelefon;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
-    public String getDigerTel() {
-        return digerTel;
+    public String getOtherTel() {
+        return otherTel;
     }
 
-    public void setDigerTel(String digerTel) {
-        this.digerTel = digerTel;
+    public void setOtherTel(String otherTel) {
+        this.otherTel = otherTel;
     }
 
-    public String getEPosta() {
-        return ePosta;
+    public String geteMail() {
+        return eMail;
     }
 
-    public void setEPosta(String ePosta) {
-        this.ePosta = ePosta;
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
     }
 
-    public Kimlikb getKimlikb() {
-        return kimlikb;
+    public com.example.example.DataBase.IDInfo getIDInfo() {
+        return IDInfo;
     }
 
-    public void setKimlikb(Kimlikb kimlikb) {
-        this.kimlikb = kimlikb;
+    public void setIDInfo(com.example.example.DataBase.IDInfo IDInfo) {
+        this.IDInfo = IDInfo;
     }
 }
