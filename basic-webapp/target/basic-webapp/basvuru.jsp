@@ -1,17 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Rol" %>
+<%@ page import="java.util.Set" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.HibernateSessionFactory" %>
+
 <%
-    // Kullanıcı girişi kontrolü
-    HttpSession sessionn = request.getSession(false);
-    boolean isLoggedIn = (session != null && session.getAttribute("username") != null);
+    // Retrieve the user roles from the session
+    HttpSession userSession = request.getSession();
+    Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
+    String mail = (String) userSession.getAttribute("mail");
+    // Check if the user has the "deneme2" role
+    boolean hasDeneme2Role = false;
+    if (roles != null) {
+        for (Rol rol : roles) {
+            if (rol.getRoleName().equals("ddd")) {
+                hasDeneme2Role = true;
+                break;
+            }
+        }
+    }
 
-    if (isLoggedIn) {
-        // Kullanıcının erişime izin verilen rolleri kontrol et
-        String role = (String) sessionn.getAttribute("role");
-
-        if (role != null && (role.equals("A") || role.equals("P"))) {
-            // Erişime izin verilen roller için sayfa içeriğini görüntüle
+    if (!hasDeneme2Role) {
+        response.sendRedirect("login.jsp");
+    }
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,15 +36,21 @@
     <!-- Sayfa içeriği -->
     <h1>Hoş Geldiniz!</h1>
     <p>Erişime izin verilen kullanıcılar için sayfa içeriği buraya gelecektir.</p>
+
+    <!-- Display the logged-in user's email -->
+    <p>Logged-in User: <%= mail %></p>
+    <i><a href="Logout"> <input type="submit">Çıkış Yap</a></i>
+
+    <!-- Display the roles of the logged-in user -->
+    <% if (roles != null && !roles.isEmpty()) { %>
+        <h2>Personel Roller:</h2>
+        <ul>
+            <% for (Rol rol : roles) { %>
+                <li><%= rol.getRoleName() %></li>
+            <% } %>
+        </ul>
+    <% } else { %>
+        <p>Kullanıcının rolleri bulunamadı.</p>
+    <% } %>
 </body>
 </html>
-<%
-        } else {
-            // Erişim izni olmayan roller için login sayfasına yönlendir
-            response.sendRedirect("login.jsp");
-        }
-    } else {
-        // Oturum açılmamışsa giriş sayfasına yönlendir
-        response.sendRedirect("login.jsp");
-    }
-%>
