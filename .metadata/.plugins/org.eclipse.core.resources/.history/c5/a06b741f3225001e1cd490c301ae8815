@@ -1,0 +1,210 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="css/regg.css">
+     
+   
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+   <title>Gebze Bel </title>
+</head>
+<body>
+    <div class="container">
+        <header>Kayıt Bilgileri</header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Kişisel Bilgiler</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Adınız</label>
+                            <input type="text" placeholder="Adınız" required oninput="validateAlphabeticInput(this)">
+                        </div>
+                        
+                        <script>
+                        function validateAlphabeticInput(input) {
+                            input.value = input.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '');
+                        }
+                        </script>
+                        
+                       
+                        <div class="input-field">
+                            <label>Soyadınız</label>
+                            <input type="text" placeholder="Soyadınız" required oninput="validateAlphabeticInput(this)">
+                        </div>
+                        
+                       <script>
+                        function validateAlphabeticInput(input) {
+                            input.value = input.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '');
+                        }
+                        </script>
+                        
+                        
+                        
+                        <div class="input-field">
+                            <label>Telefon Numaranız</label>
+                            <input type="text" oninput="validateTCNumber(this)" placeholder="Telefon Numaranızı Giriniz" required minlength="11" maxlength="11">
+                        </div>
+                        
+                        <script>
+                            function validateTCNumber(input) {
+                                const value = input.value;
+                                const numericValue = value.replace(/[^0-9]/g, '');
+                                
+                                if (numericValue.length !== 11) {
+                                    input.setCustomValidity("Telefon Numaranız 11 rakamdan oluşmalıdır.");
+                                } else {
+                                    input.setCustomValidity("");
+                                }
+                                
+                                input.value = numericValue;
+                            }
+                        </script>
+                        
+                        
+                        <div class="input-field">
+                            <label>Cinsiyet</label>
+                            <select required>
+                                <option disabled selected>Cinsiyetinizi Seçin</option>
+                                <option>Erkek</option>
+                                <option>Kadın</option>
+                                <option>Diger</option>
+                            </select>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Diğer Hesap Bilgileri</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Email adresinizi giriniz" required>
+                        </div>
+                        
+
+                        <div class="input-field">
+                            <label>Åifre</label>
+                            <input type="password" id="password" placeholder="Åifrenizi giriniz" required>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Åifre OnayÄ±</label>
+                            <input type="password" id="confirmPassword" placeholder="Åifrenizi tekrar giriniz" required>
+                        </div>
+                        
+                        <script>
+                            const passwordInput = document.getElementById("password");
+                            const confirmPasswordInput = document.getElementById("confirmPassword");
+                            const submitButton = document.querySelector(".sumbit");
+                        
+                            confirmPasswordInput.addEventListener("input", function() {
+                                const password = passwordInput.value;
+                                const confirmPassword = confirmPasswordInput.value;
+                        
+                                if (password !== confirmPassword) {
+                                    confirmPasswordInput.setCustomValidity("Åifreler uyuÅmuyor.");
+                                    submitButton.disabled = true; // Butonu etkisizleÅtir
+                                } else {
+                                    confirmPasswordInput.setCustomValidity("");
+                                    submitButton.disabled = false; // Butonu etkinleÅtir
+                                }
+                            });
+                        </script>
+                        
+            
+                        <div class="input-field">
+                            <label>BÃ¶lÃ¼m</label>
+                            <select required>
+                                <option disabled selected>LÃ¼tfen SeÃ§iniz</option>
+                                <option>YazÄ±lÄ±m</option>
+                                <option>YÃ¶netici</option>
+                                <option>DanÄ±Åma</option>
+                                <option>BaÅkanlÄ±k</option>
+                                <option>Åeflik</option>
+                                <option>Depo DaÄÄ±tÄ±m</option>
+                                <option>Saha Ekibi</option>
+                                <option>Market - Ä°nkÄ±lap</option>
+                            </select>
+                        </div>
+
+                        
+                        
+                        <script>
+                        function validateAlphabeticInput(input) {
+                            input.value = input.value.replace(/[^a-zA-ZÄÃ¼ÅÄ±Ã¶Ã§ÄÃÅÄ°ÃÃ\s]/g, '');
+                        }
+                        </script>
+
+                        
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+            
+
+            <div class="form second">
+                <div class="details family">
+                    <span class="title">Adres ve DiÄer Bilgiler</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Adresiniz</label>
+                            <input type="text" placeholder="Adresinizi Giriniz" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ãnvan</label>
+                            <input type="text" placeholder="Ãnvan Giriniz" required oninput="validateAlphabeticInput(this)">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Sicil No</label>
+                            <input type="number" placeholder="Sicil NumaranÄ±zÄ± Giriniz" required>
+                        </div>
+
+                       
+                        
+                        
+
+
+                        
+
+                        
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="regg.js"></script>
+</body>
+</html>

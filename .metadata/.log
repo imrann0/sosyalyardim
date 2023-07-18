@@ -8388,3 +8388,33 @@ Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: The request (id: 33
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2023-07-18 09:00:21.784
+!MESSAGE Background Indexer Crash Recovery
+!STACK 0
+java.lang.IllegalArgumentException: Document path **path unknown** must be relative to /basic-webapp/src/main/webapp
+	at org.eclipse.wst.jsdt.internal.core.index.Index.containerRelativePath(Index.java:122)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.InternalSearchDocument.getContainerRelativePath(InternalSearchDocument.java:30)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.InternalSearchDocument.removeAllIndexEntries(InternalSearchDocument.java:38)
+	at org.eclipse.wst.jsdt.core.search.SearchDocument.removeAllIndexEntries(SearchDocument.java:132)
+	at org.eclipse.wst.jsdt.internal.core.search.JavaSearchParticipant.indexDocument(JavaSearchParticipant.java:75)
+	at org.eclipse.wst.jsdt.web.core.javascript.search.JsSearchParticipant.indexDocument(JsSearchParticipant.java:82)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.IndexManager.indexDocument(IndexManager.java:325)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.IndexManager$1.execute(IndexManager.java:728)
+	at org.eclipse.wst.jsdt.internal.core.search.processing.JobManager.run(JobManager.java:393)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2023-07-18 09:04:02.319
+!MESSAGE Background Indexer Crash Recovery
+!STACK 0
+java.lang.IllegalArgumentException: Document path **path unknown** must be relative to /basic-webapp/src/main/webapp
+	at org.eclipse.wst.jsdt.internal.core.index.Index.containerRelativePath(Index.java:122)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.InternalSearchDocument.getContainerRelativePath(InternalSearchDocument.java:30)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.InternalSearchDocument.removeAllIndexEntries(InternalSearchDocument.java:38)
+	at org.eclipse.wst.jsdt.core.search.SearchDocument.removeAllIndexEntries(SearchDocument.java:132)
+	at org.eclipse.wst.jsdt.internal.core.search.JavaSearchParticipant.indexDocument(JavaSearchParticipant.java:75)
+	at org.eclipse.wst.jsdt.web.core.javascript.search.JsSearchParticipant.indexDocument(JsSearchParticipant.java:82)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.IndexManager.indexDocument(IndexManager.java:325)
+	at org.eclipse.wst.jsdt.internal.core.search.indexing.IndexManager$1.execute(IndexManager.java:728)
+	at org.eclipse.wst.jsdt.internal.core.search.processing.JobManager.run(JobManager.java:393)
+	at java.base/java.lang.Thread.run(Thread.java:833)
