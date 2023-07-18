@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.Session;
@@ -25,7 +24,7 @@ public class Personel {
 	    private String surname;
 	    private String password;
 	    private String phone;
-	    private String identity; // Alınmicak Silinicek
+
 	    private String mail;
 	    private String gender;
 	    
@@ -36,8 +35,7 @@ public class Personel {
 	    private String address;
 	    private int status;
 	    
-	    private LocalDate date; // Silinicek
-	
+
 	    @ManyToMany
 	    @JoinTable(
 	        name = "personel_rol",
@@ -87,13 +85,6 @@ public class Personel {
 			this.phone = phone;
 		}
 
-		public String getIdentity() {
-			return identity;
-		}
-
-		public void setIdentity(String identity) {
-			this.identity = identity;
-		}
 
 		public String getMail() {
 			return mail;
@@ -159,13 +150,6 @@ public class Personel {
 			this.status = status;
 		}
 
-		public LocalDate getDate() {
-			return date;
-		}
-
-		public void setDate(LocalDate date) {
-			this.date = date;
-		}
 
 		public Set<Rol> getRoles() {
 			return roles;
