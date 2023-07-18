@@ -696,10 +696,13 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
-                    <div class="form-group">
-					  <label>Sicil No</label>
-					  <input type="text" name="sicilNo" class="form-control" pattern="^[0-9]{13}$" placeholder="13 haneli Sicil No Giriniz" required maxlength="13">
-					</div>
+                   <div class="form-group">
+				  <label for="sicilNo">Sicil No</label>
+				  <input type="text" id="sicilNo" name="sicilNo" class="form-control" pattern="[0-9]{13}" title="Sicil No yalnızca 13 haneli rakamlardan oluşmalıdır" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13)" placeholder="13 haneli Sicil No Giriniz" required maxlength="13">
+				  
+				</div>
+
+
 					
 				  
                   </div>
@@ -727,9 +730,11 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label>Telefon</label>
-                      <input type="tel" name="phone" class="form-control" pattern="^[0-9]{11}$" placeholder="Telefon Numarasını Giriniz" required maxlength="11" >
-                    </div>
+				  <label for="phone">Telefon</label>
+				  <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{11}" title="Telefon numarası yalnızca 11 haneli rakamlardan oluşmalıdır" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)" placeholder="Telefon Numarasını Giriniz" required maxlength="11">
+				  
+				</div>
+
                     
                   </div>
                   <div class="col-sm-6">
