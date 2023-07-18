@@ -649,403 +649,185 @@
         <!-- Main row -->
         <div class="row">
           
-          <div class="col-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-center">
-                    <h3 class="card-title font-weight-bold">KULLANICI LİSTESİ</h3>
+          <div class="card card-primary col-md-10">
+            <div class="card-header d-flex justify-content-center">
+              <h3 class="card-title">Kullanıcı Yükle</h3>
+            </div>
+            
+            
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>E-Posta</label>
+                      <input type="email" class="form-control" placeholder="E-posta adresinizi giriniz." required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Ünvan</label>
+                      <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                    </div>
+                  </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Kullanıcı Adı</th>
-                        <th>Sicil No</th>
-                        <th>Ad</th>
-                        <th>Ünvan</th>
-                        <th>Telefon</th>
-                        <th>Cinsiyet</th>
-                        <th>Durum</th>
-                        <th>Düzenle</th>
-                        <th>Sil</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Ahmet</td>
-                      <td>1326542</td>
-                      <td>Ahmet</td>
-                      <td>A</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      
-                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Ali</td>
-                      <td>1326542</td>
-                      <td>Ali</td>
-                      <td>A</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Musa</td>
-                      <td>1326542</td>
-                      <td>Musa</td>
-                      <td>M</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Orçun</td>
-                      <td>1326542</td>
-                      <td>Orçun</td>
-                      <td>O</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Orçun</td>
-                        <td>1326542</td>
-                        <td>Orçun</td>
-                        <td>O</td>
-                        <td>5555555555</td>
-                        <td>Erkek</td>
-                        <td>Aktif</td>
-                        <td>
-                          <a href="kullaniciduzenle.html">
-                            <button type="submit" class="btn btn-info">Düzenle</button>
-                          </a>
-                        </td>
-                        <td><button type="submit" class="btn btn-danger">Sil</button></td>
-                      </tr>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Kullanıcı Adı</label>
+                      <input type="text" class="form-control" placeholder="Kullanıcı adını giriniz" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Şifre</label>
+                      <input type="password" class="form-control" placeholder="Şifreyi Giriniz" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Ad</label>
+                      <input type="text" class="form-control" placeholder="Adınızı Giriniz" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Soyad</label>
+                      <input type="text" class="form-control" placeholder="Soyadınızı Giriniz" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Sicil No</label>
+                      <input type="text" class="form-control" pattern="[0-9]{13}" placeholder="13 haneli Sicil No Giriniz" required>
+                    </div>
+                    
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Cinsiyet</label>
+                      <div class="form-group clearfix">
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary1" name="cinsiyet" required>
+                          <label for="radioPrimary1">
+                            Erkek
+                          </label>
+                        </div>
+                        
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary3" name="cinsiyet" required>
+                          <label for="radioPrimary3">
+                            Kadın
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Telefon</label>
+                      <input type="tel" class="form-control" pattern="[0-9]{11}" placeholder="Telefon Numarasını Giriniz" required>
+                    </div>
+                    
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Durum</label>
+                      <div class="form-group clearfix">
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary2" name="durum" required>
+                          <label for="radioPrimary2">
+                            Aktif
+                          </label>
+                        </div>
+                        
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary4" name="durum" required>
+                          <label for="radioPrimary4">
+                            Pasif
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- Select multiple-->
+                    <div class="form-group">
+                      <label>Seçilebilir profil</label>
+                      <select id="select1" multiple class="custom-select">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Seçilen profil</label>
+                      <select id="select2" multiple class="custom-select">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Adres</label>
+                      <textarea class="form-control" rows="3" placeholder="Adres giriniz." required></textarea>
+                    </div>
+                    
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Bölüm</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                </div>
                 
-                    
-                    
-                    
-                    </tbody>
-                    
-                  </table>
-                </div>
-                <!-- /.card-body -->
+        
               </div>
-            <!-- /.card -->
-          </div>
-          <!-- Modal -->
+              <!-- /.card-body -->
 
+              <div class="card-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+              </div>
+              
+            </form>
+          </div>
+          
+          
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
-  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>
@@ -1122,82 +904,6 @@
     });
   });
 </script>
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-<script>
-  function confirmDelete() {
-      // Bootstrap modal for confirmation dialog
-      var confirmationModal = `
-          <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          Kullanıcıyı silmek istediğinize emin misiniz?
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                          <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      `;
-
-      // Append modal to the document body
-      document.body.insertAdjacentHTML('beforeend', confirmationModal);
-
-      // Show the confirmation modal
-      $('#deleteConfirmationModal').modal('show');
-  }
-
-  function deleteUser() {
-      // Perform delete operation here
-      // This function will be called when the user confirms the deletion
-      // You can add your code to delete the user from the system
-
-      // After successful deletion, you may redirect the user or update the table accordingly
-
-      // Close the confirmation modal
-      $('#deleteConfirmationModal').modal('hide');
-  }
-</script>
-
-
-
 
 </body>
 </html>
