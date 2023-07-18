@@ -6,15 +6,16 @@
 <%@ page import="com.example.example.HibernateSessionFactory" %>
 
 <%
-    // Retrieve the user roles from the session
     HttpSession userSession = request.getSession();
+
+	@SuppressWarnings("unchecked")
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
     boolean hasDeneme2Role = false;
     if (roles != null) {
         for (Rol rol : roles) {
-            if (rol.getRoleName().equals("ddd")) {
+            if (rol.getRoleName().equals("Role_Basvuru_Olustur")) {
                 hasDeneme2Role = true;
                 break;
             }

@@ -36,6 +36,7 @@ public class AdminRegister extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String gender = request.getParameter("cinsiyet");
+        String SelectedSection = request.getParameter("selectedBolum");
         int status = Integer.parseInt(request.getParameter("durum"));
         String[] selectedRoleIds = request.getParameterValues("selected");
         
@@ -49,6 +50,8 @@ public class AdminRegister extends HttpServlet {
         	 gender = "K";
         	}
         }
+        
+
         
 
         try {
@@ -70,6 +73,7 @@ public class AdminRegister extends HttpServlet {
             personel.setRegistrationNo(sicilNoLong);
             personel.setAddress(address);
             personel.setStatus(status);
+            personel.setSection(SelectedSection);
             
 
             if (selectedRoleIds != null) {
