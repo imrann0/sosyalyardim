@@ -8906,20 +8906,36 @@ java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclip
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2423)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:554)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+<<<<<<< HEAD
 !SESSION 2023-07-18 15:05:02.205 -----------------------------------------------
 eclipse.buildId=4.28.0.20230608-1200
 java.version=20.0.1
 java.vendor=Oracle Corporation
+=======
+!SESSION 2023-07-18 14:10:18.891 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=tr_TR
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.emf.ecore 2 0 2023-07-18 15:05:03.907
 !MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
 
 !ENTRY org.eclipse.jface 2 0 2023-07-18 15:05:18.862
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2023-07-18 15:05:18.862
+=======
+!ENTRY org.eclipse.emf.ecore 2 0 2023-07-18 14:10:20.523
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2023-07-18 14:10:25.485
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-07-18 14:10:25.485
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
@@ -8938,14 +8954,22 @@ Binding(CTRL+SHIFT+T,
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.egit.ui 2 0 2023-07-18 15:05:29.204
+=======
+!ENTRY org.eclipse.egit.ui 2 0 2023-07-18 14:10:33.280
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.jem.proxy 4 2 2023-07-18 15:05:32.859
+=======
+!ENTRY org.eclipse.jem.proxy 4 2 2023-07-18 14:10:40.058
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4
 !MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jem.proxy".
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.osgi.framework.Bundle.adapt(java.lang.Class)" because "bundle" is null
@@ -8994,6 +9018,7 @@ java.lang.NullPointerException: Cannot invoke "org.osgi.framework.Bundle.adapt(j
 	at org.eclipse.wst.sse.ui.internal.reconcile.DocumentRegionProcessor.process(DocumentRegionProcessor.java:323)
 	at org.eclipse.wst.sse.ui.internal.reconcile.StructuredRegionProcessor.process(StructuredRegionProcessor.java:260)
 	at org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run(DirtyRegionProcessor.java:694)
+<<<<<<< HEAD
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-18 15:05:37.298
 !MESSAGE Classpath changed for project: basic-webapp
@@ -9554,3 +9579,5 @@ java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclip
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2423)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:554)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+=======
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4

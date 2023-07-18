@@ -795,7 +795,11 @@
                     <!-- select -->
                     <div class="form-group">
                       <label>Bölüm</label>
+<<<<<<< HEAD
                       <select class="form-control">
+=======
+                      <select class="form-control" name="selectedBolum">
+>>>>>>> bc8010d71d2ab5900d6d5de3b3eb48c0726bb0c4
                         <option value="Yazilim" >Yazılım</option>
                         <option value="Yonetici">Yönetiçi</option>
                         <option value="Danisma">Danışma</option>

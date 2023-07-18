@@ -795,7 +795,7 @@
                     <!-- select -->
                     <div class="form-group">
                       <label>Bölüm</label>
-                      <select class="form-control">
+                      <select class="form-control" name="selectedBolum">
                         <option value="Yazilim" >Yazılım</option>
                         <option value="Yonetici">Yönetiçi</option>
                         <option value="Danisma">Danışma</option>

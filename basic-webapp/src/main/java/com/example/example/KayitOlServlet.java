@@ -1,11 +1,15 @@
 package com.example.example;
 
 import com.example.example.DataBase.Personel;
+import com.example.example.DataBase.Rol;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
+import java.util.HashSet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -53,6 +57,12 @@ public class KayitOlServlet extends HttpServlet {
             personel.setSection(section);
             personel.setUnvan(unvan);
             personel.setRegistrationNo(sicilNoLong);
+            
+            Set<Rol> personelRoles = new HashSet<>();
+            Rol role = new Rol(); // Burada yeni bir Rol nesnesi oluşturuldu
+            role.setId(6); // Yeni rolün id'sini 1 olarak ayarladık
+            personelRoles.add(role); 
+            personel.setRoles(personelRoles);
 
             // Personel örneğini kaydedin
             session.persist(personel);

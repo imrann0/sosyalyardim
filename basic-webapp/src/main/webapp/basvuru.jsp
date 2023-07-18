@@ -15,7 +15,7 @@
     boolean hasDeneme2Role = false;
     if (roles != null) {
         for (Rol rol : roles) {
-            if (rol.getRoleName().equals("ddd")) {
+            if (rol.getRoleName().equals("Role_Basvuru_Olustur")) {
                 hasDeneme2Role = true;
                 break;
             }

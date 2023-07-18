@@ -703,7 +703,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -719,7 +719,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -735,7 +735,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -751,7 +751,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -767,7 +767,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -783,7 +783,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -799,7 +799,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -815,7 +815,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -831,7 +831,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -847,7 +847,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -863,7 +863,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -879,7 +879,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -895,7 +895,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -911,7 +911,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -927,7 +927,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -943,7 +943,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -959,7 +959,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -975,7 +975,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -991,7 +991,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -1007,7 +1007,7 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -1023,7 +1023,7 @@
                             <button type="submit" class="btn btn-info">Düzenle</button>
                           </a>
                         </td>
-                        <td><button type="submit" class="btn btn-danger">Sil</button></td>
+                        <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                       </tr>
                 
                     
@@ -1080,6 +1080,10 @@
 <!-- JQVMap -->
 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -1122,18 +1126,15 @@
     });
   });
 </script>
-<script src="../../plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+
 <!-- page script -->
 <script>
   $(function () {
@@ -1152,49 +1153,49 @@
     });
   });
 </script>
-<script>
-  function confirmDelete() {
-      // Bootstrap modal for confirmation dialog
-      var confirmationModal = `
-          <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          Kullanıcıyı silmek istediğinize emin misiniz?
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                          <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      `;
+  <script>
+    function confirmDelete() {
+        // Bootstrap modal for confirmation dialog
+        var confirmationModal = `
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Kullanıcıyı silmek istediğinize emin misiniz?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
 
-      // Append modal to the document body
-      document.body.insertAdjacentHTML('beforeend', confirmationModal);
+        // Append modal to the document body
+        document.body.insertAdjacentHTML('beforeend', confirmationModal);
 
-      // Show the confirmation modal
-      $('#deleteConfirmationModal').modal('show');
-  }
+        // Show the confirmation modal
+        $('#deleteConfirmationModal').modal('show');
+    }
 
-  function deleteUser() {
-      // Perform delete operation here
-      // This function will be called when the user confirms the deletion
-      // You can add your code to delete the user from the system
+    function deleteUser() {
+        // Perform delete operation here
+        // This function will be called when the user confirms the deletion
+        // You can add your code to delete the user from the system
 
-      // After successful deletion, you may redirect the user or update the table accordingly
+        // After successful deletion, you may redirect the user or update the table accordingly
 
-      // Close the confirmation modal
-      $('#deleteConfirmationModal').modal('hide');
-  }
-</script>
+        // Close the confirmation modal
+        $('#deleteConfirmationModal').modal('hide');
+    }
+  </script>
 
 
 
