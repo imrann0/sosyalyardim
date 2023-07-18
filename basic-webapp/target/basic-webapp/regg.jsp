@@ -18,7 +18,7 @@
     <div class="container">
         <header>Kayıt Bilgileri</header>
 
-        <form action="#">
+        <form action="register" method="post">
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Kişisel Bilgiler</span>
@@ -26,7 +26,7 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Adınız</label>
-                            <input type="text" placeholder="Adınız" required oninput="validateAlphabeticInput(this)">
+                            <input type="text" name="username" placeholder="Adınız" required oninput="validateAlphabeticInput(this)">
                         </div>
                         
                         <script>
@@ -38,7 +38,7 @@
                        
                         <div class="input-field">
                             <label>Soyadınız</label>
-                            <input type="text" placeholder="Soyadınız" required oninput="validateAlphabeticInput(this)">
+                            <input type="text" name="surname" placeholder="Soyadınız" required oninput="validateAlphabeticInput(this)">
                         </div>
                         
                        <script>
@@ -51,7 +51,7 @@
                         
                         <div class="input-field">
                             <label>Telefon Numaranız</label>
-                            <input type="text" oninput="validateTCNumber(this)" placeholder="Telefon Numaranızı Giriniz" required minlength="11" maxlength="11">
+                            <input type="text" name="number" oninput="validateTCNumber(this)" placeholder="Telefon Numaranızı Giriniz" required minlength="11" maxlength="11">
                         </div>
                         
                         <script>
@@ -72,11 +72,11 @@
                         
                         <div class="input-field">
                             <label>Cinsiyet</label>
-                            <select required>
+                            <select name="gender" required>
                                 <option disabled selected>Cinsiyetinizi Seçin</option>
-                                <option>Erkek</option>
-                                <option>Kadın</option>
-                                <option>Diger</option>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Kadın">Kadın</option>
+                                <option value="Diger">Diger</option>
                             </select>
                         </div>
                         
@@ -91,13 +91,13 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="email" placeholder="Email adresinizi giriniz" required>
+                            <input type="email" name="email" placeholder="Email adresinizi giriniz" required>
                         </div>
                         
 
                         <div class="input-field">
                             <label>Sifre</label>
-                            <input type="password" id="password" placeholder="Sifrenizi giriniz" required>
+                            <input type="password" id="password" name="password" placeholder="Sifrenizi giriniz" required>
                         </div>
                         
                         <div class="input-field">
@@ -127,16 +127,16 @@
             
                         <div class="input-field">
                             <label>Bölüm</label>
-                             <select required>
+                             <select name="section" required>
                                 <option disabled selected>Lütfen Seçiniz</option>
-                                <option>Yazılım</option>
-                                <option>Yönetici</option>
-                                <option>Danışma</option>
-                                <option>Başkanlık</option>
-                                <option>Şeflik</option>
-                                <option>Depo Dağıtım</option>
-                                <option>Saha Ekibi</option>
-                                <option>Market - İnkılap</option>
+                                <option value="Yazılım">Yazılım</option>
+                                <option value="Yönetici">Yönetici</option>
+                                <option value="Danışma">Danışma</option>
+                                <option value="Başkanlık">Başkanlık</option>
+                                <option value="Şeflik">Şeflik</option>
+                                <option value="Depo Dağıtım">Depo Dağıtım</option>
+                                <option value="Saha Ekibi">Saha Ekibi</option>
+                                <option value="Market - İnkılap">Market - İnkılap</option>
                             </select>
                         </div>
 
@@ -166,26 +166,18 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Adresiniz</label>
-                            <input type="text" placeholder="Adresinizi Giriniz" required>
+                            <input type="text" name="address" placeholder="Adresinizi Giriniz" required>
                         </div>
 
                         <div class="input-field">
                             <label>Ünvan</label>
-                            <input type="text" placeholder="Ünvan Giriniz" required oninput="validateAlphabeticInput(this)">
+                            <input type="text" name="unvan" placeholder="Ünvan Giriniz" required oninput="validateAlphabeticInput(this)">
                         </div>
 
                         <div class="input-field">
                             <label>Sicil No</label>
-                            <input type="number" placeholder="Sicil Numaranızı Giriniz" required>
+                            <input type="number" name="registrationNo" placeholder="Sicil Numaranızı Giriniz" required>
                         </div>
-
-                       
-                        
-                        
-
-
-                        
-
                         
                     </div>
 
@@ -205,6 +197,6 @@
         </form>
     </div>
 
-    <script src="regg.js"></script>
+    <script src="js/regg.js"></script>
 </body>
 </html>
