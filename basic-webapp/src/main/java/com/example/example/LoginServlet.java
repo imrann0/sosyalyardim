@@ -1,13 +1,13 @@
 package com.example.example;
-
 import com.example.example.DataBase.Personel;
-
+import com.example.example.DataBase.Rol;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Set;
 
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -28,6 +28,15 @@ public class LoginServlet extends HttpServlet {
             // Valid credentials, create session and redirect
             HttpSession session = request.getSession();
             session.setAttribute("mail", enteredMail);
+
+            // Fetch the Personel instance using the getPersonelByMail method
+            Personel personelInstance = Personel.getPersonelByMail(enteredMail);
+
+            if (personelInstance != null) {
+                Set<Rol> roles = personelInstance.getRoles();
+                session.setAttribute("roles", roles);
+
+            }
 
             System.out.println("Mail: " + enteredMail);
             System.out.println("Password: " + enteredPassword);

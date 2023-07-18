@@ -1,27 +1,23 @@
-	package com.example.example.DataBase;
-	import jakarta.persistence.Entity;
-	import jakarta.persistence.GeneratedValue;
-	import jakarta.persistence.GenerationType;
-	import jakarta.persistence.Id;
-	import jakarta.persistence.JoinColumn;
-	import jakarta.persistence.JoinTable;
-	import jakarta.persistence.ManyToMany;
-	import java.time.LocalDate;
-	import java.util.HashSet;
-	import java.util.Set;
-	import org.hibernate.Session;
-	import org.hibernate.query.NativeQuery;
-	import org.hibernate.query.Query;
-	import java.util.List;
-	import com.example.example.HibernateSessionFactory;
+package com.example.example.DataBase;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+import java.util.List;
+import com.example.example.HibernateSessionFactory;
 
-	
-	
-	
-	@Entity
-	public class Personel {
-	    @Id
+@Entity
+public class Personel {
+		@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int id;
 	
@@ -192,6 +188,39 @@
 	            return false;
 	        }
 	    }
-	    
+		    
+		 public static Personel getPersonelByMail(String mail) {
+		        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+		            String sql = "SELECT * FROM personel WHERE mail = :email";
+		            NativeQuery<Personel> query = session.createNativeQuery(sql, Personel.class);
+		            query.setParameter("email", mail); 
+		            Personel personel = query.uniqueResult();
+
+		            if (personel != null) {
+		                Set<Rol> roller = getRolesByPersonelId(personel.getId());
+		                personel.setRoles(roller);
+		            }
+		            System.out.println("Personel Roller: " + personel);
+		            return personel;
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		            return null;
+		        }
+		    }
+
+		 private static Set<Rol> getRolesByPersonelId(int personelId) {
+		        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+		            String sql = "SELECT r.* FROM personel_rol pr JOIN rol r ON pr.rol_id = r.id WHERE pr.personel_id = ?";
+		            NativeQuery<Rol> query = session.createNativeQuery(sql, Rol.class);
+		            query.setParameter(1, personelId);
+		            List<Rol> rolesList = query.list();
+		            return new HashSet<>(rolesList);
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		            return new HashSet<>();
+		        }
+		    }
+
+
 
 	}
