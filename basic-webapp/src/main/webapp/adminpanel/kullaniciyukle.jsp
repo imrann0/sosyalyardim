@@ -697,10 +697,11 @@
                   <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
-                      <label>Sicil No</label>
-                      <input type="text" name="sicilNo" class="form-control" pattern="[0-9]{13}" placeholder="13 haneli Sicil No Giriniz" required>
-                    </div>
-                    
+					  <label>Sicil No</label>
+					  <input type="text" name="sicilNo" class="form-control" pattern="^[0-9]{13}$" placeholder="13 haneli Sicil No Giriniz" required maxlength="13">
+					</div>
+					
+				  
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -727,7 +728,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Telefon</label>
-                      <input type="tel" name="phone" class="form-control" pattern="[0-9]{11}" placeholder="Telefon Numarasını Giriniz" required>
+                      <input type="tel" name="phone" class="form-control" pattern="^[0-9]{11}$" placeholder="Telefon Numarasını Giriniz" required maxlength="11" >
                     </div>
                     
                   </div>
