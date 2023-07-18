@@ -31,7 +31,7 @@ public class Personel {
 	    private String section; //Bölüm
 	    private String unvan;
 	    private String userName;
-	    private int registrationNo; // Sicil Numarası
+	    private Long registrationNo; // Sicil Numarası
 	    private String address;
 	    private int status;
 	    
@@ -126,11 +126,11 @@ public class Personel {
 			this.userName = userName;
 		}
 
-		public int getRegistrationNo() {
+		public Long getRegistrationNo() {
 			return registrationNo;
 		}
 
-		public void setRegistrationNo(int registrationNo) {
+		public void setRegistrationNo(Long registrationNo) {
 			this.registrationNo = registrationNo;
 		}
 

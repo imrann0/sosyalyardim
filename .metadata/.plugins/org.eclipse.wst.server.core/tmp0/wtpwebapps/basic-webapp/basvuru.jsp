@@ -3,13 +3,13 @@
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.HibernateSessionFactory" %>
 
 <%
     // Retrieve the user roles from the session
     HttpSession userSession = request.getSession();
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
-
     // Check if the user has the "deneme2" role
     boolean hasDeneme2Role = false;
     if (roles != null) {
@@ -39,6 +39,7 @@
 
     <!-- Display the logged-in user's email -->
     <p>Logged-in User: <%= mail %></p>
+    <i><a href="Logout"> <input type="submit">Çıkış Yap</a></i>
 
     <!-- Display the roles of the logged-in user -->
     <% if (roles != null && !roles.isEmpty()) { %>
