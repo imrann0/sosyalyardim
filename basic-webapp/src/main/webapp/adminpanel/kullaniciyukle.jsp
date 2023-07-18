@@ -795,11 +795,15 @@
                     <div class="form-group">
                       <label>Bölüm</label>
                       <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                        <option value="Yazilim" >Yazılım</option>
+                        <option value="Yonetici">Yönetiçi</option>
+                        <option value="Danisma">Danışma</option>
+                        <option value="Baskanlik">Başkanlık</option>
+                        <option value="Seflik">Şeflik </option>
+                        <option value="Depo-Dagıtım">Depo - Dağıtım </option>
+                        <option value="Saha_Ekibi">Saha Ekibi </option>
+                        <option value="Market-Inkılap">Market - İnkılap </option>
+                        <option value="Market-Necip_Fazıl">Market - Necip Fazıl </option>
                       </select>
                     </div>
                   </div>

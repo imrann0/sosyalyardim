@@ -1,7 +1,6 @@
 package com.example.example;
 
 import com.example.example.DataBase.Personel;
-import com.example.example.DataBase.Rol;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,12 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import java.util.stream.Collectors;
-
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 
 
 
@@ -37,6 +30,7 @@ public class KayitOlServlet extends HttpServlet {
         String address = request.getParameter("address");
         String unvan = request.getParameter("unvan");
         int registrationNo = Integer.parseInt(request.getParameter("registrationNo"));
+        Long sicilNoLong = (long) registrationNo;
         
 
         // Diğer form verilerini işleyin
@@ -58,7 +52,7 @@ public class KayitOlServlet extends HttpServlet {
             personel.setAddress(address);
             personel.setSection(section);
             personel.setUnvan(unvan);
-            personel.setRegistrationNo(registrationNo);
+            personel.setRegistrationNo(sicilNoLong);
 
             // Personel örneğini kaydedin
             session.persist(personel);
