@@ -18,7 +18,7 @@
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>KayitOlServlet</servlet-name>
-	    <url-pattern>/kayitol</url-pattern>
+	    <url-pattern>/register</url-pattern>
 	</servlet-mapping>
 
 

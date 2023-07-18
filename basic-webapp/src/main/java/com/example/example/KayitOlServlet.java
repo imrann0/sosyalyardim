@@ -12,8 +12,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import java.util.stream.Collectors;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,13 +30,14 @@ public class KayitOlServlet extends HttpServlet {
         String password = request.getParameter("password");
         String surname = request.getParameter("surname");
         String number = request.getParameter("number");
-        String identity = request.getParameter("identity");
         String email = request.getParameter("email");
         String gender = request.getParameter("gender");
-        String[] selectedRoleIds = request.getParameterValues("Cars2");
+        //String[] selectedRoleIds = request.getParameterValues("Cars2");
+        String section = request.getParameter("section");
+        String address = request.getParameter("address");
+        String unvan = request.getParameter("unvan");
+        int registrationNo = Integer.parseInt(request.getParameter("registrationNo"));
         
-        String dateString = request.getParameter("date");
-        LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
         // Diğer form verilerini işleyin
 
@@ -53,23 +53,12 @@ public class KayitOlServlet extends HttpServlet {
             personel.setPassword(password);
             personel.setSurname(surname);
             personel.setPhone(number);
-            personel.setIdentity(identity);
             personel.setMail(email);
             personel.setGender(gender);
-            personel.setDate(date);
-
-            // Personel rol örneklerini veritabanından alın
-            List<Integer> roleIds = Arrays.stream(selectedRoleIds)
-            	    .map(Integer::parseInt)
-            	    .collect(Collectors.toList());
-
-            	List<Rol> selectedRoles = session.createQuery("FROM Rol WHERE id IN (:roleIds)", Rol.class)
-            	    .setParameterList("roleIds", roleIds)
-            	    .getResultList();
-
-
-            // Personel rol setini güncelleyin
-            personel.setRoles(new HashSet<>(selectedRoles));
+            personel.setAddress(address);
+            personel.setSection(section);
+            personel.setUnvan(unvan);
+            personel.setRegistrationNo(registrationNo);
 
             // Personel örneğini kaydedin
             session.persist(personel);
