@@ -21,3 +21,12 @@
 0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:51:23 +0300] "GET /basic-webapp/img/zzz.png HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:51:31 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:51:31 +0300] "GET /basic-webapp/login.jsp HTTP/1.1" 200 1194
+127.0.0.1 - - [18/Jul/2023:08:54:09 +0300] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:09 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:09 +0300] "GET /basic-webapp/login.jsp HTTP/1.1" 200 1194
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:09 +0300] "GET /basic-webapp/css/login.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:22 +0300] "POST /basic-webapp/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:22 +0300] "GET /basic-webapp/index.jsp HTTP/1.1" 200 1115
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:22 +0300] "GET /basic-webapp/css/index.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:22 +0300] "GET /basic-webapp/img/zzz.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2023:08:54:26 +0300] "GET /basic-webapp/basvuru.jsp HTTP/1.1" 200 574
