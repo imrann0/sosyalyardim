@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gebze Bel</title>
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Giriş Yap</h1>
+      <form action="/login" method="post">
+        <div class="txt_field">
+          <input type="email"  name="mail" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <span></span>
+          <label>Şifre</label>
+        </div>
+        <input type="submit" value="Giriş Yap">
+        <div class="signup_link">
+          Hesabınız Yok mu? <a href="regg.jsp"> Kaydol</a>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>

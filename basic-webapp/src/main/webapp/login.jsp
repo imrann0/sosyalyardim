@@ -10,14 +10,14 @@
   <body>
     <div class="center">
       <h1>Giriş Yap</h1>
-      <form action="/login" method="post">
+      <form action="login" method="post">
         <div class="txt_field">
-          <input type="email" required>
+          <input type="email"  name="mail" required>
           <span></span>
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="password" required>
           <span></span>
           <label>Şifre</label>
         </div>
