@@ -6,8 +6,9 @@
 <%@ page import="com.example.example.HibernateSessionFactory" %>
 
 <%
-    // Retrieve the user roles from the session
     HttpSession userSession = request.getSession();
+
+	@SuppressWarnings("unchecked")
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role

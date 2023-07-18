@@ -697,10 +697,11 @@
                   <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
-                      <label>Sicil No</label>
-                      <input type="text" name="sicilNo" class="form-control" pattern="[0-9]{13}" placeholder="13 haneli Sicil No Giriniz" required>
-                    </div>
-                    
+					  <label>Sicil No</label>
+					  <input type="text" name="sicilNo" class="form-control" pattern="^[0-9]{13}$" placeholder="13 haneli Sicil No Giriniz" required maxlength="13">
+					</div>
+					
+				  
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -727,7 +728,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Telefon</label>
-                      <input type="tel" name="phone" class="form-control" pattern="[0-9]{11}" placeholder="Telefon Numarasını Giriniz" required>
+                      <input type="tel" name="phone" class="form-control" pattern="^[0-9]{11}$" placeholder="Telefon Numarasını Giriniz" required maxlength="11" >
                     </div>
                     
                   </div>
@@ -795,11 +796,15 @@
                     <div class="form-group">
                       <label>Bölüm</label>
                       <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                        <option value="Yazilim" >Yazılım</option>
+                        <option value="Yonetici">Yönetiçi</option>
+                        <option value="Danisma">Danışma</option>
+                        <option value="Baskanlik">Başkanlık</option>
+                        <option value="Seflik">Şeflik </option>
+                        <option value="Depo-Dagıtım">Depo - Dağıtım </option>
+                        <option value="Saha_Ekibi">Saha Ekibi </option>
+                        <option value="Market-Inkılap">Market - İnkılap </option>
+                        <option value="Market-Necip_Fazıl">Market - Necip Fazıl </option>
                       </select>
                     </div>
                   </div>
