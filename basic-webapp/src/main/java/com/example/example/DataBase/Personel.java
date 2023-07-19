@@ -14,6 +14,8 @@ import org.hibernate.query.NativeQuery;
 import java.util.List;
 import com.example.example.HibernateSessionFactory;
 
+import jakarta.servlet.http.HttpSession;
+
 @Entity
 public class Personel {
 		@Id
@@ -206,6 +208,23 @@ public class Personel {
 		            return new HashSet<>();
 		        }
 		    }
+		 
+		 public class RoleUtils {
+			    public static boolean hasRole(HttpSession userSession, String   roleName) {
+			        @SuppressWarnings("unchecked")
+			        Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
+			        if (roles != null) {
+			            for (Rol rol : roles) {
+			                if (rol.getRoleName().equals(roleName)) {
+					            System.out.println("Kullanıcı Role Sahip: " + roleName);
+			                    return true;
+			                }
+			            }
+			        }
+			        return false;
+			    }
+			}
+
 
 
 

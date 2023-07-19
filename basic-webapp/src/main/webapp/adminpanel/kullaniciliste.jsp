@@ -1,4 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%
+HttpSession userSession = request.getSession();
+String roleName = "Role_Kullanıcı_Listele";
+
+if (!RoleUtils.hasRole(userSession, roleName)) {
+    response.sendRedirect("../login.jsp");
+}
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +54,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="anasayfa.html" class="nav-link">Anasayfa</a>
       </li>
-      
     </ul>
 
     <!-- SEARCH FORM -->
