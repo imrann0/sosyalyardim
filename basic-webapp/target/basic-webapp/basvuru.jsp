@@ -6,15 +6,19 @@
 <%@ page import="com.example.example.HibernateSessionFactory" %>
 
 <%
-    // Retrieve the user roles from the session
     HttpSession userSession = request.getSession();
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
+    Rol.hasRole(userSession,"1");
+
+
+
+    /*
     boolean hasDeneme2Role = false;
     if (roles != null) {
         for (Rol rol : roles) {
-            if (rol.getRoleName().equals("ddd")) {
+            if (rol.getRoleName().equals("Role_Basvuru_Olustur")) {
                 hasDeneme2Role = true;
                 break;
             }
@@ -24,6 +28,8 @@
     if (!hasDeneme2Role) {
         response.sendRedirect("login.jsp");
     }
+
+     */
 %>
 
 <!DOCTYPE html>

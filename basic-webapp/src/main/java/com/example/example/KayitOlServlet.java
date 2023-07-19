@@ -59,7 +59,7 @@ public class KayitOlServlet extends HttpServlet {
             
             Set<Rol> personelRoles = new HashSet<>();
             Rol role = new Rol(); // Burada yeni bir Rol nesnesi oluşturuldu
-            role.setId(6); // Yeni rolün id'sini 1 olarak ayarladık
+            role.setId(1); // Yeni rolün id'sini 1 olarak ayarladık
             personelRoles.add(role); 
             personel.setRoles(personelRoles);
 

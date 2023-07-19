@@ -382,7 +382,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./mahallegir.html" class="nav-link">
+                    <a href="sidebar.jsp" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Mahalle Girişi</p>
                     </a>
