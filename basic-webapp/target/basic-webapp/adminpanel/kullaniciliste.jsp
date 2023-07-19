@@ -3,7 +3,7 @@
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
-  List<Personel> roles = Personel.getAllUserInfo();
+  List<Personel> users = Personel.getAllUserInfo();
 
   /*
 HttpSession userSession = request.getSession();
@@ -131,13 +131,21 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </tr>
                      -->
                     <%
-                      for(Personel user : roles){ %>
+                      for(Personel user : users){ %>
                     <tr>
 
                       <td><%= user.getName() %></td>
 
                       <td><%= user.getPhone() %></td>
 
+                      <td><%= user.getId()%></td>
+                      <td><%= user.getUserName()%></td>
+                      <td><%= user.getRegistrationNo()%></td>
+                      <td><%= user.getName()%></td>
+                      <td><%= user.getUnvan()%></td>
+                      <td><%= user.getPhone()%></td>
+                      <td><%= user.getGender()%></td>
+                      <td><%= user.getStatus()%></td>
                     </tr>
                     <% } %>
 

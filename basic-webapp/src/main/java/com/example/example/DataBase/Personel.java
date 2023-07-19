@@ -233,6 +233,24 @@ public class Personel {
 		        Session session = sessionFactory.openSession();
 		        session.beginTransaction();
 
+		        TypedQuery<Personel> query = session.createQuery("SELECT p FROM Personel p", Personel.class);
+		        List<Personel> results = query.getResultList();
+
+
+		        session.getTransaction().commit();
+		        session.close();
+		        sessionFactory.close();
+
+		        return results;
+		    }
+			/*
+					    public static List<Personel> getAllUserInfo() {
+		        Configuration configuration = new Configuration().configure();
+		        SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		        Session session = sessionFactory.openSession();
+		        session.beginTransaction();
+
 		        TypedQuery<Object[]> query = session.createQuery("SELECT p.name, p.phone FROM Personel p", Object[].class);
 		        List<Object[]> results = query.getResultList();
 
@@ -250,4 +268,6 @@ public class Personel {
 
 		        return Users;
 		    }
+
+			 */
 	}

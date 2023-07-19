@@ -133,11 +133,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     <%
                       for(Personel user : users){ %>
                     <tr>
-
-                      <td><%= user.getName() %></td>
-
-                      <td><%= user.getPhone() %></td>
-
+                      <td><%= user.getId()%></td>
+                      <td><%= user.getUserName()%></td>
+                      <td><%= user.getRegistrationNo()%></td>
+                      <td><%= user.getName()%></td>
+                      <td><%= user.getUnvan()%></td>
+                      <td><%= user.getPhone()%></td>
+                      <td><%= user.getGender()%></td>
+                      <td><%= user.getStatus()%></td>
                     </tr>
                     <% } %>
 
