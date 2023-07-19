@@ -1,0 +1,23 @@
+package com.example.example.DataBase;
+
+import jakarta.servlet.http.HttpSession;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class RoleUtils {
+    public static boolean hasRole(HttpSession userSession, String roleName) {
+        // ...
+    }
+
+    public static Set<Rol> getRolesByUserId(int userId) {
+        // ...
+    }
+
+    public static Set<Rol> getNotAssignedRolesByUserId(int userId) {
+        // ...
+    }
+}

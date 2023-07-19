@@ -1,0 +1,37 @@
+package com.example.example;
+
+import jakarta.servlet.http.HttpSession;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+
+import com.example.example.DataBase.Rol;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class RoleControl {
+	
+    public static boolean hasRole(HttpSession userSession, String   roleName) {
+        @SuppressWarnings("unchecked")
+        Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
+        if (roles != null) {
+            for (Rol rol : roles) {
+                if (rol.getRoleName().equals(roleName)) {
+		            System.out.println("Kullanıcı Role Sahip: " + roleName);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+    public static Set<Rol> getRolesByUserId(int userId) {
+        // ...
+    }
+
+    public static Set<Rol> getNotAssignedRolesByUserId(int userId) {
+        // ...
+    }
+}

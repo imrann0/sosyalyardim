@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sicilN"/>
+		<item key="selection" value="Kullanıcı Yükle"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Kullanıcı Yükle"/>
+			<item value="Kullanıcı Ekle"/>
+			<item value="kullanıcı ekle"/>
 			<item value="siciln"/>
 			<item value="Kullanıcı adı"/>
 			<item value="kullan"/>
@@ -15,6 +18,7 @@
 			<item value="meta"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

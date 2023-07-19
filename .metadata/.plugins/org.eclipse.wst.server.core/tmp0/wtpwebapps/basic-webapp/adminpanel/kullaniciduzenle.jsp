@@ -4,16 +4,26 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="com.example.example.RoleControl" %>
 
 <%
-  // Kullanıcının ID'sini çekmek için parametreyi alıyoruz.
-  String userId = request.getParameter("userId");
+    // Kullanıcının ID'sini çekmek için parametreyi alıyoruz.
+    String userId = request.getParameter("userId");
+    int Id = Integer.parseInt(userId);
 
-  // Kullanıcı ID'sine göre veritabanından kullanıcı bilgilerini alabilirsiniz.
-  // Örnek olarak:
-  Personel user = Personel.getUserInfoById(userId);
-  System.out.println(user);
+    // Kullanıcı ID'sine göre veritabanından kullanıcı bilgilerini alabilirsiniz.
+    // Örnek olarak:
+    Personel user = Personel.getUserInfoById(userId);
+
+    // RoleUtils sınıfına doğrudan erişim sağlayabilirsiniz.
+    Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
+    Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
+
+    System.out.println(user);
 %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,32 +94,23 @@
   <!-- /.navbar -->
 	<%@include file="sidebar.jsp"%>
   <!-- Main Sidebar Container -->
-  
-
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
+  <div class="content-wrapper">  
     <!-- /.content-header -->
-
     <!-- Main content -->
-    <section class="content-wrapper">
-      
+    <section class="content-wrapper">      
       <div class="container">
-        <!-- Small boxes (Stat box) -->
-        
+        <!-- Small boxes (Stat box) -->      
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-          
           <div class="card card-primary col-md-10">
             <div class="card-header d-flex justify-content-center">
-              <h3 class="card-title">Kullanıcı Yükle</h3>
+              <h3 class="card-title">Kullanıcı Düzenle</h3>
             </div>
-            
-            
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
+            <form action="adminupdate" method="post">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-6">
@@ -161,7 +162,7 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Sicil No</label>
-                        <input type="text" class="form-control" pattern="[0-9]{13}"  value="<%= user.getRegistrationNo() %>" required>
+                        <input type="text" class="form-control" pattern="[0-9]{13}"  name="sicilNo" value="<%= user.getRegistrationNo() %>" required>
 
                     </div>
                     
@@ -171,14 +172,14 @@
                       <label>Cinsiyet</label>
                       <div class="form-group clearfix">
                         <div class="icheck-primary d-inline">
-                			<input type="radio" id="radioPrimary1" name="cinsiyet" value="E" <%= user.getGenderDisplay(user.getGender()) %> required>
+							<input type="radio" id="radioPrimary1" name="cinsiyet" value="E" <%= user.getGender().equals("E") ? "checked" : "" %> required>
                           <label for="radioPrimary1">
                             Erkek
                           </label>
                         </div>
                         
                         <div class="icheck-primary d-inline">
-                			<input type="radio" id="radioPrimary3" name="cinsiyet" value="K" required>
+                			<input type="radio" id="radioPrimary3" name="cinsiyet" value="K" <%= user.getGender().equals("K") ? "checked" : "" %> required>
                           <label for="radioPrimary3">
                             Kadın
                           </label>
@@ -200,14 +201,14 @@
                       <label>Durum</label>
                       <div class="form-group clearfix">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary2" name="durum" required>
+                			<input type="radio" id="radioPrimary2" name="durum" value="1" <%= user.getStatus() == 1 ? "checked" : "" %> required>
                           <label for="radioPrimary2">
                             Aktif
                           </label>
                         </div>
                         
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary4" name="durum" required>
+                			<input type="radio" id="radioPrimary4" name="durum" value="0" <%= user.getStatus() == 0 ? "checked" : "" %> required>
                           <label for="radioPrimary4">
                             Pasif
                           </label>
@@ -222,11 +223,9 @@
                     <div class="form-group">
                       <label>Seçilebilir profil</label>
                       <select id="select1" multiple class="custom-select">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                        <% for (Rol role : notHasRoles) { %>
+					        <option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
+					    <% } %>
                       </select>
                     </div>
                   </div>
@@ -234,6 +233,9 @@
                     <div class="form-group">
                       <label>Seçilen profil</label>
                       <select id="select2" multiple class="custom-select">
+                      <% for (Rol role : hasRoles) { %>
+        					<option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
+      					<% } %>
                       </select>
                     </div>
                   </div>
@@ -243,7 +245,7 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Adres</label>
-<textarea class="form-control" rows="3" required><%= user.getAddress() %></textarea>
+						<textarea class="form-control" rows="3" required><%= user.getAddress() %></textarea>
                     </div>
                     
                   </div>
@@ -252,11 +254,15 @@
                     <div class="form-group">
                       <label>Bölüm</label>
                       <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                        <option value="Yazilim"  <%= user.getSection().equals("Yazilim") ? "selected" : "" %> >Yazılım</option>
+                        <option value="Yonetici" <%= user.getSection().equals("Yonetici") ? "selected" : "" %>>Yönetiçi</option>
+                        <option value="Danisma" <%= user.getSection().equals("Danisma") ? "selected" : "" %>>Danışma</option>
+                        <option value="Baskanlik" <%= user.getSection().equals("Yazilim") ? "selected" : "" %>>Başkanlık</option>
+                        <option value="Seflik" <%= user.getSection().equals("Baskanlik") ? "selected" : "" %>>Şeflik </option>
+                        <option value="Depo-Dagıtım" <%= user.getSection().equals("Depo-Dagıtım") ? "selected" : "" %>>Depo - Dağıtım </option>
+                        <option value="Saha_Ekibi" <%= user.getSection().equals("Saha_Ekibi") ? "selected" : "" %>>Saha Ekibi </option>
+                        <option value="Market-Inkılap" <%= user.getSection().equals("Market-Inkılap") ? "selected" : "" %>>Market - İnkılap </option>
+                        <option value="Market-Necip_Fazıl" <%= user.getSection().equals("Market-Necip_Fazıl") ? "selected" : "" %>>Market - Necip Fazıl </option>
                       </select>
                     </div>
                   </div>
@@ -268,7 +274,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+                <button type="submit" class="btn btn-primary">Kullanıcı Düzenle</button>
               </div>
               
             </form>
@@ -283,7 +289,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>
+    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi</a></strong>
     
     <div class="float-right d-none d-sm-inline-block">
       <b>2023</b>

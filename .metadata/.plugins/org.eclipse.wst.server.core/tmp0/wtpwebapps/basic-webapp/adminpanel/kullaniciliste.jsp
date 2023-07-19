@@ -277,7 +277,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             </div>
         `;
 
-        // Append modal to the document body
         document.body.insertAdjacentHTML('beforeend', confirmationModal);
 
         // Show the confirmation modal
@@ -285,13 +284,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     }
 
     function deleteUser() {
-        // Perform delete operation here
-        // This function will be called when the user confirms the deletion
-        // You can add your code to delete the user from the system
-
-        // After successful deletion, you may redirect the user or update the table accordingly
-
-        // Close the confirmation modal
         $('#deleteConfirmationModal').modal('hide');
     }
   </script>

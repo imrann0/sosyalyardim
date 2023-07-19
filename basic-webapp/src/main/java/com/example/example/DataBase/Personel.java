@@ -10,7 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
-import java.util.ArrayList;
 
 
 import com.example.example.HibernateSessionFactory;
@@ -256,16 +255,7 @@ public class Personel {
 		        }
 		    }
 		    
-		    public String getGenderDisplay(String a) {
-		    	System.out.println(a);
-		    	if ("E".equals(a)) {
-			    	System.out.println("Girdi");
-		            return "checked";
-		        } else {
-		            return "";
-		        }
-		    }
-		    
+		   
 		 
 			/*
 					    public static List<Personel> getAllUserInfo() {
