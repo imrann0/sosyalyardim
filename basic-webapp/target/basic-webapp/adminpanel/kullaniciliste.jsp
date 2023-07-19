@@ -1,4 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="java.util.List" %>
+<%
+  List<Personel> users = Personel.getAllUserInfo();
+
+  /*
+HttpSession userSession = request.getSession();
+String roleName = "Role_Kullanıcı_Listele";
+
+if (!RoleUtils.hasRole(userSession, roleName)) {
+    response.sendRedirect("../login.jsp");
+}
+*/
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +58,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="anasayfa.html" class="nav-link">Anasayfa</a>
       </li>
-      
     </ul>
 
     <!-- SEARCH FORM -->
@@ -112,10 +127,28 @@
                           <button type="submit" class="btn btn-info">Düzenle</button>
                         </a>
                       </td>
-                      
                       <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
                      -->
+                    <%
+                      for(Personel user : users){ %>
+                    <tr>
+
+                      <td><%= user.getName() %></td>
+
+                      <td><%= user.getPhone() %></td>
+
+                      <td><%= user.getId()%></td>
+                      <td><%= user.getUserName()%></td>
+                      <td><%= user.getRegistrationNo()%></td>
+                      <td><%= user.getName()%></td>
+                      <td><%= user.getUnvan()%></td>
+                      <td><%= user.getPhone()%></td>
+                      <td><%= user.getGender()%></td>
+                      <td><%= user.getStatus()%></td>
+                    </tr>
+                    <% } %>
+
 
                     
                     

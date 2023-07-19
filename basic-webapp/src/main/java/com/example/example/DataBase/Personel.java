@@ -1,20 +1,21 @@
 package com.example.example.DataBase;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import jakarta.servlet.http.HttpSession;
 import java.util.HashSet;
 import java.util.Set;
-import org.hibernate.Session;
-import org.hibernate.query.NativeQuery;
 import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
+import java.util.ArrayList;
+
+
 import com.example.example.HibernateSessionFactory;
 
-import jakarta.servlet.http.HttpSession;
+
 
 @Entity
 public class Personel {
@@ -209,7 +210,7 @@ public class Personel {
 		        }
 		    }
 		 
-		 public class RoleUtils {
+		 public static class RoleUtils {
 			    public static boolean hasRole(HttpSession userSession, String   roleName) {
 			        @SuppressWarnings("unchecked")
 			        Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
@@ -224,8 +225,49 @@ public class Personel {
 			        return false;
 			    }
 			}
+		 
+		    public static List<Personel> getAllUserInfo() {
+		        Configuration configuration = new Configuration().configure();
+		        SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		        Session session = sessionFactory.openSession();
+		        session.beginTransaction();
+
+		        TypedQuery<Personel> query = session.createQuery("SELECT p FROM Personel p", Personel.class);
+		        List<Personel> results = query.getResultList();
 
 
+		        session.getTransaction().commit();
+		        session.close();
+		        sessionFactory.close();
 
+		        return results;
+		    }
+			/*
+					    public static List<Personel> getAllUserInfo() {
+		        Configuration configuration = new Configuration().configure();
+		        SessionFactory sessionFactory = configuration.buildSessionFactory();
 
+		        Session session = sessionFactory.openSession();
+		        session.beginTransaction();
+
+		        TypedQuery<Object[]> query = session.createQuery("SELECT p.name, p.phone FROM Personel p", Object[].class);
+		        List<Object[]> results = query.getResultList();
+
+		        List<Personel> Users = new ArrayList<>();
+		        for (Object[] result : results) {
+		            Personel personel = new Personel();
+		            personel.setName((String) result[0]);
+		            personel.setPhone((String) result[1]);
+		            Users.add(personel);
+		        }
+
+		        session.getTransaction().commit();
+		        session.close();
+		        sessionFactory.close();
+
+		        return Users;
+		    }
+
+			 */
 	}

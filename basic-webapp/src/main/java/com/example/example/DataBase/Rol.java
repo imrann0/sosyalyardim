@@ -58,12 +58,10 @@ public class Rol {
 
         @SuppressWarnings("unchecked")
         Set<Rol> roles= (Set<Rol>) request.getAttribute("roles");
-        System.out.println("ROL JAVA ICINDEKI MAIL "+roles);
 
         if (roles != null) {
             for (Rol rol : roles) {
                 if (rol.getRoleName().equals(roleName)) {
-                    System.out.println("ROL JAVA ICINDEKI MAIL "+roleName);
                     return true;
                 }
             }
