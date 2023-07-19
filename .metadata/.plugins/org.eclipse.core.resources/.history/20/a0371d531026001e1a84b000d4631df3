@@ -1,3 +1,7 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.example.DataBase.Rol" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,24 +43,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Anasayfa</a>
+        <a href="anasayfa.html" class="nav-link">Anasayfa</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+      
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+    
 
     <!-- Right navbar links -->
     
@@ -66,7 +59,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="anasayfa.html" class="brand-link">
       <img src="1111.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: 10">
       <span class="brand-text font-weight-light">Gebze Belediyesi</span>
@@ -83,7 +76,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="pages/widgets.html" class="nav-link">
+                <a href="anasayfa.html" class="nav-link">
                   <i class="fas fa-home"></i>
                   <p>
                     Anasayfa
@@ -93,7 +86,8 @@
               </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+
               <p>
                 İşlemlerim
                 <i class="right fas fa-angle-left"></i>
@@ -235,7 +229,7 @@
 
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  <i class="fa fa-wheelchair" aria-hidden="true"></i>
                   <p>
                     Engelli Bilgisi
                     <i class="right fas fa-angle-left"></i>
@@ -309,7 +303,7 @@
             
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="fa fa-user-plus" aria-hidden="true"></i>
               <p>
                 Yönetici İşlemleri
@@ -328,7 +322,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="kullaniciyukle.html" class="nav-link active">
+                    <a href="kullaniciyukle.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Kullanıcı Yükle</p>
                     </a>
@@ -386,13 +380,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./mahallegir.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Mahalle Girişi</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./mahallelist.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Mahalle Listele</p>
                     </a>
@@ -414,13 +408,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./caddegir.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Cadde/Sokak Girişi</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./caddelist.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Cadde/Sokak Listesi</p>
                     </a>
@@ -442,13 +436,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./okulgiris.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Okul Girişi</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./okullist.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Okul Listesi</p>
                     </a>
@@ -470,25 +464,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./cekmecetanim.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Çekmece Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./meslektanimlama.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Meslek Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./yakinlik.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Yakınlık Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./tutanakdurumtanimlama.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tutanak Durum Tanımlama</p>
                     </a>
@@ -510,25 +504,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./yardimtipi.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Yardım Tipi Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./yardimalttip.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Yardım Alt Tip Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./talepedilen.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Talep Edilen Yardım Tipi</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./tanimlama.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tanımlama</p>
                     </a>
@@ -551,25 +545,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="./engellitiptanim.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Engelli Tipi Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./engellialttip.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Engelli Alt Tipi Tanımlama</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./yonkurum.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Yönlendirilen Kurum</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="./yonaltkurum.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Yönlendirilen Alt Kurum</p>
                     </a>
@@ -582,8 +576,9 @@
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="#" class="nav-link">
+              <i class="fa fa-book" aria-hidden="true"></i>
+
               <p>
                 Raporlar
                 <i class="right fas fa-angle-left"></i>
@@ -591,25 +586,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="./muracaatrapor.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Müracaat Raporu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="./tutanakrapor.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tutanak Raporu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="./yardimkarara.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Yardım Karar Raporu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="./yardimkararyillikr.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Yardım Karar Yıllık Raporu</p>
                 </a>
@@ -800,6 +795,20 @@
                     <div class="form-group">
                       <label>Adres</label>
                       <textarea class="form-control" rows="3" placeholder="Adres giriniz." required></textarea>
+                    </div>
+                    
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Bölüm</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
                     </div>
                   </div>
                   
