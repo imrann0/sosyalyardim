@@ -19,7 +19,6 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 1912451066.index
 2574797195.index
 1865797976.index
-2965383683.index
 3391529300.index
 2469999937.index
 4247238814.index

@@ -111,25 +111,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </tr>
 
                     </thead>
-                    <tbody>
-                    <!--
-                    <tr>
-                      <td>1</td>
-                      <td>Ahmet</td>
-                      <td>1326542</td>
-                      <td>Ahmet</td>
-                      <td>A</td>
-                      <td>5555555555</td>
-                      <td>Erkek</td>
-                      <td>Aktif</td>
-                      <td>
-                        <a href="kullaniciduzenle.html">
-                          <button type="submit" class="btn btn-info">Düzenle</button>
-                        </a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
-                    </tr>
-                     -->
+                    <tbody>       
                     <%
                       for(Personel user : users){ %>
                     <tr>
@@ -141,13 +123,11 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                       <td><%= user.getPhone()%></td>
                       <td><%= user.getGender()%></td>
                       <td><%= user.getStatus()%></td>
+                      <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
+                      </td>
+                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
                     </tr>
-                    <% } %>
-
-
-                    
-                    
-                    
+                    <% } %>           
                     </tbody>
                     
                   </table>

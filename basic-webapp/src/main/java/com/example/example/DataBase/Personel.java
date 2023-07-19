@@ -243,6 +243,30 @@ public class Personel {
 
 		        return results;
 		    }
+		    
+		    public static Personel getUserInfoById(String userId) {
+		    	Configuration configuration = new Configuration().configure();
+		        SessionFactory sessionFactory = configuration.buildSessionFactory();
+		        try (Session session = sessionFactory.openSession()) {
+		            Personel user = session.get(Personel.class, userId);
+		            return user;
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		            return null;
+		        }
+		    }
+		    
+		    public String getGenderDisplay(String a) {
+		    	System.out.println(a);
+		    	if ("E".equals(a)) {
+			    	System.out.println("Girdi");
+		            return "checked";
+		        } else {
+		            return "";
+		        }
+		    }
+		    
+		 
 			/*
 					    public static List<Personel> getAllUserInfo() {
 		        Configuration configuration = new Configuration().configure();

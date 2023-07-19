@@ -2,6 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="java.util.List" %>
+
+<%
+  // Kullanıcının ID'sini çekmek için parametreyi alıyoruz.
+  String userId = request.getParameter("userId");
+
+  // Kullanıcı ID'sine göre veritabanından kullanıcı bilgilerini alabilirsiniz.
+  // Örnek olarak:
+  Personel user = Personel.getUserInfoById(userId);
+  System.out.println(user);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -668,13 +680,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>E-Posta</label>
-                      <input type="email" class="form-control" placeholder="E-posta adresinizi giriniz." required>
+						<input type="email" class="form-control" value="<%= user.getMail() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Ünvan</label>
-                      <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                      <input type="text" class="form-control"  value="<%= user.getUnvan() %>" required>
                     </div>
                   </div>
                 </div>
@@ -683,13 +695,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Kullanıcı Adı</label>
-                      <input type="text" class="form-control" placeholder="Kullanıcı adını giriniz" required>
+                      <input type="text" class="form-control"  value="<%= user.getUserName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Şifre</label>
-                      <input type="password" class="form-control" placeholder="Şifreyi Giriniz" required>
+                      <input type="password" class="form-control"  value="<%= user.getPassword() %>" required>
                     </div>
                   </div>
                 </div>
@@ -698,13 +710,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Ad</label>
-                      <input type="text" class="form-control" placeholder="Adınızı Giriniz" required>
+                      <input type="text" class="form-control"  value="<%= user.getName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Soyad</label>
-                      <input type="text" class="form-control" placeholder="Soyadınızı Giriniz" required>
+                      <input type="text" class="form-control"  value="<%= user.getSurname() %>" required>
                     </div>
                   </div>
                 </div>
@@ -713,7 +725,8 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Sicil No</label>
-                      <input type="text" class="form-control" pattern="[0-9]{13}" placeholder="13 haneli Sicil No Giriniz" required>
+                        <input type="text" class="form-control" pattern="[0-9]{13}"  value="<%= user.getRegistrationNo() %>" required>
+
                     </div>
                     
                   </div>
@@ -722,14 +735,14 @@
                       <label>Cinsiyet</label>
                       <div class="form-group clearfix">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="cinsiyet" required>
+                			<input type="radio" id="radioPrimary1" name="cinsiyet" value="E" <%= user.getGenderDisplay(user.getGender()) %> required>
                           <label for="radioPrimary1">
                             Erkek
                           </label>
                         </div>
                         
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary3" name="cinsiyet" required>
+                			<input type="radio" id="radioPrimary3" name="cinsiyet" value="K" required>
                           <label for="radioPrimary3">
                             Kadın
                           </label>
@@ -742,7 +755,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Telefon</label>
-                      <input type="tel" class="form-control" pattern="[0-9]{11}" placeholder="Telefon Numarasını Giriniz" required>
+                      <input type="tel" class="form-control" pattern="[0-9]{11}"  value="<%= user.getPhone() %>" required>
                     </div>
                     
                   </div>
@@ -794,7 +807,7 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Adres</label>
-                      <textarea class="form-control" rows="3" placeholder="Adres giriniz." required></textarea>
+<textarea class="form-control" rows="3" required><%= user.getAddress() %></textarea>
                     </div>
                     
                   </div>
