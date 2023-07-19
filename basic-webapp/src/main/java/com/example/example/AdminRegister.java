@@ -30,8 +30,7 @@ public class AdminRegister extends HttpServlet {
         String unvan = request.getParameter("unvan");
         String username = request.getParameter("username");
         String surname = request.getParameter("surname");
-        int sicilNoInt = Integer.parseInt(request.getParameter("sicilNo"));
-        Long sicilNoLong = (long) sicilNoInt;
+        Long sicilNo = Long.parseLong(request.getParameter("sicilNo"));
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
@@ -70,7 +69,7 @@ public class AdminRegister extends HttpServlet {
             personel.setGender(gender);
             personel.setUnvan(unvan);
             personel.setUserName(username);
-            personel.setRegistrationNo(sicilNoLong);
+            personel.setRegistrationNo(sicilNo);
             personel.setAddress(address);
             personel.setStatus(status);
             personel.setSection(SelectedSection);

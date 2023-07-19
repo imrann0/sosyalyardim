@@ -33,8 +33,7 @@ public class KayitOlServlet extends HttpServlet {
         String section = request.getParameter("section");
         String address = request.getParameter("address");
         String unvan = request.getParameter("unvan");
-        int registrationNo = Integer.parseInt(request.getParameter("registrationNo"));
-        Long sicilNoLong = (long) registrationNo;
+        Long registrationNo = Long.parseLong(request.getParameter("registrationNo"));
         
 
         // Diğer form verilerini işleyin
@@ -56,7 +55,7 @@ public class KayitOlServlet extends HttpServlet {
             personel.setAddress(address);
             personel.setSection(section);
             personel.setUnvan(unvan);
-            personel.setRegistrationNo(sicilNoLong);
+            personel.setRegistrationNo(registrationNo);
             
             Set<Rol> personelRoles = new HashSet<>();
             Rol role = new Rol(); // Burada yeni bir Rol nesnesi oluşturuldu
