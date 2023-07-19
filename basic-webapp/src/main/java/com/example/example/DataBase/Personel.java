@@ -199,6 +199,7 @@ public class Personel {
 		            NativeQuery<Rol> query = session.createNativeQuery(sql, Rol.class);
 		            query.setParameter(1, personelId);
 		            List<Rol> rolesList = query.list();
+					System.out.println("ID ICI SINIF: "+ rolesList);
 		            return new HashSet<>(rolesList);
 		        } catch (Exception e) {
 		            e.printStackTrace();

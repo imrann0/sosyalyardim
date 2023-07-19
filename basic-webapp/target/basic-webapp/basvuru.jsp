@@ -10,7 +10,7 @@
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
-    Rol.hasRole(userSession,"1");
+    Rol.hasRole(userSession,"Kullanici");
 
 
 

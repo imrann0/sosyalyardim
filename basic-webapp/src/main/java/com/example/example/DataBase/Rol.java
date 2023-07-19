@@ -57,13 +57,13 @@ public class Rol {
         //HttpSession session = request.getSession();
 
         @SuppressWarnings("unchecked")
-        String mail = (String) request.getAttribute("mail");
-        System.out.println("ROL JAVA ICINDEKI MAIL "+mail);
-        Set<Rol> roles = (Set<Rol>) Personel.getPersonelByMail(mail);
+        Set<Rol> roles= (Set<Rol>) request.getAttribute("roles");
+        System.out.println("ROL JAVA ICINDEKI MAIL "+roles);
 
         if (roles != null) {
             for (Rol rol : roles) {
                 if (rol.getRoleName().equals(roleName)) {
+                    System.out.println("ROL JAVA ICINDEKI MAIL "+roleName);
                     return true;
                 }
             }
