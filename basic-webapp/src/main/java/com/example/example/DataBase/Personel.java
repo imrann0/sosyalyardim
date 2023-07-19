@@ -10,6 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
+import java.util.ArrayList;
+
 
 import com.example.example.HibernateSessionFactory;
 
@@ -223,17 +225,29 @@ public class Personel {
 			        return false;
 			    }
 			}
-			public static List<Personel> getAllUserInfo(){
-				Configuration configuration = new Configuration().configure();
-				SessionFactory sessionFactory = configuration.buildSessionFactory();
+		 
+		    public static List<Personel> getAllUserInfo() {
+		        Configuration configuration = new Configuration().configure();
+		        SessionFactory sessionFactory = configuration.buildSessionFactory();
 
-				Session session = sessionFactory.openSession();
-        		session.beginTransaction();
-				TypedQuery<Personel> Query = session.createQuery("Select * FROM Personel",Personel.class);
-				List<Personel> users = Query.getResultList();
-				session.getTransaction().commit();
-				sessionFactory.close();
+		        Session session = sessionFactory.openSession();
+		        session.beginTransaction();
 
-				return users;
-			}
+		        TypedQuery<Object[]> query = session.createQuery("SELECT p.name, p.phone FROM Personel p", Object[].class);
+		        List<Object[]> results = query.getResultList();
+
+		        List<Personel> Users = new ArrayList<>();
+		        for (Object[] result : results) {
+		            Personel personel = new Personel();
+		            personel.setName((String) result[0]);
+		            personel.setPhone((String) result[1]);
+		            Users.add(personel);
+		        }
+
+		        session.getTransaction().commit();
+		        session.close();
+		        sessionFactory.close();
+
+		        return Users;
+		    }
 	}
