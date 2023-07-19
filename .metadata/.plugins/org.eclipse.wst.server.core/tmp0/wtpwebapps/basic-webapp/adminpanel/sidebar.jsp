@@ -7,7 +7,7 @@
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="anasayfa.html" class="brand-link">
+    <a href="anasayfa.jsp" class="brand-link">
       <img src="1111.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: 10">
       <span class="brand-text font-weight-light">Gebze Belediyesi</span>
@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="anasayfa.jsp" class="nav-link">
+                <a id="anasayfa" href="anasayfa.jsp" class="nav-link">
                   <i class="fas fa-home"></i>
                   <p>
                     Anasayfa
@@ -33,7 +33,7 @@
                 </a>
               </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a id="islemlerim" href="#" class="nav-link">
               <i class="fa fa-check-square" aria-hidden="true"></i>
 
               <p>
@@ -251,7 +251,7 @@
             
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a id="yonetici" href="#" class="nav-link">
               <i class="fa fa-user-plus" aria-hidden="true"></i>
               <p>
                 Yönetici İşlemleri
@@ -524,7 +524,7 @@
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a id="rapor" href="#" class="nav-link">
               <i class="fa fa-book" aria-hidden="true"></i>
 
               <p>

@@ -65,18 +65,68 @@
     <section class="content-wrapper">
       
       <div class="container">
-        <!-- Small boxes (Stat box) -->
-        
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          
-          
-          <!-- Modal -->
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="card card-primary">
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title">Yeni Bölge Girişi</h3>
+                    </div>
+    
+                    <!-- form başlangıcı -->
+                    <form role="form">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Bölge Kodu</label>
+                                <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <!-- text input -->
+                              <div class="form-group">
+                                <label>Bölge Aktiflik Durumu</label>
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="radio" id="radioPrimary2" name="durum" required>
+                                        <label for="radioPrimary2">
+                                            Aktif
+                                        </label>
+                                    </div>
+      
+                                    <div class="icheck-primary d-inline">
+                                        <input type="radio" id="radioPrimary4" name="durum" required>
+                                        <label for="radioPrimary4">
+                                            Pasif
+                                        </label>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Bölge Adı</label>
+                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                              </div>
+                            </div>  
+                          </div>
+                          
 
+                        </div>
+                        <!-- form sonu -->
+    
+                        <div class="card-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Modal -->
+            </div>
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
     <!-- /.content -->
   </div>
