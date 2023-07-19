@@ -2,6 +2,7 @@ INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins
 77155007.index
 3330040130.index
 875746838.index
+0.index
 3335907368.index
 2686896457.index
 2348948558.index

@@ -117,13 +117,14 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>E-Posta</label>
-						<input type="email" class="form-control" value="<%= user.getMail() %>" required>
+                        <input type="hidden" name="userId" class="form-control" value="<%= user.getId() %>" required>
+						<input type="email"  name="email" class="form-control" value="<%= user.getMail() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Ünvan</label>
-                      <input type="text" class="form-control"  value="<%= user.getUnvan() %>" required>
+                      <input type="text" class="form-control"  name="unvan" value="<%= user.getUnvan() %>" required>
                     </div>
                   </div>
                 </div>
@@ -132,13 +133,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Kullanıcı Adı</label>
-                      <input type="text" class="form-control"  value="<%= user.getUserName() %>" required>
+                      <input type="text" class="form-control"  name="username" value="<%= user.getUserName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Şifre</label>
-                      <input type="password" class="form-control"  value="<%= user.getPassword() %>" required>
+                      <input type="password" class="form-control" name="password" value="<%= user.getPassword() %>" required>
                     </div>
                   </div>
                 </div>
@@ -147,13 +148,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Ad</label>
-                      <input type="text" class="form-control"  value="<%= user.getName() %>" required>
+                      <input type="text" class="form-control"  name="name" value="<%= user.getName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Soyad</label>
-                      <input type="text" class="form-control"  value="<%= user.getSurname() %>" required>
+                      <input type="text" class="form-control" name="surname" value="<%= user.getSurname() %>" required>
                     </div>
                   </div>
                 </div>
@@ -192,7 +193,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Telefon</label>
-                      <input type="tel" class="form-control" pattern="[0-9]{11}"  value="<%= user.getPhone() %>" required>
+                      <input type="tel" class="form-control" name="phone" pattern="[0-9]{11}"  value="<%= user.getPhone() %>" required>
                     </div>
                     
                   </div>
@@ -222,7 +223,7 @@
                     <!-- Select multiple-->
                     <div class="form-group">
                       <label>Seçilebilir profil</label>
-                      <select id="select1" multiple class="custom-select">
+                      <select id="selec1" name="cars1" multiple class="custom-select">
                         <% for (Rol role : notHasRoles) { %>
 					        <option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
 					    <% } %>
@@ -232,7 +233,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Seçilen profil</label>
-                      <select id="select2" multiple class="custom-select">
+                      <select id="selec2"  name="selected" multiple class="custom-select">
                       <% for (Rol role : hasRoles) { %>
         					<option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
       					<% } %>
@@ -240,12 +241,22 @@
                     </div>
                   </div>
                 </div>
+                <script>
+					      document.getElementById("selec1").addEventListener("change", function() {
+					        var selected = this.options[this.selectedIndex];
+					        document.getElementById("selec2").appendChild(selected);
+					      }); 
+					      document.getElementById("selec2").addEventListener("change", function() {
+					        var selected = this.options[this.selectedIndex];
+					        document.getElementById("selec1").appendChild(selected);
+					      }); 
+      				</script>
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
                       <label>Adres</label>
-						<textarea class="form-control" rows="3" required><%= user.getAddress() %></textarea>
+						<textarea class="form-control" rows="3" name="address" required><%= user.getAddress() %></textarea>
                     </div>
                     
                   </div>
@@ -253,7 +264,7 @@
                     <!-- select -->
                     <div class="form-group">
                       <label>Bölüm</label>
-                      <select class="form-control">
+                      <select class="form-control" name="selectedBolum">
                         <option value="Yazilim"  <%= user.getSection().equals("Yazilim") ? "selected" : "" %> >Yazılım</option>
                         <option value="Yonetici" <%= user.getSection().equals("Yonetici") ? "selected" : "" %>>Yönetiçi</option>
                         <option value="Danisma" <%= user.getSection().equals("Danisma") ? "selected" : "" %>>Danışma</option>
