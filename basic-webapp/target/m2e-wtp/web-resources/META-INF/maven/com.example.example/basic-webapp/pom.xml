@@ -25,6 +25,8 @@
     <version>4.13.2</version>
     <scope>test</scope>
 </dependency>
+        <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+
 
 <dependency>
     <groupId>org.hibernate.javax.persistence</groupId>

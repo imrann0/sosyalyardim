@@ -7,11 +7,14 @@
 
 <%
     HttpSession userSession = request.getSession();
-
-	@SuppressWarnings("unchecked")
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
+    Rol.hasRole(userSession,"1");
+
+
+
+    /*
     boolean hasDeneme2Role = false;
     if (roles != null) {
         for (Rol rol : roles) {
@@ -25,6 +28,8 @@
     if (!hasDeneme2Role) {
         response.sendRedirect("login.jsp");
     }
+
+     */
 %>
 
 <!DOCTYPE html>
