@@ -6,7 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -49,5 +52,23 @@ public class Rol {
         sessionFactory.close();
 
         return roles;
+    }
+    public static boolean hasRole(HttpSession request, String roleName) {
+        //HttpSession session = request.getSession();
+
+        @SuppressWarnings("unchecked")
+        String mail = (String) request.getAttribute("mail");
+        System.out.println("ROL JAVA ICINDEKI MAIL "+mail);
+        Set<Rol> roles = (Set<Rol>) Personel.getPersonelByMail(mail);
+
+        if (roles != null) {
+            for (Rol rol : roles) {
+                if (rol.getRoleName().equals(roleName)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

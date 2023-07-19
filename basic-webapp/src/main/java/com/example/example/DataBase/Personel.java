@@ -175,6 +175,7 @@ public class Personel {
 		    
 		 public static Personel getPersonelByMail(String mail) {
 		        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+					// Sadece ID çekip iyileştirme yapılabilir
 		            String sql = "SELECT * FROM personel WHERE mail = :email";
 		            NativeQuery<Personel> query = session.createNativeQuery(sql, Personel.class);
 		            query.setParameter("email", mail); 
@@ -184,7 +185,7 @@ public class Personel {
 		                Set<Rol> roller = getRolesByPersonelId(personel.getId());
 		                personel.setRoles(roller);
 		            }
-		            System.out.println("Personel Roller: " + personel);
+		            System.out.println("Personel Roller: " + personel.getRoles());
 		            return personel;
 		        } catch (Exception e) {
 		            e.printStackTrace();

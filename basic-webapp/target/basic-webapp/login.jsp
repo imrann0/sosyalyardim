@@ -23,7 +23,7 @@
         </div>
         <input type="submit" value="Giriş Yap">
         <div class="signup_link">
-          Hesabınız Yok mu? <a href="regg.jsp"> Kaydol</a>
+          Hesabınız Yok mu? <a href="register.jsp"> Kaydol</a>
         </div>
       </form>
     </div>

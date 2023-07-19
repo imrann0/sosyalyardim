@@ -14,7 +14,7 @@
         <header>
             <a href="index.html"><img src="img/zzz.png" class="logo"></a>
             <ul>
-                <li><a href="regg.jsp">Kayit Ol</a></li>
+                <li><a href="register.jsp">Kayit Ol</a></li>
                 <li><a href="login.jsp">Giriş Yap</a></li>
             </ul>
         </header>
