@@ -1,13 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="jakarta.servlet.http.HttpSession" %>
-<%@ page import="com.example.example.DataBase.Personel" %>
-<%@ page import="java.util.List" %>
-<%
-  List<Personel> users = Personel.getAllUserInfo();
-
-
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +42,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="anasayfa.html" class="nav-link">Anasayfa</a>
       </li>
+      
     </ul>
 
     <!-- SEARCH FORM -->
@@ -73,72 +65,60 @@
     <section class="content-wrapper">
       
       <div class="container">
-        <!-- Small boxes (Stat box) -->
-        
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          
-          <div class="col-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-center">
-                    <h3 class="card-title font-weight-bold">KULLANICI LİSTESİ</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="card card-primary">
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title">Bölge Tanımlama</h3>
+                    </div>
+    
+                    <!-- form başlangıcı -->
+                    <form role="form">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <!-- select -->
+                              <div class="form-group">
+                                <label>Bölge Adı</label>
+                                <select class="form-control">
+                                  <option>1. Bölge</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <!-- select -->
+                              <div class="form-group">
+                                <label>Mahalle Adı</label>
+                                <select class="form-control">
+                                  <option>Adem Yavuz</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
+                          
+
+                        </div>
+                        <!-- form sonu -->
+    
+                        <div class="card-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-
-
-                        <th>ID</th>
-                        <th>Kullanıcı Adı</th>
-                        <th>Sicil No</th>
-                        <th>Ad</th>
-                        <th>Ünvan</th>
-                        <th>Telefon</th>
-                        <th>Cinsiyet</th>
-                        <th>Durum</th>
-                        <th>Düzenle</th>
-                        <th>Sil</th>
-                    </tr>
-
-                    </thead>
-                    <tbody>
-                    <%
-                      for(Personel user : users){ if(user.getStatus()==1){%>
-
-                    <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>
-                      <td><%= user.getName()%></td>
-                      <td><%= user.getUnvan()%></td>
-                      <td><%= user.getPhone()%></td>
-                      <td><%= user.getGender()%></td>
-                      <td><%= user.getStatus()%></td>
-                      <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
-                      </td>
-                      <td><form action="kullanicisil" method="post"><input type="hidden" name="userId" value="<%=user.getId()%>" /><input type="submit" value="Sil" class="btn btn-danger"></form></td>
-                    </tr>
-                    <% }} %>
-
-                    </tbody>
-                    
-                  </table>
-                </div>
-                <!-- /.card-body
-                 <form action="kullanicisil" method="post"><input type="hidden" value="" name="userId" ></form>
-
-                 -->
-              </div>
-            <!-- /.card -->
-          </div>
-          <!-- Modal -->
-
+                <!-- Modal -->
+            </div>
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -199,30 +179,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<script>
-  var select1 = document.getElementById("select1");
-  var select2 = document.getElementById("select2");
 
-  // İlk kutudan seçenek seçildiğinde senkronize et
-  select1.addEventListener("change", function() {
-    var selectedOptions = Array.from(select1.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select2.appendChild(option);
-      option.selected = false;
-    });
-  });
-
-  // İkinci kutudan seçenek seçildiğinde senkronize et
-  select2.addEventListener("change", function() {
-    var selectedOptions = Array.from(select2.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select1.appendChild(option);
-      option.selected = false;
-    });
-  });
-</script>
 
 <!-- Bootstrap 4 -->
 
@@ -233,23 +190,7 @@
 <!-- AdminLTE for demo purposes -->
 
 <!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
+
 
 
 

@@ -232,6 +232,7 @@
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
+
                       <label>Seçilen profil</label>
                       <select id="selec2"  name="selected" multiple class="custom-select">
                       <% for (Rol role : hasRoles) { %>

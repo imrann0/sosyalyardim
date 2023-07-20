@@ -2,6 +2,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="com.example.example.RoleControl" %>
+
+<%
+    // Kullanıcının ID'sini çekmek için parametreyi alıyoruz.
+    String userId = request.getParameter("userId");
+    int Id = Integer.parseInt(userId);
+
+    // Kullanıcı ID'sine göre veritabanından kullanıcı bilgilerini alabilirsiniz.
+    // Örnek olarak:
+    Personel user = Personel.getUserInfoById(userId);
+
+    // RoleUtils sınıfına doğrudan erişim sağlayabilirsiniz.
+    Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
+    Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
+
+    System.out.println(user);
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +53,21 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+  /* Sidebardaki "Anasayfa", "İşlemlerim", "Yönetici İşlemleri" ve "Raporlar" başlıklarının yazı rengini ve arka plan rengini belirgin hale getir */
+  
+  #islemlerim.nav-link,
+  #yonetici.nav-link,
+  #rapor.nav-link {
+    color: #fff; /* Yazı rengini istediğiniz renk koduyla değiştirebilirsiniz */
+    background-color:	#494949; /* Arka plan rengini istediğiniz renk koduyla değiştirebilirsiniz */
+  }
+</style>
+
+
+
+
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -43,7 +80,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="anasayfa.html" class="nav-link">Anasayfa</a>
+        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
       </li>
       
     </ul>
@@ -55,626 +92,39 @@
     
   </nav>
   <!-- /.navbar -->
-
+	<%@include file="sidebar.jsp"%>
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="anasayfa.html" class="brand-link">
-      <img src="1111.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: 10">
-      <span class="brand-text font-weight-light">Gebze Belediyesi</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                <a href="anasayfa.html" class="nav-link">
-                  <i class="fas fa-home"></i>
-                  <p>
-                    Anasayfa
-                    
-                  </p>
-                </a>
-              </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="fa fa-check-square" aria-hidden="true"></i>
-
-              <p>
-                İşlemlerim
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-user"></i>
-                  <p>
-                    Müracaat
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="geneltakip.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Genel Takip</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="muracaatgir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Müracaat Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="muracaatliste.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Müracaat Listesi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="egitimliste.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Eğitim Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Tutanak
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="tutanakgir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tutanak Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="tutanaklist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tutanak Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Yardım Kararı
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="yardimkararlist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yardım Karar Listesi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="yardimkararlistozel.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yardım Liste Özel</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="topyardim.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Toplu Yardım Yükleme</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Aşevi
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="asevigir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Aşevi Bilgi Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="asevilist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Aşevi Bilgi Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-wheelchair" aria-hidden="true"></i>
-                  <p>
-                    Engelli Bilgisi
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="engellilist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Engelli Bilgi Listesi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="engelliarac.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Engelli Araç Bilgi Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-bars" aria-hidden="true"></i>
-                  <p>
-                    Aile Yakınlık Bilgisi
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="aileyakinlik.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Aile Yakınlık Bilgi Listesi</p>
-                    </a>
-                  </li>
-                  
-                  
-                </ul>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                  <p>
-                    Stok
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="stokgir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Stok Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="stoklist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Stok Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-            </ul>
-            
-            
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <p>
-                Yönetici İşlemleri
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-user"></i>
-                  <p>
-                    Kullanıcı
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="kullaniciyukle.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Kullanıcı Yükle</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="kullaniciliste.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Kullanıcı Listele</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Bölge
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./bolgegiris.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Bölge Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="bolgetanimlama.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Bölge Tanımlama</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Mahalle
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./mahallegir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Mahalle Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./mahallelist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Mahalle Listele</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-address-book" aria-hidden="true"></i>
-                  <p>
-                    Cadde/Sokak
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./caddegir.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Cadde/Sokak Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./caddelist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Cadde/Sokak Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                  <p>
-                    Eğitim
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./okulgiris.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Okul Girişi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./okullist.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Okul Listesi</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-bars" aria-hidden="true"></i>
-                  <p>
-                    Diğer Tanımlar
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./cekmecetanim.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Çekmece Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./meslektanimlama.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Meslek Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./yakinlik.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yakınlık Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./tutanakdurumtanimlama.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tutanak Durum Tanımlama</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                  <p>
-                    Yardım Parametreleri
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./yardimtipi.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yardım Tipi Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./yardimalttip.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yardım Alt Tip Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./talepedilen.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Talep Edilen Yardım Tipi</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./tanimlama.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tanımlama</p>
-                    </a>
-                  </li>
-                  
-                  
-                </ul>
-              </li>
-              
-            </ul>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-wheelchair" aria-hidden="true"></i>
-                  <p>
-                    Engelli Tipleri Girişi
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./engellitiptanim.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Engelli Tipi Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./engellialttip.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Engelli Alt Tipi Tanımlama</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./yonkurum.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yönlendirilen Kurum</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./yonaltkurum.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Yönlendirilen Alt Kurum</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-          </li>
-          
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="fa fa-book" aria-hidden="true"></i>
-
-              <p>
-                Raporlar
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./muracaatrapor.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Müracaat Raporu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./tutanakrapor.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tutanak Raporu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./yardimkarara.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Yardım Karar Raporu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./yardimkararyillikr.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Yardım Karar Yıllık Raporu</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </ul>
-        
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
+  <div class="content-wrapper">  
     <!-- /.content-header -->
-
     <!-- Main content -->
-    <section class="content-wrapper">
-      
+    <section class="content-wrapper">      
       <div class="container">
-        <!-- Small boxes (Stat box) -->
-        
+        <!-- Small boxes (Stat box) -->      
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-          
           <div class="card card-primary col-md-10">
             <div class="card-header d-flex justify-content-center">
-              <h3 class="card-title">Kullanıcı Yükle</h3>
+              <h3 class="card-title">Kullanıcı Düzenle</h3>
             </div>
-            
-            
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
+            <form action="adminupdate" method="post">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
                       <label>E-Posta</label>
-                      <input type="email" class="form-control" placeholder="E-posta adresinizi giriniz." required>
+                        <input type="hidden" name="userId" class="form-control" value="<%= user.getId() %>" required>
+						<input type="email"  name="email" class="form-control" value="<%= user.getMail() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Ünvan</label>
-                      <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                      <input type="text" class="form-control"  name="unvan" value="<%= user.getUnvan() %>" required>
                     </div>
                   </div>
                 </div>
@@ -683,13 +133,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Kullanıcı Adı</label>
-                      <input type="text" class="form-control" placeholder="Kullanıcı adını giriniz" required>
+                      <input type="text" class="form-control"  name="username" value="<%= user.getUserName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Şifre</label>
-                      <input type="password" class="form-control" placeholder="Şifreyi Giriniz" required>
+                      <input type="password" class="form-control" name="password" value="<%= user.getPassword() %>" required>
                     </div>
                   </div>
                 </div>
@@ -698,13 +148,13 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Ad</label>
-                      <input type="text" class="form-control" placeholder="Adınızı Giriniz" required>
+                      <input type="text" class="form-control"  name="name" value="<%= user.getName() %>" required>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Soyad</label>
-                      <input type="text" class="form-control" placeholder="Soyadınızı Giriniz" required>
+                      <input type="text" class="form-control" name="surname" value="<%= user.getSurname() %>" required>
                     </div>
                   </div>
                 </div>
@@ -713,7 +163,8 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Sicil No</label>
-                      <input type="text" class="form-control" pattern="[0-9]{13}" placeholder="13 haneli Sicil No Giriniz" required>
+                        <input type="text" class="form-control" pattern="[0-9]{13}"  name="sicilNo" value="<%= user.getRegistrationNo() %>" required>
+
                     </div>
                     
                   </div>
@@ -722,14 +173,14 @@
                       <label>Cinsiyet</label>
                       <div class="form-group clearfix">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="cinsiyet" required>
+							<input type="radio" id="radioPrimary1" name="cinsiyet" value="E" <%= user.getGender().equals("E") ? "checked" : "" %> required>
                           <label for="radioPrimary1">
                             Erkek
                           </label>
                         </div>
                         
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary3" name="cinsiyet" required>
+                			<input type="radio" id="radioPrimary3" name="cinsiyet" value="K" <%= user.getGender().equals("K") ? "checked" : "" %> required>
                           <label for="radioPrimary3">
                             Kadın
                           </label>
@@ -742,7 +193,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Telefon</label>
-                      <input type="tel" class="form-control" pattern="[0-9]{11}" placeholder="Telefon Numarasını Giriniz" required>
+                      <input type="tel" class="form-control" name="phone" pattern="[0-9]{11}"  value="<%= user.getPhone() %>" required>
                     </div>
                     
                   </div>
@@ -751,14 +202,14 @@
                       <label>Durum</label>
                       <div class="form-group clearfix">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary2" name="durum" required>
+                			<input type="radio" id="radioPrimary2" name="durum" value="1" <%= user.getStatus() == 1 ? "checked" : "" %> required>
                           <label for="radioPrimary2">
                             Aktif
                           </label>
                         </div>
                         
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary4" name="durum" required>
+                			<input type="radio" id="radioPrimary4" name="durum" value="0" <%= user.getStatus() == 0 ? "checked" : "" %> required>
                           <label for="radioPrimary4">
                             Pasif
                           </label>
@@ -772,29 +223,41 @@
                     <!-- Select multiple-->
                     <div class="form-group">
                       <label>Seçilebilir profil</label>
-                      <select id="select1" multiple class="custom-select">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                      <select id="selec1" name="cars1" multiple class="custom-select">
+                        <% for (Rol role : notHasRoles) { %>
+					        <option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
+					    <% } %>
                       </select>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
+
                       <label>Seçilen profil</label>
-                      <select id="select2" multiple class="custom-select">
+                      <select id="selec2"  name="selected" multiple class="custom-select">
+                      <% for (Rol role : hasRoles) { %>
+        					<option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
+      					<% } %>
                       </select>
                     </div>
                   </div>
                 </div>
+                <script>
+					      document.getElementById("selec1").addEventListener("change", function() {
+					        var selected = this.options[this.selectedIndex];
+					        document.getElementById("selec2").appendChild(selected);
+					      }); 
+					      document.getElementById("selec2").addEventListener("change", function() {
+					        var selected = this.options[this.selectedIndex];
+					        document.getElementById("selec1").appendChild(selected);
+					      }); 
+      				</script>
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
                     <div class="form-group">
                       <label>Adres</label>
-                      <textarea class="form-control" rows="3" placeholder="Adres giriniz." required></textarea>
+						<textarea class="form-control" rows="3" name="address" required><%= user.getAddress() %></textarea>
                     </div>
                     
                   </div>
@@ -802,12 +265,16 @@
                     <!-- select -->
                     <div class="form-group">
                       <label>Bölüm</label>
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                      <select class="form-control" name="selectedBolum">
+                        <option value="Yazilim"  <%= user.getSection().equals("Yazilim") ? "selected" : "" %> >Yazılım</option>
+                        <option value="Yonetici" <%= user.getSection().equals("Yonetici") ? "selected" : "" %>>Yönetiçi</option>
+                        <option value="Danisma" <%= user.getSection().equals("Danisma") ? "selected" : "" %>>Danışma</option>
+                        <option value="Baskanlik" <%= user.getSection().equals("Yazilim") ? "selected" : "" %>>Başkanlık</option>
+                        <option value="Seflik" <%= user.getSection().equals("Baskanlik") ? "selected" : "" %>>Şeflik </option>
+                        <option value="Depo-Dagıtım" <%= user.getSection().equals("Depo-Dagıtım") ? "selected" : "" %>>Depo - Dağıtım </option>
+                        <option value="Saha_Ekibi" <%= user.getSection().equals("Saha_Ekibi") ? "selected" : "" %>>Saha Ekibi </option>
+                        <option value="Market-Inkılap" <%= user.getSection().equals("Market-Inkılap") ? "selected" : "" %>>Market - İnkılap </option>
+                        <option value="Market-Necip_Fazıl" <%= user.getSection().equals("Market-Necip_Fazıl") ? "selected" : "" %>>Market - Necip Fazıl </option>
                       </select>
                     </div>
                   </div>
@@ -819,7 +286,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+                <button type="submit" class="btn btn-primary">Kullanıcı Düzenle</button>
               </div>
               
             </form>
@@ -834,7 +301,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>
+    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi</a></strong>
     
     <div class="float-right d-none d-sm-inline-block">
       <b>2023</b>
