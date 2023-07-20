@@ -1,4 +1,4 @@
-package com.example.example;
+package com.example.example.AdminServlet;
 
 import com.example.example.DataBase.Personel;
 import com.example.example.DataBase.Rol;
@@ -99,7 +99,7 @@ public class AdminRegister extends HttpServlet {
             session.close();
             sessionFactory.close();
 
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect("./kullaniciliste.jsp");
         } catch (Exception e) {
             System.err.println("Hata oluştu: " + e);
             e.printStackTrace();

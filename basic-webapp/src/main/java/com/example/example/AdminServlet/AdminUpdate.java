@@ -1,4 +1,4 @@
-package com.example.example;
+package com.example.example.AdminServlet;
 
 import com.example.example.DataBase.Personel;
 import com.example.example.DataBase.Rol;
