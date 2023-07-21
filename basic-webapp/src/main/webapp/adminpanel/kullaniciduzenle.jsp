@@ -218,40 +218,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Select multiple-->
-                    <div class="form-group">
-                      <label>Seçilebilir profil</label>
-                      <select id="selec1" name="cars1" multiple class="custom-select">
-                        <% for (Rol role : notHasRoles) { %>
-					        <option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
-					    <% } %>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-
-                      <label>Seçilen profil</label>
-                      <select id="selec2"  name="selected" multiple class="custom-select">
-                      <% for (Rol role : hasRoles) { %>
-        					<option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
-      					<% } %>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <script>
-					      document.getElementById("selec1").addEventListener("change", function() {
-					        var selected = this.options[this.selectedIndex];
-					        document.getElementById("selec2").appendChild(selected);
-					      }); 
-					      document.getElementById("selec2").addEventListener("change", function() {
-					        var selected = this.options[this.selectedIndex];
-					        document.getElementById("selec1").appendChild(selected);
-					      }); 
-      				</script>
+                
+                
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
@@ -280,6 +248,15 @@
                   </div>
                   
                 </div>
+                <label>Roller:</label>
+				<div class="form-group">
+				    <% for (int i = 1; i <= 30; i++) { %>
+				      <div class="form-check form-check-inline">
+				        <input class="form-check-input" type="checkbox" id="rol<%= i %>">
+				        <label class="form-check-label" for="rol<%= i %>">Rol<%= i %></label>
+				      </div>
+				    <% } %>
+				</div>
                 
         
               </div>
