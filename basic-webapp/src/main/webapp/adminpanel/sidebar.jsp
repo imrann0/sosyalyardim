@@ -2,7 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.List" %>
-
+<style>
+  /* Sidebardaki "Anasayfa", "İşlemlerim", "Yönetici İşlemleri" ve "Raporlar" başlıklarının yazı rengini ve arka plan rengini belirgin hale getir */
+  
+  #islemlerim.nav-link,
+  #yonetici.nav-link,
+  #rapor.nav-link {
+    color: #fff; /* Yazı rengini istediğiniz renk koduyla değiştirebilirsiniz */
+    background-color: #494949; /* Arka plan rengini istediğiniz renk koduyla değiştirebilirsiniz */
+  }
+</style>
 
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -328,7 +337,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="sidebar.jsp" class="nav-link">
+                    <a href="mahallegir.jsp" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Mahalle Girişi</p>
                     </a>
