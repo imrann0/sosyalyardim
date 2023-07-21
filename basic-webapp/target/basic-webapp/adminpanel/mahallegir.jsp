@@ -40,7 +40,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="anasayfa.html" class="nav-link">Anasayfa</a>
+        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
       </li>
       
     </ul>
@@ -66,10 +66,10 @@
       
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="card card-primary">
-                    <div class="card-header d-flex justify-content-center">
-                        <h3 class="card-title">Yeni Bölge Girişi</h3>
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title">Yeni Mahalle Girişi</h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -78,30 +78,19 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Bölge Kodu</label>
-                                <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                                <label>Mahalle Kodu</label>
+                                <input type="text" class="form-control" placeholder="Mahalle kodu giriniz" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
-                              <!-- text input -->
                               <div class="form-group">
-                                <label>Bölge Aktiflik Durumu</label>
-                                <div class="form-group clearfix">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary2" name="durum" required>
-                                        <label for="radioPrimary2">
-                                            Aktif
-                                        </label>
-                                    </div>
-      
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary4" name="durum" required>
-                                        <label for="radioPrimary4">
-                                            Pasif
-                                        </label>
-                                    </div>
-                                </div>
-                              </div>
+                                <label>İlçe</label>
+                                <select class="form-control">
+                                  <option>GEBZE</option>
+                                  
+                                </select>
+                              </div><!-- text input -->
+                              
                             </div>
                             
                           </div>
@@ -110,6 +99,16 @@
                               <div class="form-group">
                                 <label>Bölge Adı</label>
                                 <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <!-- select -->
+                              <div class="form-group">
+                                <label>Bölge Adı</label>
+                                <select class="form-control">
+                                  <option>1. Bölge</option>
+                                  
+                                </select>
                               </div>
                             </div>  
                           </div>

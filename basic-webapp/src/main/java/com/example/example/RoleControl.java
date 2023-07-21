@@ -1,10 +1,12 @@
 package com.example.example;
 
 import jakarta.servlet.http.HttpSession;
+import org.hibernate.QueryException;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 
 import com.example.example.DataBase.Rol;
+
 
 import java.util.HashSet;
 import java.util.List;

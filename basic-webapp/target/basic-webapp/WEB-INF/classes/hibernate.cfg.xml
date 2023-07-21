@@ -30,4 +30,5 @@
         <mapping class="com.example.example.DataBase.IDInfo" />
         <mapping class="com.example.example.DataBase.Application" />
     </session-factory>
+
 </hibernate-configuration>

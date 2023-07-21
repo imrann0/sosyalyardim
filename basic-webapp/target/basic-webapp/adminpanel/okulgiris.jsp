@@ -40,7 +40,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="anasayfa.html" class="nav-link">Anasayfa</a>
+        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
       </li>
       
     </ul>
@@ -66,10 +66,10 @@
       
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="card card-primary">
-                    <div class="card-header d-flex justify-content-center">
-                        <h3 class="card-title">Yeni Bölge Girişi</h3>
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title">Yeni Okul Girişi</h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -78,26 +78,29 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Bölge Kodu</label>
-                                <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                                <label>Durum</label>
+                                <select class="form-control" style="max-width: 150px;">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>                                  
+                                </select>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <!-- text input -->
                               <div class="form-group">
-                                <label>Bölge Aktiflik Durumu</label>
+                                <label>Okul Türü</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary2" name="durum" required>
+                                        <input type="radio" id="radioPrimary2" name="okul" required>
                                         <label for="radioPrimary2">
-                                            Aktif
+                                            Devlet
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary4" name="durum" required>
+                                        <input type="radio" id="radioPrimary4" name="okul" required>
                                         <label for="radioPrimary4">
-                                            Pasif
+                                            Özel
                                         </label>
                                     </div>
                                 </div>
@@ -108,10 +111,28 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Bölge Adı</label>
-                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                                <label>Okul Tipi</label>
+                                <select class="form-control" style="max-width: 150px;">
+                                  <option>Anaokul</option>
+                                  <option>İlkokul</option> 
+                                  <option>Ortaokul</option>
+                                  <option>Lise</option>
+                                  <option>Yüksek Lisans</option>
+                                  <option>Önlisans</option>
+                                  <option>Lisans</option>
+                                  <option>Diğer</option>
+                                                                   
+                                </select>
                               </div>
-                            </div>  
+                            </div> 
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Okul Adı</label>
+                                <input type="text" class="form-control" name="okul" required>
+                                                                   
+                               
+                              </div>
+                            </div> 
                           </div>
                           
 
