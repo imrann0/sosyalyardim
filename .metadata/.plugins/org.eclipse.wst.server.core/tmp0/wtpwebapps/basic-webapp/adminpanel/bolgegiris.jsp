@@ -68,7 +68,7 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card card-primary">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title">Yeni Bölge Girişi</h3>
                     </div>
     

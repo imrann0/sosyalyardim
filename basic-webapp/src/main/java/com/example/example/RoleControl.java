@@ -1,32 +1,47 @@
 package com.example.example;
 
 import jakarta.servlet.http.HttpSession;
-import org.hibernate.QueryException;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import com.example.example.DataBase.Rol;
-
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class RoleControl {
-	
-    public static boolean hasRole(HttpSession userSession, String   roleName) {
+
+    public static boolean hasRole(HttpSession userSession, String roleName) {
         @SuppressWarnings("unchecked")
         Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
         if (roles != null) {
             for (Rol rol : roles) {
                 if (rol.getRoleName().equals(roleName)) {
-		            System.out.println("Kullanıcı Role Sahip: " + roleName);
+                    System.out.println("Kullanıcı Role Sahip: " + roleName);
                     return true;
                 }
             }
         }
         return false;
     }
+
+    public static int hasUserRole(int userId, int roleId) {
+        System.out.println(userId + roleId);
+        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+            String sql = "SELECT r.* FROM rol r JOIN personel_rol pr ON r.id = pr.rol_id WHERE pr.personel_id = :userId AND r.id = :roleId";
+            Query<Long> query = session.createNativeQuery(sql, Long.class); // Fix hql to sql here
+            query.setParameter("userId", userId);
+            query.setParameter("roleId", roleId);
+            Long result = query.uniqueResult();
+            return result != null && result > 0 ? 1 : 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 
     public static Set<Rol> getRolesByUserId(int userId) {
         try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
@@ -55,5 +70,4 @@ public class RoleControl {
             return new HashSet<>();
         }
     }
-
 }

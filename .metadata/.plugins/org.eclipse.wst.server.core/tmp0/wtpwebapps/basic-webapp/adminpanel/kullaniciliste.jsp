@@ -5,14 +5,7 @@
 <%
   List<Personel> users = Personel.getAllUserInfo();
 
-  /*
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
 
-if (!RoleUtils.hasRole(userSession, roleName)) {
-    response.sendRedirect("../login.jsp");
-}
-*/
 %>
 
 <!DOCTYPE html>
@@ -111,9 +104,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </tr>
 
                     </thead>
-                    <tbody>       
+                    <tbody>
                     <%
-                      for(Personel user : users){ %>
+                      for(Personel user : users){ if(user.getStatus()==1){%>
+
                     <tr>
                       <td><%= user.getId()%></td>
                       <td><%= user.getUserName()%></td>
@@ -125,14 +119,18 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                       <td><%= user.getStatus()%></td>
                       <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
                       </td>
-                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
+                      <td><form action="kullanicisil" method="post"><input type="hidden" name="userId" value="<%=user.getId()%>" /><input type="submit" value="Sil" class="btn btn-danger"></form></td>
                     </tr>
-                    <% } %>           
+                    <% }} %>
+
                     </tbody>
                     
                   </table>
                 </div>
-                <!-- /.card-body -->
+                <!-- /.card-body
+                 <form action="kullanicisil" method="post"><input type="hidden" value="" name="userId" ></form>
+
+                 -->
               </div>
             <!-- /.card -->
           </div>
@@ -252,41 +250,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     });
   });
 </script>
-  <script>
-    function confirmDelete() {
-        // Bootstrap modal for confirmation dialog
-        var confirmationModal = `
-            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Kullanıcıyı silmek istediğinize emin misiniz?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                            <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', confirmationModal);
-
-        // Show the confirmation modal
-        $('#deleteConfirmationModal').modal('show');
-    }
-
-    function deleteUser() {
-        $('#deleteConfirmationModal').modal('hide');
-    }
-  </script>
 
 
 

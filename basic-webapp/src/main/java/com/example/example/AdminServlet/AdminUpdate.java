@@ -38,7 +38,18 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     String gender = request.getParameter("cinsiyet");
     String SelectedSection = request.getParameter("selectedBolum");
     int status = Integer.parseInt(request.getParameter("durum"));
-    String[] selectedRoleIds = request.getParameterValues("selected");
+    String[] selectedRoleIds = request.getParameterValues("roles");
+    if (selectedRoleIds != null) {
+        for (String roleId : selectedRoleIds) {
+            // Convert the roleId from String to integer if needed
+            int roleIdInt = Integer.parseInt(roleId);
+            
+            // Now you can use the roleIdInt for further processing
+            // For example, you can check if the user has this role or update the user's roles in the database
+            // Here, I'm just printing the selected role IDs as an example
+            System.out.println("Selected Role ID: " + roleIdInt);
+        }
+    }
 
     if (gender != null) {
         if (gender.equals("E")) {
