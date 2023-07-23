@@ -19,7 +19,6 @@ public class RoleControl {
         if (roles != null) {
             for (Rol rol : roles) {
                 if (rol.getRoleName().equals(roleName)) {
-                    System.out.println("Kullanıcı Role Sahip: " + roleName);
                     return true;
                 }
             }
@@ -28,7 +27,6 @@ public class RoleControl {
     }
 
     public static int hasUserRole(int userId, int roleId) {
-        System.out.println(userId + roleId);
         try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
             String sql = "SELECT r.* FROM rol r JOIN personel_rol pr ON r.id = pr.rol_id WHERE pr.personel_id = :userId AND r.id = :roleId";
             Query<Long> query = session.createNativeQuery(sql, Long.class); // Fix hql to sql here
