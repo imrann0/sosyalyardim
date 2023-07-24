@@ -25,6 +25,7 @@
             <ul>
                 <%if(!(mail==null)){%>
                 <li>Merahaba <%=mail%></li>
+                <li><a href="adminpanel/kullaniciyukle.jsp">Admin Panel</a></li>
                 <li><a href="Logout">Çıkış yap</a></li>
                <% }%>
                 <li><a href="register.jsp">Kayit Ol</a></li>

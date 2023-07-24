@@ -1,8 +1,8 @@
-INDEX VERSION 1.4+C:\Users\aliim\OneDrive\Masaüstü\sosyalyardim\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-570082298.index
+INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+440215762.index
+0.index
 875746838.index
-2625868156.index
-2902052831.index
-211178409.index
-1864239112.index
-2686896457.index
+3330040130.index
+77155007.index
+2348948558.index
+3335907368.index

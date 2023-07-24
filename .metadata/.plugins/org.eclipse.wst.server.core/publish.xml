@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <publish-info>
-  <server id="apache-tomcat-10.1.8 at localhost" path="publish2.dat"/>
+  <server id="apache-tomcat-10.1 at localhost" path="publish2.dat"/>
 </publish-info>
