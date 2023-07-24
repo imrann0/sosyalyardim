@@ -14,8 +14,8 @@
     Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
     Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
     List<Rol> roles = Rol.getAllRoles();
-%>
 
+%>
 
 
 <!DOCTYPE html>

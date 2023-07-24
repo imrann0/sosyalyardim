@@ -115,8 +115,8 @@
                       <td><%= user.getName()%></td>
                       <td><%= user.getUnvan()%></td>
                       <td><%= user.getPhone()%></td>
-                      <td><%= user.getGender()%></td>
-                      <td><%= user.getStatus()%></td>
+                      <td><%= user.getGender().equals("K") ? "Kadın" : "Erkek" %></td>
+                      <td><%= user.getStatus() == 1 ? "Aktif" : "Pasif" %></td>
                       <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
                       </td>
                       <td><form action="kullanicisil" method="post"><input type="hidden" name="userId" value="<%=user.getId()%>" /><input type="submit" value="Sil" class="btn btn-danger"></form></td>

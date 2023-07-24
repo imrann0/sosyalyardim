@@ -1,7 +1,7 @@
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%@ page import="java.util.Set" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%    HttpSession userSession = request.getSession();
+<%   HttpSession userSession = request.getSession();
     Set<Rol> roles = (Set<Rol>) userSession.getAttribute("roles");
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
@@ -9,7 +9,6 @@
         System.out.println("Kulanici onayli");
         response.sendRedirect("login.jsp");
     }
-
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +133,7 @@
         </p>
 
         <div>
-            <label for="misafir:">Misafir:</label>
+            <label>Misafir:</label>
             <input type="checkbox" id="misafir" name="misafir">
         </div>
 
@@ -144,7 +143,7 @@
         </p>
     </div>
 </div>
-<div class="form-right">
+
     <div class="adres">
         <h2>Adres Bilgileri</h2>
         <p>
@@ -157,7 +156,6 @@
             <input type="text" name="adresNo" value="">
         </p>
     </div>
-</div>
 <div class="form-container">
     <div class="form-left">
         <h3>İletişim Bilgileri</h3>
@@ -240,24 +238,12 @@
             <form>
                 <p>
                     <label for="datepicker">Yönlendirme Tarihi:</label>
-                    <input type="text" class="datepicker" name="yonlendirme_tarihi" required>
+                    <input type="date" name="yonlendirme_tarihi" required>
                 </p>
                 <p>
                     <input type="submit" value="Gönder">
                 </p>
             </form>
-
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-            <script>
-                $(function() {
-                    $("#datepicker").datepicker({
-                        dateFormat: "dd-mm-yy",
-                        changeMonth: true,
-                        changeYear: true
-                    });
-                });
-            </script>
 
             <label for="müracaatTip">Müracaat Tipi:</label>
             <select id="müracaatTip" name="müracaatTip">
@@ -333,8 +319,6 @@
                 </p>
             </form>
 
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 
         </form>
     </div>
@@ -376,24 +360,12 @@
         <form>
             <p>
                 <label for="datepicker">Yönlendirme Tarihi:</label>
-                <input type="text" class="datepicker" name="yonlendirme_tarihi" required>
+                <input type="date" name="yonlendirme_tarihi" required>
             </p>
             <p>
                 <input type="submit" value="Gönder">
             </p>
         </form>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-        <script>
-            $(function() {
-                $("#datepicker").datepicker({
-                    dateFormat: "dd-mm-yy",
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
     </div>
 </div>
 <div style="display: flex; justify-content: center; margin-top: 20px;">

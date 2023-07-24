@@ -14,7 +14,7 @@
 
 
 
-    /*
+
     boolean hasDeneme2Role = false;
     if (roles != null) {
         for (Rol rol : roles) {
@@ -29,7 +29,7 @@
         response.sendRedirect("login.jsp");
     }
 
-     */
+
 %>
 
 <!DOCTYPE html>
