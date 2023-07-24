@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
 <%@ page import="java.util.List" %>
 <%
   List<Personel> users = Personel.getAllUserInfo();
 
+HttpSession userSession = request.getSession();
+String roleName = "Role_Kullanıcı_Listele";
 
+if (!RoleUtils.hasRole(userSession, roleName)) {
+    response.sendRedirect("../Error/Error.html");
+}
 %>
 
 <!DOCTYPE html>
@@ -20,6 +26,8 @@
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -37,8 +45,9 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -72,68 +81,69 @@
     <!-- Main content -->
     <section class="content-wrapper">
       
-      <div class="container">
+      <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
-          
-          <div class="col-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-center">
-                    <h3 class="card-title font-weight-bold">KULLANICI LİSTESİ</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-
-
-                        <th>ID</th>
-                        <th>Kullanıcı Adı</th>
-                        <th>Sicil No</th>
-                        <th>Ad</th>
-                        <th>Ünvan</th>
-                        <th>Telefon</th>
-                        <th>Cinsiyet</th>
-                        <th>Durum</th>
-                        <th>Düzenle</th>
-                        <th>Sil</th>
-                    </tr>
-
-                    </thead>
-                    <tbody>
-                    <%
-                      for(Personel user : users){ if(user.getStatus()==1){%>
-
-                    <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>
-                      <td><%= user.getName()%></td>
-                      <td><%= user.getUnvan()%></td>
-                      <td><%= user.getPhone()%></td>
-                      <td><%= user.getGender().equals("K") ? "Kadın" : "Erkek" %></td>
-                      <td><%= user.getStatus() == 1 ? "Aktif" : "Pasif" %></td>
-                      <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
-                      </td>
-                      <td><form action="kullanicisil" method="post"><input type="hidden" name="userId" value="<%=user.getId()%>" /><input type="submit" value="Sil" class="btn btn-danger"></form></td>
-                    </tr>
-                    <% }} %>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body
-                 <form action="kullanicisil" method="post"><input type="hidden" value="" name="userId" ></form>
-                 -->
-              </div>
-            <!-- /.card -->
-          </div>
-          <!-- Modal -->
-
-        </div>
+	        <div class="row">
+	          
+		          <div class="col-12">
+		            <div class="card">
+		                <div class="card-header d-flex justify-content-center">
+		                    <h3 class="card-title font-weight-bold">KULLANICI LİSTESİ</h3>                	                
+						</div><!-- /.card-header -->
+		                <div class="card-body">
+		                  <table id="example2" class="table table-bordered table-hover">
+		                    <thead>
+		                    <tr>
+		
+		
+		                        <th>ID</th>
+		                        <th>Kullanıcı Adı</th>
+		                        <th>Sicil No</th>
+		                        <th>Ad</th>
+		                        <th>Ünvan</th>
+		                        <th>Telefon</th>
+		                        <th>Cinsiyet</th>
+		                        <th>Durum</th>
+		                        <th></th>
+		                        <th></th>
+		                        
+		
+		                        
+		                        
+		                    </tr>
+		
+		                    </thead>
+		                    <tbody>       
+		                    <%
+		                      for(Personel user : users){ %>
+		                    <tr>
+		                      <td><%= user.getId()%></td>
+		                      <td><%= user.getUserName()%></td>
+		                      <td><%= user.getRegistrationNo()%></td>
+		                      <td><%= user.getName()%></td>
+		                      <td><%= user.getUnvan()%></td>
+		                      <td><%= user.getPhone()%></td>
+		                      <td><%= user.getGender()%></td>
+		                      <td><%= user.getStatus()%></td>
+		                      <td><a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>"><button type="submit" class="btn btn-info">Düzenle</button></a>
+		                      </td>
+		                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
+		                    </tr>
+		                    <% } %>           
+		                    </tbody>
+		                    
+		                  </table>
+		                </div>
+		                <!-- /.card-body -->
+		              </div>
+		            <!-- /.card -->
+		          </div>
+	          <!-- Modal -->
+	
+	        </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -196,6 +206,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
 <script>
   var select1 = document.getElementById("select1");
   var select2 = document.getElementById("select2");
@@ -239,7 +250,7 @@
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
@@ -247,6 +258,49 @@
     });
   });
 </script>
+  <script>
+    function confirmDelete() {
+        // Bootstrap modal for confirmation dialog
+        var confirmationModal = `
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Kullanıcıyı silmek istediğinize emin misiniz?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Append modal to the document body
+        document.body.insertAdjacentHTML('beforeend', confirmationModal);
+
+        // Show the confirmation modal
+        $('#deleteConfirmationModal').modal('show');
+    }
+
+    function deleteUser() {
+        // Perform delete operation here
+        // This function will be called when the user confirms the deletion
+        // You can add your code to delete the user from the system
+
+        // After successful deletion, you may redirect the user or update the table accordingly
+
+        // Close the confirmation modal
+        $('#deleteConfirmationModal').modal('hide');
+    }
+  </script>
 
 
 
