@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="System.out.println"/>
+		<item key="selection" value=".login"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=".login"/>
+			<item value="background-color"/>
+			<item value="03"/>
+			<item value="save password"/>
+			<item value="sign in"/>
+			<item value="login"/>
+			<item value="username"/>
 			<item value="System.out.println"/>
 			<item value="System.out"/>
 			<item value="Kullanıcı Yükle"/>
@@ -16,8 +23,6 @@
 			<item value="siciln"/>
 			<item value="Kullanıcı adı"/>
 			<item value="kullan"/>
-			<item value="META-INF"/>
-			<item value="meta"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

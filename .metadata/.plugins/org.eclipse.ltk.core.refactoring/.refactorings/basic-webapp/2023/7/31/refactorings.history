@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <session version="1.0">&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;basic-webapp&apos;&#x0D;&#x0A;- Original project: &apos;basic-webapp&apos;&#x0D;&#x0A;- Original element: &apos;asfasfasf.jsp&apos;" description="Delete element" element1="src/main/webapp/adminpanel/asfasfasf.jsp" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1690197251547" subPackages="false" version="1.0"/>&#x0A;<refactoring comment="Rename resource &apos;basic-webapp/src/main/webapp/Error/index.html&apos; to &apos;Error.html&apos;" description="Rename resource &apos;index.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/Error/index.html" name="Error.html" stamp="1690206218936" updateReferences="true"/>&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;basic-webapp&apos;&#x0D;&#x0A;- Original project: &apos;basic-webapp&apos;&#x0D;&#x0A;- Original element: &apos;kayitol.jsp&apos;" description="Delete element" element1="src/main/webapp/kayitol.jsp" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1690206517046" subPackages="false" version="1.0"/>
+=======
+<session version="1.0">
+<refactoring comment="Rename resource &apos;basic-webapp/src/main/webapp/loginnn.html&apos; to &apos;loginnn.jsp&apos;" description="Rename resource &apos;loginnn.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/loginnn.html" name="loginnn.jsp" stamp="1690200894040" updateReferences="true"/>
+>>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 </session>

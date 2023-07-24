@@ -24,9 +24,13 @@
             <ul>
                 <%if(!(mail==null)){%>
                 <li>Merahaba <%=mail%></li>
+<<<<<<< HEAD
+                <li><a href="adminpanel/kullaniciyukle.jsp">Admin Panel</a></li>
+=======
                 <%if(Rol.hasRole(userSession,"Admin")){ %>
                 <li ><a href = "adminpanel/kullaniciyukle.jsp" > Admin Panel </a ></li >
               <%  }%>
+>>>>>>> 28319009b0f4960b8b78d4dbaf6dcd16375fd55d
                 <li><a href="Logout">Çıkış yap</a></li>
                <% }else{%>
 

@@ -108,15 +108,19 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                        <th>Cinsiyet</th>
 		                        <th>Durum</th>
 		                        <th></th>
+<<<<<<< HEAD
 		                        <th></th>
 		                        
 		
+=======
+                            <th></th>
+>>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 		                        
 		                        
 		                    </tr>
 		
 		                    </thead>
-		                    <tbody>       
+		                    <tbody>
 		                    <%
 		                      for(Personel user : users){ %>
 		                    <tr>
@@ -134,7 +138,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                    </tr>
 		                    <% } %>           
 		                    </tbody>
-		                    
+
 		                  </table>
 		                </div>
 		                <!-- /.card-body -->
@@ -207,30 +211,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
-<script>
-  var select1 = document.getElementById("select1");
-  var select2 = document.getElementById("select2");
-
-  // İlk kutudan seçenek seçildiğinde senkronize et
-  select1.addEventListener("change", function() {
-    var selectedOptions = Array.from(select1.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select2.appendChild(option);
-      option.selected = false;
-    });
-  });
-
-  // İkinci kutudan seçenek seçildiğinde senkronize et
-  select2.addEventListener("change", function() {
-    var selectedOptions = Array.from(select2.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select1.appendChild(option);
-      option.selected = false;
-    });
-  });
-</script>
 
 <!-- Bootstrap 4 -->
 
