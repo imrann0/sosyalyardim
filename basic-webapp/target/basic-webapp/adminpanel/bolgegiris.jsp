@@ -73,13 +73,13 @@
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form action="saveBolge" method="post">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Bölge Kodu</label>
-                                <input type="text" class="form-control" placeholder="Ünvanı giriniz" required>
+                                <input type="text" class="form-control" name="bolgekod" placeholder="Ünvanı giriniz" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
@@ -109,7 +109,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Bölge Adı</label>
-                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." name="name" required></textarea>
                               </div>
                             </div>  
                           </div>

@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
 <%@ page import="java.util.List" %>
 <%
   List<Personel> users = Personel.getAllUserInfo();
 
-  /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
 if (!RoleUtils.hasRole(userSession, roleName)) {
-    response.sendRedirect("../login.jsp");
+    response.sendRedirect("../Error/Error.html");
 }
-*/
 %>
 
 <!DOCTYPE html>
@@ -109,7 +108,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                        <th>Cinsiyet</th>
 		                        <th>Durum</th>
 		                        <th></th>
+<<<<<<< HEAD
+		                        <th></th>
+		                        
+		
+=======
                             <th></th>
+>>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 		                        
 		                        
 		                    </tr>
