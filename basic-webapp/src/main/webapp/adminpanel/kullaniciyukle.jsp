@@ -8,10 +8,7 @@
   HttpSession userSession = request.getSession();
   Set<Rol> roless = (Set<Rol>) userSession.getAttribute("roles");
   String mail = (String) userSession.getAttribute("mail");
-  // Check if the user has the "deneme2" role
   Rol.hasRole(userSession,"Kullanici");
-
-
 
 
 %>

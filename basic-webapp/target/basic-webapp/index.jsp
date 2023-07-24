@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Logo Tahmin</title>
+    <title>Sosyal Yardım Kullanıcı Sitesi</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -39,7 +39,7 @@
             <div class="textBox">
                 <h2><span>Gebze Belediyesi Sosyal Yardımlar</span></h2>
                 <p>Alttaki butona tıklayarak başvurunuzu oluşturun.</p>
-                <a href="muracat.jsp">Başvuru Oluştur</a>
+                <a href="muracat.jsp">Müracaat Girişi</a>
             </div>
             <div class="imgBox">
                 <img src="img/zzz.png" class="gebze">
