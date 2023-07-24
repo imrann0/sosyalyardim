@@ -122,14 +122,11 @@
                       <td><form action="kullanicisil" method="post"><input type="hidden" name="userId" value="<%=user.getId()%>" /><input type="submit" value="Sil" class="btn btn-danger"></form></td>
                     </tr>
                     <% }} %>
-
                     </tbody>
-                    
                   </table>
                 </div>
                 <!-- /.card-body
                  <form action="kullanicisil" method="post"><input type="hidden" value="" name="userId" ></form>
-
                  -->
               </div>
             <!-- /.card -->

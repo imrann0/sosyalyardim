@@ -8,20 +8,14 @@
 <%@ page import="com.example.example.RoleControl" %>
 
 <%
-    // Kullanıcının ID'sini çekmek için parametreyi alıyoruz.
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
-
-    // Kullanıcı ID'sine göre veritabanından kullanıcı bilgilerini alabilirsiniz.
-    // Örnek olarak:
     Personel user = Personel.getUserInfoById(userId);
-
-    // RoleUtils sınıfına doğrudan erişim sağlayabilirsiniz.
     Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
     Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
-
-    System.out.println(user);
+    List<Rol> roles = Rol.getAllRoles();
 %>
+
 
 
 <!DOCTYPE html>
@@ -63,11 +57,6 @@
     background-color:	#494949; /* Arka plan rengini istediğiniz renk koduyla değiştirebilirsiniz */
   }
 </style>
-
-
-
-
-  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -218,40 +207,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Select multiple-->
-                    <div class="form-group">
-                      <label>Seçilebilir profil</label>
-                      <select id="selec1" name="cars1" multiple class="custom-select">
-                        <% for (Rol role : notHasRoles) { %>
-					        <option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
-					    <% } %>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-
-                      <label>Seçilen profil</label>
-                      <select id="selec2"  name="selected" multiple class="custom-select">
-                      <% for (Rol role : hasRoles) { %>
-        					<option value="<%= role.getId() %>"><%= role.getRoleName() %></option>
-      					<% } %>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <script>
-					      document.getElementById("selec1").addEventListener("change", function() {
-					        var selected = this.options[this.selectedIndex];
-					        document.getElementById("selec2").appendChild(selected);
-					      }); 
-					      document.getElementById("selec2").addEventListener("change", function() {
-					        var selected = this.options[this.selectedIndex];
-					        document.getElementById("selec1").appendChild(selected);
-					      }); 
-      				</script>
+                
+                
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
@@ -280,6 +237,18 @@
                   </div>
                   
                 </div>
+                <label>Roller:</label>
+				<div class="form-group">
+				    <% for (Rol role : roles) { %>
+				        <div class="form-check form-check-inline">
+				            <input class="form-check-input" type="checkbox" id="rol<%= role.getId() %>" name="roles" value="<%= role.getId() %>" <% if (RoleControl.hasUserRole(Id, role.getId()) == 1) { %>checked<% } %>>
+				            <label class="form-check-label" for="rol<%= role.getId() %>"><%= role.getRoleName() %></label>
+				        </div>
+				    <% } %>
+				</div>
+
+
+
                 
         
               </div>
