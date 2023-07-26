@@ -56,4 +56,15 @@ public class Profession {
         return results;
 
     }
+    public static Profession getinfobyProfessionId(int profid){
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            Profession Meslek = session.get(Profession.class, profid);
+            return Meslek;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

@@ -215,7 +215,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td><%=Meslek.getProfessionName()%></td>
 		                      <td><%=Meslek.getIsActive()%></td>
 		                      <td>
-								  <a href="meslekduzenle.jsp">
+								  <a href="meslekduzenle.jsp?meslekId=<%=Meslek.getProfessionId()%>">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>

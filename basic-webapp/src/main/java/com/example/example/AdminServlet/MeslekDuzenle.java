@@ -11,8 +11,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 
-@WebServlet(name = "meslekServlet", value = "/adminpanel/meslektanimlama")
-public class MeslekServlet extends HttpServlet {
+@WebServlet(name = "MeslekDuzenle", value = "/adminpanel/MeslekDuzenle")
+public class MeslekDuzenle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -20,23 +20,21 @@ public class MeslekServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String MeslekAdi = request.getParameter("meslekAd");
-        String aktiflik = request.getParameter("Durum");
-        try{
+        int meslekid = Integer.parseInt(request.getParameter("meslekid"));
+        String meslekad = request.getParameter("meslekadi");
+        String Durum = request.getParameter("Durum");
+        try {
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
-            Profession meslek = new Profession();
-            meslek.setProfessionName(MeslekAdi);
-            meslek.setIsActive(aktiflik);
-
-            session.persist(meslek);
+            Profession meslek = session.get(Profession.class,meslekid);
+            meslek.setProfessionName(meslekad);
+            meslek.setIsActive(Durum);
+            session.merge(meslek);
             transaction.commit();
-
             session.close();
             sessionFactory.close();
             response.sendRedirect("./meslektanimlama.jsp");
-
 
         }catch (Exception e){
             System.out.println(e);
