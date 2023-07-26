@@ -31,7 +31,12 @@
         <mapping class="com.example.example.DataBase.Application" />
         <mapping class="com.example.example.DataBase.Profession" />
         <mapping class="com.example.example.DataBase.School" />
+
         <mapping class="com.example.example.DataBase.degreeofAffinity" />
+        <mapping class="com.example.example.DataBase.District" />
+        <mapping class="com.example.example.DataBase.Sokak" />
+        <mapping class="com.example.example.DataBase.Bolge" />
+        <mapping class="com.example.example.DataBase.HelpType" />
 
 
     </session-factory>

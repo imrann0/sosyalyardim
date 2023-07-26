@@ -7,8 +7,7 @@
 <%
   String meslekId = request.getParameter("meslekId");
   int Id = Integer.parseInt(meslekId);
-  List<Personel> users = Personel.getAllUserInfo();
-   Profession prof =  Profession.getinfobyProfessionId(Id);
+  Profession prof =  Profession.getinfobyProfessionId(Id);
 
   /*
 HttpSession userSession = request.getSession();

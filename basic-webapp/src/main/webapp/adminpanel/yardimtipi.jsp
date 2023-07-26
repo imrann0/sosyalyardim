@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.HelpType" %>
+
 <%@ page import="java.util.List" %>
-<%/*
+<%
+  List<HelpType> Assistances = HelpType.getAll();
+  /*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -137,14 +141,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" method="post" action="yardimTipServlet">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Yardım Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
+				                  <input type="text" class="form-control" name="yardimAd" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Ekle</button>
 				                  </div>
@@ -199,22 +203,22 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		
 		                    </thead>
 		                    <tbody>       
-		                    
+		                    <% for(HelpType yardim : Assistances){%>
 		                    <tr>
-		                      <td></td>
-		                      <td></td>
+		                      <td><%= yardim.getHelpId()%></td>
+		                      <td><%= yardim.getHelpName()%></td>
 		                      
 		                      
 		                      
 		                      <td>
-								  <a href="yardimtipiduzenle.jsp">
+								  <a href="yardimtipiduzenle.jsp?ID=<%=yardim.getHelpId()%>">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  
 
 		                    </tr>
-		                             
+		                             <% }%>
 		                    </tbody>
 		                    
 		                  </table>
