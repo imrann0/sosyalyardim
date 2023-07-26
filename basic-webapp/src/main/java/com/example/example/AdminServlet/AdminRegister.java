@@ -39,18 +39,6 @@ public class AdminRegister extends HttpServlet {
         int status = Integer.parseInt(request.getParameter("durum"));
         String[] selectedRoleIds = request.getParameterValues("selected");
         
-        if(gender != null) {
-        	if(gender.equals("E")) 
-        	{
-        		 gender = "E";
-        	}
-        	else
-        	{
-        	 gender = "K";
-        	}
-        }
-        
-
         
 
         try {

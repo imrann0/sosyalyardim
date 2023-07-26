@@ -1,12 +1,8 @@
 INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-440215762.index
-<<<<<<< HEAD
-0.index
-875746838.index
-=======
 2686896457.index
->>>>>>> 28319009b0f4960b8b78d4dbaf6dcd16375fd55d
-3330040130.index
-77155007.index
 2348948558.index
 3335907368.index
+3330040130.index
+875746838.index
+440215762.index
+77155007.index

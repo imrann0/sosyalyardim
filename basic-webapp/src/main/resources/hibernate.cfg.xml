@@ -29,6 +29,7 @@
         <mapping class="com.example.example.DataBase.Petition" />
         <mapping class="com.example.example.DataBase.IDInfo" />
         <mapping class="com.example.example.DataBase.Application" />
+        <mapping class="com.example.example.DataBase.School" />
     </session-factory>
 
 </hibernate-configuration>

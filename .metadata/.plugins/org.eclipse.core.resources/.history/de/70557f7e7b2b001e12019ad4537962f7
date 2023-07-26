@@ -1,0 +1,108 @@
+package com.example.example.AdminServlet;
+
+import com.example.example.DataBase.Rol;
+import com.example.example.DataBase.School;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.function.Supplier;
+
+import jakarta.servlet.annotation.WebServlet;
+
+
+@WebServlet(name = "Okul", value = "/adminpanel/Okul")
+public class Okul extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	String Durum = request.getParameter("Durum");
+    	String Okul = request.getParameter("Okul");
+    	String OkulSect = request.getParameter("OkulSect");
+    	String OkulName = request.getParameter("OkulName");
+        String[] selectedRoleIds = request.getParameterValues("selected");
+
+
+    
+try {
+    // Hibernate session'ı yapılandırması
+    SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    Transaction transaction = session.beginTransaction();
+           
+    School school = new School();
+    
+    school.setDurum(durum);
+    school.setOkul(okul);
+    school.setOkulSect(OkulSect);
+    ((School) personel).setOkulName(OkulName);
+    
+    if (selectedRoleIds != null) {
+        List<Integer> roleIds = Arrays.stream(selectedRoleIds)
+        	    .map(Integer::parseInt)
+        	    .collect(Collectors.toList());
+
+        	List<Rol> selectedRoles = session.createQuery("FROM Rol WHERE id IN (:roleIds)", Rol.class)
+        	    .setParameterList("roleIds", roleIds)
+        	    .getResultList();
+
+
+        // Personel rol setini güncelleyin
+         personel.setRoles(new HashSet<>(selectedRoles));
+    } else { 
+    	System.out.println(selectedRoleIds);
+    }
+
+
+    // Personel örneğini kay,dedin
+    session.persist(personel);
+    transaction.commit();
+
+    session.close();
+    sessionFactory.close();
+
+    response.sendRedirect("./kullaniciliste.jsp");
+} catch (Exception e) {
+    System.err.println("Hata oluştu: " + e);
+    e.printStackTrace();
+}
+}
+}
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
+

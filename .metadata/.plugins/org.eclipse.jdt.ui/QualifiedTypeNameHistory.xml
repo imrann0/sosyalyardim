@@ -4,4 +4,6 @@
     <fullyQualifiedTypeName name="com.example.example.DataBase.Personel"/>
     <fullyQualifiedTypeName name="jakarta.servlet.HttpConstraintElement"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="com.example.example.DataBase.School"/>
 </qualifiedTypeNameHistroy>
