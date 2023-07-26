@@ -133,17 +133,17 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Meslek Bilgi Giriş</h3>
+                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form action="meslektanimlama" method="post">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
-                                <label>Meslek Adı</label>
-                                <input type="text" class="form-control" name="meslekAd" required>
+                                <label>Çekmece Adı</label>
+                                <input type="text" class="form-control" name="cekmece" required>
                                                                    
                                
                               </div>
@@ -151,10 +151,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select name="Durum" class="form-control">
-                                  <option value="Aktif">Aktif</option>
-                                  <option value="Pasif">Pasif</option>
-
+                                <select class="form-control">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>
+                                  
                                 </select>
                               </div>
                               
@@ -186,7 +186,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
           <div class="col-12">
 		            <div class="card custom-datatable">
 		                <div class="card-header d-flex justify-content-center">
-		                    <h3 class="card-title font-weight-bold">MESLEK LİSTESİ</h3>                	                
+		                    <h3 class="card-title font-weight-bold">ÇEKMECE LİSTESİ</h3>                	                
 						</div><!-- /.card-header -->
 		                <div class="card-body">
 		                  <table id="example2" class="table table-bordered table-hover">
@@ -194,9 +194,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                    <tr>
 		
 		
-		                        <th>Meslek Kodu</th>
-		                        <th>Meslek Adı</th>
-		                        <th>Durum</th>
+		                        <th>Çekmece No</th>
+		                        <th>Çekmece Adı</th>
+		                        <th>Aktif</th>
 		                        <th></th>
 		                        
 		
@@ -215,7 +215,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      
 		                      
 		                      <td>
-								  <a href="meslekduzenle.jsp">
+								  <a href="cekmeceduzenle.jsp">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>
@@ -269,8 +269,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="//cdn.datatables.net/plug-ins/1.13.5/i18n/tr.json"></script>
-
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="plugins/sparklines/sparkline.js"></script>
@@ -293,13 +291,36 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 <!-- overlayScrollbars -->
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script>
+  var select1 = document.getElementById("select1");
+  var select2 = document.getElementById("select2");
+
+  // İlk kutudan seçenek seçildiğinde senkronize et
+  select1.addEventListener("change", function() {
+    var selectedOptions = Array.from(select1.selectedOptions);
+
+    selectedOptions.forEach(function(option) {
+      select2.appendChild(option);
+      option.selected = false;
+    });
+  });
+
+  // İkinci kutudan seçenek seçildiğinde senkronize et
+  select2.addEventListener("change", function() {
+    var selectedOptions = Array.from(select2.selectedOptions);
+
+    selectedOptions.forEach(function(option) {
+      select1.appendChild(option);
+      option.selected = false;
+    });
+  });
+</script>
 
 <!-- Bootstrap 4 -->
 
@@ -331,9 +352,49 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     });
   });
 </script>
+  <script>
+    function confirmDelete() {
+        // Bootstrap modal for confirmation dialog
+        var confirmationModal = `
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Kullanıcıyı Sil</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Kullanıcıyı silmek istediğinize emin misiniz?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteUser()">Sil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
 
+        // Append modal to the document body
+        document.body.insertAdjacentHTML('beforeend', confirmationModal);
 
+        // Show the confirmation modal
+        $('#deleteConfirmationModal').modal('show');
+    }
 
+    function deleteUser() {
+        // Perform delete operation here
+        // This function will be called when the user confirms the deletion
+        // You can add your code to delete the user from the system
+
+        // After successful deletion, you may redirect the user or update the table accordingly
+
+        // Close the confirmation modal
+        $('#deleteConfirmationModal').modal('hide');
+    }
+  </script>
 
 
 

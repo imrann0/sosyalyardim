@@ -39,7 +39,7 @@
             <div class="textBox">
                 <h2><span>Gebze Belediyesi Sosyal Yardımlar</span></h2>
                 <p>Alttaki butona tıklayarak başvurunuzu oluşturun.</p>
-                <a href="muracat.jsp">Müracaat Girişi</a>
+                <a href="MuracaatGirisi.jsp">Müracaat Girişi</a>
             </div>
             <div class="imgBox">
                 <img src="img/zzz.png" class="gebze">
