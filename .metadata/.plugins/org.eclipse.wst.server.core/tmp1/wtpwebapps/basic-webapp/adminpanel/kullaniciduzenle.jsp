@@ -14,6 +14,15 @@
     Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
     Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
     List<Rol> roles = Rol.getAllRoles();
+    
+    List<Personel> users = Personel.getAllUserInfo();
+
+    HttpSession userSession = request.getSession();
+    String roleName = "Role_Kullanıcı_Duzenle";
+
+ /*   if (!Rol.hasRole(userSession, roleName)) {
+        response.sendRedirect("../Error/Error.html");
+    }*/
 
 %>
 

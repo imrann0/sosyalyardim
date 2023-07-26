@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class IDInfo {
@@ -19,10 +19,10 @@ public class IDInfo {
     private int idInfoId;
 
     @Column(name = "tc_kimlik_no")
-    private String idNo;
+    private String idNo; // Tc Kimlik
 
     @Column(name = "dogum_tarihi")
-    private Date birthDate;
+    private LocalDate birthDate; // Doğum Tarihi
 
     private String surname;
     private String appliName;
@@ -31,17 +31,25 @@ public class IDInfo {
     private String gender;
 
     @Column(name = "kayit_durumu")
-    private String registrationStatus;
+    private String registrationStatus; //Kayıt Durumu
 
     private String soybis; //NE OLDUĞU BİLİNMİYOR
-    private String maritalStatus;
+    private String maritalStatus; //Evlili Durumu
 
     @Column(name = "Kayitli_oldugu_il")
-    private String registrationProvince;
+    private String registrationProvince; // Kayıtlı Olduğun İl
 
-    @Column(name = "Kayitli_oldugu_ilce")
+    @Column(name = "Kayitli_oldugu_ilce") // Kayıtlı Olduğu İlçe
     private String registrationDistrict;
 
+    private String ciltNo;
+    private String aileSıraNo;
+    private String esAd;
+    private String esSoyad;
+    private String phone;
+    private String addresNo;
+ 
+    // İlişiler
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address")
     private Address address;
@@ -74,11 +82,11 @@ public class IDInfo {
         this.idNo = idNo;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -162,6 +170,54 @@ public class IDInfo {
         this.registrationDistrict = registrationDistrict;
     }
 
+    public String getCiltNo() {
+        return ciltNo;
+    }
+
+    public void setCiltNo(String ciltNo) {
+        this.ciltNo = ciltNo;
+    }
+    
+    public String getAileSiraNo() {
+    	return aileSıraNo;
+    }
+    
+    public void SetAileSiraNo(String aileSiraNo) {
+    	this.aileSıraNo = aileSiraNo;
+    }
+    
+    public String getEsAd() {
+    	return esAd;
+    }
+    
+    public void SetEsAd(String esAd) {
+    	this.esAd = esAd;
+    }
+    
+    public String getEsSoyad() {
+    	return esSoyad;
+    }
+    
+    public void SetEsSoyad(String esSoyad) {
+    	this.esSoyad = esSoyad;
+    }
+    
+    public String getPhone() {
+    	return phone;
+    }
+    
+    public void SetPhone(String phone) {
+    	this.phone = phone;
+    }
+    
+    public String getAddresNo() {
+    	return addresNo;
+    }
+    
+    public void setAddresNo(String addresNo) {
+    	this.addresNo = addresNo;
+    }
+    
     public Address getAddress() {
         return address;
     }
@@ -170,6 +226,7 @@ public class IDInfo {
         this.address = address;
     }
 
+    
     public Contact getContact() {
         return contact;
     }
