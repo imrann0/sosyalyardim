@@ -2,6 +2,9 @@ INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins
 <<<<<<< HEAD
 2686896457.index
 =======
+<<<<<<< HEAD
+2686896457.index
+=======
 440215762.index
 <<<<<<< HEAD
 0.index
@@ -12,8 +15,14 @@ INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins
 3330040130.index
 >>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 77155007.index
+>>>>>>> e7d963ab6bc37a4920411d807d89c3b9c67a5e08
 2348948558.index
 440215762.index
 3335907368.index
 3330040130.index
 875746838.index
+<<<<<<< HEAD
+440215762.index
+77155007.index
+=======
+>>>>>>> e7d963ab6bc37a4920411d807d89c3b9c67a5e08
