@@ -1,6 +1,6 @@
 package com.example.example.AdminServlet;
 
-import com.example.example.DataBase.Profession;
+import com.example.example.DataBase.degreeofAffinity;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,8 +11,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 
-@WebServlet(name = "Meslekduzenle", value = "/adminpanel/MeslekDuzenle")
-public class MeslekDuzenle extends HttpServlet {
+@WebServlet(name = "yakinlikEkleServlet", value = "/adminpanel/yakinlikEkleServlet")
+public class yakinlikEkleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -20,21 +20,23 @@ public class MeslekDuzenle extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int meslekid = Integer.parseInt(request.getParameter("meslekid"));
-        String meslekad = request.getParameter("meslekadi");
-        String Durum = request.getParameter("Durum");
-        try {
+        String yakinlikAd = request.getParameter("yakinlik");
+        String aktiflik = request.getParameter("Durum");
+        try{
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
-            Profession meslek = session.get(Profession.class,meslekid);
-            meslek.setProfessionName(meslekad);
-            meslek.setIsActive(Durum);
-            session.merge(meslek);
+            degreeofAffinity yalinlik = new degreeofAffinity();
+            yalinlik.setAffinityName(yakinlikAd);
+            yalinlik.setIsActiveAffinity(aktiflik);
+
+            session.persist(yalinlik);
             transaction.commit();
+
             session.close();
             sessionFactory.close();
-            response.sendRedirect("./meslektanimlama.jsp");
+            response.sendRedirect("./yakinlik.jsp");
+
 
         }catch (Exception e){
             System.out.println(e);

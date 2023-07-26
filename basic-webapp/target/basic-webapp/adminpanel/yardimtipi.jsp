@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
-<%@ page import="com.example.example.DataBase.degreeofAffinity" %>
 <%@ page import="java.util.List" %>
-<%
-  String asd = request.getParameter("AfId");
-  int id = Integer.parseInt(asd);
-  degreeofAffinity akraba = degreeofAffinity.getinfobyAffinityId(id);
-  /*
+<%/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -138,34 +133,28 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Yakınlık Bilgi Giriş</h3>
+                        <h3 class="card-title">Genel Yardım Tipi Tanımlama</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form method="post" action="yakinlikDuzenleServlet" role="form">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
-                                <label>Yakınlık Adı</label>
-                                <input type="hidden" name="akrabaId" value="<%=akraba.getAffinityId()%>">
-                                <input type="text" class="form-control" value="<%=akraba.getAffinityName()%>" name="akrabaAd" required>
+                                <label>Yardım Tip Adı</label>
+                                <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
+				                  <input type="text" class="form-control" name="meslek" required>
+				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
+				                    <button type="submit" class="btn btn-info">Ekle</button>
+				                  </div>
+				                </div>
                                                                    
                                
                               </div>
                             </div>
-                            <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Durum</label>
-                                <select name="Durum" class="form-control">
-                                  <option value="Aktif" <%= akraba.getIsActiveAffinity().equals("Aktif") ? "selected" : "" %>>Aktif</option>
-                                  <option value="Pasif" <%= akraba.getIsActiveAffinity().equals("Pasif") ? "selected":"" %>>Pasif</option>
-                                  
-                                </select>
-                              </div>
-                              
-                            </div>
                             
+				                            
                             
                           </div>
                           
@@ -173,9 +162,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							
                         </div>
                         
-			            <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      <button type="submit" class="btn btn-info">Ekle</button>
-					    </div>
+			            
 			            
                         <!-- form sonu -->
     
@@ -187,7 +174,59 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        
+        <div class="row">
+          
+          <div class="col-12">
+		            <div class="card custom-datatable">
+		                <div class="card-header d-flex justify-content-center">
+		                    <h3 class="card-title font-weight-bold">YAKINLIK LİSTESİ</h3>                	                
+						</div><!-- /.card-header -->
+		                <div class="card-body">
+		                  <table id="example2" class="table table-bordered table-hover">
+		                    <thead>
+		                    <tr>
+		
+		
+		                        <th>Yardım Tipi Kodu</th>
+		                        <th>Yardım Tipi Adı</th>
+		                        <th></th>
+		                        
+		
+		
+		                        
+		                        
+		                    </tr>
+		
+		                    </thead>
+		                    <tbody>       
+		                    
+		                    <tr>
+		                      <td></td>
+		                      <td></td>
+		                      
+		                      
+		                      
+		                      <td>
+								  <a href="yardimtipiduzenle.jsp">
+								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								  </a>
+							  </td>
+							  
+
+		                    </tr>
+		                             
+		                    </tbody>
+		                    
+		                  </table>
+		                </div>
+		                <!-- /.card-body -->
+		              </div>
+		              
+		            <!-- /.card -->
+		          </div>
+          <!-- Modal -->
+
+        </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     

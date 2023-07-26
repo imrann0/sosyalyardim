@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import java.util.List;
 
 @Entity
@@ -60,8 +59,7 @@ public class Profession {
         Configuration configuration = new Configuration().configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         try (Session session = sessionFactory.openSession()) {
-            Profession Meslek = session.get(Profession.class, profid);
-            return Meslek;
+            return session.get(Profession.class, profid);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
