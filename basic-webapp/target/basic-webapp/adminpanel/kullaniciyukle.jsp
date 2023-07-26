@@ -5,11 +5,19 @@
 <%
 	List<Rol> roles = Rol.getAllRoles();
 
+<<<<<<< HEAD
+/* HttpSession userSession = request.getSession();
+String roleName = "Role_Kullanıcı_Ekle";
+=======
   HttpSession userSession = request.getSession();
   Set<Rol> roless = (Set<Rol>) userSession.getAttribute("roles");
   String mail = (String) userSession.getAttribute("mail");
   Rol.hasRole(userSession,"Kullanici");
+>>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 
+if (!Rol.hasRole(userSession, roleName)) {
+    response.sendRedirect("../Error/Error.html");
+} */
 
 %>
 <!DOCTYPE html>
