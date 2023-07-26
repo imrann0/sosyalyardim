@@ -92,7 +92,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     String ityonlendirTarihiDate = request.getParameter("ityonlendirTarihi");
     LocalDate ityonlendirTarihi = LocalDate.parse(ityonlendirTarihiDate, formatter);
 
-
+    // Address
+    
+    String acıkAddress = request.getParameter("acıkAddress");
+    String AddresNum = request.getParameter("AddresNum");
 
 
     try {
@@ -154,8 +157,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         pet.setForwardingUnit(birimitraz);
         pet.setForwardingDate(ityonlendirTarihi);
         
+        Address add = new Address();
+        add.setAddressNo(AddresNum);
+        add.setPublicAddress(acıkAddress);
+        
         idinfo.setContact(contact);
         idinfo.setApplication(app);
+        idinfo.setAddress(add);
 
         // Update the existing record with the new data
         session.persist(idinfo);

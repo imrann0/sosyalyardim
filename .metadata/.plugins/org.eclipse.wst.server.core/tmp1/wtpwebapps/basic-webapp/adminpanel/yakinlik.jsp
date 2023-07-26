@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.degreeofAffinity" %>
+
 <%@ page import="java.util.List" %>
-<%/*
+<%
+List<degreeofAffinity> yakinlik = degreeofAffinity.getAllAffinity();
+  /*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -132,18 +136,18 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title">Yakınlık Bilgi Giriş</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form method="post" action="yakinlikEkleServlet" role="form">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Yakınlık Adı</label>
-                                <input type="text" class="form-control" name="meslek" required>
+                                <input type="text" class="form-control" name="yakinlik" required>
                                                                    
                                
                               </div>
@@ -151,9 +155,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
+                                <select name="Durum" class="form-control">
+                                  <option value="Aktif">Aktif</option>
+                                  <option value="Pasif">Pasif</option>
                                   
                                 </select>
                               </div>
@@ -207,22 +211,23 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		
 		                    </thead>
 		                    <tbody>       
-		                    
+		                    <%for(degreeofAffinity derece : yakinlik){ %>
 		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                      <td></td>
+		                      <td><%=derece.getAffinityId()%></td>
+		                      <td><%=derece.getAffinityName()%></td>
+		                      <td><%=derece.getIsActiveAffinity()%></td>
 		                      
 		                      
 		                      <td>
-								  <a href="yakinlikduzenle.jsp">
+								  <a href="yakinlikduzenle.jsp?AfId=<%=derece.getAffinityId()%>">
+
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  
 
 		                    </tr>
-		                             
+                        <% }%>
 		                    </tbody>
 		                    
 		                  </table>

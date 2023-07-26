@@ -48,7 +48,6 @@
     </div></div>
     </div>
 
-
     <div class="grid">
     <div class="col-1-3"><div class="controls">
       <i class="fa fa-sort"></i>
@@ -156,7 +155,21 @@
     </div>
   </div>
   <!--  Details -->
-
+<div class="form-group">
+    <h2 class="heading">Address Bilgileri</h2>
+  <div class="grid">
+    <div class="col-1-2">
+    <div class="controls">
+      <input type="text" id="acıkAddress" class="floatLabel" name="acıkAddress">
+      <label for="acıkAddress">Açık Adres</label>
+    </div>
+    </div><div class="col-1-2">
+    <div class="controls">
+      <input type="text" id="AddresNum" class="floatLabel" name="AddresNum">
+      <label for="AddresNum">Adres No</label>
+      </div>
+    </div>
+    
   <div class="form-group">
 
     <h2 class="heading">İletişim Bilgileri</h2>

@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.degreeofAffinity" %>
 <%@ page import="java.util.List" %>
-<%/*
+<%
+  String asd = request.getParameter("AfId");
+  int id = Integer.parseInt(asd);
+  degreeofAffinity akraba = degreeofAffinity.getinfobyAffinityId(id);
+  /*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -137,13 +142,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form method="post" action="yakinlikDuzenleServlet" role="form">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Yakınlık Adı</label>
-                                <input type="text" class="form-control" name="meslek" required>
+                                <input type="hidden" name="akrabaId" value="<%=akraba.getAffinityId()%>">
+                                <input type="text" class="form-control" value="<%=akraba.getAffinityName()%>" name="akrabaAd" required>
                                                                    
                                
                               </div>
@@ -151,9 +157,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
+                                <select name="Durum" class="form-control">
+                                  <option value="Aktif" <%= akraba.getIsActiveAffinity().equals("Aktif") ? "selected" : "" %>>Aktif</option>
+                                  <option value="Pasif" <%= akraba.getIsActiveAffinity().equals("Pasif") ? "selected":"" %>>Pasif</option>
                                   
                                 </select>
                               </div>
