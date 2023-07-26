@@ -1,6 +1,6 @@
 package com.example.example.AdminServlet;
 
-import com.example.example.DataBase.Meslek;
+import com.example.example.DataBase.Profession;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -26,7 +26,7 @@ public class MeslekServlet extends HttpServlet {
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
-            Meslek meslek = new Meslek();
+            Profession meslek = new Profession();
             meslek.setProfessionName(MeslekAdi);
             meslek.setIsActive(aktiflik);
 
