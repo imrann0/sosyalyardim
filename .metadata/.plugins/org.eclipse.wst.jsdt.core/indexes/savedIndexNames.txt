@@ -1,8 +1,23 @@
+<<<<<<< HEAD
+INDEX VERSION 1.4+C:\Users\ASUS\Desktop\sos\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2300683608.index
+875746838.index
+943992896.index
+3185296286.index
+4104875437.index
+3901496772.index
+2523345909.index
+2686896457.index
+=======
 INDEX VERSION 1.4+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 875746838.index
 2348948558.index
 3330040130.index
 2686896457.index
 3335907368.index
+<<<<<<< HEAD
 440215762.index
 77155007.index
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c

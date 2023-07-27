@@ -1,18 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+<%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
+========
 <%@ page import="com.example.example.DataBase.HelpType" %>
 
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
 <%@ page import="java.util.List" %>
 <%
   String asdd = request.getParameter("ID");
   int ID = Integer.parseInt(asdd);
   HelpType yardim = HelpType.getbyID(ID);
 
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+ /* 
+========
   /*
   List<Personel> users = Personel.getAllUserInfo();
 
   
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -140,15 +148,27 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
+                    </div>
+    
+                    <!-- form başlangıcı -->
+                    <form role="form">
+========
                         <h3 class="card-title">Genel Yardım Tipi Tanımlama</h3>
                     </div>
     
                     <!-- form başlangıcı -->
                     <form role="form" method="post" action="yardimTipServletDuzenle">
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+                                <label>Çekmece Adı</label>
+                                <input type="text" class="form-control" name="cekmece" required>
+========
                                 <label>Yardım Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
                                   <input type="hidden" class="form-control" name="yardimId" value="<%=yardim.getHelpId()%>">
@@ -157,12 +177,28 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 				                    <button type="submit" class="btn btn-info">Ekle</button>
 				                  </div>
 				                </div>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
                                                                    
                                
                               </div>
                             </div>
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+                            <div class="col-sm-6">
+                              <div class="form-group text-center">
+                                <label>Durum</label>
+                                <select class="form-control">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>
+                                  
+                                </select>
+                              </div>
+                              
+                            </div>
+                            
+========
                             
 				                            
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
                             
                           </div>
                           
@@ -170,7 +206,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							
                         </div>
                         
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
+			            <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      <button type="submit" class="btn btn-info">Ekle</button>
+					    </div>
+========
 			            
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/src/main/webapp/adminpanel/yardimtipiduzenle.jsp
 			            
                         <!-- form sonu -->
     

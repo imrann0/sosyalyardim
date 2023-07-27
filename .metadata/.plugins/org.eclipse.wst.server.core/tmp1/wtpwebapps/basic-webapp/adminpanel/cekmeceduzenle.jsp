@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<<<<<<< HEAD
+<%@ page import="com.example.example.DataBase.cekmece" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%
+String CekmeceId = request.getParameter("CekmeceId");
+int Id = Integer.parseInt(CekmeceId);
+cekmece Cekmece = cekmece.getUserInfoById(Id);
+
+ /* 
+=======
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
   List<Personel> users = Personel.getAllUserInfo();
 
   /*
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -133,17 +145,40 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
+<<<<<<< HEAD
                         <h3 class="card-title">Çekmece Bilgi Giriş</h3>
                     </div>
     
                     <!-- form başlangıcı -->
+                    <form action="cekmeceUpdate" method="post">
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/meslekduzenle.jsp
+                        <h3 class="card-title">Meslek Bilgi Giriş</h3>
+========
+                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/cekmeceduzenle.jsp
+                    </div>
+    
+                    <!-- form başlangıcı -->
                     <form role="form">
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
+<<<<<<< HEAD
+                                <label>Çekmece Adı</label>
+                                <input type="hidden" name="cekmeceId" value="<%=Id%>">
+                                <input type="text" class="form-control" name="cekmeceAdi" value="<%= Cekmece.getCekmeceAdi() %>" required>
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/meslekduzenle.jsp
+                                <label>Meslek Adı</label>
+                                <input type="text" class="form-control" name="meslek" required>
+========
                                 <label>Çekmece Adı</label>
                                 <input type="text" class="form-control" name="cekmece" required>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/cekmeceduzenle.jsp
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                                                    
                                
                               </div>
@@ -151,9 +186,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
+<<<<<<< HEAD
+                                <select class="form-control" name="durum">
+                                  <option value="Aktif" <%= Cekmece.getDurum().equals("Aktif") ? "selected" : "" %> >Aktif</option>
+                                  <option value="Pasif"  <%= Cekmece.getDurum().equals("Pasif") ? "selected" : "" %> >Pasif</option>
+=======
                                 <select class="form-control">
                                   <option>Aktif</option>
                                   <option>Pasif</option>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                   
                                 </select>
                               </div>

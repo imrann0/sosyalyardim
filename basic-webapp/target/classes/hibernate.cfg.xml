@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
@@ -44,3 +45,5 @@
     </session-factory>
 
 </hibernate-configuration>
+=======
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c

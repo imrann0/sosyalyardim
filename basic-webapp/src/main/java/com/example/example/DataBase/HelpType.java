@@ -12,6 +12,7 @@ public class HelpType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int helpId;
+
     private String helpName;
 
     public int getHelpId() {
@@ -29,6 +30,7 @@ public class HelpType {
     public void setHelpName(String helpName) {
         this.helpName = helpName;
     }
+
     public static List<HelpType> getAll(){
         Configuration configuration = new Configuration().configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();

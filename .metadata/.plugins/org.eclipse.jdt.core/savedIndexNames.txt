@@ -1,7 +1,21 @@
+<<<<<<< HEAD
+INDEX VERSION 1.134+C:\Users\ASUS\Desktop\sos\.metadata\.plugins\org.eclipse.jdt.core
+405035235.index
+2557705661.index
+1157263066.index
+3545385922.index
+3954258556.index
+2237587465.index
+4050492605.index
+1495026645.index
+562977075.index
+949237458.index
+=======
 INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins\org.eclipse.jdt.core
 4105254059.index
 3188674327.index
 3135417003.index
+<<<<<<< HEAD
 640473802.index
 1696264553.index
 2203189111.index
@@ -9,7 +23,26 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 2574797195.index
 875746838.index
 3379426735.index
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
+1696264553.index
+3941755943.index
+2346155674.index
+4271167281.index
+1371364138.index
+1605413270.index
+677540342.index
+2416878842.index
+1258657071.index
+407378295.index
+1759644662.index
+3156681691.index
+1490155159.index
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 1865797976.index
+<<<<<<< HEAD
+396602407.index
+=======
 4176491660.index
 1606231598.index
 2579594165.index
@@ -25,3 +58,4 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 2469999937.index
 4247238814.index
 1163874715.index
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb

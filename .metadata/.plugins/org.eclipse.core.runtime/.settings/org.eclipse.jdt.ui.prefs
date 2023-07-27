@@ -2,6 +2,18 @@ content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000o
 content_assist_favorite_static_members=org.assertj.core.api.Assertions.*;org.mockito.Matchers.*;org.mockito.Mockito.*;org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.*;org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.*;org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*;org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.*;org.springframework.test.web.client.match.MockRestRequestMatchers.*;org.springframework.test.web.client.response.MockRestResponseCreators.*;org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;org.hamcrest.CoreMatchers.*;org.junit.Assert.*
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
 content_assist_number_of_computers=20
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+=======
+content_assist_parameters_background=52,57,61
+content_assist_parameters_foreground=238,238,238
+content_assist_proposals_background=52,57,61
+content_assist_proposals_foreground=238,238,238
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 eclipse.preferences.version=1
 org.eclipse.jdt.internal.ui.navigator.layout=2
 org.eclipse.jdt.internal.ui.navigator.librariesnode=true
