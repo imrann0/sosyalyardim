@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.wst.server.ui.launchConfigurationType">
+    <stringAttribute key="client-id" value="org.eclipse.wst.server.ui.web"/>
+    <stringAttribute key="launchable-adapter-id" value="org.eclipse.jst.server.tomcat.web"/>
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.debug.core/.launches/_adminpanel_engellialttip.jsp.launch
+    <stringAttribute key="module-artifact" value="org.eclipse.jst.jee.server:basic-webapp///adminpanel/engellialttip.jsp"/>
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.debug.core/.launches/_adminpanel_saveCekmece.launch
+    <stringAttribute key="module-artifact" value="org.eclipse.jst.jee.server:basic-webapp///adminpanel/saveCekmece"/>
+========
+    <stringAttribute key="module-artifact" value="org.eclipse.jst.jee.server:basic-webapp///adminpanel/engellitiptanim.jsp"/>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:.metadata/.plugins/org.eclipse.debug.core/.launches/_adminpanel_engellitiptanim.jsp.launch
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c:.metadata/.plugins/org.eclipse.debug.core/.launches/_adminpanel_engellitiptanim.jsp.launch
+    <stringAttribute key="module-artifact-class" value="org.eclipse.wst.server.core.util.WebResource"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/basic-webapp"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <stringAttribute key="server-id" value="Tomcat v10.1 Server at localhost"/>
+</launchConfiguration>

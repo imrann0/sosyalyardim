@@ -1,8 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<<<<<<< HEAD
+<%@ page import="com.example.example.DataBase.Disabled" %>
+<%@ page import="com.example.example.DataBase.DisabledSub" %>
+<%@ page import="java.util.List" %>
+<%
+
+List<Disabled> disabled = Disabled.getAll();
+
+
+String id = request.getParameter("ID");
+int ID = Integer.parseInt(id);
+DisabledSub engellisub = DisabledSub.getbySubID(ID);
+
+/*
+=======
 <%@ page import="java.util.List" %>
 <%/*
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -138,12 +154,23 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
+<<<<<<< HEAD
+                    <form role="form" action="disabledSubUpdate" method="post">
+=======
                     <form role="form">
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Engelli Tip Adı</label>
+<<<<<<< HEAD
+                                <select class="form-control" name="disabledid">
+								    <% for (Disabled disa : disabled) { %>
+								        <option value="<%= disa.getDisabledID() %>" <%= engellisub.getDisabled().getDisabledID() == disa.getDisabledID() ? "selected" : "" %> ><%= disa.getDisabledName() %></option>
+								    <% } %>
+								</select>
+=======
                                 <select class="form-control">
                                   <option>Diyabet</option>
                                   <option>Pasif</option>
@@ -151,13 +178,19 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                                 </select>
                                                                    
                                
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
                               </div>
                             </div>
                           	<div class="col-sm-4">
                               <div class="form-group text-center">
                                 <label>Engelli Alt Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
+<<<<<<< HEAD
+				                  <input type="hidden" class="form-control" name="disabledsubid" value="<%=engellisub.getDisabledSubID()%>">  
+				                  <input type="text" class="form-control" value="<%= engellisub.getDisabledSubName() %>" name="disabledsubname" required>
+=======
 				                  <input type="text" class="form-control" name="meslek" required>
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Düzenle</button>
 				                  </div>

@@ -41,6 +41,7 @@
         <mapping class="com.example.example.DataBase.Zone" />
         <mapping class="com.example.example.DataBase.HelpType" />
         <mapping class="com.example.example.DataBase.Disabled" />
+        <mapping class="com.example.example.DataBase.DisabledSub" />
         
 
 

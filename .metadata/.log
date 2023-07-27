@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+!SESSION 2023-07-27 14:20:16.067 -----------------------------------------------
+=======
+<<<<<<< HEAD
 !SESSION 2023-07-26 10:15:31.011 -----------------------------------------------
 =======
 !SESSION 2023-07-26 15:34:02.382 -----------------------------------------------
 >>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 eclipse.buildId=4.28.0.20230608-1200
 java.version=17.0.7
 java.vendor=Eclipse Adoptium
@@ -113,8 +117,11 @@ java.lang.Exception: The project description file (.project) for '.org.eclipse.e
 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
 =======
 This is a continuation of log file C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.bak_0.log
-Created Time: 2023-07-26 15:34:12.009
+Created Time: 2023-07-27 16:53:37.332
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.jst.jsf.core 4 0 2023-07-27 16:53:37.333
+=======
 !ENTRY org.eclipse.e4.ui.workbench 4 0 2023-07-26 15:34:12.010
 !MESSAGE Unable to load resource file:/C:/Users/Administrator/Desktop/sosyalyardim/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 !STACK 0
@@ -1242,6 +1249,7 @@ Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: The request (id: 2,
 	... 11 more
 
 !ENTRY org.eclipse.jst.jsf.core 4 0 2023-07-26 15:52:06.670
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 !MESSAGE Checkpointing JSP tags failed
 !STACK 0
 java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclipse.jst.jsf.core\.jsptagregistry\Project_basic-webapp_169e495.idx (Sistem belirtilen yolu bulamıyor)
@@ -1263,6 +1271,8 @@ java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclip
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2423)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:554)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+<<<<<<< HEAD
+=======
 !SESSION 2023-07-26 15:53:54.532 -----------------------------------------------
 eclipse.buildId=4.28.0.20230608-1200
 java.version=17.0.7
@@ -9852,3 +9862,4 @@ java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclip
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 >>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c

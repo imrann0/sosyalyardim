@@ -44,6 +44,7 @@
         <mapping class="com.example.example.DataBase.HelpTypeSub" />
 
         <mapping class="com.example.example.DataBase.Disabled" />
+        <mapping class="com.example.example.DataBase.DisabledSub" />
         
 
     </session-factory>

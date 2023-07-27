@@ -15,6 +15,15 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 4105254059.index
 3188674327.index
 3135417003.index
+<<<<<<< HEAD
+640473802.index
+1696264553.index
+2203189111.index
+1140361159.index
+2574797195.index
+875746838.index
+3379426735.index
+=======
 >>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 1696264553.index
 3941755943.index
@@ -29,6 +38,7 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 1759644662.index
 3156681691.index
 1490155159.index
+>>>>>>> 0e54ef07313787ded84542e88fe258f3dd56753c
 1865797976.index
 <<<<<<< HEAD
 396602407.index
