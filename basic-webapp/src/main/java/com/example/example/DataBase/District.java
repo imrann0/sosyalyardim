@@ -26,7 +26,7 @@ public class District {
 
     @ManyToOne
     @JoinColumn(name = "bolge_id")
-    private Bolge bolge;
+    private Zone bolge;
 
     // Getter ve Setter metotları
 
@@ -62,11 +62,11 @@ public class District {
         this.districtName = districtName;
     }
 
-    public Bolge getBolge() {
+    public Zone getBolge() {
         return bolge;
     }
 
-    public void setBolge(Bolge bolge) {
+    public void setBolge(Zone bolge) {
         this.bolge = bolge;
     }
     
