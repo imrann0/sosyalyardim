@@ -30,6 +30,7 @@
         <mapping class="com.example.example.DataBase.IDInfo" />
         <mapping class="com.example.example.DataBase.Application" />
         <mapping class="com.example.example.DataBase.Meslek" />
+        <mapping class="com.example.example.DataBase.cekmece" />
     </session-factory>
 
 </hibernate-configuration>
