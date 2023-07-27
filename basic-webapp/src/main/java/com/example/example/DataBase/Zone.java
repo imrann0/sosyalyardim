@@ -60,7 +60,7 @@ public class Zone {
         TypedQuery<Zone> query= session.createQuery("SELECT z FROM Zone z", Zone.class);
         List<Zone> zones = query.getResultList();
         session.getTransaction().commit();
-        session.close();
+
         sessionFactory.close();
         return zones;
     }
