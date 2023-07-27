@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'><link rel="stylesheet" href="css/muracatgiris.css">
 
+<style>
+	.nbn{
+		font-weight: bold;
+	}
+</style>
+
 </head>
 <body>
 
@@ -27,12 +33,12 @@
   <div class="grid">
     <div class="col-1-2">
     <div class="controls">
-      <input type="text" id="name" class="floatLabel" name="name">
+      <input  type="text" id="name" class="floatLabel" name="name">
       <label for="name">İsim</label>
     </div>
     </div><div class="col-1-2">
     <div class="controls">
-      <input type="text" id="soyisim" class="floatLabel" name="soyisim">
+      <input type="text" id="soyisim" class="floatLabel nbn" name="soyisim">
       <label for="soyisim">Soyisim</label>
       </div>
     </div>
