@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Disabled" %>
 <%@ page import="java.util.List" %>
-<%/*
+<%
+
+String id = request.getParameter("ID");
+int ID = Integer.parseInt(id);
+Disabled engelli = Disabled.getbyID(ID);
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -147,15 +153,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" action="disabledUpdate" method="post">
                         <div class="card-body">
                           <div class="row">
-                          	
                           	<div class="col-sm-4">
                               <div class="form-group text-center">
                                 <label>Engelli Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
+				                  <input type="hidden" class="form-control" name="disabledid" value="<%=engelli.getDisabledID()%>">
+				                  <input type="text" class="form-control" name="disabledName" value="<%= engelli.getDisabledName() %>" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Düzenle</button>
 				                  </div>
@@ -172,7 +178,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                           
 							
                         </div>
-                        
+                         
 			            
 			            
                         <!-- form sonu -->

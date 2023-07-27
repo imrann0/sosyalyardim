@@ -57,7 +57,19 @@ public class Zone {
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        TypedQuery<Zone> query= session.createQuery("SELECT z FROM Zone z", Zone.class);
+        TypedQuery<Zone> query= session.createQuery("SELECT z FROM Zone z ", Zone.class);
+        List<Zone> zones = query.getResultList();
+        session.getTransaction().commit();
+
+        sessionFactory.close();
+        return zones;
+    }
+    public static List <Zone> getAllAktifZone(){
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        TypedQuery<Zone> query= session.createQuery("SELECT z FROM Zone z where z.zoneIsActive='Aktif'", Zone.class);
         List<Zone> zones = query.getResultList();
         session.getTransaction().commit();
 

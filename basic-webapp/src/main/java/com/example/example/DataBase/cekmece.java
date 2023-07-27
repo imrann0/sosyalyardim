@@ -50,7 +50,7 @@ public class cekmece {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        TypedQuery<cekmece> query = session.createQuery("SELECT p FROM cekmece p", cekmece.class);
+        TypedQuery<cekmece> query = session.createQuery("SELECT p FROM cekmece p where p.durum = 'Aktif'", cekmece.class);
         List<cekmece> results = query.getResultList();
 
 

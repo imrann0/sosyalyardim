@@ -6,7 +6,7 @@
 <%@ page import="com.example.example.DataBase.Zone" %>
 <%
 	List<District> district = District.getAllDistrict();
-    List<Zone> zone = Zone.getAllZone();
+    List<Zone> zone = Zone.getAllAktifZone();
 
 %>
 <!DOCTYPE html>
@@ -305,6 +305,7 @@
         <div class="controls">
           <i class="fa fa-sort"></i>
           <select name="Bolge">
+              <option>Bölge Seçiniz</option>
             <% for (Zone zones : zone) { %>
             <option value="<%= zones.getZoneId() %>" ><%= zones.getZoneName() %></option>
             <% } %>

@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
-<%@ page import="com.example.example.DataBase.cekmece" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Set" %>
-<%
-String CekmeceId = request.getParameter("CekmeceId");
-int Id = Integer.parseInt(CekmeceId);
-cekmece Cekmece = cekmece.getUserInfoById(Id);
+<%/*
+  List<Personel> users = Personel.getAllUserInfo();
 
- /* 
+  
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -50,6 +47,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
+  	  
 	  .pagination .page-item.active .page-link {
 	    background-color: #17a2b8; /* Kırmızı renk (#ff0000) olarak ayarlandı */
 	    border-color: #17a2b8; /* Kenarlık rengi de kırmızı yapılıyor */
@@ -135,35 +133,41 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
+                    <div class="card-header d-flex justify-content-center">
+                        <h3 class="card-title">Engelli Alt Tip Düzenle</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form action="cekmeceUpdate" method="post">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
-                          	<div class="col-sm-6">
+                          	<div class="col-sm-3">
                               <div class="form-group text-center">
-                                <label>Çekmece Adı</label>
-                                <input type="hidden" name="cekmeceId" value="<%=Id%>">
-                                <input type="text" class="form-control" name="cekmeceAdi" value="<%= Cekmece.getCekmeceAdi() %>" required>
+                                <label>Engelli Tip Adı</label>
+                                <select class="form-control">
+                                  <option>Diyabet</option>
+                                  <option>Pasif</option>
+                                  
+                                </select>
                                                                    
                                
                               </div>
                             </div>
-                            <div class="col-sm-6">
+                          	<div class="col-sm-4">
                               <div class="form-group text-center">
-                                <label>Durum</label>
-                                <select class="form-control" name="durum">
-                                  <option value="Aktif" <%= Cekmece.getDurum().equals("Aktif") ? "selected" : "" %> >Aktif</option>
-                                  <option value="Pasif"  <%= Cekmece.getDurum().equals("Pasif") ? "selected" : "" %> >Pasif</option>
-                                  
-                                </select>
+                                <label>Engelli Alt Tip Adı</label>
+                                <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
+				                  <input type="text" class="form-control" name="meslek" required>
+				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
+				                    <button type="submit" class="btn btn-info">Düzenle</button>
+				                  </div>
+				                </div>
+                                                                   
+                               
                               </div>
-                              
                             </div>
                             
+				                            
                             
                           </div>
                           
@@ -171,9 +175,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							
                         </div>
                         
-			            <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      <button type="submit" class="btn btn-info">Ekle</button>
-					    </div>
+			            
 			            
                         <!-- form sonu -->
     
@@ -220,6 +222,8 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
+<script src="//cdn.datatables.net/plug-ins/1.13.5/i18n/tr.json"></script>
+
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="plugins/sparklines/sparkline.js"></script>
@@ -242,6 +246,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 <!-- overlayScrollbars -->
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
+
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>

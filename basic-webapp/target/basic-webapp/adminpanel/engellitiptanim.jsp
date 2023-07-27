@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Disabled" %>
 <%@ page import="java.util.List" %>
-<%/*
+<%
+
+
+List<Disabled> disabled = Disabled.getAll();
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -147,7 +152,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" action="disabledType" method="post">
                         <div class="card-body">
                           <div class="row">
                           	
@@ -155,7 +160,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>Engelli Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
+				                  <input type="text" class="form-control" name="disabledname" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Ekle</button>
 				                  </div>
@@ -163,21 +168,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                                                                    
                                
                               </div>
-                            </div>
-                            
-				                            
-                            
+                            </div>  
                           </div>
-                          
-                          
-							
                         </div>
-                        
-			            
-			            
-                        <!-- form sonu -->
-    
-                        
+                        <!-- form sonu -->  
                     </form>
                 </div>
                 <!-- Modal -->
@@ -196,68 +190,47 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                  <table id="example2" class="table table-bordered table-hover">
 		                    <thead>
 		                    <tr>
-		
-		
 		                        <th>Engelli Tip Kodu</th>
 		                        <th>Engelli Tip Adı</th>
-		                        
 		                        <th></th>
-		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
+		                        <th></th>   
 		                    </tr>
-		
 		                    </thead>
-		                    <tbody>       
-		                    
+		                    <tbody>  
+		                    <% for(Disabled disa : disabled){%>      
 		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                 
-		                      
-		                      
+		                      <td><%= disa.getDisabledID() %></td>
+		                      <td> <%= disa.getDisabledName() %></td> 
 		                      <td>
-								  <a href="engellitipduzenle.jsp">
+								  <a href="engellitipduzenle.jsp?ID=<%= disa.getDisabledID()%>">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  <td>
 								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-							  </td>
-							  
-
+							  </td>		
 		                    </tr>
-		                             
 		                    </tbody>
-		                    
+		                    <% }%>	                    
 		                  </table>
 		                </div>
 		                <!-- /.card-body -->
 		              </div>
-		              
 		            <!-- /.card -->
 		          </div>
           <!-- Modal -->
-
         </div>
         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    
+      </div><!-- /.container-fluid -->    
     <!-- /.content -->
-  </div>
-  
+  </div>  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>
-    
+    <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>  
     <div class="float-right d-none d-sm-inline-block">
       <b>2023</b>
     </div>
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

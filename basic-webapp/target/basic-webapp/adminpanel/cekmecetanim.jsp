@@ -1,11 +1,16 @@
+<%@page import="com.example.example.DataBase.cekmece"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
+
+List<cekmece> Cekmece = cekmece.getAllUserInfo();
+
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
-  /*
+  
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -14,6 +19,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 }
 */
 %>
+
 
 <!DOCTYPE html>
 <html>
@@ -137,13 +143,12 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
-                        <div class="card-body">
+                     <form action="saveCekmece" method="post"><div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Çekmece Adı</label>
-                                <input type="text" class="form-control" name="cekmece" required>
+                               	<input type="text" class="form-control" name="cekmece" required>
                                                                    
                                
                               </div>
@@ -151,10 +156,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
-                                  
+                                      <select class="form-control" name="durum">
+									    <option value="Aktif">Aktif</option>
+									    <option value="Pasif">Pasif</option>
                                 </select>
                               </div>
                               
@@ -206,24 +210,21 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                    </tr>
 		
 		                    </thead>
-		                    <tbody>       
-		                    
-		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                      <td></td>
-		                      
-		                      
-		                      <td>
-								  <a href="cekmeceduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								  </a>
-							  </td>
-							  
+		                    <tbody>
+						    <% for(cekmece user: Cekmece) { %>
+						    <tr>
+						        <td><%= user.getCekmeceId() %></td>
+						        <td><%= user.getCekmeceAdi() %></td>
+						        <td><%= user.getDurum() %></td>
+						        <td>
+						            <a href="cekmeceduzenle.jsp?CekmeceId=<%= user.getCekmeceId() %>">
+						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+						            </a>
+						        </td>
+						    </tr>
+						    <% } %>
+						</tbody>
 
-		                    </tr>
-		                             
-		                    </tbody>
 		                    
 		                  </table>
 		                </div>
