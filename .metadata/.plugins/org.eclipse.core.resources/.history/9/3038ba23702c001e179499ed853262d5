@@ -1,0 +1,41 @@
+package com.example.example.DataBase;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.TypedQuery;
+
+@Entity
+public class DisabledSub {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int disabledSubID;
+
+    private String disabledSubName;
+
+
+    public int getDisabledSubID() {
+        return disabledSubID;
+    }
+
+    public void setDisabledSubID(int disabledSubID) {
+        this.disabledSubID = disabledSubID;
+    }
+
+    public String getDisabledSubName() {
+        return disabledSubName;
+    }
+
+    public void setDisabledName(String disabledSubName) {
+        this.disabledSubName = disabledSubName;
+    }
+    
+
+}

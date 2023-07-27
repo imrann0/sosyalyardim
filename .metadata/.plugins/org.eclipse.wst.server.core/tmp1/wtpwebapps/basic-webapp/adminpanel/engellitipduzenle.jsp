@@ -5,6 +5,8 @@
 <%@ page import="java.util.List" %>
 <%
 
+List<Disabled> disabled = Disabled.getAll();
+
 String id = request.getParameter("ID");
 int ID = Integer.parseInt(id);
 Disabled engelli = Disabled.getbyID(ID);

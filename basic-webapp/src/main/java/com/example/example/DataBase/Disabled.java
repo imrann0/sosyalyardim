@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.OneToMany;
+
 
 @Entity
 public class Disabled {
@@ -19,6 +21,9 @@ public class Disabled {
     private int disabledID;
 
     private String disabledName;
+    
+    @OneToMany(mappedBy = "disabled")
+    private List<DisabledSub> disabledSubList;
 
 
     public int getDisabledID() {
@@ -35,6 +40,14 @@ public class Disabled {
 
     public void setDisabledName(String disabledName) {
         this.disabledName = disabledName;
+    }
+    
+    public List<DisabledSub> getDisabledSubList() {
+        return disabledSubList;
+    }
+
+    public void setDisabledSubList(List<DisabledSub> disabledSubList) {
+        this.disabledSubList = disabledSubList;
     }
     
     public static List<Disabled> getAll(){
