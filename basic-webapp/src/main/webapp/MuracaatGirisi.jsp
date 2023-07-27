@@ -13,9 +13,10 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Basic hotel booking form</title>
+  <title>Müracat Giriş Formu</title>
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'><link rel="stylesheet" href="css/muracatgiris.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/muracatgiris.css">
 
 <style>
 	.nbn{
@@ -453,7 +454,7 @@
               <button type="submit" value="Submit" class="col-1-4">Submit</button>
         </div>
     </div>  /.form-group -->
-</form>
+
 <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='//raw.githubusercontent.com/andiio/selectToAutocomplete/master/jquery-ui-autocomplete.js'></script>
