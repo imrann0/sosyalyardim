@@ -2,13 +2,7 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.example.DataBase.HelpTypeSub" %>
-<%@ page import="com.example.example.DataBase.HelpType" %>
-<%
-  List<HelpTypeSub> yardim = HelpTypeSub.getAll();
-  List<HelpType> Helps = HelpType.getAll();
-
-  /*
+<%/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -53,16 +47,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
-  		.custom-datatable2{
-  		background-color:  #fafafa;
-	  		position: relative;
-	    padding: 40px; /* Arkaya gölge için içeriği itin */
-	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
-	    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Gölgeli efekti ekle */
-	    
-	    margin-left: 30px;
-	    margin-right: 30px;
-  		}
+  	  
 	  .pagination .page-item.active .page-link {
 	    background-color: #17a2b8; /* Kırmızı renk (#ff0000) olarak ayarlandı */
 	    border-color: #17a2b8; /* Kenarlık rengi de kırmızı yapılıyor */
@@ -76,7 +61,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Gölgeli efekti ekle */
     }
     .custom-datatable {
-    background-color: white;
     position: relative;
     padding: 40px; /* Arkaya gölge için içeriği itin */
     border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
@@ -103,21 +87,22 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 	    font-family: Arial, sans-serif; /* Yazı tipini belirleyin */
 	   
   }
-  	.custom-datatable2 h3.card-title {
-  	
+  	.custom-datatable h3.card-title {
 	  font-size: 24px; /* Yazı boyutunu istediğiniz gibi ayarlayın */
 	  font-weight: bold;
 	  font-family: Arial, sans-serif; /* Kalın yazı tipi */
 	  text-align: center; /* Yazıyı ortala */
 	  margin-bottom: 20px; /* Aşağıya boşluk bırakın */
 }	
-	.card-info {
-      background-color:  #fafafa; /* Turkuaz rengi (#17a2b8) olarak ayarlandı */
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Gölgeli efekt eklemek için */
-      margin: 30px; /* Kenar boşlukları */
-      padding: 40px; /* İçerikten içeri boşluk bırakmak için */
-    }
+	.card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}
 	.koyu-yazi {
   color: #000000; /* Siyah rengin hexadecimal kodu */
   /* Diğer stil özelliklerini burada belirtebilirsiniz */
@@ -148,22 +133,21 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Yardım Alt Tip Tanımlama</h3>
+                    <div class="card-header d-flex justify-content-center">
+                        <h3 class="card-title">Yardım Alt Tip Düzenle</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form" method="post" action="yardimTipAltServlet">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Yardım Tip Adı</label>
-
-                                <select name="yardimAd" class="form-control">
-                                  <%for (HelpType medic : Helps){%>
-                                  <option value="<%=medic.getHelpId()%>"><%=medic.getHelpName()%></option>
-                                  <%}%>
+                                <select class="form-control">
+                                  <option>Berber Hizmeti</option>
+                                  <option>Pasif</option>
+                                  
                                 </select>
                                                                    
                                
@@ -173,9 +157,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>Yardım  Alt Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="yardimalatAd" required>
+				                  <input type="text" class="form-control" name="meslek" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
-				                    <button type="submit" class="btn btn-info">Ekle</button>
+				                    <button type="submit" class="btn btn-info">Düzenle</button>
 				                  </div>
 				                </div>
                                                                    
@@ -203,62 +187,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
-          
-          <div class="col-12">
-		            <div class="card custom-datatable2">
-		                <div class="card-header d-flex justify-content-center">
-		                    <h3 class="card-title font-weight-bold">YARDIM ALT TİP LİSTESİ</h3>                	                
-						</div><!-- /.card-header -->
-		                <div class="card-body custom-datatable">
-		                  <table id="example2" class="table table-bordered table-hover">
-		                    <thead>
-		                    <tr>
-		
-		
-		                        <th>Alt Tip Kodu</th>
-		                        <th>Alt Tip Adı</th>
-		                        <th>Yardım Tip Adı</th>
-		                        <th></th>
-		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
-		                    </tr>
-		
-		                    </thead>
-		                    <tbody>       
-		                    <% for (HelpTypeSub medic : yardim){%>
-		                    <tr>
-		                      <td><%=medic.getHelpSubId()%></td>
-		                      <td><%=medic.getHelpSubName()%></td>
-		                      <td><%=medic.getHelpId().getHelpName()%></td>
-		                      <td>
-								  <a href="yardimalttipduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								  </a>
-							  </td>
-							  <td>
-								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-							  </td>
-							  
-
-		                    </tr>
-		                             <% }%>
-		                    </tbody>
-		                    
-		                  </table>
-		                </div>
-		                <!-- /.card-body -->
-		              </div>
-		              
-		            <!-- /.card -->
-		          </div>
-          <!-- Modal -->
-
-        </div>
+        
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     

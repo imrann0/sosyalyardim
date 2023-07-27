@@ -291,7 +291,7 @@
     <div class="grid">
       <div class="col-1-2">
         <div class="controls">
-          <input type="text" id="arsivDosyaNo" class="floatLabel" name="arsivDosyaNo">
+          <input type="number" id="arsivDosyaNo" class="floatLabel" name="arsivDosyaNo">
           <label for="arsivDosyaNo">Arşiv Dosya No</label>
         </div>
       </div>
@@ -338,10 +338,10 @@
             <input type="number" id="dilekceRefNo" class="floatLabel" name="dilekceRefNo">
             <label for="dilekceRefNo">Dilekçe Ref No</label></div>
             <div class="controls">
-              <input type="number" id="dilekceKonu" class="floatLabel" name="dilekceKonu">
+              <input type="text" id="dilekceKonu" class="floatLabel" name="dilekceKonu">
               <label for="dilekceKonu">Dilekçe Konu</label></div>
               <div class="controls">
-                <input type="number" id="dilekceSonuc" class="floatLabel" name="dilekceSonuc">
+                <input type="text" id="dilekceSonuc" class="floatLabel" name="dilekceSonuc">
                 <label for="dilekceSonuc">Dilekçe Sonuç</label></div>
                 <div class="controls">
                   <i class="fa fa-sort"></i>
@@ -363,10 +363,10 @@
             <input type="number" id="itdilekceRefNo" class="floatLabel" name="itdilekceRefNo">
             <label for="itdilekceRefNo">İtiraz Dilekçe Ref No</label></div>
           <div class="controls">
-            <input type="number" id="itdilekceKonu" class="floatLabel" name="itdilekceKonu">
+            <input type="text" id="itdilekceKonu" class="floatLabel" name="itdilekceKonu">
             <label for="itdilekceKonu">İtiraz Dilekçe Konu</label></div>
           <div class="controls">
-            <input type="number" id="itdilekceSonuc" class="floatLabel" name="itdilekceSonuc">
+            <input type="text" id="itdilekceSonuc" class="floatLabel" name="itdilekceSonuc">
             <label for="itdilekceSonuc">İtiraz Dilekçe Sonuç</label></div>
           <div class="controls">
             <i class="fa fa-sort"></i>

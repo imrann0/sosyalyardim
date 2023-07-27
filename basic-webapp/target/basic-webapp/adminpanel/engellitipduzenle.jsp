@@ -2,13 +2,7 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.example.DataBase.HelpTypeSub" %>
-<%@ page import="com.example.example.DataBase.HelpType" %>
-<%
-  List<HelpTypeSub> yardim = HelpTypeSub.getAll();
-  List<HelpType> Helps = HelpType.getAll();
-
-  /*
+<%/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -149,33 +143,21 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Yardım Alt Tip Tanımlama</h3>
+                        <h3 class="card-title">Engelli Tip Düzenleme</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form" method="post" action="yardimTipAltServlet">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
-                          	<div class="col-sm-3">
-                              <div class="form-group text-center">
-                                <label>Yardım Tip Adı</label>
-
-                                <select name="yardimAd" class="form-control">
-                                  <%for (HelpType medic : Helps){%>
-                                  <option value="<%=medic.getHelpId()%>"><%=medic.getHelpName()%></option>
-                                  <%}%>
-                                </select>
-                                                                   
-                               
-                              </div>
-                            </div>
+                          	
                           	<div class="col-sm-4">
                               <div class="form-group text-center">
-                                <label>Yardım  Alt Tip Adı</label>
+                                <label>Engelli Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="yardimalatAd" required>
+				                  <input type="text" class="form-control" name="meslek" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
-				                    <button type="submit" class="btn btn-info">Ekle</button>
+				                    <button type="submit" class="btn btn-info">Düzenle</button>
 				                  </div>
 				                </div>
                                                                    
@@ -203,62 +185,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
-          
-          <div class="col-12">
-		            <div class="card custom-datatable2">
-		                <div class="card-header d-flex justify-content-center">
-		                    <h3 class="card-title font-weight-bold">YARDIM ALT TİP LİSTESİ</h3>                	                
-						</div><!-- /.card-header -->
-		                <div class="card-body custom-datatable">
-		                  <table id="example2" class="table table-bordered table-hover">
-		                    <thead>
-		                    <tr>
-		
-		
-		                        <th>Alt Tip Kodu</th>
-		                        <th>Alt Tip Adı</th>
-		                        <th>Yardım Tip Adı</th>
-		                        <th></th>
-		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
-		                    </tr>
-		
-		                    </thead>
-		                    <tbody>       
-		                    <% for (HelpTypeSub medic : yardim){%>
-		                    <tr>
-		                      <td><%=medic.getHelpSubId()%></td>
-		                      <td><%=medic.getHelpSubName()%></td>
-		                      <td><%=medic.getHelpId().getHelpName()%></td>
-		                      <td>
-								  <a href="yardimalttipduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								  </a>
-							  </td>
-							  <td>
-								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-							  </td>
-							  
-
-		                    </tr>
-		                             <% }%>
-		                    </tbody>
-		                    
-		                  </table>
-		                </div>
-		                <!-- /.card-body -->
-		              </div>
-		              
-		            <!-- /.card -->
-		          </div>
-          <!-- Modal -->
-
-        </div>
+        
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     
