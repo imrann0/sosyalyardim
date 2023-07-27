@@ -1,0 +1,55 @@
+package com.example.example.AdminServlet;
+
+import com.example.example.DataBase.Personel;
+import com.example.example.DataBase.Rol;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import jakarta.servlet.annotation.WebServlet;
+
+
+@WebServlet(name = "AdminRegister", value = "/adminpanel/disabledType")
+public class disabledType extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String DisabledName = request.getParameter("disabledname");
+        
+        
+
+        try {
+            // Hibernate session'ı yapılandırması
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            // Personel örneğini oluşturun
+            Personel personel = new Personel();
+            personel.setName(name);
+        
+
+            // Personel örneğini kay,dedin
+            session.persist(personel);
+            transaction.commit();
+
+            session.close();
+            sessionFactory.close();
+
+            response.sendRedirect("./kullaniciliste.jsp");
+        } catch (Exception e) {
+            System.err.println("Hata oluştu: " + e);
+            e.printStackTrace();
+        }
+    }
+}
