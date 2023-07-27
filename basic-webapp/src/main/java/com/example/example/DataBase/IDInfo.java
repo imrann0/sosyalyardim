@@ -62,8 +62,13 @@ public class IDInfo {
     @JoinColumn(name = "appId")
     private Application application;
 
-    @OneToMany(mappedBy = "IdInfo", cascade = CascadeType.ALL)
-    private List<Petition> petitionList;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "petId")
+    private Petition petition;
+    
+    /* @OneToMany(mappedBy = "IdInfo", cascade = CascadeType.ALL)
+    private List<Petition> petitionList; */
 //GETSETLER
 
     public int getIdInfoId() {
@@ -243,11 +248,13 @@ public class IDInfo {
         this.application = application;
     }
 
-    public List<Petition> getPetitionList() {
-        return petitionList;
+    
+    public Petition getPetition() {
+        return petition;
     }
 
-    public void setPetitionList(List<Petition> petitionList) {
-        this.petitionList = petitionList;
+    public void setPetition(Petition petition) {
+        this.petition = petition;
     }
+    
 }

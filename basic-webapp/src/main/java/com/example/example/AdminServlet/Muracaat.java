@@ -164,6 +164,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         idinfo.setContact(contact);
         idinfo.setApplication(app);
         idinfo.setAddress(add);
+        idinfo.setPetition(pet);
 
         // Update the existing record with the new data
         session.persist(idinfo);

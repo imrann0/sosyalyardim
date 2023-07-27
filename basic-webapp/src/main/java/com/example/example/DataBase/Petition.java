@@ -8,6 +8,7 @@ import jakarta.persistence.Column;
 import java.time.LocalDate;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class  Petition {
@@ -47,9 +48,8 @@ public class  Petition {
     private LocalDate forwardingDate2;
 
     // İlişki
-    @ManyToOne
-    @JoinColumn(name = "idInfoId")
-    private IDInfo IdInfo;
+    @OneToOne(mappedBy = "application")
+    private IDInfo idInfoId;
 
     // GET SETLER
 
@@ -141,11 +141,11 @@ public class  Petition {
         this.forwardingDate2 = forwardingDate2;
     }
 
-    public IDInfo getIdInfo() {
-        return IdInfo;
+    public IDInfo getIdInfoId() {
+        return idInfoId;
     }
 
-    public void setIdInfo(IDInfo idInfo) {
-        IdInfo = idInfo;
+    public void setIdInfoId(IDInfo idInfoId) {
+        this.idInfoId = idInfoId;
     }
 }
