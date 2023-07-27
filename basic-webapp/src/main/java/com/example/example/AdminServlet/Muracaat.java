@@ -19,7 +19,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import jakarta.servlet.annotation.WebServlet;
 import java.sql.Date;
-
+ 
 
 @WebServlet(name = "Muracaat", value = "/adminpanel/muracat")
 public class Muracaat extends HttpServlet {
@@ -160,7 +160,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         Address add = new Address();
         add.setAddressNo(AddresNum);
         add.setPublicAddress(acıkAddress);
-        
         idinfo.setContact(contact);
         idinfo.setApplication(app);
         idinfo.setAddress(add);

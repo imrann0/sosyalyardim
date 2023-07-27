@@ -48,7 +48,7 @@ public class  Petition {
     private LocalDate forwardingDate2;
 
     // İlişki
-    @OneToOne(mappedBy = "application")
+    @OneToOne(mappedBy = "petition")
     private IDInfo idInfoId;
 
     // GET SETLER
