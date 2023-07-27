@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
-<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.cekmece" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
 <%
-  List<Personel> users = Personel.getAllUserInfo();
+String CekmeceId = request.getParameter("CekmeceId");
+int Id = Integer.parseInt(CekmeceId);
+cekmece Cekmece = cekmece.getUserInfoById(Id);
 
-  /*
+ /* 
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -137,13 +140,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form action="cekmeceUpdate" method="post">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Çekmece Adı</label>
-                                <input type="text" class="form-control" name="cekmece" required>
+                                <input type="hidden" name="cekmeceId" value="<%=Id%>">
+                                <input type="text" class="form-control" name="cekmeceAdi" value="<%= Cekmece.getCekmeceAdi() %>" required>
                                                                    
                                
                               </div>
@@ -151,9 +155,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
+                                <select class="form-control" name="durum">
+                                  <option value="Aktif" <%= Cekmece.getDurum().equals("Aktif") ? "selected" : "" %> >Aktif</option>
+                                  <option value="Pasif"  <%= Cekmece.getDurum().equals("Pasif") ? "selected" : "" %> >Pasif</option>
                                   
                                 </select>
                               </div>

@@ -2,12 +2,17 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
+<<<<<<< HEAD
+<%
+  List<Personel> users = Personel.getAllUserInfo();
+=======
 <%@ page import="com.example.example.DataBase.Profession" %>
 <%@ page import="java.util.Objects" %>
 <%
   String meslekId = request.getParameter("meslekId");
   int Id = Integer.parseInt(meslekId);
   Profession prof =  Profession.getinfobyProfessionId(Id);
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 
   /*
 HttpSession userSession = request.getSession();
@@ -137,18 +142,40 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
+<<<<<<< HEAD
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/meslekduzenle.jsp
+                        <h3 class="card-title">Meslek Bilgi Giriş</h3>
+========
+                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/cekmeceduzenle.jsp
+                    </div>
+    
+                    <!-- form başlangıcı -->
+                    <form role="form">
+=======
                         <h3 class="card-title">Meslek Bilgi Giriş</h3>
                     </div>
     
                     <!-- form başlangıcı -->
                     <form action="MeslekDuzenle" method="post">
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
+<<<<<<< HEAD
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/meslekduzenle.jsp
+                                <label>Meslek Adı</label>
+                                <input type="text" class="form-control" name="meslek" required>
+========
+                                <label>Çekmece Adı</label>
+                                <input type="text" class="form-control" name="cekmece" required>
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/basic-webapp/adminpanel/cekmeceduzenle.jsp
+=======
                                 <label>Meslek Adı</label>
                                 <input type="hidden" class="form-control" name="meslekid" value="<%=prof.getProfessionId()%>">
                                 <input type="text" class="form-control" name="meslekadi" value="<%=prof.getProfessionName()%>" required>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                                                    
                                
                               </div>
@@ -156,9 +183,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
+<<<<<<< HEAD
+                                <select class="form-control">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>
+=======
                                 <select name="Durum" class="form-control">
                                   <option value="Aktif" <%= prof.getIsActive().equals("Aktif") ? "selected" : "" %>>Aktif</option>
                                   <option value="Pasif" <%= prof.getIsActive().equals("Pasif") ? "selected" : "" %>>Pasif</option>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                   
                                 </select>
                               </div>

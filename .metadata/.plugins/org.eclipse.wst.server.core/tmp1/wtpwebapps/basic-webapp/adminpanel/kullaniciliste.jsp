@@ -108,9 +108,20 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                        <th>Cinsiyet</th>
 		                        <th>Durum</th>
 		                        <th></th>
+<<<<<<< HEAD
+<<<<<<< HEAD
+		                        <th></th>
+		                        
+		
+=======
+                            <th></th>
+>>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
+		                        
+=======
 		                        <th></th>
                             <th></th>
 
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 		                        
 		                    </tr>
 		
