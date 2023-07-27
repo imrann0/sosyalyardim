@@ -24,10 +24,10 @@ public class Bolgegiris extends HttpServlet {
             String street = request.getParameter("name");
 
             // Yeni Bolge nesnesi oluştur ve verileri set et
-            Bolge bolge = new Bolge();
-            bolge.setBolgeKod(district);
-            bolge.setBolgeAktiflikDurumu(neighborhood);
-            bolge.setBolgeAdi(street);
+            Zone bolge = new Zone();
+            bolge.setZoneCode(district);
+            bolge.setZoneIsActive(neighborhood);
+            bolge.setZoneName(street);
 
             // Hibernate ile veritabanına kaydet
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -38,9 +38,9 @@ public class Bolgegiris extends HttpServlet {
             transaction.commit();
             session.close();
 
+            sessionFactory.close();
             // Kullanıcıya geri bildirim sağla
-            response.getWriter().println("Bölge başarıyla kaydedildi.");
-
+            response.sendRedirect("bolgegiris.jsp");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Bir hata oluştu.");

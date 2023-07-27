@@ -3,8 +3,10 @@
 <%@ page import="com.example.example.DataBase.Sokak" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="com.example.example.DataBase.Zone" %>
 <%
 	List<District> district = District.getAllDistrict();
+    List<Zone> zone = Zone.getAllZone();
 
 %>
 <!DOCTYPE html>
@@ -296,10 +298,9 @@
         <div class="controls">
           <i class="fa fa-sort"></i>
           <select name="Bolge">
-            <option value="-1" selected> Bölge </option>
-            <option value="1" >ORa</option>
-            <option value="2" >Bura</option>
-            <option value="3">Boşanmış</option>
+            <% for (Zone zones : zone) { %>
+            <option value="<%= zones.getZoneId() %>" ><%= zones.getZoneName() %></option>
+            <% } %>
           </select>
         </div>
       </div>

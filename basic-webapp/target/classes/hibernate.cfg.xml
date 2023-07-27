@@ -35,7 +35,7 @@
         <mapping class="com.example.example.DataBase.degreeofAffinity" />
         <mapping class="com.example.example.DataBase.District" />
         <mapping class="com.example.example.DataBase.Sokak" />
-        <mapping class="com.example.example.DataBase.Bolge" />
+        <mapping class="com.example.example.DataBase.Zone" />
         <mapping class="com.example.example.DataBase.HelpType" />
 
 
