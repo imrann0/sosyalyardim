@@ -12,17 +12,17 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ContactId;
 
-    private String district;
-    private String neighborhood;
-    private String Street;
-    private String addressDefinition;
-    private String Apartment;
-    private String blockDoorNo;
-    private String apartmentNo;
-    private String homePhone;
-    private String cellPhone;
-    private String otherTel;
-    private String eMail;
+    private String district; // İlçe
+    private String neighborhood; // Mahalle 
+    private String Street; //  Sokak
+    private String addressDefinition; // Adres Açıklaması
+    private String Apartment; // Apartman
+    private String blockDoorNo; // Blok No
+    private String apartmentNo; // Apartman No
+    private String homePhone;	// Ev Telefon
+    private String cellPhone;	// Cep Telefonu
+    private String otherTel;	// Diğer Tel
+    private String eMail;		// Mail
 
     @OneToOne(mappedBy = "contact")
     private IDInfo IDInfo;

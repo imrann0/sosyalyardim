@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
-import java.util.Date;
+import java.time.LocalDate;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -18,12 +18,12 @@ public class Application {
     private String archiveFileNo;
 
     @Column(name = "muracaat_tarihi")
-    private Date applicationDate;
+    private LocalDate applicationDate;
 
     @Column(name = "muracaat_tipi")
     private String applicationType;
 
-    private String region;
+    private String region; // Bölge
     private String description;
 
     @OneToOne(mappedBy = "application")
@@ -49,11 +49,11 @@ public class Application {
         this.archiveFileNo = archiveFileNo;
     }
 
-    public Date getApplicationDate() {
+    public LocalDate getApplicationDate() {
         return applicationDate;
     }
 
-    public void setApplicationDate(Date applicationDate) {
+    public void setApplicationDate(LocalDate applicationDate) {
         this.applicationDate = applicationDate;
     }
 

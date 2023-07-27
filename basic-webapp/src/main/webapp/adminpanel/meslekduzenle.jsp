@@ -2,8 +2,12 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.example.DataBase.Profession" %>
+<%@ page import="java.util.Objects" %>
 <%
-  List<Personel> users = Personel.getAllUserInfo();
+  String meslekId = request.getParameter("meslekId");
+  int Id = Integer.parseInt(meslekId);
+  Profession prof =  Profession.getinfobyProfessionId(Id);
 
   /*
 HttpSession userSession = request.getSession();
@@ -137,13 +141,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form action="MeslekDuzenle" method="post">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Meslek Adı</label>
-                                <input type="text" class="form-control" name="meslek" required>
+                                <input type="hidden" class="form-control" name="meslekid" value="<%=prof.getProfessionId()%>">
+                                <input type="text" class="form-control" name="meslekadi" value="<%=prof.getProfessionName()%>" required>
                                                                    
                                
                               </div>
@@ -151,9 +156,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
+                                <select name="Durum" class="form-control">
+                                  <option value="Aktif" <%= prof.getIsActive().equals("Aktif") ? "selected" : "" %>>Aktif</option>
+                                  <option value="Pasif" <%= prof.getIsActive().equals("Pasif") ? "selected" : "" %>>Pasif</option>
                                   
                                 </select>
                               </div>

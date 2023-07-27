@@ -29,8 +29,22 @@
         <mapping class="com.example.example.DataBase.Petition" />
         <mapping class="com.example.example.DataBase.IDInfo" />
         <mapping class="com.example.example.DataBase.Application" />
+<<<<<<< HEAD
         <mapping class="com.example.example.DataBase.Meslek" />
         <mapping class="com.example.example.DataBase.cekmece" />
+=======
+        <mapping class="com.example.example.DataBase.Profession" />
+        <mapping class="com.example.example.DataBase.School" />
+        <mapping class="com.example.example.DataBase.degreeofAffinity" />
+        <mapping class="com.example.example.DataBase.District" />
+        <mapping class="com.example.example.DataBase.Sokak" />
+        <mapping class="com.example.example.DataBase.Zone" />
+        <mapping class="com.example.example.DataBase.HelpType" />
+        <mapping class="com.example.example.DataBase.Disabled" />
+        
+
+
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
     </session-factory>
 
 </hibernate-configuration>

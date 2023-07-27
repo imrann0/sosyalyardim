@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 <%@page import="com.example.example.DataBase.cekmece"%>
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
+<<<<<<< HEAD
 
 List<cekmece> Cekmece = cekmece.getAllUserInfo();
 
@@ -11,6 +15,11 @@ List<cekmece> Cekmece = cekmece.getAllUserInfo();
   List<Personel> users = Personel.getAllUserInfo();
 
   
+=======
+  List<Personel> users = Personel.getAllUserInfo();
+
+  /*
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -20,7 +29,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 */
 %>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 <!DOCTYPE html>
 <html>
 <head>
@@ -143,12 +155,21 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
+<<<<<<< HEAD
                      <form action="saveCekmece" method="post"><div class="card-body">
+=======
+                    <form role="form">
+                        <div class="card-body">
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Çekmece Adı</label>
+<<<<<<< HEAD
                                	<input type="text" class="form-control" name="cekmece" required>
+=======
+                                <input type="text" class="form-control" name="cekmece" required>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                                                    
                                
                               </div>
@@ -156,9 +177,16 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Durum</label>
+<<<<<<< HEAD
                                       <select class="form-control" name="durum">
 									    <option value="Aktif">Aktif</option>
 									    <option value="Pasif">Pasif</option>
+=======
+                                <select class="form-control">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>
+                                  
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                 </select>
                               </div>
                               
@@ -210,6 +238,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                    </tr>
 		
 		                    </thead>
+<<<<<<< HEAD
 		                    <tbody>
 						    <% for(cekmece user: Cekmece) { %>
 						    <tr>
@@ -225,6 +254,26 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 						    <% } %>
 						</tbody>
 
+=======
+		                    <tbody>       
+		                    
+		                    <tr>
+		                      <td></td>
+		                      <td></td>
+		                      <td></td>
+		                      
+		                      
+		                      <td>
+								  <a href="cekmeceduzenle.jsp">
+								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								  </a>
+							  </td>
+							  
+
+		                    </tr>
+		                             
+		                    </tbody>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 		                    
 		                  </table>
 		                </div>

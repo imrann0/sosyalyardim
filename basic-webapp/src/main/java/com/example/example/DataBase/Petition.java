@@ -5,9 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
-import java.util.Date;
+import java.time.LocalDate;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class  Petition {
@@ -29,7 +30,7 @@ public class  Petition {
     private String forwardingUnit;
 
     @Column(name = "yonlendirme_tarihi")
-    private Date forwardingDate;
+    private LocalDate forwardingDate;
 
     @Column(name = "dilekce_referans_no")
     private String petitionReferenceNo;
@@ -39,14 +40,16 @@ public class  Petition {
 
     @Column(name = "dilekce_sonuc")
     private String petitionResult;
+    
+    @Column(name = "yonlendiren_birim_Dilekce")
+    private String forwardingDilekce;
 
-    @Column(name = "yonlendirme_tarihi_2")
-    private Date forwardingDate2;
+    @Column(name = "yonlendirme_tarihi_Dilekce")
+    private LocalDate forwardingDate2;
 
     // İlişki
-    @ManyToOne
-    @JoinColumn(name = "idInfoId")
-    private IDInfo IdInfo;
+    @OneToOne(mappedBy = "petition")
+    private IDInfo idInfoId;
 
     // GET SETLER
 
@@ -90,11 +93,11 @@ public class  Petition {
         this.forwardingUnit = forwardingUnit;
     }
 
-    public Date getForwardingDate() {
+    public LocalDate getForwardingDate() {
         return forwardingDate;
     }
 
-    public void setForwardingDate(Date forwardingDate) {
+    public void setForwardingDate(LocalDate forwardingDate) {
         this.forwardingDate = forwardingDate;
     }
 
@@ -122,19 +125,27 @@ public class  Petition {
         this.petitionResult = petitionResult;
     }
 
-    public Date getForwardingDate2() {
+    public String getForwardingDilekce() {
+    	return forwardingDilekce;
+    }
+    
+    public void setForwardingDilekce(String forwardingDilekce) {
+    	this.forwardingDilekce = forwardingDilekce;
+    }
+    
+    public LocalDate getForwardingDate2() {
         return forwardingDate2;
     }
-
-    public void setForwardingDate2(Date forwardingDate2) {
+    
+    public void setForwardingDate2(LocalDate forwardingDate2) {
         this.forwardingDate2 = forwardingDate2;
     }
 
-    public IDInfo getIdInfo() {
-        return IdInfo;
+    public IDInfo getIdInfoId() {
+        return idInfoId;
     }
 
-    public void setIdInfo(IDInfo idInfo) {
-        IdInfo = idInfo;
+    public void setIdInfoId(IDInfo idInfoId) {
+        this.idInfoId = idInfoId;
     }
 }

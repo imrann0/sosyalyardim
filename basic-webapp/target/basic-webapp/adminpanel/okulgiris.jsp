@@ -73,13 +73,13 @@
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+            		<form action="okul" method="post">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Durum</label>
-                                <select class="form-control" style="max-width: 150px;">
+                                <select class="form-control" name="Durum" style="max-width: 150px;">
                                   <option>Aktif</option>
                                   <option>Pasif</option>                                  
                                 </select>
@@ -91,14 +91,14 @@
                                 <label>Okul Türü</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary2" name="okul" required>
+                                        <input value="devlet" type="radio" id="radioPrimary2" name="Okul" required>
                                         <label for="radioPrimary2">
                                             Devlet
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary4" name="okul" required>
+                                        <input value="ozel" type="radio" id="radioPrimary4" name="Okul" required>
                                         <label for="radioPrimary4">
                                             Özel
                                         </label>
@@ -112,7 +112,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Okul Tipi</label>
-                                <select class="form-control" style="max-width: 150px;">
+                                <select class="form-control" name="OkulSect" style="max-width: 150px;">
                                   <option>Anaokul</option>
                                   <option>İlkokul</option> 
                                   <option>Ortaokul</option>
@@ -128,7 +128,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Okul Adı</label>
-                                <input type="text" class="form-control" name="okul" required>
+                                <input type="text" class="form-control" name="OkulName" required>
                                                                    
                                
                               </div>

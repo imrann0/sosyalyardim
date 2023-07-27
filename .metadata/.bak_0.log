@@ -11596,13 +11596,24 @@ java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclip
 =======
 >>>>>>> 7fd0b9eaae8ed87a85731764508a663b983da08b
 >>>>>>> e7d963ab6bc37a4920411d807d89c3b9c67a5e08
+<<<<<<< HEAD
 !SESSION 2023-07-26 10:15:31.011 -----------------------------------------------
 eclipse.buildId=4.28.0.20230608-1200
 java.version=20.0.1
 java.vendor=Oracle Corporation
+=======
+!SESSION 2023-07-26 15:34:02.382 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=tr_TR
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.emf.ecore 2 0 2023-07-26 10:15:32.466
+=======
+!ENTRY org.eclipse.emf.ecore 2 0 2023-07-26 15:34:05.998
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 !MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'

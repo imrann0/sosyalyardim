@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<<<<<<< HEAD
 <<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f/50681849562c001e1d92d48c70bc1562
 <%@ page import="com.example.example.DataBase.cekmece" %>
 ========
@@ -17,6 +18,18 @@ cekmece Cekmece = cekmece.getUserInfoById(Id);
 
  /* 
 ========
+=======
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.HelpType" %>
+
+<%@ page import="java.util.List" %>
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+<%/*
+  List<Personel> users = Personel.getAllUserInfo();
+
+========
+<%
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
   String asdd = request.getParameter("ID");
   int ID = Integer.parseInt(asdd);
   HelpType yardim = HelpType.getbyID(ID);
@@ -24,8 +37,13 @@ cekmece Cekmece = cekmece.getUserInfoById(Id);
   /*
   List<Personel> users = Personel.getAllUserInfo();
 
+<<<<<<< HEAD
   
 >>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+=======
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+  
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
 
@@ -67,6 +85,22 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+  		.custom-datatable2{
+  		background-color:  #fafafa;
+	  		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Gölgeli efekti ekle */
+	    
+	    margin-left: 30px;
+	    margin-right: 30px;
+  		}
+========
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 	  .pagination .page-item.active .page-link {
 	    background-color: #17a2b8; /* Kırmızı renk (#ff0000) olarak ayarlandı */
 	    border-color: #17a2b8; /* Kenarlık rengi de kırmızı yapılıyor */
@@ -80,6 +114,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Gölgeli efekti ekle */
     }
     .custom-datatable {
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+    background-color: white;
+========
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
     position: relative;
     padding: 40px; /* Arkaya gölge için içeriği itin */
     border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
@@ -106,13 +147,34 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 	    font-family: Arial, sans-serif; /* Yazı tipini belirleyin */
 	   
   }
+<<<<<<< HEAD
   	.custom-datatable h3.card-title {
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+  	.custom-datatable2 h3.card-title {
+  	
+========
+  	.custom-datatable h3.card-title {
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 	  font-size: 24px; /* Yazı boyutunu istediğiniz gibi ayarlayın */
 	  font-weight: bold;
 	  font-family: Arial, sans-serif; /* Kalın yazı tipi */
 	  text-align: center; /* Yazıyı ortala */
 	  margin-bottom: 20px; /* Aşağıya boşluk bırakın */
 }	
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+	.card-info {
+      background-color:  #fafafa; /* Turkuaz rengi (#17a2b8) olarak ayarlandı */
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Gölgeli efekt eklemek için */
+      margin: 30px; /* Kenar boşlukları */
+      padding: 40px; /* İçerikten içeri boşluk bırakmak için */
+    }
+========
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 	.card-info{
 		position: relative;
 	    padding: 40px; /* Arkaya gölge için içeriği itin */
@@ -122,6 +184,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 	    margin-left: 30px;
 	    margin-right: 30px;
 	}
+<<<<<<< HEAD
+=======
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 	.koyu-yazi {
   color: #000000; /* Siyah rengin hexadecimal kodu */
   /* Diğer stil özelliklerini burada belirtebilirsiniz */
@@ -153,40 +219,72 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
+<<<<<<< HEAD
 <<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f/50681849562c001e1d92d48c70bc1562
                         <h3 class="card-title">Çekmece Bilgi Giriş</h3>
                     </div>
     
                     <!-- form başlangıcı -->
                     <form action="saveCekmece" method="post">
+=======
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/cf/005d3c0c5c2c001e1614cbca0928a6c8
+                        <h3 class="card-title">Engelli Tip Düzenleme</h3>
+                    </div>
+    
+                    <!-- form başlangıcı -->
+                    <form role="form">
+                        <div class="card-body">
+                          <div class="row">
+                          	
+                          	<div class="col-sm-4">
+                              <div class="form-group text-center">
+                                <label>Engelli Tip Adı</label>
+                                <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
+				                  <input type="text" class="form-control" name="meslek" required>
+				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
+				                    <button type="submit" class="btn btn-info">Düzenle</button>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 ========
                         <h3 class="card-title">Genel Yardım Tipi Tanımlama</h3>
                     </div>
     
                     <!-- form başlangıcı -->
                     <form role="form" method="post" action="yardimTipServletDuzenle">
+<<<<<<< HEAD
 >>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
                               <div class="form-group text-center">
+<<<<<<< HEAD
 <<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f/50681849562c001e1d92d48c70bc1562
                                 <label>Çekmece Adı</label>
                                 <input type="text" class="form-control" name="cekmece" value="<%= Cekmece.getCekmeceAdi() %>" required>
 ========
+=======
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                 <label>Yardım Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
                                   <input type="hidden" class="form-control" name="yardimId" value="<%=yardim.getHelpId()%>">
                                   <input type="text" class="form-control" value="<%= yardim.getHelpName()%>" name="yardimAd" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Ekle</button>
+<<<<<<< HEAD
 				                  </div>
 				                </div>
 >>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+=======
+>>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+				                  </div>
+				                </div>
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                                                                    
                                
                               </div>
                             </div>
+<<<<<<< HEAD
 <<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f/50681849562c001e1d92d48c70bc1562
                             <div class="col-sm-6">
                               <div class="form-group text-center">
@@ -204,6 +302,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             
 				                            
 >>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+=======
+                            
+				                            
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
                             
                           </div>
                           
@@ -211,6 +313,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							
                         </div>
                         
+<<<<<<< HEAD
 <<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/f/50681849562c001e1d92d48c70bc1562
 			            <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 					      <button type="submit" class="btn btn-info">Ekle</button>
@@ -218,6 +321,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 ========
 			            
 >>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb:basic-webapp/target/basic-webapp/adminpanel/yardimtipiduzenle.jsp
+=======
+			            
+>>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 			            
                         <!-- form sonu -->
     

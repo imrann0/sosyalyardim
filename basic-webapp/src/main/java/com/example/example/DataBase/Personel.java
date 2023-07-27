@@ -228,7 +228,6 @@ public class Personel {
 		    public static List<Personel> getAllUserInfo() {
 		        Configuration configuration = new Configuration().configure();
 		        SessionFactory sessionFactory = configuration.buildSessionFactory();
-
 		        Session session = sessionFactory.openSession();
 		        session.beginTransaction();
 

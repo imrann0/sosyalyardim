@@ -97,10 +97,10 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                                 <label>OKUL TİPİ</label>
                                 <select class="form-control">
                                   <option>1. Bölge</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                  <option>2. Bölge</option>
+                                  <option>3. Bölge</option>
+                                  <option>4. Bölge</option>
+                                  <option>5. Bölge</option>
                                 </select>
                               </div>
                             </div>
