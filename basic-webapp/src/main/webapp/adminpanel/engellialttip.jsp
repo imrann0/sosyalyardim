@@ -5,6 +5,10 @@
 <%@ page import="com.example.example.DataBase.DisabledSub" %>
 <%@ page import="java.util.List" %>
 <%
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_EngelliAltTip_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }
 List<Disabled> disabled = Disabled.getAll();
 List<DisabledSub> disabledsub = DisabledSub.getAllDisabledSub();
 

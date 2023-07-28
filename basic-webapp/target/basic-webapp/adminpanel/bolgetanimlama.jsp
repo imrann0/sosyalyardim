@@ -1,4 +1,11 @@
+<%@ page import="com.example.example.DataBase.Zone" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+  HttpSession userSession = request.getSession();
+  Rol.hasRole(userSession,"Role_Bolge_Ekle");
+  List<Zone> zone = Zone.getAllAktifZone();
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,29 +35,30 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+	  .form-heading {
+	    font-size: 17px;
+	    font-weight: bold;
+	    color: black; /* Change the color to your desired heading color */
+	    margin-bottom: 10px; /* Add some spacing between headings and form fields */
+	    
+	  }
+	  .card-info{
+			position: relative;
+		    padding: 40px; /* Arkaya gölge için içeriği itin */
+		    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+		    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
+		    margin-top: 50px;
+		    margin-left: 30px;
+		    margin-right: 30px;
+		}
+	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="anasayfa.html" class="nav-link">Anasayfa</a>
-      </li>
-      
-    </ul>
-
-    <!-- SEARCH FORM -->
-    
-
-    <!-- Right navbar links -->
-    
-  </nav>
+  <%@include file="navbar.jsp"%>
   <!-- /.navbar -->
 
   <%@include file="sidebar.jsp"%>
@@ -62,14 +70,17 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content-wrapper">
+    
       
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
-                <div class="card card-primary">
+            <div class="col-12">
+                <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Bölge Tanımlama</h3>
+                        <h3 class="card-title">
+					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
+						  Bölge Tanımlama
+					  </h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -81,7 +92,9 @@
                               <div class="form-group">
                                 <label>Bölge Adı</label>
                                 <select class="form-control">
-                                  <option>1. Bölge</option>
+                                  <%for(Zone bolge : zone){%>
+                                  <option value="<%=bolge.getZoneId()%>"><%=bolge.getZoneName()%></option>
+                                  <% }%>
                                 </select>
                               </div>
                             </div>
@@ -106,16 +119,16 @@
                         </div>
                         <!-- form sonu -->
     
-                        <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                        </div>
+                        <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      	<button type="submit" class="btn btn-info">Kaydet</button>
+					    </div>
                     </form>
                 </div>
                 <!-- Modal -->
             </div>
         </div>
       </div>
-    </section>
+    
     <!-- /.content -->
   </div>
   

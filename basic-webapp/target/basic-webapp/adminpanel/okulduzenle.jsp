@@ -1,11 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-  HttpSession userSession = request.getSession();
-  if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
-    response.sendRedirect("../Error/Error.html");
-  }
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,20 +28,13 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <style>
-  .form-heading {
-    font-size: 17px;
-    font-weight: bold;
-    color: black; /* Change the color to your desired heading color */
-    margin-bottom: 10px; /* Add some spacing between headings and form fields */
-    
-  }
-  .card-info{
+	<style>
+	.card-info{
 		position: relative;
 	    padding: 40px; /* Arkaya gölge için içeriği itin */
 	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
-	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
-	    margin-top: 50px;
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
 	    margin-left: 30px;
 	    margin-right: 30px;
 	}
@@ -58,7 +44,24 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <%@include file="navbar.jsp"%>
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
+      </li>
+      
+    </ul>
+
+    <!-- SEARCH FORM -->
+    
+
+    <!-- Right navbar links -->
+    
+  </nav>
   <!-- /.navbar -->
 
   <%@include file="sidebar.jsp"%>
@@ -76,40 +79,39 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                   <div class="card-header d-flex justify-content-center">
-					  <h3 class="card-title">
-					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
-					    Yeni Bölge Girişi
-					  </h3>
-					</div>
-
-
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title">Okul Bilgi Düzenle</h3>
+                    </div>
+    
                     <!-- form başlangıcı -->
-                    <form action="saveBolge" method="post">
+            		<form action="okul" method="post">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label class="form-heading">Bölge Kodu</label>
-                                <input type="text" class="form-control" name="bolgekod" placeholder="Bölgekodu giriniz" required>
+                                <label>Durum</label>
+                                <select class="form-control" name="Durum" style="max-width: 300px;">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>                                  
+                                </select>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <!-- text input -->
                               <div class="form-group">
-                                <label class="form-heading">Bölge Aktiflik Durumu</label>
+                                <label>Okul Türü</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input value="Aktif" type="radio" id="radioPrimary2" name="durum" required>
+                                        <input value="devlet" type="radio" id="radioPrimary2" name="Okul" required>
                                         <label for="radioPrimary2">
-                                            Aktif
+                                            Devlet
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input value="Pasif" type="radio" id="radioPrimary4" name="durum" required>
+                                        <input value="ozel" type="radio" id="radioPrimary4" name="Okul" required>
                                         <label for="radioPrimary4">
-                                            Pasif
+                                            Özel
                                         </label>
                                     </div>
                                 </div>
@@ -120,17 +122,35 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label class="form-heading">Bölge Adı</label>
-                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." name="name" required></textarea>
+                                <label>Okul Tipi</label>
+                                <select class="form-control" name="OkulSect" style="max-width: 300px;">
+                                  <option>Anaokul</option>
+                                  <option>İlkokul</option> 
+                                  <option>Ortaokul</option>
+                                  <option>Lise</option>
+                                  <option>Yüksek Lisans</option>
+                                  <option>Önlisans</option>
+                                  <option>Lisans</option>
+                                  <option>Diğer</option>
+                                                                   
+                                </select>
                               </div>
-                            </div>  
+                            </div> 
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Okul Adı</label>
+                                <input type="text" class="form-control" name="OkulName" required>
+                                                                   
+                               
+                              </div>
+                            </div> 
                           </div>
                           
 
                         </div>
                         <!-- form sonu -->
     
-                        <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 					      <button type="submit" class="btn btn-info">Kaydet</button>
 					    </div>
                     </form>

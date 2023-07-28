@@ -8,21 +8,15 @@
 <%@ page import="com.example.example.RoleControl" %>
 
 <%
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Kullanıcı_Ekle")){ //ROL OLARAK KULLANICI DÜZENLE EKLENMELİ
+    response.sendRedirect("../Error/Error.html");
+  }
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
     Personel user = Personel.getUserInfoById(userId);
-    Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
-    Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
     List<Rol> roles = Rol.getAllRoles();
     
-    List<Personel> users = Personel.getAllUserInfo();
-
-    HttpSession userSession = request.getSession();
-    String roleName = "Role_Kullanıcı_Duzenle";
-
- /*   if (!Rol.hasRole(userSession, roleName)) {
-        response.sendRedirect("../Error/Error.html");
-    }*/
 
 %>
 

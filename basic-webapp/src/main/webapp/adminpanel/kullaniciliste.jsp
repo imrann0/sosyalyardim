@@ -4,15 +4,11 @@
 <%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
 <%@ page import="java.util.List" %>
 <%
-
-  List<Personel> users = Personel.getAllUserInfo();
-
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
-/*
-if (!RoleUtils.hasRole(userSession, roleName)) {
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Kullanıcı_Listele")){
     response.sendRedirect("../Error/Error.html");
-} */
+  }
+  List<Personel> users = Personel.getAllUserInfo();
 %>
 
 <!DOCTYPE html>

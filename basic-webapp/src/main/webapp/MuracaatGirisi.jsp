@@ -4,8 +4,14 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="com.example.example.DataBase.Zone" %>
+<%@ page import="com.example.example.DataBase.Rol" %>
 <%
-	List<District> district = District.getAllDistrict();
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }
+
+  List<District> district = District.getAllDistrict();
     List<Zone> zone = Zone.getAllAktifZone();
 
 %>

@@ -4,18 +4,16 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
 <%
-String CekmeceId = request.getParameter("CekmeceId");
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Cekmece_Düzenle")){
+    response.sendRedirect("../Error/Error.html");
+  }
+
+  String CekmeceId = request.getParameter("CekmeceId");
 int Id = Integer.parseInt(CekmeceId);
 cekmece Cekmece = cekmece.getUserInfoById(Id);
 
- /* 
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
 
-if (!RoleUtils.hasRole(userSession, roleName)) {
-    response.sendRedirect("../login.jsp");
-}
-*/
 %>
 
 <!DOCTYPE html>
