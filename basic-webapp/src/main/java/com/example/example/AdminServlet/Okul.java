@@ -21,9 +21,8 @@ public class Okul extends HttpServlet {
             throws ServletException, IOException {
     	String Durum = request.getParameter("Durum");
     	String Okul = request.getParameter("Okul");
-    	String OkulSect = request.getParameter("OkulSect");
+    	String OkulSect = request.getParameter("OkulTipi");
     	String OkulName = request.getParameter("OkulName");
-        String[] selectedRoleIds = request.getParameterValues("selected");
 
 
     
@@ -37,7 +36,7 @@ try {
     
     school.setDurum(Durum);
     school.setOkul(Okul);
-    school.setOkulSect(OkulSect);
+    school.setOkulTipi(OkulSect);
     school.setOkulName(OkulName);
     
     session.persist(school);
@@ -48,7 +47,7 @@ try {
 
    
 
-    response.sendRedirect("./kullaniciliste.jsp");
+    response.sendRedirect("./okulgiris.jsp");
 } catch (Exception e) {
     System.err.println("Hata oluştu: " + e);
     e.printStackTrace();
