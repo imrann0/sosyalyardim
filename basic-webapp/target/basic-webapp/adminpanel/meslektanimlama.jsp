@@ -4,8 +4,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.example.DataBase.Profession" %>
 <%
-  List<Personel> users = Personel.getAllUserInfo();
-  List<Profession> meslek = Profession.getAllMeslek();
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Meslek_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }  List<Profession> meslek = Profession.getAllMeslek();
   /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";

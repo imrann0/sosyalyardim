@@ -3,8 +3,12 @@
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.Objects" %>
 <%
+
   HttpSession userSession = request.getSession();
+
   if(!Rol.hasRole(userSession,"Role_Kullanıcı_Listele")){
     response.sendRedirect("../Error/Error.html");
   }
@@ -173,8 +177,9 @@
 		                      <td><%= user.getName()%></td>
 		                      <td><%= user.getUnvan()%></td>
 		                      <td><%= user.getPhone()%></td>
-		                      <td><%= user.getGender()%></td>
-		                      <td><%= user.getStatus()%></td>
+                          <td><% if(Objects.equals(user.getGender(), "E")){%>Erkek<%}else{%>Kadın<% }%></td>
+
+		                      <td><% if(user.getStatus()==1){%>Aktif<%}else{%>Pasif<% }%></td>
 		                      <td>
 								  <div class="d-flex justify-content-between align-items-center">
 								    <a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>">

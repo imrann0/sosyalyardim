@@ -257,7 +257,9 @@
 				            <label class="form-check-label" for="rol<%= role.getId() %>"><%= role.getRoleName() %></label>
 				        </div>
 				    <% } %>
-				</div>
+          <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
+
+        </div>
 
 
 
@@ -333,29 +335,17 @@
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 <script>
-  var select1 = document.getElementById("select1");
-  var select2 = document.getElementById("select2");
+// Tüm checkbox'ları işaretlemek için bir fonksiyon tanımlayın
+function checkAll() {
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(function(checkbox) {
+checkbox.checked = true;
+});
+}
 
-  // İlk kutudan seçenek seçildiğinde senkronize et
-  select1.addEventListener("change", function() {
-    var selectedOptions = Array.from(select1.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select2.appendChild(option);
-      option.selected = false;
-    });
-  });
-
-  // İkinci kutudan seçenek seçildiğinde senkronize et
-  select2.addEventListener("change", function() {
-    var selectedOptions = Array.from(select2.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select1.appendChild(option);
-      option.selected = false;
-    });
-  });
+// Butona tıklandığında checkAll() fonksiyonunu çağıran bir event listener ekleyin
+var button = document.getElementById('checkAllButton'); // Butonun id'sini buraya ekleyin
+button.addEventListener('click', checkAll);
 </script>
-
 </body>
 </html>

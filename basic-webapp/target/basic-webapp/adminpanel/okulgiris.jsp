@@ -123,7 +123,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Okul Tipi</label>
-                                <select class="form-control" name="OkulSect" style="max-width: 300px;">
+                                <select class="form-control" name="OkulTipi" style="max-width: 300px;">
                                   <option>Anaokul</option>
                                   <option>İlkokul</option> 
                                   <option>Ortaokul</option>

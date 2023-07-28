@@ -1,9 +1,10 @@
+<%@page import="com.example.example.DataBase.School"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
-  List<Personel> users = Personel.getAllUserInfo();
+ List<School> okul = School.getAllSchool();
 
   /*
 HttpSession userSession = request.getSession();
@@ -14,7 +15,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 }
 */
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -192,12 +192,12 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </thead>
                     <tbody>       
                     <%
-                      for(Personel user : users){ %>
+                      for(School user : okul){ %>
                     <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>   
-                      <td></td>                   
+                      <td><%= user.getOkulName()%></td>
+                      <td><%= user.getOkulTipi()%></td>
+                      <td><%= user.getOkul()%></td> 
+                      <td><%= user.getDurum()%></td>  
                       <td><div class="d-flex justify-content-between align-items-center">
                       		
                       		<a href="okulduzenle.jsp">
