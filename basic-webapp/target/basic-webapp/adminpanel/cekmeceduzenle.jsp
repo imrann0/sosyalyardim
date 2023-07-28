@@ -4,18 +4,16 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
 <%
-String CekmeceId = request.getParameter("CekmeceId");
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Cekmece_Düzenle")){
+    response.sendRedirect("../Error/Error.html");
+  }
+
+  String CekmeceId = request.getParameter("CekmeceId");
 int Id = Integer.parseInt(CekmeceId);
 cekmece Cekmece = cekmece.getUserInfoById(Id);
 
- /* 
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
 
-if (!RoleUtils.hasRole(userSession, roleName)) {
-    response.sendRedirect("../login.jsp");
-}
-*/
 %>
 
 <!DOCTYPE html>
@@ -136,7 +134,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Çekmece Bilgi Giriş</h3>
+                        <h3 class="card-title">Çekmece Bilgi Düzenle</h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -172,7 +170,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                         </div>
                         
 			            <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      <button type="submit" class="btn btn-info">Ekle</button>
+					      <button type="submit" class="btn btn-info">Kaydet</button>
 					    </div>
 			            
                         <!-- form sonu -->

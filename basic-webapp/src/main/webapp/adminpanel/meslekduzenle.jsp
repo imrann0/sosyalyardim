@@ -5,6 +5,10 @@
 <%@ page import="com.example.example.DataBase.Profession" %>
 <%@ page import="java.util.Objects" %>
 <%
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Meslek_Düzenle")){
+    response.sendRedirect("../Error/Error.html");
+  }
   String meslekId = request.getParameter("meslekId");
   int Id = Integer.parseInt(meslekId);
   Profession prof =  Profession.getinfobyProfessionId(Id);

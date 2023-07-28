@@ -27,6 +27,8 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -44,28 +46,74 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<style>
+	  .pagination .page-item.active .page-link {
+	    background-color: #17a2b8; /* Kırmızı renk (#ff0000) olarak ayarlandı */
+	    border-color: #17a2b8; /* Kenarlık rengi de kırmızı yapılıyor */
+	    color: #fff !important; /* Metin rengi beyaz (#fff) olarak ayarlandı */
+	  }
+    /* DataTables stil düzenlemesi */
+    .dataTables_wrapper {
+      position: relative;
+      padding: 20px; /* Arkaya gölge için içeriği itin */
+      border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Gölgeli efekti ekle */
+    }
+    .custom-datatable {
+    position: relative;
+    padding: 40px; /* Arkaya gölge için içeriği itin */
+    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli/* Gölgeli efekti ekle */
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px; /* Sol boşluk bırakmayın */
+    
+  }
+  	.custom-datatable td {
+	    font-size: 14px; /* Metin boyutunu ayarlayın */
+	    font-family: Arial, sans-serif; /* Yazı tipini belirleyin */
+	   	background-color: #f2f2f2; /* Arka plan rengini ayarlayın */
+    	color: #333; /* Metin rengini ayarlayın */
+  }
+  	.custom-datatable th {
+  		padding: 10px; /* Arkaya gölge için içeriği itin */
+	    /* Köşeleri keskin olmaktan çıkarın */
+	   
+  	
+	    font-size: 14px;
+	    font-weight: bold;
+	     /* Metin boyutunu ayarlayın */
+	    font-family: Arial, sans-serif; /* Yazı tipini belirleyin */
+	   
+  }
+  	.custom-datatable h3.card-title {
+	  font-size: 24px; /* Yazı boyutunu istediğiniz gibi ayarlayın */
+	  font-weight: bold;
+	  font-family: Arial, sans-serif; /* Kalın yazı tipi */
+	  text-align: center; /* Yazıyı ortala */
+	  margin-bottom: 20px; /* Aşağıya boşluk bırakın */
+}	
+	.card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}
+	.koyu-yazi {
+  color: #000000; /* Siyah rengin hexadecimal kodu */
+  /* Diğer stil özelliklerini burada belirtebilirsiniz */
+}
+    
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    
-
-    <!-- Right navbar links -->
-    
-  </nav>
+  <%@include file="navbar.jsp"%>
   <!-- /.navbar -->
 
   <%@include file="sidebar.jsp"%>
@@ -77,13 +125,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content-wrapper">
+    
       
       <div class="container">
         <!-- Small boxes (Stat box) -->
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card card-primary">
+                <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
                         <h3 class="card-title">Cadde/Sokak Girişi Bilgileri</h3>
                     </div>
@@ -124,7 +172,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row">
           
           <div class="col-12">
-            <div class="card">
+            <div class="card custom-datatable">
                 <div class="card-header d-flex justify-content-center">
                     <h3 class="card-title font-weight-bold">CADDE/SOKAK LİSTESİ</h3>
                 </div>
@@ -139,7 +187,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                         <th>Cadde/Sokak Adı</th>
                         <th>Mahalle Adı</th>                        
                         <th>Düzenle</th>
-                        <th>Sil</th>
+                        
                     </tr>
 
                     </thead>
@@ -150,9 +198,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                       <td><%= user.getId()%></td>
                       <td><%= user.getUserName()%></td>
                       <td><%= user.getRegistrationNo()%></td>                     
-                      <td><a href="caddegir.jsp"><button type="submit" class="btn btn-info">Düzenle</button></a>
-                      </td>
-                      <td><button type="submit" class="btn btn-danger" onclick="confirmDelete()">Sil</button></td>
+                      <td>
+                      	<div class="d-flex justify-content-between align-items-center">
+	                      	<a href="caddeduzenle.jsp">
+							      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+							    </a>
+                      		
+                      
+                     	     <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
+                     	</div></td>
                     </tr>
                     <% } %>           
                     </tbody>
@@ -168,7 +222,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
-    </section>
+    
     <!-- /.content -->
   </div>
   
@@ -271,11 +325,14 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
       "responsive": true,
+      "language": {
+          "url": "tr.json"
+        }
     });
   });
 </script>

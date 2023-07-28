@@ -1,11 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-  HttpSession userSession = request.getSession();
-  if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
-    response.sendRedirect("../Error/Error.html");
-  }
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,30 +28,47 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <style>
-  .form-heading {
-    font-size: 17px;
-    font-weight: bold;
-    color: black; /* Change the color to your desired heading color */
-    margin-bottom: 10px; /* Add some spacing between headings and form fields */
-    
-  }
-  .card-info{
-		position: relative;
-	    padding: 40px; /* Arkaya gölge için içeriği itin */
-	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
-	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
-	    margin-top: 50px;
-	    margin-left: 30px;
-	    margin-right: 30px;
-	}
+	<style>
+	  .form-heading {
+	    font-size: 17px;
+	    font-weight: bold;
+	    color: black; /* Change the color to your desired heading color */
+	    margin-bottom: 10px; /* Add some spacing between headings and form fields */
+	    
+	  }
+	  .card-info{
+			position: relative;
+		    padding: 40px; /* Arkaya gölge için içeriği itin */
+		    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+		    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
+		    margin-top: 50px;
+		    margin-left: 30px;
+		    margin-right: 30px;
+		}
 	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
-  <%@include file="navbar.jsp"%>
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
+      </li>
+      
+    </ul>
+
+    <!-- SEARCH FORM -->
+    
+
+    <!-- Right navbar links -->
+    
+  </nav>
   <!-- /.navbar -->
 
   <%@include file="sidebar.jsp"%>
@@ -76,52 +86,40 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                   <div class="card-header d-flex justify-content-center">
-					  <h3 class="card-title">
-					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
-					    Yeni Bölge Girişi
-					  </h3>
-					</div>
-
-
+                    <div class="card-header d-flex justify-content-center"">
+                        <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Cadde/Sokak Düzenle </h3>
+                    </div>
+    
                     <!-- form başlangıcı -->
-                    <form action="saveBolge" method="post">
+                    <form role="form">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group">
-                                <label class="form-heading">Bölge Kodu</label>
-                                <input type="text" class="form-control" name="bolgekod" placeholder="Bölgekodu giriniz" required>
+                              <div class="form-group text-center">
+                                <label>Cadde/Sokak Kodu</label>
+                                <input type="text" class="form-control" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <!-- text input -->
-                              <div class="form-group">
-                                <label class="form-heading">Bölge Aktiflik Durumu</label>
-                                <div class="form-group clearfix">
-                                    <div class="icheck-primary d-inline">
-                                        <input value="Aktif" type="radio" id="radioPrimary2" name="durum" required>
-                                        <label for="radioPrimary2">
-                                            Aktif
-                                        </label>
-                                    </div>
-      
-                                    <div class="icheck-primary d-inline">
-                                        <input value="Pasif" type="radio" id="radioPrimary4" name="durum" required>
-                                        <label for="radioPrimary4">
-                                            Pasif
-                                        </label>
-                                    </div>
-                                </div>
+                              <div class="form-group text-center">
+                                <label>Mahalle</label>
+                                <select class="form-control">
+                                  <option>Adem Yavuz</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
                               </div>
                             </div>
                             
                           </div>
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group">
-                                <label class="form-heading">Bölge Adı</label>
-                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." name="name" required></textarea>
+                              <div class="form-group text-center">
+                                <label>Cadde/Sokak Adı</label>
+                                <textarea class="form-control" rows="3" required></textarea>
                               </div>
                             </div>  
                           </div>
@@ -131,7 +129,7 @@
                         <!-- form sonu -->
     
                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      <button type="submit" class="btn btn-info">Kaydet</button>
+					      	<button type="submit" class="btn btn-info">Kaydet</button>
 					    </div>
                     </form>
                 </div>

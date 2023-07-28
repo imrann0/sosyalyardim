@@ -8,21 +8,15 @@
 <%@ page import="com.example.example.RoleControl" %>
 
 <%
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Kullanıcı_Ekle")){ //ROL OLARAK KULLANICI DÜZENLE EKLENMELİ
+    response.sendRedirect("../Error/Error.html");
+  }
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
     Personel user = Personel.getUserInfoById(userId);
-    Set<Rol> hasRoles = RoleControl.getRolesByUserId(Id);
-    Set<Rol> notHasRoles = RoleControl.getNotAssignedRolesByUserId(Id);
     List<Rol> roles = Rol.getAllRoles();
     
-    List<Personel> users = Personel.getAllUserInfo();
-
-    HttpSession userSession = request.getSession();
-    String roleName = "Role_Kullanıcı_Duzenle";
-
- /*   if (!Rol.hasRole(userSession, roleName)) {
-        response.sendRedirect("../Error/Error.html");
-    }*/
 
 %>
 
@@ -57,6 +51,15 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
+  .card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}
   /* Sidebardaki "Anasayfa", "İşlemlerim", "Yönetici İşlemleri" ve "Raporlar" başlıklarının yazı rengini ve arka plan rengini belirgin hale getir */
   
   #islemlerim.nav-link,
@@ -102,7 +105,7 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-          <div class="card card-primary col-md-10">
+          <div class="card card-info col-md-10">
             <div class="card-header d-flex justify-content-center">
               <h3 class="card-title">Kullanıcı Düzenle</h3>
             </div>
@@ -254,7 +257,9 @@
 				            <label class="form-check-label" for="rol<%= role.getId() %>"><%= role.getRoleName() %></label>
 				        </div>
 				    <% } %>
-				</div>
+          <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
+
+        </div>
 
 
 
@@ -263,9 +268,9 @@
               </div>
               <!-- /.card-body -->
 
-              <div class="card-footer d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Kullanıcı Düzenle</button>
-              </div>
+              <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      <button type="submit" class="btn btn-info">Düzenle</button>
+					    </div>
               
             </form>
           </div>
@@ -330,29 +335,17 @@
 <script src="dist/js/demo.js"></script>
 <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 <script>
-  var select1 = document.getElementById("select1");
-  var select2 = document.getElementById("select2");
+// Tüm checkbox'ları işaretlemek için bir fonksiyon tanımlayın
+function checkAll() {
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(function(checkbox) {
+checkbox.checked = true;
+});
+}
 
-  // İlk kutudan seçenek seçildiğinde senkronize et
-  select1.addEventListener("change", function() {
-    var selectedOptions = Array.from(select1.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select2.appendChild(option);
-      option.selected = false;
-    });
-  });
-
-  // İkinci kutudan seçenek seçildiğinde senkronize et
-  select2.addEventListener("change", function() {
-    var selectedOptions = Array.from(select2.selectedOptions);
-
-    selectedOptions.forEach(function(option) {
-      select1.appendChild(option);
-      option.selected = false;
-    });
-  });
+// Butona tıklandığında checkAll() fonksiyonunu çağıran bir event listener ekleyin
+var button = document.getElementById('checkAllButton'); // Butonun id'sini buraya ekleyin
+button.addEventListener('click', checkAll);
 </script>
-
 </body>
 </html>
