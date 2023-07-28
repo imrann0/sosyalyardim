@@ -28,6 +28,24 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <style>
+	  .form-heading {
+	    font-size: 17px;
+	    font-weight: bold;
+	    color: black; /* Change the color to your desired heading color */
+	    margin-bottom: 10px; /* Add some spacing between headings and form fields */
+	    
+	  }
+	  .card-info{
+			position: relative;
+		    padding: 40px; /* Arkaya gölge için içeriği itin */
+		    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+		    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
+		    margin-top: 50px;
+		    margin-left: 30px;
+		    margin-right: 30px;
+		}
+	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -62,14 +80,17 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content-wrapper">
+    
       
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
+            <div class="col-12">
+                <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title">Yeni Mahalle Girişi</h3>
+                        <h3 class="card-title">
+					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
+					    Mahalle Girişi
+					  </h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -117,16 +138,16 @@
                         </div>
                         <!-- form sonu -->
     
-                        <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                        </div>
+                       <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      	<button type="submit" class="btn btn-info">Kaydet</button>
+					    </div>
                     </form>
                 </div>
                 <!-- Modal -->
             </div>
         </div>
       </div>
-    </section>
+    
     <!-- /.content -->
   </div>
   

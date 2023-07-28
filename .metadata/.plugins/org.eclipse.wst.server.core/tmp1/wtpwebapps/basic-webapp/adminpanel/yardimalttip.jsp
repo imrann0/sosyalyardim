@@ -2,7 +2,13 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
-<%/*
+<%@ page import="com.example.example.DataBase.HelpTypeSub" %>
+<%@ page import="com.example.example.DataBase.HelpType" %>
+<%
+  List<HelpTypeSub> yardim = HelpTypeSub.getAll();
+  List<HelpType> Helps = HelpType.getAll();
+
+  /*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -147,16 +153,17 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" method="post" action="yardimTipAltServlet">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Yardım Tip Adı</label>
-                                <select class="form-control">
-                                  <option>Berber Hizmeti</option>
-                                  <option>Pasif</option>
-                                  
+
+                                <select name="yardimAd" class="form-control">
+                                  <%for (HelpType medic : Helps){%>
+                                  <option value="<%=medic.getHelpId()%>"><%=medic.getHelpName()%></option>
+                                  <%}%>
                                 </select>
                                                                    
                                
@@ -166,7 +173,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>Yardım  Alt Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
+				                  <input type="text" class="form-control" name="yardimalatAd" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Ekle</button>
 				                  </div>
@@ -223,13 +230,11 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		
 		                    </thead>
 		                    <tbody>       
-		                    
+		                    <% for (HelpTypeSub medic : yardim){%>
 		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                      <td></td>
-		                      
-		                      
+		                      <td><%=medic.getHelpSubId()%></td>
+		                      <td><%=medic.getHelpSubName()%></td>
+		                      <td><%=medic.getHelpId().getHelpName()%></td>
 		                      <td>
 								  <a href="yardimalttipduzenle.jsp">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
@@ -241,7 +246,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							  
 
 		                    </tr>
-		                             
+		                             <% }%>
 		                    </tbody>
 		                    
 		                  </table>

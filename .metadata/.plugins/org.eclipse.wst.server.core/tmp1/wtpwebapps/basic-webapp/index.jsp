@@ -31,7 +31,7 @@
                <% }else{%>
 
                 <li><a href="register.jsp">Kayit Ol</a></li>
-                <li><a href="login.jsp">Giriş Yap</a></li>
+                <li><a href="loginnn.jsp">Giriş Yap</a></li>
                 <% }%>
             </ul>
         </header>

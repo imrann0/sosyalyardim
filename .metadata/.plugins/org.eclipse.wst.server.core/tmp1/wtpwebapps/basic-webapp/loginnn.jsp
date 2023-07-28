@@ -28,7 +28,7 @@
   .bg {
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: rgb(23, 27, 13);
+    background-color: whitesmoke;
     background-position: center;
     height: 100vh;
     width: 50%;
@@ -107,7 +107,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
-            <form action="#" method="post" class="login-form">
+            <form action="login" method="post" class="login-form">
               <div class="login-title">
                 <h3 class="text-center">Giriş Yap</h3>
               </div>
@@ -119,7 +119,7 @@
                 <label for="password"><i class="fas fa-lock"></i> Şifre</label>
                 <input type="password" name="password" class="form-control" id="password">
               </div>
-              <input type="submit" value="Giriş" class="btn btn-block btn-primary">
+               <input type="submit" value="Giriş" class="btn btn-block btn-primary">
               <div class="form-group mt-3">
                 <p class="text-center">Hesabınız yok mu? <a href="register.jsp">Kayıt Ol</a></p>
               </div>

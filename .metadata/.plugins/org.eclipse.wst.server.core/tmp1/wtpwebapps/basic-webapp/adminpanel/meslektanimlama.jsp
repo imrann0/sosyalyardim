@@ -2,16 +2,10 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
-<<<<<<< HEAD
-<%
-  List<Personel> users = Personel.getAllUserInfo();
-
-=======
 <%@ page import="com.example.example.DataBase.Profession" %>
 <%
   List<Personel> users = Personel.getAllUserInfo();
   List<Profession> meslek = Profession.getAllMeslek();
->>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
   /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
@@ -214,24 +208,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		
 		                    </thead>
 		                    <tbody>       
-<<<<<<< HEAD
-		                    
-		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                      <td></td>
-		                      
-		                      
-		                      <td>
-								  <a href="meslekduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								  </a>
-							  </td>
-							  
-
-		                    </tr>
-		                             
-=======
 		                    <%
                         for(Profession Meslek : meslek){%>
 		                    <tr>
@@ -245,7 +221,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							  </td>
 		                    </tr>
                         <% }%>
->>>>>>> 4a2fe51223c32e1c3057c4eaefb8a3e9baf8d9cb
 		                    </tbody>
 		                    
 		                  </table>
