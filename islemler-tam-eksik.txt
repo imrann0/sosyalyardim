@@ -1,0 +1,61 @@
+Kullanıcı Ekle Tamamlandı 
+Kullanıcı Listeleme Tamamlandı 
+Kullanıcı Düzenle Tamamlandı 
+Kullanıcı Sil Eksik
+
+
+Bölge Giriş Tamamlandı 
+Bölge Tanımlama Eksik
+
+Mahalle Ekle Eksik
+Mahalle Listele	Eksik
+Mahalle Düzenle	Eksik
+Mahalle Sil Eksik
+
+
+Cadde/Sokak Ekle Eksik
+Cadde/Sokak Listele	Eksik
+Cadde/Sokak Düzenle	Eksik
+Cadde/Sokak Sil Eksik
+
+
+Okul Ekle Tammalandı
+Okul Listeleme Tamamlandı
+Okul Düzenle Eksik
+
+Çekmeke Ekleme Tamamlandı
+Çekmeke Listeleme Tamamlandı
+Çekmece Düzenleme Tamamlandı
+
+Meslek Ekleme Tamamlandı
+Meslek Listeleme Tamamlandı
+Meslek Düzenleme Tamamlandı
+
+Yardım Ekleme Tamamlandı
+Yardım Listeleme Tamamlandı
+Yardım Düzenleme Tamamlandı
+
+YardımAltTip Ekleme Tamamlandı
+YardımAltTip Listeleme Tamamlandı
+YardımAltTip Düzenleme Tamamlandı
+
+
+Talep Edilen Yardım Ekleme Eksik
+Talep Edilen Yardım Listeleme Eksik
+Talep Edilen Yardım Düzenleme Eksik
+
+Engelli Ekleme Tamamlandı
+Engelli Listeleme Tamamlandı
+Engelli Düzenleme Tamamlandı
+
+EngelliAlt Ekleme Tamamlandı
+EngelliAlt Listeleme Tamamlandı
+EngelliAlt Düzenleme Tamamlandı
+
+YönlendirilenKurum Ekleme Eksik
+YönlendirilenKurum Listeleme Eksik
+YönlendirilenKurum Düzenleme Eksik
+
+YönlendirilenAltKurum Ekleme Eksik
+YönlendirilenAltKurum Listeleme Eksik
+YönlendirilenAltKurum Düzenleme Eksik

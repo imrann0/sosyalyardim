@@ -281,7 +281,7 @@
                   <li class="nav-item">
                     <a href="kullaniciyukle.jsp" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Kullanıcı Yükle</p>
+                      <p>Kullanıcı Ekle</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -475,15 +475,10 @@
                   <li class="nav-item">
                     <a href="./talepedilen.jsp" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Talep Edilen Yardım Tipi</p>
+                      <p>Talep Edilen Yardım Tipi<br>Tanımlama</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="./tanimlama.jsp" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tanımlama</p>
-                    </a>
-                  </li>
+                  
                   
                   
                 </ul>

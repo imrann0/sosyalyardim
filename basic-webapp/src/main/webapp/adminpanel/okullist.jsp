@@ -131,7 +131,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title">Okul Listesi</h3>
                     </div>
     
