@@ -7,9 +7,9 @@ Kullanıcı Sil Eksik
 Bölge Giriş Tamamlandı 
 Bölge Tanımlama Eksik
 
-Mahalle Ekle Eksik
-Mahalle Listele	Eksik
-Mahalle Düzenle	Eksik
+Mahalle Ekle Tamamlandı
+Mahalle Listele	Tamamlandı
+Mahalle Düzenle	Tamamlandı
 Mahalle Sil Eksik
 
 

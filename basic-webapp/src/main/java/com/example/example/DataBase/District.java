@@ -85,4 +85,16 @@ public class District {
 
         return District;
     }
+    
+    
+    public static District getbyID(int id){
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(District.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
