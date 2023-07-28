@@ -28,6 +28,17 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<style>
+	.card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}
+	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -62,12 +73,12 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content-wrapper">
+    
       
       <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card card-primary">
+            <div class="col-12">
+                <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
                         <h3 class="card-title">Yeni Okul Girişi</h3>
                     </div>
@@ -79,7 +90,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Durum</label>
-                                <select class="form-control" name="Durum" style="max-width: 150px;">
+                                <select class="form-control" name="Durum" style="max-width: 300px;">
                                   <option>Aktif</option>
                                   <option>Pasif</option>                                  
                                 </select>
@@ -112,7 +123,7 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Okul Tipi</label>
-                                <select class="form-control" name="OkulSect" style="max-width: 150px;">
+                                <select class="form-control" name="OkulSect" style="max-width: 300px;">
                                   <option>Anaokul</option>
                                   <option>İlkokul</option> 
                                   <option>Ortaokul</option>
@@ -139,16 +150,16 @@
                         </div>
                         <!-- form sonu -->
     
-                        <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                        </div>
+                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      <button type="submit" class="btn btn-info">Kaydet</button>
+					    </div>
                     </form>
                 </div>
                 <!-- Modal -->
             </div>
         </div>
       </div>
-    </section>
+    
     <!-- /.content -->
   </div>
   

@@ -29,22 +29,15 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 	<style>
-	  .form-heading {
-	    font-size: 17px;
-	    font-weight: bold;
-	    color: black; /* Change the color to your desired heading color */
-	    margin-bottom: 10px; /* Add some spacing between headings and form fields */
-	    
-	  }
-	  .card-info{
-			position: relative;
-		    padding: 40px; /* Arkaya gölge için içeriği itin */
-		    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
-		    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli efekti ekle */
-		    margin-top: 50px;
-		    margin-left: 30px;
-		    margin-right: 30px;
-		}
+	.card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}
 	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -87,49 +80,78 @@
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Yeni Cadde/Sokak Girişi </h3>
+                        <h3 class="card-title">Okul Bilgi Düzenle</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+            		<form action="okul" method="post">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Cadde/Sokak Kodu</label>
-                                <input type="text" class="form-control" required>
+                              <div class="form-group">
+                                <label>Durum</label>
+                                <select class="form-control" name="Durum" style="max-width: 300px;">
+                                  <option>Aktif</option>
+                                  <option>Pasif</option>                                  
+                                </select>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <!-- text input -->
-                              <div class="form-group text-center">
-                                <label>Mahalle</label>
-                                <select class="form-control">
-                                  <option>Adem Yavuz</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
+                              <div class="form-group">
+                                <label>Okul Türü</label>
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input value="devlet" type="radio" id="radioPrimary2" name="Okul" required>
+                                        <label for="radioPrimary2">
+                                            Devlet
+                                        </label>
+                                    </div>
+      
+                                    <div class="icheck-primary d-inline">
+                                        <input value="ozel" type="radio" id="radioPrimary4" name="Okul" required>
+                                        <label for="radioPrimary4">
+                                            Özel
+                                        </label>
+                                    </div>
+                                </div>
                               </div>
                             </div>
                             
                           </div>
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Cadde/Sokak Adı</label>
-                                <textarea class="form-control" rows="3" required></textarea>
+                              <div class="form-group">
+                                <label>Okul Tipi</label>
+                                <select class="form-control" name="OkulSect" style="max-width: 300px;">
+                                  <option>Anaokul</option>
+                                  <option>İlkokul</option> 
+                                  <option>Ortaokul</option>
+                                  <option>Lise</option>
+                                  <option>Yüksek Lisans</option>
+                                  <option>Önlisans</option>
+                                  <option>Lisans</option>
+                                  <option>Diğer</option>
+                                                                   
+                                </select>
                               </div>
-                            </div>  
+                            </div> 
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Okul Adı</label>
+                                <input type="text" class="form-control" name="OkulName" required>
+                                                                   
+                               
+                              </div>
+                            </div> 
                           </div>
                           
 
                         </div>
                         <!-- form sonu -->
     
-                        <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      	<button type="submit" class="btn btn-info">Kaydet</button>
+                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      <button type="submit" class="btn btn-info">Kaydet</button>
 					    </div>
                     </form>
                 </div>

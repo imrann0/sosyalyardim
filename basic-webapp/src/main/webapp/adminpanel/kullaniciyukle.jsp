@@ -47,6 +47,16 @@ if (!Rol.hasRole(userSession, roleName)) {
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<style >
+	.card-info{
+		position: relative;
+	    padding: 40px; /* Arkaya gölge için içeriği itin */
+	    border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
+	    box-shadow: 0 2px 6px rgba(44, 166, 234, 0.6); /* Gölgeli /* Gölgeli efekti ekle */
+	    margin-top: 30px;
+	    margin-left: 30px;
+	    margin-right: 30px;
+	}</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -70,9 +80,9 @@ if (!Rol.hasRole(userSession, roleName)) {
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-          <div class="card card-primary col-md-10">
+          <div class="card card-info col-md-10">
             <div class="card-header d-flex justify-content-center">
-              <h3 class="card-title">Kullanıcı Yükle</h3>
+              <h3 class="card-title">Kullanıcı Ekle</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -245,9 +255,9 @@ if (!Rol.hasRole(userSession, roleName)) {
               </div>
               <!-- /.card-body -->
 
-              <div class="card-footer d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
-              </div>
+              <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+					      <button type="submit" class="btn btn-info">Kullanıcı Ekle</button>
+					    </div>
               
             </form>
           </div>

@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	<style>
+   <style>
 	  .form-heading {
 	    font-size: 17px;
 	    font-weight: bold;
@@ -87,7 +87,10 @@
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Yeni Cadde/Sokak Girişi </h3>
+                        <h3 class="card-title">
+					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
+					    Mahalle Düzenle
+					  </h3>
                     </div>
     
                     <!-- form başlangıcı -->
@@ -95,31 +98,38 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Cadde/Sokak Kodu</label>
-                                <input type="text" class="form-control" required>
+                              <div class="form-group">
+                                <label>Mahalle Kodu</label>
+                                <input type="text" class="form-control" placeholder="Mahalle kodu giriniz" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
-                              <!-- text input -->
-                              <div class="form-group text-center">
-                                <label>Mahalle</label>
+                              <div class="form-group">
+                                <label>İlçe</label>
                                 <select class="form-control">
-                                  <option>Adem Yavuz</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                  <option>GEBZE</option>
+                                  
                                 </select>
-                              </div>
+                              </div><!-- text input -->
+                              
                             </div>
                             
                           </div>
                           <div class="row">
                             <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Cadde/Sokak Adı</label>
-                                <textarea class="form-control" rows="3" required></textarea>
+                              <div class="form-group">
+                                <label>Bölge Adı</label>
+                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <!-- select -->
+                              <div class="form-group">
+                                <label>Bölge Adı</label>
+                                <select class="form-control">
+                                  <option>1. Bölge</option>
+                                  
+                                </select>
                               </div>
                             </div>  
                           </div>
@@ -128,7 +138,7 @@
                         </div>
                         <!-- form sonu -->
     
-                        <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
+                       <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 					      	<button type="submit" class="btn btn-info">Kaydet</button>
 					    </div>
                     </form>

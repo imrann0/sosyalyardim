@@ -87,7 +87,7 @@
             <div class="col-12">
                 <div class="card card-info">
                     <div class="card-header d-flex justify-content-center"">
-                        <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Yeni Cadde/Sokak Girişi </h3>
+                        <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Cadde/Sokak Düzenle </h3>
                     </div>
     
                     <!-- form başlangıcı -->
