@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.Disabled" %>
+<%@ page import="com.example.example.DataBase.DisabledSub" %>
 <%@ page import="java.util.List" %>
-<%/*
+<%
+List<Disabled> disabled = Disabled.getAll();
+List<DisabledSub> disabledsub = DisabledSub.getAllDisabledSub();
+
+
+
+
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -147,18 +156,19 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" method="post" action="disabledSubType">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Engelli Tip Adı</label>
-                                <select class="form-control">
-                                  <option>Diyabet</option>
-                                  <option>Pasif</option>
-                                  
+                                 
+                                <select class="form-control" name="disableID"> 
+                                <% for(Disabled disa : disabled){%>                             
+                                  <option value="<%= disa.getDisabledID()%>"> <%= disa.getDisabledName() %></option>
+                                  <% }%>	
                                 </select>
-                                                                   
+                                                                    
                                
                               </div>
                             </div>
@@ -166,7 +176,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>Engelli Alt Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
+				                  <input type="text" class="form-control" name="disabledSunName" required>
 				                  <div class="input-group-append"> <!-- Butonu input alanına eklemek için input-group-append kullanıyoruz -->
 				                    <button type="submit" class="btn btn-info">Ekle</button>
 				                  </div>
@@ -207,41 +217,29 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                  <table id="example2" class="table table-bordered table-hover">
 		                    <thead>
 		                    <tr>
-		
-		
-		                        <th>Engelli Alt Tip Kodu</th>
 		                        <th>Engelli Alt Tip Adı</th>
 		                        <th>Engelli Tip Adı</th>
 		                        <th></th>
 		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
 		                    </tr>
-		
 		                    </thead>
 		                    <tbody>       
-		                    
 		                    <tr>
+		                    <% for(DisabledSub dissub : disabledsub){%>     
+		                      <td><%= dissub.getDisabledSubName() %></td>
+		                      <% String disabledName = dissub.getDisabled().getDisabledName(); %>
+            				<td><%= disabledName %></td>
 		                      <td></td>
-		                      <td></td>
-		                      <td></td>
-		                      
-		                      
 		                      <td>
-								  <a href="engellialttipduzenle.jsp">
+								  <a href="engellialttipduzenle.jsp?ID=<%= dissub.getDisabledSubID()%>">
 								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  <td>
 								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
 							  </td>
-							  
-
 		                    </tr>
-		                             
+		                    <% }%>	      
 		                    </tbody>
 		                    
 		                  </table>
