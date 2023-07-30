@@ -4,20 +4,13 @@
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%
-
+  HttpSession userSession = request.getSession();
+/*if(!Rol.hasRole(userSession,"Role_Cekmece_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }*/
 List<cekmece> Cekmece = cekmece.getAllUserInfo();
 
-/*
-  List<Personel> users = Personel.getAllUserInfo();
 
-  
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
-
-if (!RoleUtils.hasRole(userSession, roleName)) {
-    response.sendRedirect("../login.jsp");
-}
-*/
 %>
 
 
@@ -196,17 +189,11 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                  <table id="example2" class="table table-bordered table-hover">
 		                    <thead>
 		                    <tr>
-		
-		
 		                        <th>Çekmece No</th>
 		                        <th>Çekmece Adı</th>
 		                        <th>Aktif</th>
 		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
+ 
 		                    </tr>
 		
 		                    </thead>

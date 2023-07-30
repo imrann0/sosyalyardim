@@ -21,7 +21,7 @@ Cadde/Sokak Sil Eksik
 
 Okul Ekle Tammalandı
 Okul Listeleme Tamamlandı
-Okul Düzenle Eksik
+Okul Düzenle Tamamlandı
 
 Çekmeke Ekleme Tamamlandı
 Çekmeke Listeleme Tamamlandı
@@ -40,9 +40,9 @@ YardımAltTip Listeleme Tamamlandı
 YardımAltTip Düzenleme Tamamlandı
 
 
-Talep Edilen Yardım Ekleme Eksik
-Talep Edilen Yardım Listeleme Eksik
-Talep Edilen Yardım Düzenleme Eksik
+Talep Edilen Yardım Ekleme  Tamamlandı 30.07.23
+Talep Edilen Yardım Listeleme  Tamamlandı 30.07.23
+Talep Edilen Yardım Düzenleme Tamamlandı 30.07.23
 
 Engelli Ekleme Tamamlandı
 Engelli Listeleme Tamamlandı

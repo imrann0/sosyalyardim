@@ -3,16 +3,16 @@
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="com.example.example.DataBase.Personel.RoleUtils" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.Objects" %>
 <%
 
-  List<Personel> users = Personel.getAllUserInfo();
+  HttpSession userSession = request.getSession();
 
-HttpSession userSession = request.getSession();
-String roleName = "Role_Kullanıcı_Listele";
-/*
-if (!RoleUtils.hasRole(userSession, roleName)) {
+  if(!Rol.hasRole(userSession,"Role_Kullanıcı_Listele")){
     response.sendRedirect("../Error/Error.html");
-} */
+  }
+  List<Personel> users = Personel.getAllUserInfo();
 %>
 
 <!DOCTYPE html>
@@ -177,8 +177,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td><%= user.getName()%></td>
 		                      <td><%= user.getUnvan()%></td>
 		                      <td><%= user.getPhone()%></td>
-		                      <td><%= user.getGender()%></td>
-		                      <td><%= user.getStatus()%></td>
+                          <td><% if(Objects.equals(user.getGender(), "E")){%>Erkek<%}else{%>Kadın<% }%></td>
+
+		                      <td><% if(user.getStatus()==1){%>Aktif<%}else{%>Pasif<% }%></td>
 		                      <td>
 								  <div class="d-flex justify-content-between align-items-center">
 								    <a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>">

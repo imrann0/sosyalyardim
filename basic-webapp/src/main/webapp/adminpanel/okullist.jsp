@@ -192,15 +192,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </thead>
                     <tbody>       
                     <%
-                      for(School user : okul){ %>
+                      for(School o : okul){ %>
                     <tr>
-                      <td><%= user.getOkulName()%></td>
-                      <td><%= user.getOkulTipi()%></td>
-                      <td><%= user.getOkul()%></td> 
-                      <td><%= user.getDurum()%></td>  
+                      <td><%= o.getOkulName()%></td>
+                      <td><%= o.getOkulTipi()%></td>
+                      <td><%= o.getOkul()%></td> 
+                      <td><%= o.getDurum()%></td>  
                       <td><div class="d-flex justify-content-between align-items-center">
                       		
-                      		<a href="okulduzenle.jsp">
+                      		<a href="okulduzenle.jsp?Id=<%= o.getSchoolID()%>">
 						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 						            </a>
                      	     

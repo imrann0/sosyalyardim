@@ -47,7 +47,7 @@ try {
 
    
 
-    response.sendRedirect("./okulgiris.jsp");
+    response.sendRedirect("./okullist.jsp");
 } catch (Exception e) {
     System.err.println("Hata oluştu: " + e);
     e.printStackTrace();

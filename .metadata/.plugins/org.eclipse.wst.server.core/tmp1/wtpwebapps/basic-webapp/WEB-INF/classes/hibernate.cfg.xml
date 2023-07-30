@@ -40,6 +40,11 @@
         <mapping class="com.example.example.DataBase.HelpTypeSub" />	
         <mapping class="com.example.example.DataBase.Disabled" />
         <mapping class="com.example.example.DataBase.DisabledSub" />
+        <mapping class="com.example.example.DataBase.YonlendirilenKurum" />
+        <mapping class="com.example.example.DataBase.YonlendirilenAltKurum" />
+        <mapping class="com.example.example.DataBase.TalepYardimTip" />
+        
+        
         
 
     </session-factory>

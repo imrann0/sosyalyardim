@@ -2,7 +2,8 @@
 <%@ page import="java.util.Set" %>
 <%@ page import="java.net.http.HttpClient" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%    HttpSession userSession = request.getSession();
+<%
+    HttpSession userSession = request.getSession();
     String mail = (String) userSession.getAttribute("mail");
     // Check if the user has the "deneme2" role
 
@@ -24,9 +25,9 @@
             <ul>
                 <%if(!(mail==null)){%>
                 <li>Merahaba <%=mail%></li>
-                <%if(Rol.hasRole(userSession,"Admin")){ %>
+
                 <li ><a href = "adminpanel/kullaniciyukle.jsp" > Admin Panel </a ></li >
-              <%  }%>
+
                 <li><a href="Logout">Çıkış yap</a></li>
                <% }else{%>
 
