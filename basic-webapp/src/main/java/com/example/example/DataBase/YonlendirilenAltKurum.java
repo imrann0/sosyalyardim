@@ -49,7 +49,7 @@ public class YonlendirilenAltKurum {
         this.yonlendirilenKurum = yonlendirilenKurum;
     }
 
-    public static List<YonlendirilenAltKurum> getAllYonlendirilenAltKurum() {
+    public static List<YonlendirilenAltKurum> getAll() {
         Configuration configuration = new Configuration().configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();

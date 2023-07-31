@@ -1,0 +1,75 @@
+package com.example.example.AdminServlet;
+
+import com.example.example.DataBase.YonlendirilenKurum;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import jakarta.servlet.annotation.WebServlet;
+
+@WebServlet(name = "TalepEdilenYardimUpdate", value = "/adminpanel/TalepEdilenYardimUpdate")
+public class YonlendirenKurumUpdate extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Diğer form verilerini alın
+        String TalepIdParam = request.getParameter("talepId");
+        if (TalepIdParam != null) {
+            int talepId = Integer.parseInt(TalepIdParam);
+            String talepAdi = request.getParameter("YardimTipAd");
+            String durum = request.getParameter("durum");
+            
+            try {
+                // Hibernate session'ı yapılandırması
+                SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+                Session session = sessionFactory.openSession();
+                Transaction transaction = session.beginTransaction();
+                
+                // Get the existing cekmece object from the database
+                TalepYardimTip talep = session.get(TalepYardimTip.class, talepId);
+
+                // Update the fields with new values
+                talep.setTalepYardimAdi(talepAdi);
+                talep.setTalepYardimdurum(durum);
+                
+                // Update the existing record with the new data
+                session.merge(talep);
+                transaction.commit();
+
+                session.close();
+                sessionFactory.close();
+
+                response.sendRedirect("./talepedilen.jsp");
+            } catch (Exception e) {
+                System.err.println("Hata oluştu: " + e);
+                e.printStackTrace();
+                response.sendRedirect("./error.jsp");
+            }
+        } else {
+        	response.sendRedirect("./error.jsp");
+           
+        }
+    }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // doGet işlemleri
+        // Örneğin, cekmeceId'yi alarak ilgili sayfayı yönlendirebilirsiniz.
+        String cekmeceIdParam = request.getParameter("cekmeceId");
+        if (cekmeceIdParam != null && !cekmeceIdParam.isEmpty()) {
+            int cekmeceId = Integer.parseInt(cekmeceIdParam);
+            
+            response.sendRedirect("./cekmecetanim.jsp");
+        } else {
+            // Hata durumunda yapılacak işlemler veya hata mesajı
+            // Örneğin, uygun bir hata sayfasına yönlendirebilirsiniz.
+            
+        }
+    }
+}
