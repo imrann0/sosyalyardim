@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;basic-webapp/src/main/java/com/example/example/AdminServlet/YonlendirenAltKurumAdd&apos; to &apos;YonlendirenAltKurumAdd.java&apos;" description="Rename resource &apos;YonlendirenAltKurumAdd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/example/example/AdminServlet/YonlendirenAltKurumAdd" name="YonlendirenAltKurumAdd.java" stamp="1690787267820" updateReferences="true"/>
+</session>
