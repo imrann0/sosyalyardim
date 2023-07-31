@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.School" %>
+<%
+String talepId = request.getParameter("Id");
+int Id = Integer.parseInt(talepId);
+School okul = School.getById(Id);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +51,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -53,28 +61,18 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
       </li>
-      
     </ul>
-
     <!-- SEARCH FORM -->
-    
-
     <!-- Right navbar links -->
-    
   </nav>
   <!-- /.navbar -->
-
   <%@include file="sidebar.jsp"%>
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
     <!-- /.content-header -->
 
     <!-- Main content -->
-    
-      
       <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -84,16 +82,17 @@
                     </div>
     
                     <!-- form başlangıcı -->
-            		<form action="okul" method="post">
+            		<form action="OkulUpdate" method="post">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Durum</label>
                                 <select class="form-control" name="Durum" style="max-width: 300px;">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>                                  
+                                  <option value="Aktif" <%= okul.getDurum().equals("Aktif") ? "selected" : "" %> >Aktif</option>
+                                  <option value="Pasif" <%= okul.getDurum().equals("Pasif") ? "selected" : "" %>>Pasif</option>                                   
                                 </select>
+                                 <input type="hidden" name="okulid" value="<%=okul.getSchoolID()%>">
                               </div>
                             </div>
                             <div class="col-sm-6">
@@ -102,14 +101,14 @@
                                 <label>Okul Türü</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input value="devlet" type="radio" id="radioPrimary2" name="Okul" required>
+                                        <input value="Devlet" type="radio" id="radioPrimary2" name="Okul" required <%= okul.getOkul().equals("Devlet") ? "checked" : "" %>>
                                         <label for="radioPrimary2">
                                             Devlet
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input value="ozel" type="radio" id="radioPrimary4" name="Okul" required>
+                                        <input value="Ozel" type="radio" id="radioPrimary4" name="Okul" required <%= okul.getOkul().equals("Ozel") ? "checked" : "" %>>
                                         <label for="radioPrimary4">
                                             Özel
                                         </label>
@@ -124,29 +123,24 @@
                               <div class="form-group">
                                 <label>Okul Tipi</label>
                                 <select class="form-control" name="OkulSect" style="max-width: 300px;">
-                                  <option>Anaokul</option>
-                                  <option>İlkokul</option> 
-                                  <option>Ortaokul</option>
-                                  <option>Lise</option>
-                                  <option>Yüksek Lisans</option>
-                                  <option>Önlisans</option>
-                                  <option>Lisans</option>
-                                  <option>Diğer</option>
-                                                                   
+                                  <option value="Anaokul" <%= okul.getOkulTipi().equals("Anaokul") ? "selected" : "" %> >	Anaokul</option>
+                                  <option value="İlkokul" <%= okul.getOkulTipi().equals("İlkokul") ? "selected" : "" %>>	İlkokul</option> 
+                                  <option value="Ortaokul" <%= okul.getOkulTipi().equals("Ortaokul") ? "selected" : "" %>>	Ortaokul</option>
+                                  <option value="Lise" <%= okul.getOkulTipi().equals("Lise") ? "selected" : "" %>>	Lise</option>
+                                  <option value="Yüksek Lisans" <%= okul.getOkulTipi().equals("Yüksek Lisans") ? "selected" : "" %>>Yüksek Lisans</option>
+                                  <option value="Önlisans" <%= okul.getOkulTipi().equals("Önlisans") ? "selected" : "" %>>	Önlisans</option>
+                                  <option value="Lisans" <%= okul.getOkulTipi().equals("Lisans") ? "selected" : "" %>>	Lisans</option>
+                                  <option value="Diğer" <%= okul.getOkulTipi().equals("Diğer") ? "selected" : "" %>>	Diğer</option>                              
                                 </select>
                               </div>
                             </div> 
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Okul Adı</label>
-                                <input type="text" class="form-control" name="OkulName" required>
-                                                                   
-                               
+                                <input type="text" class="form-control" name="OkulName" value="<%= okul.getOkulName()%>" required>
                               </div>
                             </div> 
                           </div>
-                          
-
                         </div>
                         <!-- form sonu -->
     

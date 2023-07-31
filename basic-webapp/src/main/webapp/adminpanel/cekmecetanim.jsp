@@ -5,9 +5,9 @@
 <%@ page import="java.util.List" %>
 <%
   HttpSession userSession = request.getSession();
-  if(!Rol.hasRole(userSession,"Role_Cekmece_Ekle")){
+/*if(!Rol.hasRole(userSession,"Role_Cekmece_Ekle")){
     response.sendRedirect("../Error/Error.html");
-  }
+  }*/
 List<cekmece> Cekmece = cekmece.getAllUserInfo();
 
 
@@ -189,17 +189,11 @@ List<cekmece> Cekmece = cekmece.getAllUserInfo();
 		                  <table id="example2" class="table table-bordered table-hover">
 		                    <thead>
 		                    <tr>
-		
-		
 		                        <th>Çekmece No</th>
 		                        <th>Çekmece Adı</th>
 		                        <th>Aktif</th>
 		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
+ 
 		                    </tr>
 		
 		                    </thead>

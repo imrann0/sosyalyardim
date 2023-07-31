@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.TalepYardimTip" %>
+
 <%@ page import="java.util.List" %>
-<%/*
+<%
+String talepId = request.getParameter("Id");
+int Id = Integer.parseInt(talepId);
+TalepYardimTip talep = TalepYardimTip.getById(Id); 
+
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -138,42 +145,28 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" action="TalepEdilenYardimUpdate" method="post">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-4">
                               <div class="form-group text-center">
                                 <label>Yardım Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
-				                  
-				                </div>
-                                                                   
-                               
+				                  <input type="hidden" name="talepId" value="<%=talep.getTalepYardimId()%>">
+				                  <input type="text" class="form-control" name="YardimTipAd" value="<%= talep.getTalepYardimAdi() %>" required>
+				                </div>    
                               </div>
                             </div>
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
-                                  
+                                <select class="form-control" name="durum">
+ 								  <option value="Aktif" <%= talep.getTalepYardimdurum().equals("Aktif") ? "selected" : "" %> >Aktif</option>
+                                  <option value="Pasif"  <%= talep.getTalepYardimdurum().equals("Pasif") ? "selected" : "" %> >Pasif</option> 
                                 </select>
-                                                                   
-                               
                               </div>
-                            </div>
-                            
-                            
-                          	
-                            
-				                            
-                            
+                            </div>    
                           </div>
-                          
-                          
-							
                         </div>
                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 								<button type="submit" class="btn btn-info">Düzenle</button>

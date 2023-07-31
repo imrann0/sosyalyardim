@@ -91,8 +91,8 @@
                               <div class="form-group">
                                 <label>Durum</label>
                                 <select class="form-control" name="Durum" style="max-width: 300px;">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>                                  
+                                  <option value="Aktif" >Aktif</option>
+                                  <option value="Pasif" >Pasif</option>                                  
                                 </select>
                               </div>
                             </div>
@@ -102,14 +102,14 @@
                                 <label>Okul Türü</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input value="devlet" type="radio" id="radioPrimary2" name="Okul" required>
+                                        <input value="Devlet" type="radio" id="radioPrimary2" name="Okul" required>
                                         <label for="radioPrimary2">
                                             Devlet
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input value="ozel" type="radio" id="radioPrimary4" name="Okul" required>
+                                        <input value="Ozel" type="radio" id="radioPrimary4" name="Okul" required>
                                         <label for="radioPrimary4">
                                             Özel
                                         </label>
@@ -140,13 +140,9 @@
                               <div class="form-group">
                                 <label>Okul Adı</label>
                                 <input type="text" class="form-control" name="OkulName" required>
-                                                                   
-                               
                               </div>
                             </div> 
                           </div>
-                          
-
                         </div>
                         <!-- form sonu -->
     

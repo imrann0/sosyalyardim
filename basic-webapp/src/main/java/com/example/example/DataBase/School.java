@@ -86,5 +86,15 @@ public class School {
         return roles;
     }
 
+    public static School getById(int userId) {
+    	Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(School.class, userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     
 }

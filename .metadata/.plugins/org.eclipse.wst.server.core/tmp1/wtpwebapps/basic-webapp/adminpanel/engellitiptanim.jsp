@@ -4,7 +4,10 @@
 <%@ page import="com.example.example.DataBase.Disabled" %>
 <%@ page import="java.util.List" %>
 <%
-
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Engelli_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }
 
 List<Disabled> disabled = Disabled.getAll();
 /*

@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+  HttpSession userSession = request.getSession();
+  if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
+    response.sendRedirect("../Error/Error.html");
+  }
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,14 +100,14 @@
                                 <label class="form-heading">Bölge Aktiflik Durumu</label>
                                 <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary2" name="durum" required>
+                                        <input value="Aktif" type="radio" id="radioPrimary2" name="durum" required>
                                         <label for="radioPrimary2">
                                             Aktif
                                         </label>
                                     </div>
       
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" id="radioPrimary4" name="durum" required>
+                                        <input value="Pasif" type="radio" id="radioPrimary4" name="durum" required>
                                         <label for="radioPrimary4">
                                             Pasif
                                         </label>

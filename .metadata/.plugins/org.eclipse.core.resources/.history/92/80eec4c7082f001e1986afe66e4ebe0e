@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Veritabanı türü ve sürümüne göre uygun bir Hibernate SQL diyalekti belirtin -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        
+        <!-- Veritabanı bağlantısı için gerekli JDBC sürücüsü -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        
+        <!-- Veritabanı bağlantı URL'si -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/sosyalyardim</property>
+        
+        <!-- Veritabanı bağlantı kullanıcı adı ve şifresi -->
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">P@ssw0rd1?</property>
+        
+        <!-- Veritabanı şema oluşturma stratejisi -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- Diğer Hibernate ayarlarını buraya ekleyebilirsiniz -->
+
+        <!-- Entity (sınıf) eşleştirmeleri -->
+        <mapping class="com.example.example.DataBase.Personel"/>
+        <mapping class="com.example.example.DataBase.Rol" />
+        <mapping class="com.example.example.DataBase.Address" />
+        <mapping class="com.example.example.DataBase.Contact" />
+        <mapping class="com.example.example.DataBase.Petition" />
+        <mapping class="com.example.example.DataBase.IDInfo" />
+        <mapping class="com.example.example.DataBase.Application" />
+        <mapping class="com.example.example.DataBase.cekmece" />
+        <mapping class="com.example.example.DataBase.Profession" />
+        <mapping class="com.example.example.DataBase.School" />
+        <mapping class="com.example.example.DataBase.degreeofAffinity" />
+        <mapping class="com.example.example.DataBase.District" />
+        <mapping class="com.example.example.DataBase.Sokak" />
+        <mapping class="com.example.example.DataBase.Zone" />
+        <mapping class="com.example.example.DataBase.HelpType" />
+        <mapping class="com.example.example.DataBase.HelpTypeSub" />	
+        <mapping class="com.example.example.DataBase.Disabled" />
+        <mapping class="com.example.example.DataBase.DisabledSub" />
+        <mapping class="com.example.example.DataBase.YonlendirilenKurum" />
+        <mapping class="com.example.example.DataBase.YonlendirilenAltKurum" />
+        
+        
+
+    </session-factory>
+
+</hibernate-configuration>
