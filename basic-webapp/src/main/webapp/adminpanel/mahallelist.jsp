@@ -206,7 +206,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 						<td><%= bolgeName %></td>                     
                       <td>
                       	<div class="d-flex justify-content-between align-items-center">
-                      		
                       		<a href="mahalleduzenle.jsp?ID=<%= mahelle.getDistrictID()%>">
 						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 						    </a>

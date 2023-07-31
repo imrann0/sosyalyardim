@@ -13,8 +13,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 
-@WebServlet(name = "CaddeGir", value = "/adminpanel/caddegir")
-public class cadde extends HttpServlet {
+@WebServlet(name = "caddeDuzenle", value = "/adminpanel/caddeDuzenle")
+public class caddeDuzenle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -22,34 +22,34 @@ public class cadde extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int sokakID = Integer.parseInt(request.getParameter("SokakId"));
+        int Mahid = Integer.parseInt(request.getParameter("MahId"));
+        String SokakAd = request.getParameter("SokakAd");
         try {
-            // Kullanıcı tarafından gönderilen verileri al
-            String Cadde = request.getParameter("caddeAd");
-            int ID = Integer.parseInt(request.getParameter("mahalleAd"));
-
-            // Yeni Bolge nesnesi oluştur ve verileri set et
-            Sokak sokak = new Sokak();
-            District mah = new District();
-            sokak.setDistrict(mah.getbyID(ID));
-            sokak.setSokakname(Cadde);
-            // Hibernate ile veritabanına kaydet
+            // Hibernate session'ı yapılandırması
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
-            session.persist(sokak);
-            transaction.commit();
-            session.close();
+            // Personel örneğini oluşturun
+            Sokak sokak = session.get(Sokak.class,sokakID);
+            sokak.setDistrict(District.getbyID(Mahid));
+            sokak.setSokakname(SokakAd);
+            District mah = session.get(District.class, sokak.getDistrict().getDistrictID());
+            sokak.setDistrict(mah);
+            //District zone = session.get(District.class, District);
 
+            session.merge(sokak);
+            transaction.commit();
+
+            session.close();
             sessionFactory.close();
-            // Kullanıcıya geri bildirim sağla
-            response.sendRedirect("caddegir.jsp");
+
+            response.sendRedirect("./caddelist.jsp");
         } catch (Exception e) {
+            System.err.println("Hata oluştu: " + e);
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Bir hata oluştu.");
         }
     }
-
-
 }
  

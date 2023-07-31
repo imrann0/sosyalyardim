@@ -9,7 +9,7 @@
     response.sendRedirect("../Error/Error.html");
   }
 
-  String CekmeceId = request.getParameter("CekmeceId");
+String CekmeceId = request.getParameter("CekmeceId");
 int Id = Integer.parseInt(CekmeceId);
 cekmece Cekmece = cekmece.getUserInfoById(Id);
 

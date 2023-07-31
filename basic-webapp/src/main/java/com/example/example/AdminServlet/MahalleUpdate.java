@@ -24,8 +24,6 @@ public class MahalleUpdate extends HttpServlet {
         String ilce = request.getParameter("ilce");
         String mahalleAd = request.getParameter("mahalleAd");
         int bolge_id = Integer.parseInt(request.getParameter("bolge_id"));
-
-        
         try {
             // Hibernate session'ı yapılandırması
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();

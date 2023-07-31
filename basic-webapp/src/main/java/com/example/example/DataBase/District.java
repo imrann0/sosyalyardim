@@ -24,36 +24,21 @@ public class District {
             strategy = GenerationType.IDENTITY
     )
     private int districtID;
-    private String districtKod;
     private String ilce;
     private String districtName;
     @ManyToOne
-    @JoinColumn(
-            name = "bolge_id"
-    )
     private Zone bolge;
 
-    public District() {
-    }
-
     public int getDistrictID() {
-        return this.districtID;
+        return districtID;
     }
 
     public void setDistrictID(int districtID) {
         this.districtID = districtID;
     }
 
-    public String getDistrictKod() {
-        return this.districtKod;
-    }
-
-    public void setDistrictKod(String districtKod) {
-        this.districtKod = districtKod;
-    }
-
     public String getIlce() {
-        return this.ilce;
+        return ilce;
     }
 
     public void setIlce(String ilce) {
@@ -61,7 +46,7 @@ public class District {
     }
 
     public String getDistrictName() {
-        return this.districtName;
+        return districtName;
     }
 
     public void setDistrictName(String districtName) {
@@ -69,7 +54,7 @@ public class District {
     }
 
     public Zone getBolge() {
-        return this.bolge;
+        return bolge;
     }
 
     public void setBolge(Zone bolge) {

@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.District" %>
+<%@ page import="com.example.example.DataBase.Zone" %>
 <%@ page import="java.util.List" %>
 <%
   List<Personel> users = Personel.getAllUserInfo();
+  List<District> mah = District.getAllDistrict();
+  List<Zone> zone = Zone.getAllZone();
+
+
 
   /*
 HttpSession userSession = request.getSession();
@@ -143,11 +149,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>BÖLGE ADI</label>
                                 <select class="form-control">
-                                  <option>1. Bölge</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                  <% for (Zone zon : zone) { %>
+								        <option value="<%= zon.getZoneId() %>"  ><%= zon.getZoneName() %></option>
+								    <% } %>
                                 </select>
                               </div>
                             </div>
@@ -186,7 +190,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 
                         <th>Mahalle Kodu</th>
                         <th>Mahalle Adı</th>
-                        <th>Aktif mi?</th>                        
+                        <th>Bölge Name</th>                        
                         <th></th>
                         
                     </tr>
@@ -194,15 +198,15 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </thead>
                     <tbody>       
                     <%
-                      for(Personel user : users){ %>
+                      for(District mahelle : mah){ %>
                     <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>                     
+                      <td><%= mahelle.getDistrictID()%></td>
+                      <td><%= mahelle.getDistrictName()%></td>
+						<% String bolgeName = mahelle.getBolge().getZoneName();%>                      
+						<td><%= bolgeName %></td>                     
                       <td>
                       	<div class="d-flex justify-content-between align-items-center">
-                      		
-                      		<a href="mahalleduzenle.jsp">
+                      		<a href="mahalleduzenle.jsp?ID=<%= mahelle.getDistrictID()%>">
 						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 						    </a>
 						    

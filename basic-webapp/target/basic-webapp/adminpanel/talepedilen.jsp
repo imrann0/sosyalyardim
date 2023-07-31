@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.TalepYardimTip" %>
+
 <%@ page import="java.util.List" %>
-<%/*
+<%
+List<TalepYardimTip> talep = TalepYardimTip.getAll();
+
+/*
   List<Personel> users = Personel.getAllUserInfo();
 
   
@@ -147,42 +152,28 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" action="TalepYardimTipAdd" method="post">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-4">
                               <div class="form-group text-center">
                                 <label>Yardım Tip Adı</label>
                                 <div class="input-group"> <!-- input alanını düzenlemek için input-group kullanıyoruz -->
-				                  <input type="text" class="form-control" name="meslek" required>
-				                  
+				                  <input type="text" class="form-control" name="YardimTipAd" required>
 				                </div>
-                                                                   
-                               
                               </div>
                             </div>
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Durum</label>
-                                <select class="form-control">
-                                  <option>Aktif</option>
-                                  <option>Pasif</option>
+                                <select class="form-control" name="durum">
+                                  <option value="Aktif">Aktif</option>
+                                  <option value="Pasif">Pasif</option>
                                   
                                 </select>
-                                                                   
-                               
                               </div>
                             </div>
-                            
-                            
-                          	
-                            
-				                            
-                            
                           </div>
-                          
-                          
-							
                         </div>
                         <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 								<button type="submit" class="btn btn-info">Ekle</button>
@@ -211,43 +202,28 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                  <table id="example2" class="table table-bordered table-hover">
 		                    <thead>
 		                    <tr>
-		
-		
 		                        <th>Yardım Tip Kodu</th>
 		                        <th>Yardım Tip Adı</th>
 		                        <th>Durum</th>
 		                        <th></th>
-		                        <th></th>
-		                        
-		
-		
-		                        
-		                        
+		                        <th></th>  
 		                    </tr>
 		
 		                    </thead>
-		                    <tbody>       
-		                    
-		                    <tr>
-		                      <td></td>
-		                      <td></td>
-		                      <td></td>
-		                      
-		                      
-		                      <td>
-								  <a href="talepedilenduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								  </a>
-							  </td>
-							  <td>
-								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-							  </td>
-							  
-
-		                    </tr>
-		                             
-		                    </tbody>
-		                    
+		                    <tbody>
+						    <% for(TalepYardimTip t: talep) { %>
+						    <tr>
+						        <td><%= t.getTalepYardimId() %></td>
+						        <td><%= t.getTalepYardimAdi() %></td>
+						        <td><%= t.getTalepYardimdurum() %></td>
+						        <td>
+						            <a href="talepedilenduzenle.jsp?Id=<%= t.getTalepYardimId() %>">
+						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+						            </a>
+						        </td>
+						    </tr>
+						    <% } %>
+						</tbody>  
 		                  </table>
 		                </div>
 		                <!-- /.card-body -->

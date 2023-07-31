@@ -75,5 +75,16 @@ public class Sokak {
 
         return Sokak;
     }
+    public static Sokak getByID(int userId) {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            Sokak user = session.get(Sokak.class, userId);
+            return user;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }

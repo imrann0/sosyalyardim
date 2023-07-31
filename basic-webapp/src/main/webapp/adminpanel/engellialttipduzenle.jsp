@@ -160,7 +160,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                                 <label>Engelli Tip Adı</label>
                                 <select class="form-control" name="disabledid">
 								    <% for (Disabled disa : disabled) { %>
-								        <option value="<%= disa.getDisabledID() %>" <%= engellisub.getDisabled().getDisabledID() == disa.getDisabledID() ? "selected" : "" %> ><%= disa.getDisabledName() %></option>
+								        <option value="<%= disa.getDisabledID() %>" <%= engellisub.getDisabled().getDisabledID() == disa.getDisabledID() ? "selected" : "" %>><%= disa.getDisabledName() %></option>
 								    <% } %>
 								</select>
                               </div>

@@ -3,8 +3,10 @@
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.example.DataBase.Sokak" %>
+<%@ page import="com.example.example.DataBase.District" %>
 <%
   List<Sokak> sokak = Sokak.getAllSokak();
+  List<District> mah = District.getAllDistrict();
   /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
@@ -132,20 +134,20 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title">Cadde/Sokak Girişi Bilgileri</h3>
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" >
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>MAHALLE ADI</label>
                                 <select class="form-control">
-                                  <%for(Sokak sokaklar : sokak){%>
-                                  <option value="<%= sokaklar.getSokakID()%>"><%= sokaklar.getDistrict().getDistrictName()%></option>
+                                  <%for(District mahale : mah){%>
+                                  <option value="<%= mahale.getDistrictID()%>"><%=mahale.getDistrictName()%></option>
                                   <%}%>
                                 </select>
                               </div>
@@ -198,7 +200,8 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                       <td><%= sokaklar.getDistrict().getDistrictName()%></td>
                       <td>
                       	<div class="d-flex justify-content-between align-items-center">
-	                      	<a href="caddeduzenle.jsp">
+	                      	<a href="caddeduzenle.jsp?ID=<%= sokaklar.getSokakID()%>">
+
 							      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 							    </a>
                       		

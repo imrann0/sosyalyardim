@@ -1,13 +1,13 @@
 <%@ page import="com.example.example.DataBase.Zone" %>
+<%@ page import="com.example.example.DataBase.District" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
   HttpSession userSession = request.getSession();
   if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
     response.sendRedirect("../Error/Error.html");
   }
-
   List<Zone> zone = Zone.getAllAktifZone();
-
+  List<District> mahalle = District.getAllDistrict();
 %>
 <!DOCTYPE html>
 <html>
@@ -87,16 +87,16 @@
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form action="BolgeTanim" role="form" method="post" >
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <!-- select -->
                               <div class="form-group">
                                 <label>Bölge Adı</label>
-                                <select class="form-control">
+                                <select name="BolgeId" class="form-control">
                                   <%for(Zone bolge : zone){%>
-                                  <option value="<%=bolge.getZoneId()%>"><%=bolge.getZoneName()%></option>
+                                  <option  value="<%=bolge.getZoneId()%>"><%=bolge.getZoneName()%></option>
                                   <% }%>
                                 </select>
                               </div>
@@ -105,12 +105,10 @@
                               <!-- select -->
                               <div class="form-group">
                                 <label>Mahalle Adı</label>
-                                <select class="form-control">
-                                  <option>Adem Yavuz</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                <select name="MahId" class="form-control">
+                                  <%for(District mah : mahalle){%>
+                                  <option  value="<%=mah.getDistrictID()%>"><%=mah.getDistrictName()%></option>
+                                  <%}%>
                                 </select>
                               </div>
                             </div>

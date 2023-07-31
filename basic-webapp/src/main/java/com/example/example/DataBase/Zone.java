@@ -18,6 +18,8 @@ public class Zone {
     private String zoneName;
     private String zoneIsActive;
 
+    @OneToMany(mappedBy = "bolge")
+    private List<District> mahalle;
     // Getter ve Setter metotları
 
 
@@ -52,6 +54,15 @@ public class Zone {
     public void setZoneIsActive(String zoneIsActive) {
         this.zoneIsActive = zoneIsActive;
     }
+
+    public List<District> getMahalle() {
+        return mahalle;
+    }
+
+    public void setMahalle(List<District> mahalle) {
+        this.mahalle = mahalle;
+    }
+
     public static List <Zone> getAllZone(){
         Configuration configuration = new Configuration().configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
