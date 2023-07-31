@@ -2,9 +2,9 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.example.DataBase.Sokak" %>
 <%
-  List<Personel> users = Personel.getAllUserInfo();
-
+  List<Sokak> sokak = Sokak.getAllSokak();
   /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
@@ -144,11 +144,9 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>MAHALLE ADI</label>
                                 <select class="form-control">
-                                  <option>Adem Yavuz</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                  <%for(Sokak sokaklar : sokak){%>
+                                  <option value="<%= sokaklar.getSokakID()%>"><%= sokaklar.getDistrict().getDistrictName()%></option>
+                                  <%}%>
                                 </select>
                               </div>
                             </div>
@@ -193,11 +191,11 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </thead>
                     <tbody>       
                     <%
-                      for(Personel user : users){ %>
+                      for(Sokak sokaklar : sokak){ %>
                     <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>                     
+                      <td><%= sokaklar.getSokakID()%></td>
+                      <td><%= sokaklar.getSokakname()%></td>
+                      <td><%= sokaklar.getDistrict().getDistrictName()%></td>
                       <td>
                       	<div class="d-flex justify-content-between align-items-center">
 	                      	<a href="caddeduzenle.jsp">

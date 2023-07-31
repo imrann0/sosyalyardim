@@ -75,4 +75,5 @@ public class Sokak {
 
         return Sokak;
     }
+
 }

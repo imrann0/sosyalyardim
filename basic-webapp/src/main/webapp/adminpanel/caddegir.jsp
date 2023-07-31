@@ -1,9 +1,15 @@
+<%@ page import="com.example.example.DataBase.Sokak" %>
+<%@ page import="com.example.example.DataBase.District" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+  List<District> mahalle = District.getAllDistrict();
+  /*
   HttpSession userSession = request.getSession();
   if(!Rol.hasRole(userSession,"Role_Cadde_Ekle")){
     response.sendRedirect("../Error/Error.html");
   }
+
+   */
 %>
 <!DOCTYPE html>
 <html>
@@ -97,25 +103,17 @@
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" action="caddegir" method="post">
                         <div class="card-body">
                           <div class="row">
-                            <div class="col-sm-6">
-                              <div class="form-group text-center">
-                                <label>Cadde/Sokak Kodu</label>
-                                <input type="text" class="form-control" required>
-                              </div>
-                            </div>
                             <div class="col-sm-6">
                               <!-- text input -->
                               <div class="form-group text-center">
                                 <label>Mahalle</label>
-                                <select class="form-control">
-                                  <option>Adem Yavuz</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                <select name="mahalleAd" class="form-control">
+                                  <%for(District dist :mahalle){ %>
+                                  <option value="<%=dist.getDistrictID()%>"><%=dist.getDistrictName()%></option>
+                                  <%}%>
                                 </select>
                               </div>
                             </div>
@@ -125,7 +123,7 @@
                             <div class="col-sm-6">
                               <div class="form-group text-center">
                                 <label>Cadde/Sokak Adı</label>
-                                <textarea class="form-control" rows="3" required></textarea>
+                                <textarea name="caddeAd" class="form-control" rows="3" required></textarea>
                               </div>
                             </div>  
                           </div>

@@ -1,37 +1,43 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.example.example.DataBase;
-
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.TypedQuery;
-import jakarta.persistence.JoinColumn;
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @Entity
 public class District {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private int districtID;
-
     private String districtKod;
     private String ilce;
     private String districtName;
-
     @ManyToOne
-    @JoinColumn(name = "bolge_id")
+    @JoinColumn(
+            name = "bolge_id"
+    )
     private Zone bolge;
 
-    // Getter ve Setter metotları
+    public District() {
+    }
 
     public int getDistrictID() {
-        return districtID;
+        return this.districtID;
     }
 
     public void setDistrictID(int districtID) {
@@ -39,7 +45,7 @@ public class District {
     }
 
     public String getDistrictKod() {
-        return districtKod;
+        return this.districtKod;
     }
 
     public void setDistrictKod(String districtKod) {
@@ -47,7 +53,7 @@ public class District {
     }
 
     public String getIlce() {
-        return ilce;
+        return this.ilce;
     }
 
     public void setIlce(String ilce) {
@@ -55,7 +61,7 @@ public class District {
     }
 
     public String getDistrictName() {
-        return districtName;
+        return this.districtName;
     }
 
     public void setDistrictName(String districtName) {
@@ -63,37 +69,54 @@ public class District {
     }
 
     public Zone getBolge() {
-        return bolge;
+        return this.bolge;
     }
 
     public void setBolge(Zone bolge) {
         this.bolge = bolge;
     }
-    
-    public static List<District> getAllDistrict() {
-        Configuration configuration = new Configuration().configure();
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
 
+    public static List<District> getAllDistrict() {
+        Configuration configuration = (new Configuration()).configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-
         TypedQuery<District> query = session.createQuery("SELECT d FROM District d", District.class);
         List<District> District = query.getResultList();
-
         session.getTransaction().commit();
         sessionFactory.close();
-
         return District;
     }
-    
-    
-    public static District getbyID(int id){
-        Configuration configuration = new Configuration().configure();
+
+    public static District getbyID(int id) {
+        Configuration configuration = (new Configuration()).configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(District.class, id);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        try {
+            Session session = sessionFactory.openSession();
+
+            District var4;
+            try {
+                var4 = (District)session.get(District.class, id);
+            } catch (Throwable var7) {
+                if (session != null) {
+                    try {
+                        session.close();
+                    } catch (Throwable var6) {
+                        var7.addSuppressed(var6);
+                    }
+                }
+
+                throw var7;
+            }
+
+            if (session != null) {
+                session.close();
+            }
+
+            return var4;
+        } catch (Exception var8) {
+            var8.printStackTrace();
             return null;
         }
     }
