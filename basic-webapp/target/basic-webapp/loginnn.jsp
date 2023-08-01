@@ -112,8 +112,8 @@
                 <h3 class="text-center">Giriş Yap</h3>
               </div>
               <div class="form-group first">
-                <label for="username"><i class="fas fa-envelope"></i> Email</label>
-                <input type="email" name="mail" class="form-control" id="username">
+                  Username
+                  <input type="text" name="mail" class="form-control" id="username">
               </div>
               <div class="form-group last mb-3">
                 <label for="password"><i class="fas fa-lock"></i> Şifre</label>
@@ -121,7 +121,7 @@
               </div>
                <input type="submit" value="Giriş" class="btn btn-block btn-primary">
               <div class="form-group mt-3">
-                <p class="text-center">Hesabınız yok mu? <a href="register.jsp">Kayıt Ol</a></p>
+                <p class="text-center">Hesabınız yok mu? <a href="adminpanel/kullaniciyukle.jsp">Kayıt Ol</a></p>
               </div>
             </form>
           </div>

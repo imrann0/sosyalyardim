@@ -205,7 +205,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 						            </a>
                      	     
                      	</div></td>
-                      
                     </tr>
                     <% } %>           
                     </tbody>

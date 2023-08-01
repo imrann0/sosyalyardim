@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 @Entity
 public class Rol {
@@ -21,6 +23,7 @@ public class Rol {
     private int id;
 
     private String roleName;
+    private String rolGrup;
 
     public int getId() {
         return id;
@@ -37,6 +40,13 @@ public class Rol {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+    public String getRolGrup() {
+        return rolGrup;
+    }
+
+    public void setRolGrup(String rolGrup) {
+        this.rolGrup = rolGrup;
+    }
     
     public static List<Rol> getAllRoles() {
         Configuration configuration = new Configuration().configure();
@@ -52,6 +62,24 @@ public class Rol {
         sessionFactory.close();
 
         return roles;
+    }
+    public static List<Rol> getAllGrup(){
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<Rol> query = session.createQuery("SELECT COUNT(DISTINCT rolgrup) AS rolgrup_count, STRING_AGG(DISTINCT rolgrup, ', ') AS rolgrup_names FROM Rol");
+        List<Rol> Grps = query.getResultList();
+
+        session.getTransaction().commit();
+        sessionFactory.close();
+
+        return Grps;
+
+        //Query sql = session.createQuery("SELECT COUNT(*) FROM Rol WHERE rolGrup = ?");
+
     }
     public static boolean hasRole(HttpSession request, String roleName) {
         //HttpSession session = request.getSession();

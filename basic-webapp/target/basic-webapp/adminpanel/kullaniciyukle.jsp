@@ -4,9 +4,12 @@
 <%@ page import="java.util.Set" %>
 <%
   HttpSession userSession = request.getSession();
+  /*
   if(!Rol.hasRole(userSession,"Role_Kullanıcı_Ekle")){
     response.sendRedirect("../Error/Error.html");
   }
+
+   */
 	List<Rol> roles = Rol.getAllRoles();
   /* HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Ekle";

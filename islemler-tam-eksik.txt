@@ -13,7 +13,7 @@ Mahalle Düzenle	Tamamlandı
 Mahalle Sil Eksik
 
 
-Cadde/Sokak Ekle 	Eksik
+Cadde/Sokak Ekle 	Tamamlandı
 Cadde/Sokak Listele	Eksik
 Cadde/Sokak Düzenle	Eksik
 Cadde/Sokak Sil 	Eksik

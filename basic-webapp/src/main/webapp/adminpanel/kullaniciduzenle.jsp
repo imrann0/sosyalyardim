@@ -252,10 +252,12 @@
                 <label>Roller:</label>
 				<div class="form-group">
 				    <% for (Rol role : roles) { %>
+          <div class="col-sm-6">
 				        <div class="form-check form-check-inline">
 				            <input class="form-check-input" type="checkbox" id="rol<%= role.getId() %>" name="roles" value="<%= role.getId() %>" <% if (RoleControl.hasUserRole(Id, role.getId()) == 1) { %>checked<% } %>>
 				            <label class="form-check-label" for="rol<%= role.getId() %>"><%= role.getRoleName() %></label>
 				        </div>
+          </div>
 				    <% } %>
           <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
 

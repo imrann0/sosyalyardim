@@ -1,4 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.District" %>
+<%@ page import="com.example.example.DataBase.Zone" %>
+<%@ page import="java.util.List" %>
+<%
+
+List<Zone> zone = Zone.getAllZone();
+
+String id = request.getParameter("ID");
+int ID = Integer.parseInt(id);
+District mahalleId = District.getbyID(ID);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +100,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title">
 					    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>
 					    Mahalle Düzenle
@@ -94,20 +108,20 @@
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form">
+                    <form role="form" method="post" action="mahalleUpdate">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Mahalle Kodu</label>
-                                <input type="text" class="form-control" placeholder="Mahalle kodu giriniz" required>
+                                <input type="text" name="mahalleid" value="<%= mahalleId.getDistrictID() %>" class="form-control" placeholder="Mahalle kodu giriniz" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>İlçe</label>
-                                <select class="form-control">
-                                  <option>GEBZE</option>
+                                <select class="form-control" name="	">
+                                  <option value="GEBZE">GEBZE</option>
                                   
                                 </select>
                               </div><!-- text input -->
@@ -118,17 +132,18 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group">
-                                <label>Bölge Adı</label>
-                                <textarea class="form-control" rows="3" placeholder="Bölge Adını giriniz." required></textarea>
+                                <label>Mahalle Adı</label>
+                                <input class="form-control" name="mahalleAd" value="<%= mahalleId.getDistrictName() %>" required>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <!-- select -->
                               <div class="form-group">
                                 <label>Bölge Adı</label>
-                                <select class="form-control">
-                                  <option>1. Bölge</option>
-                                  
+                                <select class="form-control" name="bolge_id">
+                                <% for (Zone zon : zone) { %>
+								        <option value="<%= zon.getZoneId() %>" <%= mahalleId.getBolge().getZoneId() == zon.getZoneId() ? "selected" : "" %> ><%= zon.getZoneName() %></option>
+								    <% } %>
                                 </select>
                               </div>
                             </div>  

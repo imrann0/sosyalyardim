@@ -207,7 +207,9 @@
 	
 	    public static Personel getPersonelByMail(String mail) {
 	        Personel personel = null;
-	        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+	        try (
+					Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+
 	            String hql = "FROM Personel WHERE mail = :mail";
 	            Query<Personel> query = session.createQuery(hql, Personel.class);
 	            query.setParameter("mail", mail);

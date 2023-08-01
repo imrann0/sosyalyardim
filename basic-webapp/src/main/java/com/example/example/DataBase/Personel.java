@@ -163,7 +163,7 @@ public class Personel {
 
 		public static boolean checkLogin(String mail, String password) {
 	        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
-	            String sql = "SELECT COUNT(*) FROM Personel WHERE mail = ? AND password = ?";
+	            String sql = "SELECT COUNT(*) FROM Personel WHERE username = ? AND password = ?";
 	            NativeQuery<Long> query = session.createNativeQuery(sql, Long.class);
 	            query.setParameter(1, mail);
 	            query.setParameter(2, password);
@@ -178,7 +178,7 @@ public class Personel {
 		 public static Personel getPersonelByMail(String mail) {
 		        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
 					// Sadece ID çekip iyileştirme yapılabilir
-		            String sql = "SELECT * FROM personel WHERE mail = :email";
+		            String sql = "SELECT * FROM personel WHERE username = :email";
 		            NativeQuery<Personel> query = session.createNativeQuery(sql, Personel.class);
 		            query.setParameter("email", mail); 
 		            Personel personel = query.uniqueResult();

@@ -7,9 +7,12 @@
 <%@ page import="com.example.example.DataBase.Rol" %>
 <%
   HttpSession userSession = request.getSession();
+  /*
   if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
     response.sendRedirect("../Error/Error.html");
   }
+
+   */
 
   List<District> district = District.getAllDistrict();
     List<Zone> zone = Zone.getAllAktifZone();
