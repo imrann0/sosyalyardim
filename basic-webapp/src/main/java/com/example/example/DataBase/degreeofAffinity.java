@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 @Entity
+@Table(name = "YakınlıkDerecesi")
 public class degreeofAffinity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

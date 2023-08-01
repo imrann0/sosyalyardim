@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import org.hibernate.Session;
@@ -18,6 +19,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 @Entity
+@Table(name = "Mahalle")
 public class District {
     @Id
     @GeneratedValue(

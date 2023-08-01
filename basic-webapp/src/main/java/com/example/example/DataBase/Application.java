@@ -7,8 +7,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import java.time.LocalDate;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Muracaat")
 public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

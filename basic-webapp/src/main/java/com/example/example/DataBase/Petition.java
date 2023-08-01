@@ -9,8 +9,10 @@ import java.time.LocalDate;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Dilekce")
 public class  Petition {
 
     @Id

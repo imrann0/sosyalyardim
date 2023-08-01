@@ -13,7 +13,6 @@
   int ID = Integer.parseInt(asdd);
   HelpType yardim = HelpType.getbyID(ID);
 
-<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/e1/f06c93de552c001e1d92d48c70bc1562
  /* 
 ========
   /*

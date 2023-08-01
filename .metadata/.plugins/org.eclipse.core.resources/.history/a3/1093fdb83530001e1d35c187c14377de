@@ -1,0 +1,100 @@
+package com.example.example.DataBase;
+
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.TypedQuery;
+import jakarta.servlet.http.HttpSession;
+
+@Entity
+public class School {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int SchoolID;
+    
+    private String Durum;
+    
+    private String Okul;
+    
+    private String OkulTipi;
+    
+    private String OkulName;
+
+    // GET SETLER
+	public int getSchoolID() {
+		return SchoolID;
+	}
+
+	public void setSchoolID(int schoolID) {
+		SchoolID = schoolID;
+	}
+
+	public String getDurum() {
+		return Durum;
+	}
+
+	public void setDurum(String durum) {
+		Durum = durum;
+	}
+
+	public String getOkul() {
+		return Okul;
+	}
+
+	public void setOkul(String okul) {
+		Okul = okul;
+	}
+
+	public String getOkulTipi() {
+		return OkulTipi;
+	}
+
+	public void setOkulTipi(String okulTipi) {
+		OkulTipi = okulTipi;
+	}
+
+	public String getOkulName() {
+		return OkulName;
+	}
+
+	public void setOkulName(String okulName) {
+		OkulName = okulName;
+	}
+    
+    public static List<School> getAllSchool() {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<School> query = session.createQuery("SELECT r FROM School r", School.class);
+        @SuppressWarnings("unused")
+		List<School> roles = query.getResultList();
+
+        session.getTransaction().commit();
+        sessionFactory.close();
+
+        return roles;
+    }
+
+    public static School getById(int userId) {
+    	Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(School.class, userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+}

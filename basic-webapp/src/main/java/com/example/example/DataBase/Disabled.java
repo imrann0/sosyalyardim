@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +15,7 @@ import jakarta.persistence.OneToMany;
 
 
 @Entity
+@Table(name = "Engelli")
 public class Disabled {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

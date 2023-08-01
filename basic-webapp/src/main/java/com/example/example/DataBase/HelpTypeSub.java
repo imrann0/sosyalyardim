@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "YardımAltTipi")
+
 public class HelpTypeSub {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

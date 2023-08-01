@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 @Entity
+@Table(name = "Meslek")
 public class Profession {
 
     @Id

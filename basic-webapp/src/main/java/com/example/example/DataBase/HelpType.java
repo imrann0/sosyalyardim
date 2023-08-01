@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 @Entity
+@Table(name = "YardımTipi")
 public class HelpType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
