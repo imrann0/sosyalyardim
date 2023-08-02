@@ -1,0 +1,7 @@
+127.0.0.1 - - [01/Aug/2023:09:57:01 +0300] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:09:57:17 +0300] "GET /basic-webapp/MuracaatGirisi.jsp HTTP/1.1" 200 219873
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:09:57:17 +0300] "GET /basic-webapp/css/muracatgiris.css HTTP/1.1" 200 5493
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:09:57:17 +0300] "GET /basic-webapp/js/muracat.js HTTP/1.1" 200 517
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:09:57:18 +0300] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:10:05:31 +0300] "POST /basic-webapp/adminpanel/muracat HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [01/Aug/2023:10:05:31 +0300] "GET /index.jsp HTTP/1.1" 404 739
