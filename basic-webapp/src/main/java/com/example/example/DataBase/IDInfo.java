@@ -8,9 +8,15 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.TypedQuery;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import java.time.LocalDate;
 
 @Entity
@@ -69,9 +75,6 @@ public class IDInfo {
     @JoinColumn(name = "petId")
     private Petition petition;
     
-    /* @OneToMany(mappedBy = "IdInfo", cascade = CascadeType.ALL)
-    private List<Petition> petitionList; */
-//GETSETLER
 
     public int getIdInfoId() {
         return idInfoId;
@@ -259,4 +262,30 @@ public class IDInfo {
         this.petition = petition;
     }
     
+    public static List<IDInfo> getAll(){
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<IDInfo> query = session.createQuery("SELECT h FROM IDInfo h ", IDInfo.class);
+        List<IDInfo> results=query.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+        return results;
+    }
+    
+    public static IDInfo getbyID(int id) {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(IDInfo.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+
