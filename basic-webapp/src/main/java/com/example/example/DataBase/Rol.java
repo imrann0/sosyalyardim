@@ -1,14 +1,13 @@
 package com.example.example.DataBase;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.TypedQuery;
+import com.example.example.HibernateSessionFactory;
+import jakarta.persistence.*;
+
+import java.lang.annotation.Native;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Set;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -63,24 +62,41 @@ public class Rol {
 
         return roles;
     }
-    public static List<Rol> getAllGrup(){
+    public static List<String> getDistinctRolGrup() {
         Configuration configuration = new Configuration().configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        TypedQuery<Rol> query = session.createQuery("SELECT COUNT(DISTINCT rolgrup) AS rolgrup_count, STRING_AGG(DISTINCT rolgrup, ', ') AS rolgrup_names FROM Rol");
-        List<Rol> Grps = query.getResultList();
+        TypedQuery<String> query = session.createQuery("SELECT DISTINCT r.rolGrup FROM  Rol r WHERE r.rolGrup IS NOT NULL", String.class);
+        List<String> results = query.getResultList();
+
 
         session.getTransaction().commit();
+        session.close();
         sessionFactory.close();
-
-        return Grps;
-
-        //Query sql = session.createQuery("SELECT COUNT(*) FROM Rol WHERE rolGrup = ?");
-
+        return results;
     }
+    public static List<Rol> getRolNamesByGrup(String ROLAD) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        String sql = "SELECT * FROM Rol WHERE rolgrup = :roladi";
+        NativeQuery<Rol> query = session.createNativeQuery(sql, Rol.class);
+        System.out.println("Rol Grup: "+ ROLAD);
+
+        //Query<Rol> query = session.createQuery("FROM Rol r WHERE r.roleName = :roladi", Rol.class);
+        query.setParameter("roladi", ROLAD);
+        List<Rol> results = query.getResultList();
+        if (results != null) {
+
+            return results;
+
+        }else{
+            System.out.println("BOS LAN");
+        }
+        return null;
+    }
+
+
     public static boolean hasRole(HttpSession request, String roleName) {
         //HttpSession session = request.getSession();
 
