@@ -69,7 +69,7 @@
     <div class="grid">
     <div class="col-1-3"><div class="controls">
       <i class="fa fa-sort"></i>
-      <select class="kayitDurum">
+      <select class="kayitDurum" select="KayitDurum">
         <option value="-1" selected> Kayıt durumu</option>
         <option value="Eski Kayıt" >Yeni Kayıt</option>
         <option value="Yeni Kayıt" >Eski Kayıt</option>
@@ -80,15 +80,13 @@
 
       <div class="col-1-3"><div class="controls">
         <i class="fa fa-sort"></i>
-        <select name="il" disabled>
-          <option value="-1"> Kayıtlı Olduğu İl </option>
+        <select name="il" >
           <option value="Kocaeli" selected > Kocaeli </option>
         </select>
       </div></div>
       <div class="col-1-3"><div class="controls">
         <i class="fa fa-sort"></i>
-        <select name="ilce" disabled>
-          <option value="-1" > Kayıtlı olduğu ilçe </option>
+        <select name="ilce" >
           <option value="Gebze" selected > Gebze </option>
         </select>
       </div>
@@ -100,8 +98,8 @@
         <i class="fa fa-sort"></i>
         <select name="cinsiyet">
           <option value="-1" selected> Cinsiyeti</option>
-          <option value="E" >Erkek</option>
-          <option value="K" >Kadın</option>
+          <option value="Erkek" >Erkek</option>
+          <option value="Kadin" >Kadın</option>
         </select>
       </div></div>
 

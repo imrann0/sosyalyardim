@@ -1,4 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.DataBase.IDInfo" %>
+<%@ page import="java.util.List" %>
+<%
+
+String YonlendirenKId = request.getParameter("Id");
+int Id = Integer.parseInt(YonlendirenKId);
+IDInfo info = IDInfo.getbyID(Id); 
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +41,7 @@
 			  flex-direction: column;
 			  justify-content: center;
 			  align-items: center;
-			  height: 100px; /* İçeriği ortalamak için div'e bir yükseklik verin */
+			  height: 130px; /* İçeriği ortalamak için div'e bir yükseklik verin */
 			  overflow: auto;
 			}
 			.col-sm-3:hover {
@@ -107,13 +118,9 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">ALI IMRAN</h3>
+                <h3 class="profile-username text-center"><%= info.getAppliName() %></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
-
-                
-
-                
               </div>
               <!-- /.card-body -->
             </div>
@@ -126,35 +133,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  Knoxwille
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Şehir/İlçe</strong>
+                <p class="text-muted">Kocaeli / Gebze</p>
+                <hr>    
               </div>
               <!-- /.card-body -->
             </div>
@@ -181,25 +162,25 @@
 	                     		<div class="col-sm-3">
 	                              
 	                                <label for="isim">İsim</label>
-						    			<p>Ahmet Tuğrul</p>
+						    			<p><%= info.getAppliName() %></p>
 						    		
 	                            </div>
 	                            <div class="col-sm-3">
 	                              
 	                                <label for="soyisim">Soyisim</label>
-						    			<p>Kurt</p>
+						    			<p><%= info.getSurname() %></p>
 						    		
 	                            </div>
 	                            <div class="col-sm-3">
 	                              
 	                                <label for="tc">TC</label>
-						    			<p>26666666666</p>
+						    			<p><%= info.getIdNo() %></p>
 						    		
 	                            </div>
 	                            <div class="col-sm-3">
 	                              
 	                                <label for="tel">Tel</label>
-						    			<p>55555555</p>
+						    			<p><%= info.getPhone() %></p>
 						    		
 	                            </div>
 	                          
@@ -211,25 +192,25 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="kayit">Kayıt Durumu</label>
-							    			<p>1</p>
+							    			<p><%= info.getRegistrationStatus() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="cinsiyet">Cinsiyeti</label>
-							    			<p>erkek</p>
+							    			<p><%= info.getGender() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="anne">Anne Adı</label>
-							    			<p>fatma</p>
+							    			<p><%= info.getMotherName() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="baba">Baba Adı</label>
-							    			<p>mert</p>
+							    			<p><%= info.getFatherName() %></p>
 							    		
 		                            </div>
 		                          
@@ -239,25 +220,25 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="cilt">Cilt No</label>
-							    			<p>12</p>
+							    			<p><%= info.getCiltNo() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="asira">Aile Sıra No</label>
-							    			<p>23</p>
+							    			<p><%= info.getAileSiraNo() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="dogum">Doğum Tarihi</label>
-							    			<p>08.02.2000</p>
+							    			<p><%= info.getBirthDate() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="medeni">Medeni Durum</label>
-							    			<p>Bekar</p>
+							    			<p><%= info.getMaritalStatus() %></p>
 							    		
 		                            </div>
 		                          
@@ -267,25 +248,25 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="cilt">Eş Ad</label>
-							    			<p></p>
+							    			<p><%= info.getEsAd() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="asira">Eş Soyad</label>
-							    			<p></p>
+							    			<p><%= info.getEsSoyad() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="il">İl</label>
-							    			<p>Kocaeli</p>
+							    			<p><%= info.getRegistrationProvince() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="ilce">İlçe</label>
-							    			<p>Gebze</p>
+							    			<p><%= info.getRegistrationDistrict() %></p>
 							    		
 		                            </div>
 		                          
@@ -300,25 +281,25 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="kayit">İlçe</label>
-							    			<p>1</p>
+							    			<p><%= info.getContact().getDistrict() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="cinsiyet">Mahalle</label>
-							    			<p>erkek</p>
+							    			<p><%= info.getContact().getNeighborhood() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="anne">Sokak</label>
-							    			<p>fatma</p>
+							    			<p><%= info.getContact().getStreet() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="baba">Apartman</label>
-							    			<p>mert</p>
+							    			<p><%= info.getContact().getApartment() %></p>
 							    		
 		                            </div>
 		                          
@@ -328,25 +309,25 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="kayit">Blok</label>
-							    			<p>1</p>
+							    			<p><%= info.getContact().getBlockDoorNo() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="cinsiyet">Daire No</label>
-							    			<p>erkek</p>
+							    			<p><%= info.getContact().getApartmentNo() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="anne">Ev Tel</label>
-							    			<p>fatma</p>
+							    			<p><%= info.getContact().getHomePhone() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="baba">Cep Tel</label>
-							    			<p>mert</p>
+							    			<p><%= info.getContact().getCellPhone() %></p>
 							    		
 		                            </div>
 		                          
@@ -356,31 +337,31 @@
 		                     		<div class="col-sm-3">
 		                              
 		                                <label for="kayit">Diğer Tel</label>
-							    			<p>1</p>
+							    			<p><%= info.getContact().getOtherTel() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="cinsiyet">E Posta</label>
-							    			<p>erkek</p>
+							    			<p><%= info.getContact().geteMail() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="anne">Adres Tarifi</label>
-							    			<p>fatma</p>
+							    			<p><%= info.getContact().getAddressDefinition() %></p>
 							    		
 		                            </div>
 		                            <div class="col-sm-3">
 		                              
 		                                <label for="baba">Açık Adres</label>
-							    			<p>mert</p>
+							    			<p><%= info.getAddress().getPublicAddress() %></p>
 							    		
 		                            </div>
 		                             <div class="col-sm-3">
 		                              
 		                                <label for="baba">Adres No</label>
-							    			<p>mert</p>
+							    			<p><%= info.getAddress().getAddressNo() %></p>
 							    		
 		                            </div>
 		                          
@@ -397,19 +378,19 @@
 			          <div class="row">
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi1">Dilekçe Referans No</label>
-			              <p>Veri 1</p>
+			              <p><%= info.getPetition().getPetitionReferenceNo() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2"> İtiraz Dilekçe Referans No</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getObjectionPetitionRefNo() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Dilekçe Konu</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getPetitionSubject() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">İtiraz Dilekçe Konu</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getObjectionPetitionSubject() %></p>
 			            </div>
 			            
 			            <!-- Diğer Müracaat Bilgileri -->
@@ -417,27 +398,27 @@
 			          <div class="row">
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi1">Dilekçe Sonuç</label>
-			              <p>Veri 1</p>
+			              <p><%= info.getPetition().getPetitionResult() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2"> İtiraz Dilekçe Sonuç</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getObjectionPetitionResult() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Dilekçe Yönlendiren Birim</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getForwardingDilekce() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Dilekçe Yönlendirme Tarihi</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getForwardingDate2() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">İtiraz Yönlendiren Birim</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getForwardingUnit() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">İtiraz Yönlendirme Tarihi</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getPetition().getForwardingDate() %></p>
 			            </div>
 			            
 			            <!-- Diğer Müracaat Bilgileri -->
@@ -449,23 +430,23 @@
 			          <div class="row">
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi1">Arşiv Dosya No</label>
-			              <p>Veri 1</p>
+			              <p><%= info.getApplication().getArchiveFileNo() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Yönlendirilen Tarih</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getApplication().getApplicationDate() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Bölge</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getApplication().getRegion() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Müracaat Tipi</label>
-			              <p>Veri 2</p>
+			              <p><%= info.getApplication().getApplicationType() %></p>
 			            </div>
 			            <div class="col-sm-3">
 			              <label for="müracaat_bilgi2">Açıklama</label>
-			              <p>2222222</p>
+			              <p><%= info.getApplication().getDescription() %></p>
 			            </div>
 			            <!-- Diğer Müracaat Bilgileri -->
 			          </div>

@@ -254,7 +254,7 @@
                 <label>Roller:</label>
                 <div class="form-group">
                   <%for(int i=0 ;i<50;i++){%>
-                  <div class="">
+                  <div class="border-dark" style="border:5px solid black">
                   <label><%=Grups.get(i)%></label>
                     <%System.out.println("Grup adı: "+ Grups.get(i));%>
                     <%//System.out.println("Roles Ad: "+ roles.get(i).getRolGrup());%>
@@ -269,8 +269,9 @@
                               <input class="form-check-input" type="checkbox" id="rol<%= roler.getId() %>" name="roles" value="<%= roler.getRoleName() %>" <% if (RoleControl.hasUserRole(Id, roler.getId()) == 1) { %>checked<% } %>>
                               <label class="form-check-label" for="rol<%= roler.getId() %>"><%= roler.getRoleName()%></label>
                       </div>
-                  </div>
+
                     <%}%>
+
 
                     <%}%>
 

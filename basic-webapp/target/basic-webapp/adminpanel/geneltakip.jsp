@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="com.example.example.DataBase.IDInfo" %>
 <%@ page import="java.util.List" %>
 <%
+List<IDInfo> kid = IDInfo.getAll();
+
   List<Personel> users = Personel.getAllUserInfo();
 
   /*
@@ -194,16 +197,16 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </thead>
                     <tbody>       
                     <%
-                      for(Personel user : users){ %>
+                      for(IDInfo k : kid){ %>
                     <tr>
-                      <td><%= user.getId()%></td>
-                      <td><%= user.getUserName()%></td>
-                      <td><%= user.getRegistrationNo()%></td>   
-                      <td></td> 
+                      <td><%= k.getIdInfoId()%></td>
+                      <td><%= k.getAppliName() %></td>
+                      <td><%= k.getIdNo() %></td>   
+                      <td><%= k.getBirthDate()%></td> 
                       <td></td>                    
                       <td><div class="d-flex justify-content-between align-items-center">
                       		
-                      		<a href="profile.jsp">
+                      		<a href="profile.jsp?Id=<%= k.getIdInfoId() %>">
 						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 						            </a>
                      	     
