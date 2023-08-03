@@ -186,8 +186,6 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               </div>
                               
                             </div>
-                            
-                            
                           </div>
                           <div class="row">
                           	<div class="col-sm-3">

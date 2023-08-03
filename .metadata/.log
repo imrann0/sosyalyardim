@@ -4368,3 +4368,26 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.wst.server.core 4 0 2023-08-03 11:21:33.281
 !MESSAGE Could not delete C:/Users/Administrator/Desktop/sosyalyardim/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/basic-webapp/WEB-INF/lib/gson-2.8.8.jar. May be locked by another process.
+
+!ENTRY org.eclipse.jst.jsf.core 4 0 2023-08-03 16:07:07.623
+!MESSAGE Checkpointing JSP tags failed
+!STACK 0
+java.io.FileNotFoundException: C:\Users\user\maven2\.metadata\.plugins\org.eclipse.jst.jsf.core\.jsptagregistry\Project_basic-webapp_169e495.idx (Sistem belirtilen yolu bulamıyor)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.persistence.MasterIndex$ProjectIndex.save(MasterIndex.java:381)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.persistence.TagRepository.save(TagRepository.java:85)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.persistence.PersistedDataTagStrategy.save(PersistedDataTagStrategy.java:159)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.registry.TLDTagRegistry.checkpoint(TLDTagRegistry.java:155)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.registry.TLDRegistryManager$MyWorkspaceSaveParticipant.saveProject(TLDRegistryManager.java:234)
+	at org.eclipse.jst.jsf.designtime.internal.view.model.jsp.registry.TLDRegistryManager$MyWorkspaceSaveParticipant.saving(TLDRegistryManager.java:198)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:393)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:209)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:212)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1173)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2423)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:554)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
