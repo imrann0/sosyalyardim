@@ -765,3 +765,11 @@
 0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:01:36 +0300] "GET /plugins/inputmask/min/jquery.inputmask.bundle.min.js HTTP/1.1" 404 815
 0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:01:44 +0300] "POST /basic-webapp/adminpanel/SearchServlet HTTP/1.1" 200 419205
 0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:01:44 +0300] "GET /plugins/inputmask/min/jquery.inputmask.bundle.min.js HTTP/1.1" 404 815
+127.0.0.1 - - [03/Aug/2023:16:02:59 +0300] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:14 +0300] "GET /basic-webapp/adminpanel/muracaatliste.jsp HTTP/1.1" 200 419205
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:15 +0300] "GET /plugins/inputmask/min/jquery.inputmask.bundle.min.js HTTP/1.1" 404 815
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:28 +0300] "POST /basic-webapp/adminpanel/SearchServlet HTTP/1.1" 200 424538
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:28 +0300] "GET /plugins/inputmask/min/jquery.inputmask.bundle.min.js HTTP/1.1" 404 815
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:29 +0300] "GET /basic-webapp/adminpanel/tr.json HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:39 +0300] "POST /basic-webapp/adminpanel/SearchServlet HTTP/1.1" 200 419205
+0:0:0:0:0:0:0:1 - - [03/Aug/2023:16:03:39 +0300] "GET /plugins/inputmask/min/jquery.inputmask.bundle.min.js HTTP/1.1" 404 815

@@ -68,7 +68,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="muracaatgir.jsp" class="nav-link">
+                    <a href="../MuracaatGirisi.jsp" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Müracaat Girişi</p>
                     </a>

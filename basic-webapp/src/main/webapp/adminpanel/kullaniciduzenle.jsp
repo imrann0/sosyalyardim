@@ -72,7 +72,7 @@
   }
 </style>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -85,28 +85,28 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="anasayfa.jsp" class="nav-link">Anasayfa</a>
       </li>
-      
+
     </ul>
 
     <!-- SEARCH FORM -->
-    
+
 
     <!-- Right navbar links -->
-    
+
   </nav>
   <!-- /.navbar -->
 	<%@include file="sidebar.jsp"%>
   <!-- Main Sidebar Container -->
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">  
+  <div class="content-wrapper">
     <!-- /.content-header -->
     <!-- Main content -->
-    <section class="content-wrapper">      
+    <section class="content-wrapper">
       <div class="container">
-        <!-- Small boxes (Stat box) -->      
+        <!-- Small boxes (Stat box) -->
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
+        <div class="row" style="text-overflow-mode: auto; overflow: auto; overflow-inline: auto">
           <div class="card card-info col-md-10">
             <div class="card-header d-flex justify-content-center">
               <h3 class="card-title">Kullanıcı Düzenle</h3>
@@ -114,7 +114,7 @@
             <!-- /.card-header -->
             <!-- form start -->
             <form action="adminupdate" method="post">
-              <div class="card-body">
+              <div class="card-body" style="text-overflow-mode: auto; overflow: auto; overflow-inline: auto">
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
@@ -169,7 +169,7 @@
                         <input type="text" class="form-control" pattern="[0-9]{13}"  name="sicilNo" value="<%= user.getRegistrationNo() %>" required>
 
                     </div>
-                    
+
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -181,7 +181,7 @@
                             Erkek
                           </label>
                         </div>
-                        
+
                         <div class="icheck-primary d-inline">
                 			<input type="radio" id="radioPrimary3" name="cinsiyet" value="K" <%= user.getGender().equals("K") ? "checked" : "" %> required>
                           <label for="radioPrimary3">
@@ -198,7 +198,7 @@
                       <label>Telefon</label>
                       <input type="tel" class="form-control" name="phone" pattern="[0-9]{11}"  value="<%= user.getPhone() %>" required>
                     </div>
-                    
+
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -210,7 +210,7 @@
                             Aktif
                           </label>
                         </div>
-                        
+
                         <div class="icheck-primary d-inline">
                 			<input type="radio" id="radioPrimary4" name="durum" value="0" <%= user.getStatus() == 0 ? "checked" : "" %> required>
                           <label for="radioPrimary4">
@@ -221,8 +221,8 @@
                     </div>
                   </div>
                 </div>
-                
-                
+
+
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- text input -->
@@ -230,7 +230,7 @@
                       <label>Adres</label>
 						        <textarea class="form-control" rows="3" name="address" required><%= user.getAddress() %></textarea>
                     </div>
-                    
+
                   </div>
                   <div class="col-sm-6">
                     <!-- select -->
@@ -249,16 +249,19 @@
                       </select>
                     </div>
                   </div>
-                  
+
+
                 </div>
+                <button type="submit" class="btn btn-info">Düzenle</button>
+
                 <label>Roller:</label>
                 <div class="form-group">
                   <%for(int i=0 ;i<50;i++){%>
-                  <div class="border-dark" style="border:5px solid black">
+                  <div class="col-sm" style="border:1px solid black; padding: 10px;border-radius: 7px;margin-top:10px; box-shadow: 0 2px 6px rgba(44,166,234,0.6);text-overflow-mode: auto; overflow: auto; overflow-inline: auto">
                   <label><%=Grups.get(i)%></label>
                     <%System.out.println("Grup adı: "+ Grups.get(i));%>
                     <%//System.out.println("Roles Ad: "+ roles.get(i).getRolGrup());%>
-                      <%//if(Grups.get(i).equals("Personel")){
+                      <%//if(Grups.get(i).equals("Persnel")){
                         List<Rol> roles = Rol.getRolNamesByGrup(Grups.get(i));
                       %>
                     <%System.out.println("IF ICINDE");%>
@@ -266,44 +269,39 @@
                     <%System.out.println(roler.getId());%>
 
                       <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="checkbox" id="rol<%= roler.getId() %>" name="roles" value="<%= roler.getRoleName() %>" <% if (RoleControl.hasUserRole(Id, roler.getId()) == 1) { %>checked<% } %>>
+                              <input class="form-check-input" type="checkbox" id="rol<%= roler.getId() %>" name="roles" value="<%= roler.getId() %>" <% if (RoleControl.hasUserRole(Id, roler.getId()) == 1) { %>checked<% } %>>
                               <label class="form-check-label" for="rol<%= roler.getId() %>"><%= roler.getRoleName()%></label>
                       </div>
 
                     <%}%>
 
-
+                  </div>
                     <%}%>
+            </form>
 
-                    <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
+                  <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
 
                 </div>
-
-
-
-                
-        
               </div>
               <!-- /.card-body -->
 
               <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
-					      <button type="submit" class="btn btn-info">Düzenle</button>
 					    </div>
-              
-            </form>
+
+
           </div>
-          
-          
+
+
+         </div>
         </div>
+
         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
+
     <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi</a></strong>
-    
+
     <div class="float-right d-none d-sm-inline-block">
       <b>2023</b>
     </div>
@@ -314,7 +312,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
+
 <!-- ./wrapper -->
 
 <!-- jQuery -->
@@ -362,8 +360,14 @@ checkbox.checked = true;
 }
 
 // Butona tıklandığında checkAll() fonksiyonunu çağıran bir event listener ekleyin
+var input = document.getElementById('checkAllButton'); // Butonun id'sini buraya ekleyin
 var button = document.getElementById('checkAllButton'); // Butonun id'sini buraya ekleyin
+var label = document.getElementById('checkAllButton'); // Butonun id'sini buraya ekleyin
+
 button.addEventListener('click', checkAll);
+input.addEventListener('click', checkAll);
+label.addEventListener('mouseover', checkAll);
+
 </script>
 </body>
 </html>
