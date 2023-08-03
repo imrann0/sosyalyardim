@@ -288,5 +288,25 @@ public class IDInfo {
             return null;
         }
     }
+    
+    public static List<IDInfo> getByIdNoAndNames(String tckimlik, String ad, String soyad) {
+    	System.out.println(tckimlik + "asf");
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            TypedQuery<IDInfo> query = session.createQuery("SELECT h FROM IDInfo h WHERE h.idNo = :tckimlik OR h.appliName = :ad OR h.surname = :soyad", IDInfo.class);
+            query.setParameter("tckimlik", tckimlik);
+            query.setParameter("ad", ad);
+            query.setParameter("soyad", soyad);
+            List<IDInfo> results = query.getResultList();
+            return results;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            sessionFactory.close();
+        }
+    }
+
 }
 

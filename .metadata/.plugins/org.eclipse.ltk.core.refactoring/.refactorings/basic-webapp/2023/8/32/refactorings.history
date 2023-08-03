@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.example.example.Islemler.Sorgu.java&apos; to &apos;SearchServlet.java&apos;&#x0D;&#x0A;- Original project: &apos;basic-webapp&apos;&#x0D;&#x0A;- Original element: &apos;com.example.example.Islemler.Sorgu.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.example.example.Islemler.SearchServlet.java&apos;" description="Rename compilation unit &apos;Sorgu.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.example.Islemler{Sorgu.java" name="SearchServlet.java" references="false" stamp="1691048520860" version="1.0"/>
+</session>
