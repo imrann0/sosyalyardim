@@ -184,14 +184,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                                 <label>Soyad</label>
                                 <input type="text" class="form-control" name="soyadd">
                               </div>
-                              
                             </div>
                           </div>
                           <div class="row">
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>İlçe</label>
-				                      <select class="form-control" name="selectedBolum">
+				                      <select class="form-control" name="il">
 				                        <option value="Gebze" selected>Gebze</option>
 				                      </select>
                               </div>
@@ -199,7 +198,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Mahalle</label>
-                                	<select class="form-control" name="selectedBolum">
+                                	<select class="form-control" name="mahalle">
                                 	<% for(District mah : mahalle) {%>
 				                        <option value="<%= mah.getDistrictID() %>" ><%= mah.getDistrictName() %></option>
 				                      <%} %> 
@@ -210,7 +209,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Cadde/Sokak</label>
-                                	<select class="form-control" name="selectedBolum">
+                                	<select class="form-control" name="sokak">
                                 	 <% for(Sokak sk : sokak) {%>
 				                        <option value="<%= sk.getSokakID() %>" ><%= sk.getSokakname() %></option>
 				                        <%} %>
@@ -222,7 +221,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>İtiraz Dilekçe Ref No</label>
-                                <input type="text" class="form-control" name="soyad">
+                                <input type="text" class="form-control" name="itrazdilekce">
                                                                    
                                
                               </div>
@@ -235,7 +234,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Dilekçe Ref No</label>
-                                <input type="text" class="form-control" name="meslekAd">
+                                <input type="text" class="form-control" name="dilekcerefno">
                                                                    
                                
                               </div>
@@ -243,7 +242,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Arşiv Dosya No</label>
-                                <input type="text" class="form-control" name="tckimlik">
+                                <input type="text" class="form-control" name="arsivdosyano">
 
                                 
                               </div>
@@ -272,7 +271,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>Müracaat Durumu</label>
 
-				                      <select class="form-control" name="selectedBolum">
+				                      <select class="form-control" name="muracaatdurum">
 				                        <option value="Yazilim" >Aktif</option>
 				                        <option value="Yazilim" >Pasif Vefat</option>
 				                        <option value="Yazilim" >Pasif İlçe Dışına taşınmış</option>
@@ -286,7 +285,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Bölge</label>
-                                <select class="form-control" name="selectedBolum">
+                                <select class="form-control" name="bolge">
                                 <% for(Zone bol : bolge) { %>
 				                        <option value="<%= bol.getZoneId() %>" ><%= bol.getZoneName() %></option>
 				                 <%} %>
@@ -299,7 +298,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Kayıt Durumu</label>
-                                <select class="form-control" name="selectedBolum">
+                                <select class="form-control" name="kayıtDurum">
 				                        <option value="Yazilim" >Yeni Kayıt</option>
 				                        <option value="Yazilim" >Eski Kayıt</option>
 				                        <option value="Yazilim" >Durum Değişikliği</option>       
@@ -311,7 +310,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Yardım Alma Durumu</label>
-                                <select class="form-control" name="selectedBolum">
+                                <select class="form-control" name="YardimDurum">
 				                        <option value="Yazilim" >Hepsi</option>
 				                        <option value="Yazilim" >Yardım Alan</option>
 				                        <option value="Yazilim" >Yardım Almayan</option>     
@@ -326,7 +325,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                           	<div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Soybis</label>
-                                 <select class="form-control" name="selectedBolum">
+                                 <select class="form-control" name="saybisdurum">
 				                        <option value="Yazilim" >Alındı</option>
 				                        <option value="Yazilim" >Alınmadı</option> 
 				                 </select>
@@ -337,7 +336,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Ev Tel</label>
-                                <input type="tel" class="form-control" name="tckimlik">
+                                <input type="tel" class="form-control" name="evtel">
 
                                 
                               </div>
@@ -346,7 +345,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Cep Tel</label>
-                                <input type="tel" class="form-control" name="ad">
+                                <input type="tel" class="form-control" name="ceptel">
                                                                    
                                
                               </div>
@@ -354,7 +353,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                             <div class="col-sm-3">
                               <div class="form-group text-center">
                                 <label>Adres No</label>
-                                <input type="tel" class="form-control" name="soyad">
+                                <input type="tel" class="form-control" name="addressNo">
                                                                    
                                
                               </div>
@@ -382,7 +381,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 							    <!-- Select multiple-->
 							    <div class="form-group">
 							        <label>Talep Edilen Yardımlar</label>
-							        <select multiple class="form-control" name="yardimlar">
+							        <select multiple class="form-control" name="yardim">
 							        <% for(HelpType h : help){ %>
 							            <option value="<%= h.getHelpId()%>"><%= h.getHelpName() %></option>
 							            <%} %>
