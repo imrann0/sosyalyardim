@@ -1,4 +1,16 @@
+<%@ page import="com.example.example.DataBase.Application" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+  HttpSession userSession = request.getSession();
+  /*
+  if(!Rol.hasRole(userSession,"Role_Muracaat_Düzenle")){
+    response.sendRedirect("../Error/Error.html");
+  }*/
+  String userId = request.getParameter("ID");
+  int Id = Integer.parseInt(userId);
+  Application muracat = Application.getbyID(Id);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>

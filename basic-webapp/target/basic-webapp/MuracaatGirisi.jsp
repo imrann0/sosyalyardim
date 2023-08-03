@@ -193,7 +193,7 @@
       <div class="col-1-3">
         <div class="controls">
           <i class="fa fa-sort"></i>
-          <select name="iletisimilce" disabled>
+          <select name="iletisimilce">
             <option value="Gebze" selected> Gebze</option>
           </select>
         </div>

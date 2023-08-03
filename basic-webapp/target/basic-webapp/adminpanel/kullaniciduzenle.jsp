@@ -16,6 +16,7 @@
     response.sendRedirect("../Error/Error.html");
   }*/
     List<String> Grups = Rol.getDistinctRolGrup();
+
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
     Personel user = Personel.getUserInfoById(userId);
