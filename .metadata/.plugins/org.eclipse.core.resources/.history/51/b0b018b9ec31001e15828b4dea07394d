@@ -1,0 +1,27 @@
+package com.example.example.Islemler;
+import com.example.example.DataBase.IDInfo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+
+
+@WebServlet(name = "SearchServlet", value = "/adminpanel/SearchServlet")
+public class SearchServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String tckimlik = request.getParameter("tckimlikk");
+        String ad = request.getParameter("add");
+        String soyad = request.getParameter("soyadd");
+        System.out.println("aa");
+        List<IDInfo> results = IDInfo.getByIdNoAndNames(tckimlik, ad, soyad);
+        request.setAttribute("filteredUsers", results);
+
+        request.getRequestDispatcher("muracaatliste.jsp").forward(request, response);
+    }
+}
+

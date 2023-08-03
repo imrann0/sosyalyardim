@@ -6,17 +6,19 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="com.example.example.RoleControl" %>
+<%@ page import="jakarta.persistence.Tuple" %>
+<%@ page import="java.io.PrintWriter" %>
 
 <%
   HttpSession userSession = request.getSession();
+  /*
   if(!Rol.hasRole(userSession,"Role_Kullanıcı_Ekle")){ //ROL OLARAK KULLANICI DÜZENLE EKLENMELİ
     response.sendRedirect("../Error/Error.html");
-  }
+  }*/
+    List<String> Grups = Rol.getDistinctRolGrup();
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
     Personel user = Personel.getUserInfoById(userId);
-    List<Rol> roles = Rol.getAllRoles();
-    
 
 %>
 
@@ -226,7 +228,7 @@
                     <!-- text input -->
                     <div class="form-group">
                       <label>Adres</label>
-						<textarea class="form-control" rows="3" name="address" required><%= user.getAddress() %></textarea>
+						        <textarea class="form-control" rows="3" name="address" required><%= user.getAddress() %></textarea>
                     </div>
                     
                   </div>
@@ -250,18 +252,32 @@
                   
                 </div>
                 <label>Roller:</label>
-				<div class="form-group">
-				    <% for (Rol role : roles) { %>
-          <div class="col-sm-6">
-				        <div class="form-check form-check-inline">
-				            <input class="form-check-input" type="checkbox" id="rol<%= role.getId() %>" name="roles" value="<%= role.getId() %>" <% if (RoleControl.hasUserRole(Id, role.getId()) == 1) { %>checked<% } %>>
-				            <label class="form-check-label" for="rol<%= role.getId() %>"><%= role.getRoleName() %></label>
-				        </div>
-          </div>
-				    <% } %>
-          <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
+                <div class="form-group">
+                  <%for(int i=0 ;i<50;i++){%>
+                  <div class="border-dark" style="border:5px solid black">
+                  <label><%=Grups.get(i)%></label>
+                    <%System.out.println("Grup adı: "+ Grups.get(i));%>
+                    <%//System.out.println("Roles Ad: "+ roles.get(i).getRolGrup());%>
+                      <%//if(Grups.get(i).equals("Personel")){
+                        List<Rol> roles = Rol.getRolNamesByGrup(Grups.get(i));
+                      %>
+                    <%System.out.println("IF ICINDE");%>
+                    <%for(Rol roler : roles){%>
+                    <%System.out.println(roler.getId());%>
 
-        </div>
+                      <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="rol<%= roler.getId() %>" name="roles" value="<%= roler.getRoleName() %>" <% if (RoleControl.hasUserRole(Id, roler.getId()) == 1) { %>checked<% } %>>
+                              <label class="form-check-label" for="rol<%= roler.getId() %>"><%= roler.getRoleName()%></label>
+                      </div>
+
+                    <%}%>
+
+
+                    <%}%>
+
+                    <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
+
+                </div>
 
 
 
