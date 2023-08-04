@@ -1,0 +1,70 @@
+package com.example.example.AdminServlet;
+
+import com.example.example.DataBase.School;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import java.io.Serializable;
+
+
+import jakarta.servlet.annotation.WebServlet;
+
+
+@WebServlet(name = "YeniEngelliArac", value = "/adminpanel/YeniEngelliArac")
+public class YeniEngelliArac extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	String Kurum = request.getParameter("Kurum");
+    	String altkurum = request.getParameter("altkurum");
+    	String kayitTarih = request.getParameter("kayitTarih");
+    	String yardimDurum = request.getParameter("yardimDurum");
+    	String EngelliArac = request.getParameter("EngelliArac");
+    	String RandevuTarih = request.getParameter("RandevuTarih");
+    	String EngelliAciklama = request.getParameter("EngelliAciklama");
+
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(RandevuTarih, formatter2);
+    	LocalDate date = LocalDate.parse(kayitTarih, formatter);
+
+
+
+    
+try {
+    // Hibernate session'ı yapılandırması
+    SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    Transaction transaction = session.beginTransaction();
+           
+    School school = new School();
+    
+    school.setDurum(Durum);
+    school.setOkul(Okul);
+    school.setOkulTipi(OkulSect);
+    school.setOkulName(OkulName);
+    
+    session.persist(school);
+    transaction.commit();
+
+    session.close();
+    sessionFactory.close();
+
+   
+
+    response.sendRedirect("./okullist.jsp");
+} catch (Exception e) {
+    System.err.println("Hata oluştu: " + e);
+    e.printStackTrace();
+}
+}
+}
