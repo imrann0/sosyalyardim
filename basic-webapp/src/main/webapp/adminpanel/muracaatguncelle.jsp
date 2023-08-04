@@ -1,4 +1,6 @@
 <%@ page import="com.example.example.DataBase.Application" %>
+<%@ page import="com.example.example.DataBase.IDInfo" %>
+<%@ page import="com.example.example.DataBase.Petition" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
   HttpSession userSession = request.getSession();
@@ -9,6 +11,8 @@
   String userId = request.getParameter("ID");
   int Id = Integer.parseInt(userId);
   Application muracat = Application.getbyID(Id);
+  IDInfo idinfo = muracat.getIdInfoId();
+  IDInfo tcinfo = IDInfo.getbyID(idinfo.getIdInfoId());
 
 %>
 <!DOCTYPE html>
@@ -111,7 +115,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form>
+        <form action="MuracaatGuncel" method="post">
         <div class="row">
           
           <!-- /.col -->
@@ -138,7 +142,7 @@
 	                                <div class="form-group text-center">
 								        <label>Doğum Tarihi</label>
 								        <div class="input-group">
-								            <input type="date" class="form-control" name="dogumTarihi">
+								            <input type="date" class="form-control" name="dogumTarihi" disabled>
 								            
 								        </div>
 								    </div>						    		
@@ -147,7 +151,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Tc Kimlik No</label>
-		                                <input type="text" class="form-control" name="tckimlik">
+		                                <input type="text" class="form-control" value="<%=idinfo.getIdNo()%>" name="tckimlik">
 		
 		                                
 	                                </div>
@@ -156,7 +160,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Ad</label>
-		                                <input type="text" class="form-control" name="isim">
+		                                <input type="text" class="form-control" value="" name="isim">
 		                                                                   
 		                               
 		                              </div>
@@ -180,7 +184,7 @@
 		                              
 		                               <div class="form-group text-center">
 			                                <label>Baba Adı</label>
-			                                <input type="text" class="form-control" name="babaAd">
+			                                <input type="text" class="form-control" value="<%=idinfo.getFatherName()%>" name="babaAd">
 		                                                                   
 		                               
 		                              </div>
@@ -265,7 +269,7 @@
 		                              
 		                               <div class="form-group text-center">
 				                                <label> N.Kayıtlı İl</label>
-					                                <select class="form-control" name="il">
+					                                <select class="form-control" name="kayitIl">
 									                        <option value="Yazilim" >İl</option>
 									                        
 									                        
@@ -280,7 +284,7 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label> N.Kayıtlı İlçe</label>
-					                                <select class="form-control" name="ilce">
+					                                <select class="form-control" name="kayitIlce">
 									                        <option value="Yazilim" >İlçe</option>
 									                        
 									                        
@@ -383,7 +387,7 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label>İlçe</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="iletisimilce">
 									                        <option value="Yazilim" >İlçe</option>
 									                        
 									                        
@@ -398,7 +402,7 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label>Mahalle</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="iletisimMahalle">
 									                        <option value="Yazilim" >Mahalle</option>
 									                        
 									                        
@@ -413,7 +417,7 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label>Cadde/Sokak</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="iletisimSokak">
 									                        <option value="Yazilim" >Cadde/Sokak</option>
 									                        
 									                        
@@ -428,7 +432,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Apartman</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="apartman">
 		                                                                   
 		                               
 		                              	</div>
@@ -440,7 +444,7 @@
 		                    		<div class="col-sm-3">
 			                     		<div class="form-group text-center">
 				                                <label>Blok/Kapı No</label>
-				                                <input type="text" class="form-control" name="ad">
+				                                <input type="text" class="form-control" name="Blok">
 			                                                                   
 			                               
 			                            </div>
@@ -449,7 +453,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Daire No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="daireNo">
 		                                                                   
 		                               
 		                              </div>
@@ -459,7 +463,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Ev Tel</label>
-			                                <input type="tel" class="form-control" name="ad">
+			                                <input type="tel" class="form-control" name="evTel">
 		                                                                   
 		                               
 		                              </div>
@@ -469,7 +473,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Cep Tel</label>
-			                                <input type="tel" class="form-control" name="ad">
+			                                <input type="tel" class="form-control" name="cepTel">
 		                                                                   
 		                               
 		                              </div>
@@ -483,7 +487,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Diğer Tel</label>
-			                                <input type="tel" class="form-control" name="ad">
+			                                <input type="tel" class="form-control" name="digerTel">
 		                                                                   
 		                               
 		                              </div>
@@ -493,7 +497,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>E Posta</label>
-			                                <input type="email" class="form-control" name="ad">
+			                                <input type="email" class="form-control" name="eposta">
 		                                                                   
 		                               
 		                              </div>
@@ -503,7 +507,7 @@
 		                              
 		                                <div class="form-group">
 			                                <label>Adres Tarifi</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <input type="text" class="form-control" name="adresTarif">
 			                             </div>
 							    		
 		                            </div>
@@ -512,8 +516,8 @@
 		                      </div>
                     
                   </div>
-                  
-                  
+
+
 
                   <!-- /.tab-pane -->
 
@@ -523,32 +527,26 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 				                                <label>Müracaat Durumu</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="muracaatDurum">
 									                        <option value="Yazilim" >Aktif</option>
 									                        <option value="Yazilim" >Pasif</option>
-									                        
-									                        
+
+
 									                 </select>
-			                                                                   
-			                               
+
+
 			                </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Arşiv Dosya No</label>
-			                                <input type="text" class="form-control" name="ad">
-			              </div>
-			            </div>
-			            <div class="col-sm-3">
-			              <div class="form-group text-center">
-			                                <label>Arşiv Dosya No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="arsivDosyaNo">
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Müracaat Tarihi</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="date" class="form-control" name="yonlendirmeTarih" required>
 			              </div>
 			            </div>
 			            
@@ -558,7 +556,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 				                                <label>Müracaat Tipi</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="muracaattip">
 									                        <option value="Yazilim" >Kendi</option>
 									                        <option value="Yazilim" >Dilekçe</option>
 									                        <option value="Yazilim" >E Mail</option>
@@ -572,7 +570,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
                                 <label>Bölge</label>
-                                <select class="form-control" name="selectedBolum">
+                                <select class="form-control" name="Bolge">
 				                        <option value="Yazilim" >1.Bölge</option>
 				                        <option value="Yazilim" >2.Bölge</option>
 				                        <option value="Yazilim" >3.Bölge</option>
@@ -586,7 +584,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Açıklama</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="3" name="comments" ></textarea>
 			              </div>
 			            </div>
 			            
@@ -601,19 +599,19 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>İtiraz Dilekçe Ref No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="itdilekceRefNo">
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Dilekçe Ref No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="dilekceRefNo">
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
                                 <label>Yönlendiren Birim</label>
-                                <select class="form-control" name="selectedBolum">
+                                <select class="form-control" name="birim">
 				                        <option value="Yazilim" >1.Bölge</option>
 				                        <option value="Yazilim" >2.Bölge</option>
 				                        <option value="Yazilim" >3.Bölge</option>
@@ -627,7 +625,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Yönlendirme Tarihi</label>
-			                                <input type="date" class="form-control" name="ad">
+			                                <input type="date" class="form-control" name="yonlendirTarihi" required>
 			              </div>
 			            </div>
 			            
@@ -637,25 +635,25 @@
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Konu</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="3" name="itdilekceKonu"><%=%></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Sonuç</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="3" name="itdilekceSonuc"></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Konu</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="3" name="dilekceKonu" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Sonuç</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="3" name="dilekceSonuc"></textarea>
 			              </div>
 			            </div>
 			            

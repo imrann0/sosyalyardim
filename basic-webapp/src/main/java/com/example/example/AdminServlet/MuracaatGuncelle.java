@@ -1,8 +1,13 @@
 package com.example.example.AdminServlet;
 
+import com.example.example.DataBase.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -12,14 +17,15 @@ import java.time.format.DateTimeFormatter;
 public class MuracaatGuncelle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+doPost(request,response);    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String dogumTarihi = request.getParameter("dogumTarihi");
-        LocalDate dogum_tarih = LocalDate.parse(dogumTarihi, formatter);
+
+
+
+
         // ID Info
 
         String name = request.getParameter("isim");
@@ -77,7 +83,7 @@ public class MuracaatGuncelle extends HttpServlet {
         String AddresNum = request.getParameter("AddresNum");
 
         //Muraacat Bilgileri
-
+        String muracatdurum = request.getParameter("muracaatDurum");
         String arsivDosyaNo = request.getParameter("arsivDosyaNo");
         String yonlendirmeTarihDate = request.getParameter("yonlendirmeTarih");
         LocalDate yonlendirmeTarih = LocalDate.parse(yonlendirmeTarihDate, formatter);
@@ -85,6 +91,90 @@ public class MuracaatGuncelle extends HttpServlet {
         String Bolge = request.getParameter("Bolge");
         String muracaattip = request.getParameter("muracaattip");
         String comments = request.getParameter("comments");
+
+        try{
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            IDInfo idinfo = new IDInfo();
+            idinfo.setAppliName(name);
+            idinfo.setSurname(surname);
+            idinfo.setIdNo(tc);
+            idinfo.setRegistrationStatus(kayitDurum);
+            idinfo.setRegistrationProvince(il);
+            idinfo.setRegistrationDistrict(ilce);
+            idinfo.setGender(cinsiyet);
+            idinfo.setMotherName(anneAdi);
+            idinfo.setFatherName(babaAdi);
+            idinfo.setCiltNo(ciltno);
+            idinfo.SetAileSiraNo(sirano);
+            idinfo.SetEsAd(esAd);
+            idinfo.SetEsSoyad(esSoyAd);
+            idinfo.setMaritalStatus(medeniDurum);
+            idinfo.SetPhone(phone);
+            idinfo.setAddresNo(adresno);
+
+            Contact contact = new Contact();
+            contact.setDistrict(iletisimilce);
+            contact.setNeighborhood(iletisimMahalle);
+            contact.setStreet(iletisimSokak);
+            contact.setAddressDefinition(acikAdres);
+            contact.setApartment(apartman);
+            contact.setBlockDoorNo(Blok);
+            contact.setApartmentNo(daireNo);
+            contact.setHomePhone(evTel);
+            contact.setCellPhone(cepTel);
+            contact.setOtherTel(digerTel);
+            contact.seteMail(eposta);
+            contact.setAddressDefinition(adresTarif);
+
+            Application app = new Application();
+            app.setArchiveFileNo(arsivDosyaNo);
+            app.setApplicationDate(yonlendirmeTarih);
+            app.setApplicationType(muracaattip);
+            app.setRegion(Bolge);
+            app.setDescription(comments);
+
+            Petition pet = new Petition();
+            pet.setPetitionReferenceNo(dilekceRefNo);
+            pet.setPetitionSubject(dilekceKonu);
+            pet.setPetitionResult(dilekceSonuc);
+            pet.setForwardingDilekce(birim);
+            pet.setForwardingDate2(yonlendirTarihi);
+            pet.setObjectionPetitionRefNo(itdilekceRefNo);
+            pet.setObjectionPetitionSubject(itdilekceKonu);
+            pet.setObjectionPetitionResult(itdilekceSonuc);
+            pet.setForwardingUnit(birimitraz);
+            pet.setForwardingDate(ityonlendirTarihi);
+
+            Address add = new Address();
+            add.setAddressNo(AddresNum);
+            add.setPublicAddress(acıkAddress);
+            idinfo.setContact(contact);
+            idinfo.setApplication(app);
+            idinfo.setAddress(add);
+            idinfo.setPetition(pet);
+
+
+
+
+            session.merge(add);
+            session.merge(contact);
+            session.merge(app);
+            session.merge(idinfo);
+            transaction.commit();
+
+
+
+            session.close();
+            sessionFactory.close();
+
+            response.sendRedirect("/MuracaatGirisi.jsp");
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
