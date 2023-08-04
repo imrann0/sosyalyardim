@@ -17,8 +17,9 @@ public class SearchServlet extends HttpServlet {
         String tckimlik = request.getParameter("tckimlikk");
         String ad = request.getParameter("add");
         String soyad = request.getParameter("soyadd");
-        System.out.println("aa");
-        List<IDInfo> results = IDInfo.getByIdNoAndNames(tckimlik, ad, soyad);
+        String il = request.getParameter("il");
+        System.out.println(il);
+        List<IDInfo> results = IDInfo.getByIdNoAndNames(tckimlik, ad, soyad,il);
         request.setAttribute("filteredUsers", results);
 
         request.getRequestDispatcher("muracaatliste.jsp").forward(request, response);
