@@ -31,7 +31,7 @@
 			  flex-direction: column;
 			  justify-content: center;
 			  align-items: center;
-			  height: 160px; /* İçeriği ortalamak için div'e bir yükseklik verin */
+			  height: 130px; /* İçeriği ortalamak için div'e bir yükseklik verin */
 			  overflow-x: auto;
 			  
 			}
@@ -493,7 +493,7 @@
 		                              
 		                                <div class="form-group">
 			                                <label>Adres Tarifi</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			                             </div>
 							    		
 		                            </div>
@@ -576,7 +576,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Açıklama</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            
@@ -627,25 +627,25 @@
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Konu</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Sonuç</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Konu</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Sonuç</label>
-			                                <textarea class="form-control" rows="3" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            

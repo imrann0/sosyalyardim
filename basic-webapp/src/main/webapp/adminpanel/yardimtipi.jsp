@@ -212,7 +212,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      
 		                      <td>
 								  <a href="yardimtipiduzenle.jsp?ID=<%=yardim.getHelpId()%>">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  

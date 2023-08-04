@@ -219,7 +219,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                        <th>Alt Tip Kodu</th>
 		                        <th>Alt Tip Adı</th>
 		                        <th>Yardım Tip Adı</th>
-		                        <th></th>
+		                        
 		                        <th></th>
 		                        
 		
@@ -236,12 +236,13 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td><%=medic.getHelpSubName()%></td>
 		                      <td><%=medic.getHelpId().getHelpName()%></td>
 		                      <td>
+		                      	<div class="d-flex justify-content-between align-items-center">
 								  <a href="yardimalttipduzenle.jsp">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 								  </a>
-							  </td>
-							  <td>
-								  <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
+							  
+								  <i class="fa fa-times" style="font-size: 23px; color: red; cursor: pointer;" onclick="confirmDelete()"></i>
+								</div>
 							  </td>
 							  
 

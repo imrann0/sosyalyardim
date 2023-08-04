@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugins\org.eclipse.jdt.core
 1501962164.index
 3188674327.index
@@ -27,3 +28,34 @@ INDEX VERSION 1.134+C:\Users\Administrator\Desktop\sosyalyardim\.metadata\.plugi
 875746838.index
 2579594165.index
 2203189111.index
+=======
+INDEX VERSION 1.134+C:\Users\ahmet\Desktop\demee\.metadata\.plugins\org.eclipse.jdt.core
+1334703698.index
+875746838.index
+1501842937.index
+495942329.index
+1057655027.index
+2965383683.index
+4252823782.index
+2593937961.index
+2414904761.index
+2484936957.index
+1696264553.index
+1691948140.index
+3780539691.index
+3910630789.index
+3829135460.index
+4130752023.index
+635084330.index
+2288682427.index
+923589171.index
+2281690221.index
+9081264.index
+2766031408.index
+2344311789.index
+2243134819.index
+1865797976.index
+4004089566.index
+1202220115.index
+114796872.index
+>>>>>>> 6bc5be4ffc71e1083f26ec9ca3d4fd64a22c3adf
