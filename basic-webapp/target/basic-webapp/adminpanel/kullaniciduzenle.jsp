@@ -16,6 +16,7 @@
     response.sendRedirect("../Error/Error.html");
   }*/
     List<String> Grups = Rol.getDistinctRolGrup();
+
     String userId = request.getParameter("userId");
     int Id = Integer.parseInt(userId);
     Personel user = Personel.getUserInfoById(userId);
@@ -256,6 +257,7 @@
 
                 <label>Roller:</label>
                 <div class="form-group">
+
                   <%for(int i=0 ;i<50;i++){%>
                   <div class="col-sm" style="border:1px solid black; padding: 10px;border-radius: 7px;margin-top:10px; box-shadow: 0 2px 6px rgba(44,166,234,0.6);text-overflow-mode: auto; overflow: auto; overflow-inline: auto">
                   <label><%=Grups.get(i)%></label>
@@ -278,8 +280,8 @@
                   </div>
                     <%}%>
             </form>
+            <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
 
-                  <button id="checkAllButton" class="btn btn-primary">Tümünü İşaretle</button>
 
                 </div>
               </div>
@@ -288,12 +290,11 @@
               <div class="d-flex justify-content-center"> <!-- Butonu ortalamak için d-flex ve justify-content-center sınıflarını kullanıyoruz -->
 					    </div>
 
-
           </div>
 
-
+    </section>
          </div>
-        </div>
+</div>
 
         <!-- /.row (main row) -->
 

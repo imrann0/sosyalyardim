@@ -141,7 +141,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form" method="post" action="YonlendirenKurum">
+                    <form role="form" method="get" action="YonlendirenKurum">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">

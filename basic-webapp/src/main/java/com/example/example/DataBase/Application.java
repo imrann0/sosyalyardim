@@ -8,6 +8,9 @@ import jakarta.persistence.Column;
 import java.time.LocalDate;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @Entity
 @Table(name = "Muracaat")
@@ -89,5 +92,16 @@ public class Application {
 
     public void setIdInfoId(IDInfo idInfoId) {
         this.idInfoId = idInfoId;
+    }
+
+    public static Application getbyID(int id) {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(Application.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

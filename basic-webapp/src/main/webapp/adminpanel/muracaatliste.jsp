@@ -492,13 +492,18 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 											  <a href="AileYakinliklari.jsp">
 											    	<i class="fa fa-users" style="font-size: 20px; color: 	#cd853f; cursor: pointer;"></i>
 											  </a>
+<<<<<<< HEAD
 											  <a href="#">
 											    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 											    	</a>
 											  <a href="yeniEngelliAracHizmet.jsp?Id=<%= in.getIdInfoId()%>">
 											    	<i class="fa fa-wheelchair"style="font-size: 20px; color:blue; cursor: pointer;"></i>
+=======
+											  <a href="yeniEngelliAracHizmet.jsp?Id=<%= in.getIdInfoId()%>">
+											    	<i class="fa fa-wheelchair" style="font-size: 20px; color:blue; cursor: pointer;"></i>
+>>>>>>> 1893bfe11872e9919826d49d572dbb1a1f0ba86c
 											  </a>
-											  <a href="muracaatguncelle.jsp">
+											  <a href="muracaatguncelle.jsp?ID=<%=in.getIdInfoId()%>">
 											    	<i class="fa fa-spinner" style="font-size: 20px; color:black; cursor: pointer;"></i>
 											  </a>
 										  </td>

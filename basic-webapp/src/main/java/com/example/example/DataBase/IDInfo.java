@@ -276,13 +276,14 @@ public class IDInfo {
         sessionFactory.close();
         return results;
     }
-    
+
+    //DOĞRU KULLANIM
     public static IDInfo getbyID(int id) {
         Configuration configuration = new Configuration().configure();
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
-        try (Session session = sessionFactory.openSession()) {
+        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
+            Session session = sessionFactory.openSession();
             return session.get(IDInfo.class, id);
-        } catch (Exception e) {
+        }catch (Exception e) {
             e.printStackTrace();
             return null;
         }

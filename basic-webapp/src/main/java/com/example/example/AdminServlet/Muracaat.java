@@ -175,7 +175,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         session.close();
         sessionFactory.close();
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("../index.jsp");
     } catch (Exception e) {
         System.err.println("Hata oluştu: " + e);
         e.printStackTrace();
