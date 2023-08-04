@@ -221,7 +221,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td>
 								  <a href="yakinlikduzenle.jsp?AfId=<%=derece.getAffinityId()%>">
 
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 								  </a>
 							  </td>
 							  

@@ -1,8 +1,19 @@
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="com.example.example.DataBase.Personel" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.example.DataBase.IDInfo" %>
+<%@ page import="com.example.example.DataBase.YonlendirilenKurum" %>
+<%@ page import="com.example.example.DataBase.YonlendirilenAltKurum" %>
+<%
+	List<IDInfo> kullanici = IDInfo.getAll();
+	String id = request.getParameter("Id");
+	int Id = Integer.parseInt(id);
+	IDInfo info = IDInfo.getbyID(Id); 
+	
+	List<YonlendirilenKurum> kurum = YonlendirilenKurum.getAll();
+	List<YonlendirilenAltKurum> altkurum = YonlendirilenAltKurum.getAll();
+%>
  
 <!DOCTYPE html>
 <html>
@@ -160,30 +171,26 @@
                    <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">TC Kimlik Numarası</label>
                     <div class="col-sm-4">
-                      ***
+                     <%= info.getIdNo() %>
                     </div>
                     
                     <label   class="col-sm-2 col-form-label">Ev Tel:</label>
                     <div class="col-sm-4">
-                      ***
+                      <%= info.getContact().getHomePhone() %>
                     </div>
                     
                   </div>
-                  
-                  
-                  
-
                   <div class="form-group row m-2">
                   
                   <label   class="col-sm-2 col-form-label">Müracaat No - Müracaat Eden:</label>
                     <div class="col-sm-4">
-                      **
+                     <%= "Müracaat No: " +info.getApplication().getAppId() + " Müracat Eden Ad " + info.getAppliName() %>
                     </div>
                     
                     
                     <label   class="col-sm-2 col-form-label">Cep Tel:</label>
                     <div class="col-sm-4"> 
-                    ***
+                    <%= info.getContact().getCellPhone() %>
                     </div>
                   </div>
 
@@ -191,12 +198,12 @@
                   
                   <label   class="col-sm-2 col-form-label">Eş Adı Soyadı</label>
                     <div class="col-sm-4">
-                      ****
+                      <%= info.getEsAd() + " " + info.getEsSoyad() %>
                     </div>
                     
                     <label   class="col-sm-2 col-form-label">Medeni Hali</label>
                     <div class="col-sm-4">
-                      *****
+                      <%= info.getMaritalStatus() %>
                     </div>
                   </div>
                   
@@ -208,12 +215,12 @@
                   
                   <label   class="col-sm-2 col-form-label"> Doğum Tarihi:</label>
                     <div class="col-sm-4">
-                      ****
+                      <%= info.getBirthDate() %>
                     </div>
                     
                     <label   class="col-sm-2 col-form-label">Adresi:</label>
                     <div class="col-sm-4">
-                      *****
+                      <%= info.getRegistrationProvince() + "/" + info.getRegistrationDistrict() + " Mah: " + info.getContact().getNeighborhood() + " Sokak: " + info.getContact().getStreet()  %>
                     </div>
                   </div>
                 </div>
@@ -236,18 +243,19 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <%if (false) {%>
               <form>
                 <div class="card-body">
                 
                  <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">Engelli Kodu</label>
                     <div class="col-sm-4">
-                      ***
+                     
                     </div>
                     
                      
                     <div class="col-sm-6">
-                      ***
+                      
                     </div>
                     
                   </div>
@@ -255,29 +263,22 @@
                    <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">Engelli Tip Adı</label>
                     <div class="col-sm-4">
-                      ***
+                      
                     </div>
                     
                     <label   class="col-sm-2 col-form-label">Engelli Alt Tip Adı</label>
-                    <div class="col-sm-4">
-                      ***
+                    <div class="col-sm-4">         
                     </div>
-                    
                   </div>
-                  
-                  
-                
-
-                
-                  
-                
                 </div>
                 <!-- /.card-body -->
-
-                <div class="card-footer">
-                   
+                <div class="card-footer">                
                 </div>
               </form>
+              <%} else{%>
+              	<p style="margin:10px;"> Kayıt Bulunamadı</p>
+              <%} %>
+              
             </div>
             <!-- /.card --> 
 
@@ -292,10 +293,14 @@
                 
                 <div class="form-group row">
                 
-                 <label   class="col-sm-2 col-form-label">Yönlendirilen Kurum:
-</label>
+                 <label   class="col-sm-2 col-form-label">Yönlendirilen Kurum:</label>
                     <div class="col-sm-4">                    
-                      <input type="text" class="form-control" id="yKurum"  >
+                            <select class="form-control" name="Kurum">
+					        <% List<YonlendirilenKurum> kurumList = YonlendirilenKurum.getAll();
+					            for (YonlendirilenKurum k : kurumList) {
+					        %><option value="<%= k.getYonlendirilenKurumName() %>"><%= k.getYonlendirilenKurumName() %></option>
+					        <%} %>
+					    </select>
                     </div>
                     
                     
@@ -311,9 +316,16 @@
                 
                  <label   class="col-sm-2 col-form-label">Yönlendirilen Alt Kurum:</label>
                     <div class="col-sm-4">                    
-                        <select class="form-control">
-                          <option>option 1</option> 
-                        </select>
+                            <select class="form-control" name="altkurum">
+					        <%
+					            String selectedKurum = request.getParameter("Kurum");
+					            if (selectedKurum != null && !selectedKurum.isEmpty()) {
+					                List<YonlendirilenAltKurum> altkurumList = YonlendirilenAltKurum.getByKurumName(selectedKurum);
+					                for (YonlendirilenAltKurum altk : altkurumList) {
+					        %>
+					        <option value="<%= altk.getYonlendirilenAltKurumName() %>"><%= altk.getYonlendirilenAltKurumName() %></option>
+					        <%}}%>
+					    </select>
                     </div>
                     
                     
@@ -557,9 +569,6 @@
 <!-- AdminLTE for demo purposes -->
 
 <!-- page script -->
-
-
-
 
 
 </body>

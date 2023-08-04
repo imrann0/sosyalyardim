@@ -3,9 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
   HttpSession userSession = request.getSession();
+/*
   if(!Rol.hasRole(userSession,"Role_Bolge_Ekle")){
     response.sendRedirect("../Error/Error.html");
-  }
+  }*/
   List<Zone> zone = Zone.getAllAktifZone();
   List<District> mahalle = District.getAllDistrict();
 %>

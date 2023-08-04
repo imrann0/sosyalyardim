@@ -90,4 +90,31 @@ public class YonlendirilenAltKurum {
             return null;
         }
     }
+    public static List<YonlendirilenAltKurum> getByKurumName(String kurumName) {
+        Session session = null;
+        try {
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+
+            String hql = "FROM YonlendirilenAltKurum a WHERE a.yonlendirilenKurum.yonlendirilenKurumName = :kurumName";
+            TypedQuery<YonlendirilenAltKurum> query = session.createQuery(hql, YonlendirilenAltKurum.class);
+            query.setParameter("kurumName", kurumName);
+            List<YonlendirilenAltKurum> results = query.getResultList();
+
+            session.getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            if (session != null) {
+                session.getTransaction().rollback();
+            }
+            throw e;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+
 }

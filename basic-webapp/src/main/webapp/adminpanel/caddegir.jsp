@@ -3,8 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
   List<District> mahalle = District.getAllDistrict();
-  /*
+  
   HttpSession userSession = request.getSession();
+  /*
   if(!Rol.hasRole(userSession,"Role_Cadde_Ekle")){
     response.sendRedirect("../Error/Error.html");
   }

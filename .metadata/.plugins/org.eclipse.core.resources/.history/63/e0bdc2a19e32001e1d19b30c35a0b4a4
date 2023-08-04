@@ -1,0 +1,110 @@
+package com.example.example.DataBase;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.TypedQuery;
+
+
+@Entity
+public class YonlendirilenAltKurum {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int YonlendirilenAltKurumID;
+
+    private String YonlendirilenAltKurumName;
+
+    @ManyToOne
+    private YonlendirilenKurum yonlendirilenKurum;
+
+    public int getYonlendirilenAltKurumID() {
+        return YonlendirilenAltKurumID;
+    }
+
+    public void setYonlendirilenAltKurumID(int YonlendirilenAltKurumID) {
+        this.YonlendirilenAltKurumID = YonlendirilenAltKurumID;
+    }
+
+    public String getYonlendirilenAltKurumName() {
+        return YonlendirilenAltKurumName;
+    }
+
+    public void setYonlendirilenAltKurumName(String YonlendirilenAltKurumName) {
+        this.YonlendirilenAltKurumName = YonlendirilenAltKurumName;
+    }
+
+    public YonlendirilenKurum getYonlendirilenKurum() {
+        return yonlendirilenKurum;
+    }
+
+    public void setYonlendirilenKurum(YonlendirilenKurum yonlendirilenKurum) {
+        this.yonlendirilenKurum = yonlendirilenKurum;
+    }
+
+    public static List<YonlendirilenAltKurum> getAll() {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<YonlendirilenAltKurum> query = session.createQuery("SELECT d FROM YonlendirilenAltKurum d ", YonlendirilenAltKurum.class);
+        List<YonlendirilenAltKurum> results = query.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+        return results;
+    }
+
+    public static List<String> getDisabledSubNamesByDisabledID(int disabledID) { // Değişicek içerik sadece
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<String> query = session.createQuery("SELECT ds.disabledSubName FROM DisabledSub ds WHERE ds.disabled.disabledID = :disabledID", String.class);
+        query.setParameter("disabledID", disabledID);
+        List<String> results = query.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+        return results;
+    }
+
+    public static YonlendirilenAltKurum getbySubID(int id) {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(YonlendirilenAltKurum.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public static List<YonlendirilenAltKurum> getByKurumName(String kurumName) {
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        TypedQuery<YonlendirilenAltKurum> query = session.createQuery("SELECT a FROM YonlendirilenAltKurum a WHERE a.yonlendirilenKurum.YonlendirilenKurumName = :kurumName", YonlendirilenAltKurum.class);
+        query.setParameter("kurumName", kurumName);
+        List<YonlendirilenAltKurum> results = query.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+        return results;
+    }
+
+}

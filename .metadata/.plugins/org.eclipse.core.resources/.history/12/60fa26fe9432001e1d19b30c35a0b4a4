@@ -1,0 +1,42 @@
+package com.example.example.DataBase;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+
+@Entity
+public class EngelliAracHizmet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int EngelliHizmetId;
+
+    private String EngelliHizmetTip;
+
+    private String EngelliHizmetAltTip;
+    
+    private String EngelliAraç;
+    
+    Private String EngelliAracAciklama
+
+    // GET SETLER
+
+    public int getAddressID() {
+        return addressID;
+    }
+
+    public void setAddressID(int addressID) {
+        this.addressID = addressID;
+    }
+
+    public String getPublicAddress() {
+        return publicAddress;
+    }
+
+    public void setPublicAddress(String publicAddress) {
+        this.publicAddress = publicAddress;
+    }
+
+
+}
