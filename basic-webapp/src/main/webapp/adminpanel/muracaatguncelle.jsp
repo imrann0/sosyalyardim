@@ -111,6 +111,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <form>
         <div class="row">
           
           <!-- /.col -->
@@ -137,7 +138,7 @@
 	                                <div class="form-group text-center">
 								        <label>Doğum Tarihi</label>
 								        <div class="input-group">
-								            <input type="date" class="form-control" name="baslangic_tarihi">
+								            <input type="date" class="form-control" name="dogumTarihi">
 								            
 								        </div>
 								    </div>						    		
@@ -155,7 +156,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Ad</label>
-		                                <input type="text" class="form-control" name="ad">
+		                                <input type="text" class="form-control" name="isim">
 		                                                                   
 		                               
 		                              </div>
@@ -164,7 +165,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Soyad</label>
-		                                <input type="text" class="form-control" name="ad">
+		                                <input type="text" class="form-control" name="soyisim">
 		                                                                   
 		                               
 		                              </div>
@@ -179,7 +180,7 @@
 		                              
 		                               <div class="form-group text-center">
 			                                <label>Baba Adı</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="babaAd">
 		                                                                   
 		                               
 		                              </div>
@@ -189,7 +190,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Anne Adı</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="anneAd">
 		                                                                   
 		                               
 		                              </div>
@@ -198,12 +199,9 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Soybis</label>
-			                                 <select class="form-control" name="selectedBolum">
-							                        <option value="Yazilim" >Alındı</option>
-							                        <option value="Yazilim" >Alınmadı</option>
-							                        
-							                        
-							                        
+			                                 <select class="form-control" name="soybis">
+							                        <option value="Alindi">Alındı</option>
+							                        <option value="Alinmadi">Alınmadı</option>
 							                 </select>
 			                                                                   
 			                               
@@ -214,7 +212,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Cinsiyet</label>
-			                                 <select class="form-control" name="selectedBolum">
+			                                 <select class="form-control" name="cinsiyet">
 							                        <option value="Erkek" >Erkek</option>
 							                        <option value="Kadin" >Kadın</option>
 							                        
@@ -235,8 +233,8 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Kayıt Durumu</label>
-			                                <select class="form-control" name="selectedBolum">
-							                        <option value="Yazilim" >Yeni Kayıt</option>
+			                                <select class="form-control" name="KayitDurum">
+							                        <option value="" >Yeni Kayıt</option>
 							                        <option value="Yazilim" >Eski Kayıt</option>
 							                        <option value="Yazilim" >Durum Değişikliği</option>
 							                        
@@ -250,7 +248,7 @@
 		                            <div class="col-sm-3">
 		                              	 <div class="form-group text-center">
 				                                <label> Medeni Hali</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="medenidurum">
 									                        <option value="Yazilim" >Evli</option>
 									                        <option value="Yazilim" >Bekar</option>
 									                        <option value="Yazilim" >Dul</option>
@@ -267,7 +265,7 @@
 		                              
 		                               <div class="form-group text-center">
 				                                <label> N.Kayıtlı İl</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="il">
 									                        <option value="Yazilim" >İl</option>
 									                        
 									                        
@@ -282,7 +280,7 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label> N.Kayıtlı İlçe</label>
-					                                <select class="form-control" name="selectedBolum">
+					                                <select class="form-control" name="ilce">
 									                        <option value="Yazilim" >İlçe</option>
 									                        
 									                        
@@ -301,7 +299,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Cilt No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="ciltno">
 		                                                                   
 		                               
 		                              </div>
@@ -311,7 +309,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Aile Sıra No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="sirano">
 		                                                                   
 		                               
 		                              </div>
@@ -321,7 +319,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Sıra No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="sirano">
 		                                                                   
 		                               
 		                              </div>
@@ -331,7 +329,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Eş Adı</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="esAd">
 		                                                                   
 		                               
 		                              </div>
@@ -345,7 +343,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Eş Soyadı</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="esSoyAd">
 		                                                                   
 		                               
 		                              </div>
@@ -355,7 +353,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Adres No</label>
-			                                <input type="text" class="form-control" name="ad">
+			                                <input type="text" class="form-control" name="adresno">
 		                                                                   
 		                               
 		                              </div>
@@ -681,6 +679,8 @@
           </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+        </form>
+      </div>
     </section>
     <!-- /.content -->
   </div>

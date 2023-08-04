@@ -496,7 +496,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 											  <a href="profile.jsp">
 											    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 											  </a>
-											  <a href="muracaatguncelle.jsp?ID=<%=user.getId()%>">
+											  <a href="muracaatguncelle.jsp?ID=<%=in.getIdInfoId()%>">
 											    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 											  </a>
 										  </td>

@@ -111,6 +111,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <form>
         <div class="row">
           
           <!-- /.col -->
@@ -681,6 +682,8 @@
           </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+        </form>
+      </div>
     </section>
     <!-- /.content -->
   </div>
