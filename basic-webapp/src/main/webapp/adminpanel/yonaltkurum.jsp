@@ -205,7 +205,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td><%= ak.getYonlendirilenKurum().getYonlendirilenKurumName()%> </td>
 		                      <td>
 								  <a href="yonaltkurumduzenle.jsp?Id=<%= ak.getYonlendirilenAltKurumID()%>">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color:black; cursor: pointer;"></i>
 								  </a>
 							  </td>
 		                    </tr>

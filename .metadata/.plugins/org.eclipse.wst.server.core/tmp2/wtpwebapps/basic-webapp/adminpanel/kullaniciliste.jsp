@@ -8,10 +8,10 @@
 <%
 
   HttpSession userSession = request.getSession();
-
+/*
   if(!Rol.hasRole(userSession,"Role_Kullanıcı_Listele")){
     response.sendRedirect("../Error/Error.html");
-  }
+  }*/
   List<Personel> users = Personel.getAllUserInfo();
 %>
 
@@ -138,63 +138,84 @@
 						
 <!-- /.card-header -->
 		                <div class="card-body">
-		                  <table id="example2" class="table table-bordered table-hover">
-		                  	
-		                  
-		                  		
-		                    <thead>
+		                	<div class="table-responsive" style="overflow-x: auto;">
+			                  <table id="example2" class="table table-bordered table-hover">
+			                  		<colgroup>
+					                  		<col style="width: 110px;">
+			                                <col style="width: 150px;">
+			                                <col style="width: 150px;">
+			                                <col style="width: 150px;">
+			                                <col style="width: 150px;">
+			                                <col style="width: 150px;">
+			                                <col style="width: 110px;">
+			                                <col style="width: 100px;">
+                                      		<col style="width: 70px;">
+			                                
+			                                
+			                                
+			                                <!-- Add additional columns here -->
+			                                <!-- For example:
+			                                <col style="width: 250px;">
+			                                <col style="width: 150px;">
+			                                -->
+		                           	 	</colgroup>
+			                  	
+			                  
+			                  		
+			                    <thead>
+				                    
+									 
+									
+			                    <tr>
+									
+			
+			                        <th>ID</th>
+			                        <th>Kullanıcı Adı</th>
+			                        <th>Sicil No</th>
+			                        <th>Ad</th>
+			                        <th>Ünvan</th>
+			                        <th>Telefon</th>
+			                        <th>Cinsiyet</th>
+			                        <th>Durum</th>
+			                        <th></th>
+			                        
+	                            	
+	
+			                        
+			                    </tr>
+			
+			                    </thead>
 			                    
-								 
-								
-		                    <tr>
-								
-		
-		                        <th>ID</th>
-		                        <th>Kullanıcı Adı</th>
-		                        <th>Sicil No</th>
-		                        <th>Ad</th>
-		                        <th>Ünvan</th>
-		                        <th>Telefon</th>
-		                        <th>Cinsiyet</th>
-		                        <th>Durum</th>
-		                        <th></th>
-		                        
-                            	
-
-		                        
-		                    </tr>
-		
-		                    </thead>
-		                    
-		                    <tbody>
-		                    
-		                    <%
-		                      for(Personel user : users){ %>
-		                    <tr>
-		                      <td><%= user.getId()%></td>
-		                      <td><%= user.getUserName()%></td>
-		                      <td><%= user.getRegistrationNo()%></td>
-		                      <td><%= user.getName()%></td>
-		                      <td><%= user.getUnvan()%></td>
-		                      <td><%= user.getPhone()%></td>
-                          <td><% if(Objects.equals(user.getGender(), "E")){%>Erkek<%}else{%>Kadın<% }%></td>
-
-		                      <td><% if(user.getStatus()==1){%>Aktif<%}else{%>Pasif<% }%></td>
-		                      <td>
-								  <div class="d-flex justify-content-between align-items-center">
-								    <a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>">
-								      <i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-								    </a>
-								    <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-								  </div>
-								</td>
-
-
-		                    </tr>
-		                    <% } %>           
-		                    </tbody>
-
-		                  </table>
+			                    <tbody>
+			                    
+			                    <%
+			                      for(Personel user : users){ %>
+			                    <tr>
+			                      <td><%= user.getId()%></td>
+			                      <td><%= user.getUserName()%></td>
+			                      <td><%= user.getRegistrationNo()%></td>
+			                      <td><%= user.getName()%></td>
+			                      <td><%= user.getUnvan()%></td>
+			                      <td><%= user.getPhone()%></td>
+	                          <td><% if(Objects.equals(user.getGender(), "E")){%>Erkek<%}else{%>Kadın<% }%></td>
+	
+			                      <td><% if(user.getStatus()==1){%>Aktif<%}else{%>Pasif<% }%></td>
+			                      <td>
+									  <div class="d-flex justify-content-between align-items-center">
+									    <a href="kullaniciduzenle.jsp?userId=<%= user.getId() %>">
+									      <i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
+									    </a>
+									    <i class="fa fa-times" style="font-size: 23px; color: red; cursor: pointer;" onclick="confirmDelete()"></i>
+									  </div>
+									</td>
+	
+	
+			                    </tr>
+			                    <% } %>           
+			                    </tbody>
+	
+			                  </table>
+			               </div>
 		                </div>
 		                <!-- /.card-body -->
 		              </div>
