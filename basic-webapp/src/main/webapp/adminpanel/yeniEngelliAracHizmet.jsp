@@ -5,6 +5,7 @@
 <%@ page import="com.example.example.DataBase.IDInfo" %>
 <%@ page import="com.example.example.DataBase.YonlendirilenKurum" %>
 <%@ page import="com.example.example.DataBase.YonlendirilenAltKurum" %>
+
 <%
 	List<IDInfo> kullanici = IDInfo.getAll();
 	String id = request.getParameter("Id");
@@ -165,37 +166,27 @@
               <!-- form start -->
               <form>
                 <div class="card-body">
-                
-                
-                 
                    <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">TC Kimlik Numarası</label>
                     <div class="col-sm-4">
                      <%= info.getIdNo() %>
                     </div>
-                    
                     <label   class="col-sm-2 col-form-label">Ev Tel:</label>
                     <div class="col-sm-4">
                       <%= info.getContact().getHomePhone() %>
                     </div>
-                    
                   </div>
-                  <div class="form-group row m-2">
-                  
+                  <div class="form-group row m-2">  
                   <label   class="col-sm-2 col-form-label">Müracaat No - Müracaat Eden:</label>
                     <div class="col-sm-4">
                      <%= "Müracaat No: " +info.getApplication().getAppId() + " Müracat Eden Ad " + info.getAppliName() %>
                     </div>
-                    
-                    
                     <label   class="col-sm-2 col-form-label">Cep Tel:</label>
                     <div class="col-sm-4"> 
                     <%= info.getContact().getCellPhone() %>
                     </div>
                   </div>
-
                   <div class="form-group row m-2">
-                  
                   <label   class="col-sm-2 col-form-label">Eş Adı Soyadı</label>
                     <div class="col-sm-4">
                       <%= info.getEsAd() + " " + info.getEsSoyad() %>
@@ -206,11 +197,6 @@
                       <%= info.getMaritalStatus() %>
                     </div>
                   </div>
-                  
-                   
-                   
-                  
-                  
                    <div class="form-group row m-2">
                   
                   <label   class="col-sm-2 col-form-label"> Doğum Tarihi:</label>
@@ -232,10 +218,6 @@
               </form>
             </div>
             <!-- /.card -->
-
-
-
-
   <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -250,22 +232,14 @@
                  <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">Engelli Kodu</label>
                     <div class="col-sm-4">
-                     
                     </div>
-                    
-                     
                     <div class="col-sm-6">
-                      
                     </div>
-                    
                   </div>
-                 
                    <div class="form-group row m-2">
                     <label   class="col-sm-2 col-form-label">Engelli Tip Adı</label>
                     <div class="col-sm-4">
-                      
-                    </div>
-                    
+                    </div>  
                     <label   class="col-sm-2 col-form-label">Engelli Alt Tip Adı</label>
                     <div class="col-sm-4">         
                     </div>
@@ -278,10 +252,8 @@
               <%} else{%>
               	<p style="margin:10px;"> Kayıt Bulunamadı</p>
               <%} %>
-              
             </div>
-            <!-- /.card --> 
-
+            <!-- /.card -->
 		<div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Engelli Araç Hizmet Bilgileri</h3>
@@ -289,10 +261,8 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form>
-                <div class="card-body">
-                
+                <div class="card-body">              
                 <div class="form-group row">
-                
                  <label   class="col-sm-2 col-form-label">Yönlendirilen Kurum:</label>
                     <div class="col-sm-4">                    
                             <select class="form-control" name="Kurum">
@@ -302,78 +272,49 @@
 					        <%} %>
 					    </select>
                     </div>
-                    
-                    
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Hizmet Kayıt Tarihi:</label>
                     <div class="col-sm-4">
-                      <input type="date" class="form-control" id="kTarihi" placeholder="Hizmet Kayıt Tarihi">
+                      <input type="date" class="form-control" name="kayitTarih" id="kTarihi" placeholder="Hizmet Kayıt Tarihi">
                     </div>
                   </div>
-                 
-                  
-                  
                    <div class="form-group row">
                 
                  <label   class="col-sm-2 col-form-label">Yönlendirilen Alt Kurum:</label>
                     <div class="col-sm-4">                    
-                            <select class="form-control" name="altkurum">
-					        <%
-					            String selectedKurum = request.getParameter("Kurum");
-					            if (selectedKurum != null && !selectedKurum.isEmpty()) {
-					                List<YonlendirilenAltKurum> altkurumList = YonlendirilenAltKurum.getByKurumName(selectedKurum);
-					                for (YonlendirilenAltKurum altk : altkurumList) {
-					        %>
+						<select class="form-control" name="altkurum">
+					        <% for (YonlendirilenAltKurum altk : altkurum) {  %>
 					        <option value="<%= altk.getYonlendirilenAltKurumName() %>"><%= altk.getYonlendirilenAltKurumName() %></option>
-					        <%}}%>
+					        <% } %>
 					    </select>
                     </div>
-                    
-                    
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Yardım Statü:</label>
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" >Yardım Statü:</label>
                     <div class="col-sm-4">                    
-                        <select class="form-control">
-                          <option>option 1</option> 
+                        <select class="form-control" name="yardimDurum">
+                          <option value="Aktif">Aktif</option> 
+                          <option value="Pasif">Pasif</option> 
                         </select>
                     </div>
                   </div>
-                  
-                   
-                   
-                   
                       <div class="form-group row">
                 
                  <label   class="col-sm-2 col-form-label">Engelli Araç:</label>
                     <div class="col-sm-4 input-group">                    
-                         <input type="text" class="form-control">
+                         <input type="text" name="EngelliArac" class="form-control">
                   <span class="input-group-append">
                     <button type="button" class="btn btn-info btn-flat">Ara!</button>
                   </span>
                     </div>
-                    
-                    
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Randevu Tarihi:</label>
                     <div class="col-sm-4">                    
-                         <input type="text" class="form-control"> 
+                         <input type="datetime-local" class="form-control" name="RandevuTarih"> 
                     </div>
                   </div>
-                  
-                  
-                  
                     <div class="form-group row">
                 
                  <label   class="col-sm-2 col-form-label">Engelli Açıklama:</label>
                     <div class="col-sm-4">                    
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="EngelliAciklama" rows="3" placeholder="Enter ..."></textarea>
                     </div>
-                    
-                    
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Randevu Saati:</label>
-                    <div class="col-sm-4">           
-                  <select class="form-control">
-                          <option>option 1</option> 
-                        </select>
-                    </div>
-                  </div>
               
                 </div>
                 <!-- /.card-body -->
@@ -386,11 +327,6 @@
               </form>
             </div>
             <!-- /.card -->
-
-
-
-
-
   <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Engelli Araç Hizmetleri</h3>
@@ -398,18 +334,13 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-          
           <div class="col-12">
 		            <div class="card custom-datatable">
-		              
 		                <div class="card-header d-flex justify-content-center">
 		                    <h3 class="card-title font-weight-bold">Engelli Araç Hizmetleri</h3>                	                
 						</div><!-- /.card-header -->
 		                <div class="card-body">
-		               	  
-		               	     
 			                	<div class="table-responsive" style="overflow-x: auto;">
-			                		
 					                  <table id="example2" class="table table-bordered table-hover" style="width: 100%; table-layout: fixed;">
 					                  	<colgroup>
 					                  		<col style="width: 50px;">
@@ -419,9 +350,6 @@
 			                                <col style="width: 140px;">
 			                                <col style="width: 170px;">
 			                                <col style="width: 160px;">
-			                                
-			                                
-			                                
 			                                <!-- Add additional columns here -->
 			                                <!-- For example:
 			                                <col style="width: 250px;">
@@ -430,31 +358,18 @@
 		                           	 	</colgroup>
 					                    <thead>
 					                    <tr>
-					
 											<th></th>
 					                        <th>Yönlendirilen Kurum</th>
 					                        <th>Yönlendirilen Alt Kurum</th>
 					                        <th>Engelli Araç</th>
 					                        <th>Statü</th>
 					                        <th>Randevu Tarih - Saati </th>
-					                        <th>Kayıt Tarihi</th>
-					                        
-					                        
-					                        
-					
-					
-					                        
-					                        
+					                        <th>Kayıt Tarihi</th>		                        
 					                    </tr>
-					
 					                    </thead>
-					                    <tbody>       
-					                    
-					                    
+					                    <tbody>        
 					                    <tr>
 					                      <td>
-											  
-											  
 											  <a href="yeniEngelliAracDuzenle.jsp">
 											    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
 											  </a>
@@ -465,44 +380,26 @@
 					                      <td></td>
 					                      <td></td>
 					                      <td></td>
-					                      
-					                      
-					                      
-					                      
 					                    </tr>
-			                        
 					                    </tbody>
-					                    
 					                  </table>
-					               
 				                </div>
-				              
-				              
-				            
 		                </div>
 		                <!-- /.card-body -->
-		              
 		            </div>		            <!-- /.card -->
 		          </div>
           <!-- Modal -->
-
         </div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-           
-           
-    
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
   <footer class="main-footer">
     <strong><a href="https://www.gebze.bel.tr/">Gebze Belediyesi  </a></strong>
     
