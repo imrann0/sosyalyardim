@@ -61,8 +61,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
     .dataTables_wrapper {
       position: relative;
       padding: 20px; /* Arkaya gölge için içeriği itin */
-      border-radius: 10px; /* Köşeleri keskin olmaktan çıkarın */
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Gölgeli efekti ekle */
+      
     }
     .custom-datatable {
     position: relative;
@@ -137,7 +136,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-info">
-                    <div class="card-header d-flex justify-content-center"">
+                    <div class="card-header d-flex justify-content-center">
                         <h3 class="card-title"><i class="fa fa-address-book" aria-hidden="true" style="margin-right: 10px;"></i>Mahalle Girişi Bilgileri</h3>
                     </div>
     
@@ -183,41 +182,58 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-
-
-                        <th>Mahalle Kodu</th>
-                        <th>Mahalle Adı</th>
-                        <th>Bölge Name</th>                        
-                        <th></th>
-                        
-                    </tr>
-
-                    </thead>
-                    <tbody>       
-                    <%
-                      for(District mahelle : mah){ %>
-                    <tr>
-                      <td><%= mahelle.getDistrictID()%></td>
-                      <td><%= mahelle.getDistrictName()%></td>
-						<% String bolgeName = mahelle.getBolge().getZoneName();%>                      
-						<td><%= bolgeName %></td>                     
-                      <td>
-                      	<div class="d-flex justify-content-between align-items-center">
-                      		<a href="mahalleduzenle.jsp?ID=<%= mahelle.getDistrictID()%>">
-						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
-						    </a>
-						    
-						      
-                     	     <i class="fa fa-trash" style="font-size: 20px; color: #17a2b8; cursor: pointer;" onclick="confirmDelete()"></i>
-                     	</div></td>
-                    </tr>
-                    <% } %>           
-                    </tbody>
-                    
-                  </table>
+                	<div class="table-responsive" style="overflow-x: auto;">
+                
+	                  <table id="example2" class="table table-bordered table-hover">
+	                  	<colgroup>
+					                  		<col style="width: 90px;">
+			                                <col style="width: 90px;">
+			                                <col style="width: 90px;">
+			                                <col style="width: 25px;">
+			                                
+			                                
+			                                
+			                                <!-- Add additional columns here -->
+			                                <!-- For example:
+			                                <col style="width: 250px;">
+			                                <col style="width: 150px;">
+			                                -->
+		                     </colgroup>
+	                    <thead>
+	                    <tr>
+	
+	
+	                        <th>Mahalle Kodu</th>
+	                        <th>Mahalle Adı</th>
+	                        <th>Bölge Adı</th>                        
+	                        <th></th>
+	                        
+	                    </tr>
+	
+	                    </thead>
+	                    <tbody>       
+	                    <%
+	                      for(District mahelle : mah){ %>
+	                    <tr>
+	                      <td><%= mahelle.getDistrictID()%></td>
+	                      <td><%= mahelle.getDistrictName()%></td>
+							<% String bolgeName = mahelle.getBolge().getZoneName();%>                      
+							<td><%= bolgeName %></td>                     
+	                      <td>
+	                      	<div class="d-flex justify-content-between align-items-center">
+	                      		<a href="mahalleduzenle.jsp?ID=<%= mahelle.getDistrictID()%>">
+							      			<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
+							    </a>
+							    
+							      
+	                     	     <i class="fa fa-times" style="font-size: 23px; color: red; cursor: pointer;" onclick="confirmDelete()"></i>
+	                     	</div></td>
+	                    </tr>
+	                    <% } %>           
+	                    </tbody>
+	                    
+	                  </table>
+	                </div>
                 </div>
                 <!-- /.card-body -->
               </div>

@@ -1,5 +1,5 @@
-<%@ page import="com.example.example.DataBase.Application" %>
-<%@ page import="com.example.example.DataBase.IDInfo" %>
+<%@ page import="com.example.example.DataBase.*" %>
+<%@ page import="java.util.Locale" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
   HttpSession userSession = request.getSession();
@@ -11,8 +11,10 @@
   int Id = Integer.parseInt(userId);
   Application muracat = Application.getbyID(Id);
   IDInfo idinfo = muracat.getIdInfoId();
+  Petition dilekce = muracat.getIdInfoId().getPetition();
+  Contact iletisim = muracat.getIdInfoId().getContact();
   IDInfo tcinfo = IDInfo.getbyID(idinfo.getIdInfoId());
-
+  Address adresno = idinfo.getAddress();
 %>
 <!DOCTYPE html>
 <html>
@@ -46,7 +48,7 @@
 			  flex-direction: column;
 			  justify-content: center;
 			  align-items: center;
-			  height: 160px; /* İçeriği ortalamak için div'e bir yükseklik verin */
+			  height: 130px; /* İçeriği ortalamak için div'e bir yükseklik verin */
 			  overflow-x: auto;
 			  
 			}
@@ -141,7 +143,7 @@
 	                                <div class="form-group text-center">
 								        <label>Doğum Tarihi</label>
 								        <div class="input-group">
-								            <input type="date" class="form-control" name="dogumTarihi" disabled>
+								            <input type="date" class="form-control" name="dogumTarihi" value="<%= idinfo.getBirthDate()%>" disabled>
 								            
 								        </div>
 								    </div>						    		
@@ -151,7 +153,12 @@
 	                                <div class="form-group text-center">
 		                                <label>Tc Kimlik No</label>
 		                                <input type="text" class="form-control" value="<%=idinfo.getIdNo()%>" name="tckimlik">
-		
+                                    <input type="hidden" name="dilekceid" value="<%=dilekce.getPetId()%>">
+                                    <input type="hidden" name="muracaatid" value="<%=muracat.getAppId()%>">
+                                    <input type="hidden" name="iletisimid" value="<%=iletisim.getContactId()%>">
+                                    <input type="hidden" name="idinfoid" value="<%=idinfo.getIdNo()%>">
+                                    <input type="hidden" name="adresid" value="<%=adresno.getAddressID()%>">
+
 		                                
 	                                </div>
 	                            </div>
@@ -159,7 +166,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Ad</label>
-		                                <input type="text" class="form-control" value="" name="isim">
+		                                <input type="text" class="form-control" value="<%= idinfo.getAppliName()%>" name="isim">
 		                                                                   
 		                               
 		                              </div>
@@ -168,7 +175,7 @@
 	                              
 	                                <div class="form-group text-center">
 		                                <label>Soyad</label>
-		                                <input type="text" class="form-control" name="soyisim">
+		                                <input type="text" class="form-control" value="<%=idinfo.getSurname()%>" name="soyisim">
 		                                                                   
 		                               
 		                              </div>
@@ -193,7 +200,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Anne Adı</label>
-			                                <input type="text" class="form-control" name="anneAd">
+			                                <input type="text" class="form-control" value="<%=idinfo.getMotherName()%>" name="anneAd">
 		                                                                   
 		                               
 		                              </div>
@@ -216,9 +223,12 @@
 		                                <div class="form-group text-center">
 			                                <label>Cinsiyet</label>
 			                                 <select class="form-control" name="cinsiyet">
+                                         <% if(idinfo.getGender().equalsIgnoreCase("erkek")){%>
 							                        <option value="Erkek" >Erkek</option>
+                                         <%}else{%>
 							                        <option value="Kadin" >Kadın</option>
-							                        
+                                         <%}%>
+
 							                        
 							                        
 							                 </select>
@@ -268,8 +278,8 @@
 		                              
 		                               <div class="form-group text-center">
 				                                <label> N.Kayıtlı İl</label>
-					                                <select class="form-control" name="kayitIl">
-									                        <option value="Yazilim" >İl</option>
+					                                <select class="form-control" disabled>
+									                        <option value="<%=idinfo.getRegistrationProvince()%>"></option>
 									                        
 									                        
 									                        
@@ -283,8 +293,8 @@
 		                              
 		                                <div class="form-group text-center">
 				                                <label> N.Kayıtlı İlçe</label>
-					                                <select class="form-control" name="kayitIlce">
-									                        <option value="Yazilim" >İlçe</option>
+					                                <select class="form-control" >
+									                        <option value="<%=idinfo.getRegistrationDistrict()%>"></option>
 									                        
 									                        
 									                        
@@ -302,7 +312,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Cilt No</label>
-			                                <input type="text" class="form-control" name="ciltno">
+			                                <input type="text" class="form-control" value="<%=idinfo.getCiltNo()%>" name="ciltno">
 		                                                                   
 		                               
 		                              </div>
@@ -312,7 +322,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Aile Sıra No</label>
-			                                <input type="text" class="form-control" name="sirano">
+			                                <input type="text" class="form-control" value="<%=idinfo.getAileSiraNo()%>" name="sirano">
 		                                                                   
 		                               
 		                              </div>
@@ -322,7 +332,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Sıra No</label>
-			                                <input type="text" class="form-control" name="sirano">
+			                                <input type="text" class="form-control" value="<%=idinfo.getCiltNo()%>" name="sirano">
 		                                                                   
 		                               
 		                              </div>
@@ -332,7 +342,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Eş Adı</label>
-			                                <input type="text" class="form-control" name="esAd">
+			                                <input type="text" class="form-control" value="<%=idinfo.getEsAd()%>" name="esAd">
 		                                                                   
 		                               
 		                              </div>
@@ -346,7 +356,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Eş Soyadı</label>
-			                                <input type="text" class="form-control" name="esSoyAd">
+			                                <input type="text" class="form-control" value="<%=idinfo.getEsSoyad()%>" name="esSoyAd">
 		                                                                   
 		                               
 		                              </div>
@@ -356,7 +366,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Adres No</label>
-			                                <input type="text" class="form-control" name="adresno">
+			                                <input type="text" class="form-control" value="<%=idinfo.getAddresNo()%>" name="adresno">
 		                                                                   
 		                               
 		                              </div>
@@ -387,7 +397,7 @@
 		                                <div class="form-group text-center">
 				                                <label>İlçe</label>
 					                                <select class="form-control" name="iletisimilce">
-									                        <option value="Yazilim" >İlçe</option>
+									                        <option value="<%=iletisim.getDistrict()%>">İlçe</option>
 									                        
 									                        
 									                        
@@ -402,7 +412,7 @@
 		                                <div class="form-group text-center">
 				                                <label>Mahalle</label>
 					                                <select class="form-control" name="iletisimMahalle">
-									                        <option value="Yazilim" >Mahalle</option>
+									                        <option value="<%=iletisim.getNeighborhood()%>" >Mahalle</option>
 									                        
 									                        
 									                        
@@ -417,7 +427,7 @@
 		                                <div class="form-group text-center">
 				                                <label>Cadde/Sokak</label>
 					                                <select class="form-control" name="iletisimSokak">
-									                        <option value="Yazilim" >Cadde/Sokak</option>
+									                        <option value="<%=iletisim.getStreet()%>" >Cadde/Sokak</option>
 									                        
 									                        
 									                        
@@ -431,7 +441,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Apartman</label>
-			                                <input type="text" class="form-control" name="apartman">
+			                                <input type="text" class="form-control" value="<%=iletisim.getApartment()%>" name="apartman">
 		                                                                   
 		                               
 		                              	</div>
@@ -443,7 +453,7 @@
 		                    		<div class="col-sm-3">
 			                     		<div class="form-group text-center">
 				                                <label>Blok/Kapı No</label>
-				                                <input type="text" class="form-control" name="Blok">
+				                                <input type="text" class="form-control" value="<%=iletisim.getBlockDoorNo()%>" name="Blok">
 			                                                                   
 			                               
 			                            </div>
@@ -452,7 +462,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Daire No</label>
-			                                <input type="text" class="form-control" name="daireNo">
+			                                <input type="text" class="form-control" value="<%=iletisim.getApartmentNo()%>" name="daireNo">
 		                                                                   
 		                               
 		                              </div>
@@ -462,7 +472,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Ev Tel</label>
-			                                <input type="tel" class="form-control" name="evTel">
+			                                <input type="tel" class="form-control" value="<%=iletisim.getHomePhone()%>" name="evTel">
 		                                                                   
 		                               
 		                              </div>
@@ -472,7 +482,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Cep Tel</label>
-			                                <input type="tel" class="form-control" name="cepTel">
+			                                <input type="tel" class="form-control" value="<%=iletisim.getCellPhone()%>" name="cepTel">
 		                                                                   
 		                               
 		                              </div>
@@ -486,7 +496,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>Diğer Tel</label>
-			                                <input type="tel" class="form-control" name="digerTel">
+			                                <input type="tel" class="form-control" value="<%=iletisim.getOtherTel()%>" name="digerTel">
 		                                                                   
 		                               
 		                              </div>
@@ -496,7 +506,7 @@
 		                              
 		                                <div class="form-group text-center">
 			                                <label>E Posta</label>
-			                                <input type="email" class="form-control" name="eposta">
+			                                <input type="email" class="form-control" value="<%=iletisim.geteMail()%>" name="eposta">
 		                                                                   
 		                               
 		                              </div>
@@ -506,7 +516,8 @@
 		                              
 		                                <div class="form-group">
 			                                <label>Adres Tarifi</label>
-			                                <input type="text" class="form-control" name="adresTarif">
+			                                <!--<input type="text" class="form-control" name="adresTarif">-->
+			                                <textarea class="form-control" rows="2" name="adresTarif" ><%=iletisim.getAddressDefinition()%></textarea>
 			                             </div>
 							    		
 		                            </div>
@@ -539,13 +550,13 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Arşiv Dosya No</label>
-			                                <input type="text" class="form-control" name="arsivDosyaNo">
+			                                <input type="text" class="form-control" value="<%=muracat.getArchiveFileNo()%>" name="arsivDosyaNo">
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Müracaat Tarihi</label>
-			                                <input type="date" class="form-control" name="yonlendirmeTarih" required>
+			                                <input type="date" class="form-control" value="<%=muracat.getApplicationDate()%>" name="yonlendirmeTarih" required>
 			              </div>
 			            </div>
 			            
@@ -584,6 +595,7 @@
 			              <div class="form-group">
 			                                <label>Açıklama</label>
 			                                <textarea class="form-control" rows="3" name="comments" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            
@@ -624,7 +636,7 @@
 			            <div class="col-sm-3">
 			              <div class="form-group text-center">
 			                                <label>Yönlendirme Tarihi</label>
-			                                <input type="date" class="form-control" name="yonlendirTarihi" required>
+			                                <input type="date" class="form-control" value="<%=dilekce.getForwardingDate()%>" name="yonlendirTarihi" required>
 			              </div>
 			            </div>
 			            
@@ -634,25 +646,29 @@
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Konu</label>
-			                                <textarea class="form-control" rows="3" name="itdilekceKonu"></textarea>
+			                                <textarea class="form-control" rows="3" name="itdilekceKonu"><%= dilekce.getObjectionPetitionSubject()%></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>İtiraz Dilekçe Sonuç</label>
 			                                <textarea class="form-control" rows="3" name="itdilekceSonuc"></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Konu</label>
 			                                <textarea class="form-control" rows="3" name="dilekceKonu" ></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            <div class="col-sm-3">
 			              <div class="form-group">
 			                                <label>Dilekçe Sonuç</label>
 			                                <textarea class="form-control" rows="3" name="dilekceSonuc"></textarea>
+			                                <textarea class="form-control" rows="2" ></textarea>
 			              </div>
 			            </div>
 			            

@@ -141,7 +141,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                     </div>
     
                     <!-- form başlangıcı -->
-                    <form role="form" method="get" action="YonlendirenKurum">
+                    <form role="form" method="post" action="YonlendirenKurum">
                         <div class="card-body">
                           <div class="row">
                           	<div class="col-sm-6">
@@ -188,7 +188,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td> <%= kur.getYonlendirilenKurumName() %></td>
 		                      <td>
 								  <a href="yonkurumduzenle.jsp?Id=<%= kur.getYonlendirilenKurumID()%>">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color:black; cursor: pointer;"></i>
 								  </a>
 							  </td>
 		                    </tr>  

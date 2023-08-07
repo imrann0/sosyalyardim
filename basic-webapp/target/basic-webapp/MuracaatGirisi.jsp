@@ -203,7 +203,7 @@
           <i class="fa fa-sort"></i>
    		 <select name="iletisimMahalle" id="mahalleSelect" onchange="toggleSokakSelect()">
             <% for (District dist : district) { %>
-				<option value="<%= dist.getDistrictID() %>" ><%= dist.getDistrictName() %></option>
+				<option value="<%= dist.getDistrictName() %>" ><%= dist.getDistrictName() %></option>
 			<% } %>
           </select>
         </div>
@@ -214,7 +214,7 @@
     	 <select name="iletisimSokak" id="sokakSelect" disabled>
     	 <% 	List<Sokak> sokak = Sokak.getAllSokak();
     	 	for (Sokak s : sokak) { %>
-				<option value="<%= s.getSokakID()%>" ><%= s.getSokakname()%></option>
+				<option value="<%= s.getSokakname() %>" ><%= s.getSokakname()%></option>
 			<% } %>
           </select>
         </div>

@@ -116,7 +116,8 @@
                   <input type="text" name="mail" class="form-control" id="username">
               </div>
               <div class="form-group last mb-3">
-                <label for="password"><i class="fas fa-lock"></i> Şifre</label>
+
+                  Şifre
                 <input type="password" name="password" class="form-control" id="password">
               </div>
                <input type="submit" value="Giriş" class="btn btn-block btn-primary">

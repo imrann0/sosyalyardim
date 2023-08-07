@@ -191,7 +191,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                               <div class="form-group text-center">
                                 <label>İlçe</label>
 				                      <select class="form-control" name="il">
-				                        <option value="Gebze" selected>Gebze</option>
+				                        <option value="Gebze" disabled>Gebze</option>
 				                      </select>
                               </div>
                             </div>

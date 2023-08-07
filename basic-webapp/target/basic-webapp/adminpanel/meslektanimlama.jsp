@@ -5,9 +5,10 @@
 <%@ page import="com.example.example.DataBase.Profession" %>
 <%
   HttpSession userSession = request.getSession();
+/*
   if(!Rol.hasRole(userSession,"Role_Meslek_Ekle")){
     response.sendRedirect("../Error/Error.html");
-  }  List<Profession> meslek = Profession.getAllMeslek();
+  } */ List<Profession> meslek = Profession.getAllMeslek();
   /*
 HttpSession userSession = request.getSession();
 String roleName = "Role_Kullanıcı_Listele";
@@ -218,7 +219,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
 		                      <td><%=Meslek.getIsActive()%></td>
 		                      <td>
 								  <a href="meslekduzenle.jsp?meslekId=<%=Meslek.getProfessionId()%>">
-								    	<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+								    	<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 								  </a>
 							  </td>
 		                    </tr>

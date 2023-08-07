@@ -10,6 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @Entity
 @Table(name = "Dilekce")
@@ -149,5 +152,15 @@ public class  Petition {
 
     public void setIdInfoId(IDInfo idInfoId) {
         this.idInfoId = idInfoId;
+    }
+    public static Petition getbyID(int id) {
+        Configuration configuration = new Configuration().configure();
+        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
+            Session session = sessionFactory.openSession();
+            return session.get(Petition.class, id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

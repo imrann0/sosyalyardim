@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @Entity
 @Table(name = "iletisim")
@@ -131,5 +134,15 @@ public class Contact {
 
     public void setIDInfo(com.example.example.DataBase.IDInfo IDInfo) {
         this.IDInfo = IDInfo;
+    }
+    public static Contact getbyID(int id) {
+        Configuration configuration = new Configuration().configure();
+        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
+            Session session = sessionFactory.openSession();
+            return session.get(Contact.class, id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

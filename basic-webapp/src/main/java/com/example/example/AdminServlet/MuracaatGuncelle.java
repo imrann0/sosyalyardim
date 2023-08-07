@@ -75,8 +75,7 @@ doPost(request,response);    }
         String itdilekceKonu = request.getParameter("itdilekceKonu");
         String itdilekceSonuc = request.getParameter("itdilekceSonuc");
         String birimitraz = request.getParameter("birimitraz");
-        String ityonlendirTarihiDate = request.getParameter("ityonlendirTarihi");
-        LocalDate ityonlendirTarihi = LocalDate.parse(ityonlendirTarihiDate, formatter);
+
         // Address
 
         String acıkAddress = request.getParameter("acıkAddress");
@@ -92,12 +91,26 @@ doPost(request,response);    }
         String muracaattip = request.getParameter("muracaattip");
         String comments = request.getParameter("comments");
 
+        //ID GIRISLERI
+        String SidID = request.getParameter("idinfoid");
+        String SiletID = request.getParameter("iletisimid");
+        String SmuracID = request.getParameter("muracaatid");
+        String SdilekID = request.getParameter("dilekceid");
+        String Sadresid = request.getParameter("adresid");
+        int idID = Integer.parseInt(SidID);
+        int iletID = Integer.parseInt(SiletID);
+        int muracID = Integer.parseInt(SmuracID);
+        int dilekID = Integer.parseInt(SdilekID);
+        int adresID = Integer.parseInt(Sadresid);
+
+
         try{
             SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
-            IDInfo idinfo = new IDInfo();
+
+            IDInfo idinfo = IDInfo.getbyID(idID);
             idinfo.setAppliName(name);
             idinfo.setSurname(surname);
             idinfo.setIdNo(tc);
@@ -115,7 +128,7 @@ doPost(request,response);    }
             idinfo.SetPhone(phone);
             idinfo.setAddresNo(adresno);
 
-            Contact contact = new Contact();
+            Contact contact = Contact.getbyID(iletID);
             contact.setDistrict(iletisimilce);
             contact.setNeighborhood(iletisimMahalle);
             contact.setStreet(iletisimSokak);
@@ -129,14 +142,14 @@ doPost(request,response);    }
             contact.seteMail(eposta);
             contact.setAddressDefinition(adresTarif);
 
-            Application app = new Application();
+            Application app = Application.getbyID(muracID);
             app.setArchiveFileNo(arsivDosyaNo);
             app.setApplicationDate(yonlendirmeTarih);
             app.setApplicationType(muracaattip);
             app.setRegion(Bolge);
             app.setDescription(comments);
 
-            Petition pet = new Petition();
+            Petition pet = Petition.getbyID(dilekID);
             pet.setPetitionReferenceNo(dilekceRefNo);
             pet.setPetitionSubject(dilekceKonu);
             pet.setPetitionResult(dilekceSonuc);
@@ -146,9 +159,8 @@ doPost(request,response);    }
             pet.setObjectionPetitionSubject(itdilekceKonu);
             pet.setObjectionPetitionResult(itdilekceSonuc);
             pet.setForwardingUnit(birimitraz);
-            pet.setForwardingDate(ityonlendirTarihi);
 
-            Address add = new Address();
+            Address add = Address.getbyID(adresID);
             add.setAddressNo(AddresNum);
             add.setPublicAddress(acıkAddress);
             idinfo.setContact(contact);
@@ -170,7 +182,7 @@ doPost(request,response);    }
             session.close();
             sessionFactory.close();
 
-            response.sendRedirect("/MuracaatGirisi.jsp");
+            response.sendRedirect("./muracaatliste.jsp");
 
         }catch (Exception e) {
             e.printStackTrace();

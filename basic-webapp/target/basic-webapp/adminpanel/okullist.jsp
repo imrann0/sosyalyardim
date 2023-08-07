@@ -201,7 +201,7 @@ if (!RoleUtils.hasRole(userSession, roleName)) {
                       <td><div class="d-flex justify-content-between align-items-center">
                       		
                       		<a href="okulduzenle.jsp?Id=<%= o.getSchoolID()%>">
-						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+						      			<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 						            </a>
                      	     
                      	</div></td>

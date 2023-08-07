@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToOne;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @Entity
 public class Address {
@@ -53,5 +56,15 @@ public class Address {
 
     public void setIdinfo(IDInfo idinfo) {
         this.idinfo = idinfo;
+    }
+    public static Address getbyID(int id) {
+        Configuration configuration = new Configuration().configure();
+        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
+            Session session = sessionFactory.openSession();
+            return session.get(Address.class, id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

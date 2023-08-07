@@ -205,7 +205,7 @@ List<cekmece> Cekmece = cekmece.getAllUserInfo();
 						        <td><%= user.getDurum() %></td>
 						        <td>
 						            <a href="cekmeceduzenle.jsp?CekmeceId=<%= user.getCekmeceId() %>">
-						      			<i class="fa fa-cog" style="font-size: 20px; color:#17a2b8; cursor: pointer;"></i>
+						      			<i class="fa fa-spinner" style="font-size: 20px; color: black; cursor: pointer;"></i>
 						            </a>
 						        </td>
 						    </tr>
